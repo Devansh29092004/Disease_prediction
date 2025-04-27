@@ -147,6 +147,116 @@ exports.Prisma.SessionScalarFieldEnum = {
   expires: 'expires'
 };
 
+exports.Prisma.BreastCancerPredictionScalarFieldEnum = {
+  prediction_id: 'prediction_id',
+  user_id: 'user_id',
+  radius_mean: 'radius_mean',
+  texture_mean: 'texture_mean',
+  perimeter_mean: 'perimeter_mean',
+  area_mean: 'area_mean',
+  smoothness_mean: 'smoothness_mean',
+  result: 'result',
+  created_at: 'created_at'
+};
+
+exports.Prisma.DiabetesPredictionScalarFieldEnum = {
+  prediction_id: 'prediction_id',
+  user_id: 'user_id',
+  pregnancies: 'pregnancies',
+  glucose: 'glucose',
+  blood_pressure: 'blood_pressure',
+  skin_thickness: 'skin_thickness',
+  insulin: 'insulin',
+  bmi: 'bmi',
+  diabetes_pedigree_function: 'diabetes_pedigree_function',
+  age: 'age',
+  result: 'result',
+  created_at: 'created_at'
+};
+
+exports.Prisma.HeartDiseasePredictionScalarFieldEnum = {
+  prediction_id: 'prediction_id',
+  user_id: 'user_id',
+  age: 'age',
+  sex: 'sex',
+  chest_pain_type: 'chest_pain_type',
+  resting_blood_pressure: 'resting_blood_pressure',
+  serum_cholesterol: 'serum_cholesterol',
+  fasting_blood_sugar: 'fasting_blood_sugar',
+  resting_ecg: 'resting_ecg',
+  max_heart_rate: 'max_heart_rate',
+  exercise_induced_angina: 'exercise_induced_angina',
+  oldpeak: 'oldpeak',
+  slope_of_peak_exercise_st_segment: 'slope_of_peak_exercise_st_segment',
+  num_major_vessels: 'num_major_vessels',
+  thal: 'thal',
+  result: 'result',
+  created_at: 'created_at'
+};
+
+exports.Prisma.KidneyDiseasePredictionScalarFieldEnum = {
+  prediction_id: 'prediction_id',
+  user_id: 'user_id',
+  age: 'age',
+  blood_pressure: 'blood_pressure',
+  specific_gravity: 'specific_gravity',
+  albumin: 'albumin',
+  sugar: 'sugar',
+  red_blood_cells: 'red_blood_cells',
+  pus_cell: 'pus_cell',
+  pus_cell_clumps: 'pus_cell_clumps',
+  bacteria: 'bacteria',
+  blood_glucose_random: 'blood_glucose_random',
+  blood_urea: 'blood_urea',
+  serum_creatinine: 'serum_creatinine',
+  sodium: 'sodium',
+  potassium: 'potassium',
+  hemoglobin: 'hemoglobin',
+  packed_cell_volume: 'packed_cell_volume',
+  white_cell_count: 'white_cell_count',
+  red_cell_count: 'red_cell_count',
+  hypertension: 'hypertension',
+  diabetes_mellitus: 'diabetes_mellitus',
+  coronary_artery_disease: 'coronary_artery_disease',
+  appetite: 'appetite',
+  pedal_edema: 'pedal_edema',
+  anemia: 'anemia',
+  classification: 'classification',
+  created_at: 'created_at'
+};
+
+exports.Prisma.ParkinsonsPredictionScalarFieldEnum = {
+  prediction_id: 'prediction_id',
+  user_id: 'user_id',
+  ascii_subject_name: 'ascii_subject_name',
+  recording_number: 'recording_number',
+  mdvp_fo: 'mdvp_fo',
+  mdvp_fhi: 'mdvp_fhi',
+  mdvp_flo: 'mdvp_flo',
+  mdvp_jitter_percentage: 'mdvp_jitter_percentage',
+  mdvp_jitter_abs: 'mdvp_jitter_abs',
+  mdvp_rap: 'mdvp_rap',
+  mdvp_ppq: 'mdvp_ppq',
+  jitter_ddp: 'jitter_ddp',
+  mdvp_shimmer: 'mdvp_shimmer',
+  mdvp_shimmer_db: 'mdvp_shimmer_db',
+  shimmer_apq3: 'shimmer_apq3',
+  shimmer_apq5: 'shimmer_apq5',
+  mdvp_apq: 'mdvp_apq',
+  shimmer_dda: 'shimmer_dda',
+  nhr: 'nhr',
+  hnr: 'hnr',
+  status: 'status',
+  rpde: 'rpde',
+  d2: 'd2',
+  dfa: 'dfa',
+  spread1: 'spread1',
+  spread2: 'spread2',
+  ppe: 'ppe',
+  result: 'result',
+  created_at: 'created_at'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -166,7 +276,12 @@ exports.Prisma.NullsOrder = {
 exports.Prisma.ModelName = {
   User: 'User',
   Account: 'Account',
-  Session: 'Session'
+  Session: 'Session',
+  BreastCancerPrediction: 'BreastCancerPrediction',
+  DiabetesPrediction: 'DiabetesPrediction',
+  HeartDiseasePrediction: 'HeartDiseasePrediction',
+  KidneyDiseasePrediction: 'KidneyDiseasePrediction',
+  ParkinsonsPrediction: 'ParkinsonsPrediction'
 };
 
 /**
