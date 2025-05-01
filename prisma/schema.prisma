@@ -1,3 +1,9 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
 generator client {
   provider = "prisma-client-js"
   output   = "../src/generated/prisma"
@@ -9,157 +15,61 @@ datasource db {
 }
 
 model User {
-  id                      String                    @id @default(cuid())
-  name                    String?
-  email                   String?                   @unique
-  emailVerified           DateTime?
-  image                   String?
-  accounts                Account[]
-  BreastCancerPrediction  BreastCancerPrediction[]
-  DiabetesPrediction      DiabetesPrediction[]
-  HeartDiseasePrediction  HeartDiseasePrediction[]
-  KidneyDiseasePrediction KidneyDiseasePrediction[]
-  ParkinsonsPrediction    ParkinsonsPrediction[]
-  sessions                Session[]
-}
+  id            String    @id
+  name          String
+  image         String
+  email         String
+  emailVerified Boolean
+  createdAt     DateTime
+  updatedAt     DateTime
+  sessions      Session[]
+  accounts      Account[]
 
-model Account {
-  id                String  @id @default(cuid())
-  userId            String
-  type              String
-  provider          String
-  providerAccountId String
-  refresh_token     String?
-  access_token      String?
-  expires_at        Int?
-  token_type        String?
-  scope             String?
-  id_token          String?
-  session_state     String?
-  user              User    @relation(fields: [userId], references: [id])
-
-  @@unique([provider, providerAccountId])
+  @@unique([email])
+  @@map("user")
 }
 
 model Session {
-  id           String   @id @default(cuid())
-  sessionToken String   @unique
-  userId       String
-  expires      DateTime
-  user         User     @relation(fields: [userId], references: [id])
+  id        String   @id
+  expiresAt DateTime
+  token     String
+  createdAt DateTime
+  updatedAt DateTime
+  ipAddress String?
+  userAgent String?
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([token])
+  @@map("session")
 }
 
-model BreastCancerPrediction {
-  prediction_id   Int      @id @default(autoincrement())
-  user_id         String
-  radius_mean     Float
-  texture_mean    Float
-  perimeter_mean  Float
-  area_mean       Float
-  smoothness_mean Float
-  result          String
-  created_at      DateTime @default(now())
-  User            User     @relation(fields: [user_id], references: [id])
+model Account {
+  id                    String    @id
+  accountId             String
+  providerId            String
+  userId                String
+  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  accessToken           String?
+  refreshToken          String?
+  idToken               String?
+  accessTokenExpiresAt  DateTime?
+  refreshTokenExpiresAt DateTime?
+  scope                 String?
+  password              String?
+  createdAt             DateTime
+  updatedAt             DateTime
+
+  @@map("account")
 }
 
-model DiabetesPrediction {
-  prediction_id              Int      @id @default(autoincrement())
-  user_id                    String
-  pregnancies                Int
-  glucose                    Int
-  blood_pressure             Int
-  skin_thickness             Int
-  insulin                    Int
-  bmi                        Float
-  diabetes_pedigree_function Float
-  age                        Int
-  result                     String
-  created_at                 DateTime @default(now())
-  User                       User     @relation(fields: [user_id], references: [id])
-}
+model Verification {
+  id         String    @id
+  identifier String
+  value      String
+  expiresAt  DateTime
+  createdAt  DateTime?
+  updatedAt  DateTime?
 
-model HeartDiseasePrediction {
-  prediction_id                     Int      @id @default(autoincrement())
-  user_id                           String
-  age                               Int
-  sex                               String
-  chest_pain_type                   String
-  resting_blood_pressure            Int
-  serum_cholesterol                 Int
-  fasting_blood_sugar               Boolean
-  resting_ecg                       Int
-  max_heart_rate                    Int
-  exercise_induced_angina           Boolean
-  oldpeak                           Float
-  slope_of_peak_exercise_st_segment String
-  num_major_vessels                 Int
-  thal                              String
-  result                            String
-  created_at                        DateTime @default(now())
-  User                              User     @relation(fields: [user_id], references: [id])
-}
-
-model KidneyDiseasePrediction {
-  prediction_id           Int      @id @default(autoincrement())
-  user_id                 String
-  age                     Int
-  blood_pressure          Int
-  specific_gravity        Float
-  albumin                 Int
-  sugar                   Int
-  red_blood_cells         String
-  pus_cell                String
-  pus_cell_clumps         String
-  bacteria                String
-  blood_glucose_random    Int
-  blood_urea              Int
-  serum_creatinine        Float
-  sodium                  Float
-  potassium               Float
-  hemoglobin              Float
-  packed_cell_volume      Float
-  white_cell_count        Int
-  red_cell_count          Int
-  hypertension            String
-  diabetes_mellitus       String
-  coronary_artery_disease String
-  appetite                String
-  pedal_edema             String
-  anemia                  String
-  classification          String
-  created_at              DateTime @default(now())
-  User                    User     @relation(fields: [user_id], references: [id])
-}
-
-model ParkinsonsPrediction {
-  prediction_id          Int      @id @default(autoincrement())
-  user_id                String
-  ascii_subject_name     String
-  recording_number       Int
-  mdvp_fo                Float
-  mdvp_fhi               Float
-  mdvp_flo               Float
-  mdvp_jitter_percentage Float
-  mdvp_jitter_abs        Float
-  mdvp_rap               Float
-  mdvp_ppq               Float
-  jitter_ddp             Float
-  mdvp_shimmer           Float
-  mdvp_shimmer_db        Float
-  shimmer_apq3           Float
-  shimmer_apq5           Float
-  mdvp_apq               Float
-  shimmer_dda            Float
-  nhr                    Float
-  hnr                    Float
-  status                 Int
-  rpde                   Float
-  d2                     Float
-  dfa                    Float
-  spread1                Float
-  spread2                Float
-  ppe                    Float
-  result                 String
-  created_at             DateTime @default(now())
-  User                   User     @relation(fields: [user_id], references: [id])
+  @@map("verification")
 }

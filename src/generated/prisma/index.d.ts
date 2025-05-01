@@ -19,40 +19,20 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
  */
 export type User = $Result.DefaultSelection<Prisma.$UserPayload>
 /**
- * Model Account
- * 
- */
-export type Account = $Result.DefaultSelection<Prisma.$AccountPayload>
-/**
  * Model Session
  * 
  */
 export type Session = $Result.DefaultSelection<Prisma.$SessionPayload>
 /**
- * Model BreastCancerPrediction
+ * Model Account
  * 
  */
-export type BreastCancerPrediction = $Result.DefaultSelection<Prisma.$BreastCancerPredictionPayload>
+export type Account = $Result.DefaultSelection<Prisma.$AccountPayload>
 /**
- * Model DiabetesPrediction
+ * Model Verification
  * 
  */
-export type DiabetesPrediction = $Result.DefaultSelection<Prisma.$DiabetesPredictionPayload>
-/**
- * Model HeartDiseasePrediction
- * 
- */
-export type HeartDiseasePrediction = $Result.DefaultSelection<Prisma.$HeartDiseasePredictionPayload>
-/**
- * Model KidneyDiseasePrediction
- * 
- */
-export type KidneyDiseasePrediction = $Result.DefaultSelection<Prisma.$KidneyDiseasePredictionPayload>
-/**
- * Model ParkinsonsPrediction
- * 
- */
-export type ParkinsonsPrediction = $Result.DefaultSelection<Prisma.$ParkinsonsPredictionPayload>
+export type Verification = $Result.DefaultSelection<Prisma.$VerificationPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -190,16 +170,6 @@ export class PrismaClient<
   get user(): Prisma.UserDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.account`: Exposes CRUD operations for the **Account** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more Accounts
-    * const accounts = await prisma.account.findMany()
-    * ```
-    */
-  get account(): Prisma.AccountDelegate<ExtArgs, ClientOptions>;
-
-  /**
    * `prisma.session`: Exposes CRUD operations for the **Session** model.
     * Example usage:
     * ```ts
@@ -210,54 +180,24 @@ export class PrismaClient<
   get session(): Prisma.SessionDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.breastCancerPrediction`: Exposes CRUD operations for the **BreastCancerPrediction** model.
+   * `prisma.account`: Exposes CRUD operations for the **Account** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more BreastCancerPredictions
-    * const breastCancerPredictions = await prisma.breastCancerPrediction.findMany()
+    * // Fetch zero or more Accounts
+    * const accounts = await prisma.account.findMany()
     * ```
     */
-  get breastCancerPrediction(): Prisma.BreastCancerPredictionDelegate<ExtArgs, ClientOptions>;
+  get account(): Prisma.AccountDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.diabetesPrediction`: Exposes CRUD operations for the **DiabetesPrediction** model.
+   * `prisma.verification`: Exposes CRUD operations for the **Verification** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more DiabetesPredictions
-    * const diabetesPredictions = await prisma.diabetesPrediction.findMany()
+    * // Fetch zero or more Verifications
+    * const verifications = await prisma.verification.findMany()
     * ```
     */
-  get diabetesPrediction(): Prisma.DiabetesPredictionDelegate<ExtArgs, ClientOptions>;
-
-  /**
-   * `prisma.heartDiseasePrediction`: Exposes CRUD operations for the **HeartDiseasePrediction** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more HeartDiseasePredictions
-    * const heartDiseasePredictions = await prisma.heartDiseasePrediction.findMany()
-    * ```
-    */
-  get heartDiseasePrediction(): Prisma.HeartDiseasePredictionDelegate<ExtArgs, ClientOptions>;
-
-  /**
-   * `prisma.kidneyDiseasePrediction`: Exposes CRUD operations for the **KidneyDiseasePrediction** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more KidneyDiseasePredictions
-    * const kidneyDiseasePredictions = await prisma.kidneyDiseasePrediction.findMany()
-    * ```
-    */
-  get kidneyDiseasePrediction(): Prisma.KidneyDiseasePredictionDelegate<ExtArgs, ClientOptions>;
-
-  /**
-   * `prisma.parkinsonsPrediction`: Exposes CRUD operations for the **ParkinsonsPrediction** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more ParkinsonsPredictions
-    * const parkinsonsPredictions = await prisma.parkinsonsPrediction.findMany()
-    * ```
-    */
-  get parkinsonsPrediction(): Prisma.ParkinsonsPredictionDelegate<ExtArgs, ClientOptions>;
+  get verification(): Prisma.VerificationDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -316,8 +256,8 @@ export namespace Prisma {
   export import Exact = $Public.Exact
 
   /**
-   * Prisma Client JS version: 6.6.0
-   * Query Engine version: f676762280b54cd07c770017ed3711ddde35f37a
+   * Prisma Client JS version: 6.7.0
+   * Query Engine version: 3cff47a7f5d65c3ea74883f1d736e41d68ce91ed
    */
   export type PrismaVersion = {
     client: string
@@ -699,13 +639,9 @@ export namespace Prisma {
 
   export const ModelName: {
     User: 'User',
-    Account: 'Account',
     Session: 'Session',
-    BreastCancerPrediction: 'BreastCancerPrediction',
-    DiabetesPrediction: 'DiabetesPrediction',
-    HeartDiseasePrediction: 'HeartDiseasePrediction',
-    KidneyDiseasePrediction: 'KidneyDiseasePrediction',
-    ParkinsonsPrediction: 'ParkinsonsPrediction'
+    Account: 'Account',
+    Verification: 'Verification'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -724,7 +660,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "account" | "session" | "breastCancerPrediction" | "diabetesPrediction" | "heartDiseasePrediction" | "kidneyDiseasePrediction" | "parkinsonsPrediction"
+      modelProps: "user" | "session" | "account" | "verification"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -802,80 +738,6 @@ export namespace Prisma {
           }
         }
       }
-      Account: {
-        payload: Prisma.$AccountPayload<ExtArgs>
-        fields: Prisma.AccountFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.AccountFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AccountPayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.AccountFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AccountPayload>
-          }
-          findFirst: {
-            args: Prisma.AccountFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AccountPayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.AccountFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AccountPayload>
-          }
-          findMany: {
-            args: Prisma.AccountFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AccountPayload>[]
-          }
-          create: {
-            args: Prisma.AccountCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AccountPayload>
-          }
-          createMany: {
-            args: Prisma.AccountCreateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.AccountCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AccountPayload>[]
-          }
-          delete: {
-            args: Prisma.AccountDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AccountPayload>
-          }
-          update: {
-            args: Prisma.AccountUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AccountPayload>
-          }
-          deleteMany: {
-            args: Prisma.AccountDeleteManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateMany: {
-            args: Prisma.AccountUpdateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateManyAndReturn: {
-            args: Prisma.AccountUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AccountPayload>[]
-          }
-          upsert: {
-            args: Prisma.AccountUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AccountPayload>
-          }
-          aggregate: {
-            args: Prisma.AccountAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateAccount>
-          }
-          groupBy: {
-            args: Prisma.AccountGroupByArgs<ExtArgs>
-            result: $Utils.Optional<AccountGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.AccountCountArgs<ExtArgs>
-            result: $Utils.Optional<AccountCountAggregateOutputType> | number
-          }
-        }
-      }
       Session: {
         payload: Prisma.$SessionPayload<ExtArgs>
         fields: Prisma.SessionFieldRefs
@@ -950,373 +812,151 @@ export namespace Prisma {
           }
         }
       }
-      BreastCancerPrediction: {
-        payload: Prisma.$BreastCancerPredictionPayload<ExtArgs>
-        fields: Prisma.BreastCancerPredictionFieldRefs
+      Account: {
+        payload: Prisma.$AccountPayload<ExtArgs>
+        fields: Prisma.AccountFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.BreastCancerPredictionFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$BreastCancerPredictionPayload> | null
+            args: Prisma.AccountFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AccountPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.BreastCancerPredictionFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$BreastCancerPredictionPayload>
+            args: Prisma.AccountFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AccountPayload>
           }
           findFirst: {
-            args: Prisma.BreastCancerPredictionFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$BreastCancerPredictionPayload> | null
+            args: Prisma.AccountFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AccountPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.BreastCancerPredictionFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$BreastCancerPredictionPayload>
+            args: Prisma.AccountFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AccountPayload>
           }
           findMany: {
-            args: Prisma.BreastCancerPredictionFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$BreastCancerPredictionPayload>[]
+            args: Prisma.AccountFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AccountPayload>[]
           }
           create: {
-            args: Prisma.BreastCancerPredictionCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$BreastCancerPredictionPayload>
+            args: Prisma.AccountCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AccountPayload>
           }
           createMany: {
-            args: Prisma.BreastCancerPredictionCreateManyArgs<ExtArgs>
+            args: Prisma.AccountCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.BreastCancerPredictionCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$BreastCancerPredictionPayload>[]
+            args: Prisma.AccountCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AccountPayload>[]
           }
           delete: {
-            args: Prisma.BreastCancerPredictionDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$BreastCancerPredictionPayload>
+            args: Prisma.AccountDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AccountPayload>
           }
           update: {
-            args: Prisma.BreastCancerPredictionUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$BreastCancerPredictionPayload>
+            args: Prisma.AccountUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AccountPayload>
           }
           deleteMany: {
-            args: Prisma.BreastCancerPredictionDeleteManyArgs<ExtArgs>
+            args: Prisma.AccountDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.BreastCancerPredictionUpdateManyArgs<ExtArgs>
+            args: Prisma.AccountUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.BreastCancerPredictionUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$BreastCancerPredictionPayload>[]
+            args: Prisma.AccountUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AccountPayload>[]
           }
           upsert: {
-            args: Prisma.BreastCancerPredictionUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$BreastCancerPredictionPayload>
+            args: Prisma.AccountUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AccountPayload>
           }
           aggregate: {
-            args: Prisma.BreastCancerPredictionAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateBreastCancerPrediction>
+            args: Prisma.AccountAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateAccount>
           }
           groupBy: {
-            args: Prisma.BreastCancerPredictionGroupByArgs<ExtArgs>
-            result: $Utils.Optional<BreastCancerPredictionGroupByOutputType>[]
+            args: Prisma.AccountGroupByArgs<ExtArgs>
+            result: $Utils.Optional<AccountGroupByOutputType>[]
           }
           count: {
-            args: Prisma.BreastCancerPredictionCountArgs<ExtArgs>
-            result: $Utils.Optional<BreastCancerPredictionCountAggregateOutputType> | number
+            args: Prisma.AccountCountArgs<ExtArgs>
+            result: $Utils.Optional<AccountCountAggregateOutputType> | number
           }
         }
       }
-      DiabetesPrediction: {
-        payload: Prisma.$DiabetesPredictionPayload<ExtArgs>
-        fields: Prisma.DiabetesPredictionFieldRefs
+      Verification: {
+        payload: Prisma.$VerificationPayload<ExtArgs>
+        fields: Prisma.VerificationFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.DiabetesPredictionFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DiabetesPredictionPayload> | null
+            args: Prisma.VerificationFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VerificationPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.DiabetesPredictionFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DiabetesPredictionPayload>
+            args: Prisma.VerificationFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VerificationPayload>
           }
           findFirst: {
-            args: Prisma.DiabetesPredictionFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DiabetesPredictionPayload> | null
+            args: Prisma.VerificationFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VerificationPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.DiabetesPredictionFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DiabetesPredictionPayload>
+            args: Prisma.VerificationFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VerificationPayload>
           }
           findMany: {
-            args: Prisma.DiabetesPredictionFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DiabetesPredictionPayload>[]
+            args: Prisma.VerificationFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VerificationPayload>[]
           }
           create: {
-            args: Prisma.DiabetesPredictionCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DiabetesPredictionPayload>
+            args: Prisma.VerificationCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VerificationPayload>
           }
           createMany: {
-            args: Prisma.DiabetesPredictionCreateManyArgs<ExtArgs>
+            args: Prisma.VerificationCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.DiabetesPredictionCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DiabetesPredictionPayload>[]
+            args: Prisma.VerificationCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VerificationPayload>[]
           }
           delete: {
-            args: Prisma.DiabetesPredictionDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DiabetesPredictionPayload>
+            args: Prisma.VerificationDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VerificationPayload>
           }
           update: {
-            args: Prisma.DiabetesPredictionUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DiabetesPredictionPayload>
+            args: Prisma.VerificationUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VerificationPayload>
           }
           deleteMany: {
-            args: Prisma.DiabetesPredictionDeleteManyArgs<ExtArgs>
+            args: Prisma.VerificationDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.DiabetesPredictionUpdateManyArgs<ExtArgs>
+            args: Prisma.VerificationUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.DiabetesPredictionUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DiabetesPredictionPayload>[]
+            args: Prisma.VerificationUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VerificationPayload>[]
           }
           upsert: {
-            args: Prisma.DiabetesPredictionUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DiabetesPredictionPayload>
+            args: Prisma.VerificationUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VerificationPayload>
           }
           aggregate: {
-            args: Prisma.DiabetesPredictionAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateDiabetesPrediction>
+            args: Prisma.VerificationAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateVerification>
           }
           groupBy: {
-            args: Prisma.DiabetesPredictionGroupByArgs<ExtArgs>
-            result: $Utils.Optional<DiabetesPredictionGroupByOutputType>[]
+            args: Prisma.VerificationGroupByArgs<ExtArgs>
+            result: $Utils.Optional<VerificationGroupByOutputType>[]
           }
           count: {
-            args: Prisma.DiabetesPredictionCountArgs<ExtArgs>
-            result: $Utils.Optional<DiabetesPredictionCountAggregateOutputType> | number
-          }
-        }
-      }
-      HeartDiseasePrediction: {
-        payload: Prisma.$HeartDiseasePredictionPayload<ExtArgs>
-        fields: Prisma.HeartDiseasePredictionFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.HeartDiseasePredictionFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$HeartDiseasePredictionPayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.HeartDiseasePredictionFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$HeartDiseasePredictionPayload>
-          }
-          findFirst: {
-            args: Prisma.HeartDiseasePredictionFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$HeartDiseasePredictionPayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.HeartDiseasePredictionFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$HeartDiseasePredictionPayload>
-          }
-          findMany: {
-            args: Prisma.HeartDiseasePredictionFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$HeartDiseasePredictionPayload>[]
-          }
-          create: {
-            args: Prisma.HeartDiseasePredictionCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$HeartDiseasePredictionPayload>
-          }
-          createMany: {
-            args: Prisma.HeartDiseasePredictionCreateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.HeartDiseasePredictionCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$HeartDiseasePredictionPayload>[]
-          }
-          delete: {
-            args: Prisma.HeartDiseasePredictionDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$HeartDiseasePredictionPayload>
-          }
-          update: {
-            args: Prisma.HeartDiseasePredictionUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$HeartDiseasePredictionPayload>
-          }
-          deleteMany: {
-            args: Prisma.HeartDiseasePredictionDeleteManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateMany: {
-            args: Prisma.HeartDiseasePredictionUpdateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateManyAndReturn: {
-            args: Prisma.HeartDiseasePredictionUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$HeartDiseasePredictionPayload>[]
-          }
-          upsert: {
-            args: Prisma.HeartDiseasePredictionUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$HeartDiseasePredictionPayload>
-          }
-          aggregate: {
-            args: Prisma.HeartDiseasePredictionAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateHeartDiseasePrediction>
-          }
-          groupBy: {
-            args: Prisma.HeartDiseasePredictionGroupByArgs<ExtArgs>
-            result: $Utils.Optional<HeartDiseasePredictionGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.HeartDiseasePredictionCountArgs<ExtArgs>
-            result: $Utils.Optional<HeartDiseasePredictionCountAggregateOutputType> | number
-          }
-        }
-      }
-      KidneyDiseasePrediction: {
-        payload: Prisma.$KidneyDiseasePredictionPayload<ExtArgs>
-        fields: Prisma.KidneyDiseasePredictionFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.KidneyDiseasePredictionFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$KidneyDiseasePredictionPayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.KidneyDiseasePredictionFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$KidneyDiseasePredictionPayload>
-          }
-          findFirst: {
-            args: Prisma.KidneyDiseasePredictionFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$KidneyDiseasePredictionPayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.KidneyDiseasePredictionFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$KidneyDiseasePredictionPayload>
-          }
-          findMany: {
-            args: Prisma.KidneyDiseasePredictionFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$KidneyDiseasePredictionPayload>[]
-          }
-          create: {
-            args: Prisma.KidneyDiseasePredictionCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$KidneyDiseasePredictionPayload>
-          }
-          createMany: {
-            args: Prisma.KidneyDiseasePredictionCreateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.KidneyDiseasePredictionCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$KidneyDiseasePredictionPayload>[]
-          }
-          delete: {
-            args: Prisma.KidneyDiseasePredictionDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$KidneyDiseasePredictionPayload>
-          }
-          update: {
-            args: Prisma.KidneyDiseasePredictionUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$KidneyDiseasePredictionPayload>
-          }
-          deleteMany: {
-            args: Prisma.KidneyDiseasePredictionDeleteManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateMany: {
-            args: Prisma.KidneyDiseasePredictionUpdateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateManyAndReturn: {
-            args: Prisma.KidneyDiseasePredictionUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$KidneyDiseasePredictionPayload>[]
-          }
-          upsert: {
-            args: Prisma.KidneyDiseasePredictionUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$KidneyDiseasePredictionPayload>
-          }
-          aggregate: {
-            args: Prisma.KidneyDiseasePredictionAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateKidneyDiseasePrediction>
-          }
-          groupBy: {
-            args: Prisma.KidneyDiseasePredictionGroupByArgs<ExtArgs>
-            result: $Utils.Optional<KidneyDiseasePredictionGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.KidneyDiseasePredictionCountArgs<ExtArgs>
-            result: $Utils.Optional<KidneyDiseasePredictionCountAggregateOutputType> | number
-          }
-        }
-      }
-      ParkinsonsPrediction: {
-        payload: Prisma.$ParkinsonsPredictionPayload<ExtArgs>
-        fields: Prisma.ParkinsonsPredictionFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.ParkinsonsPredictionFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ParkinsonsPredictionPayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.ParkinsonsPredictionFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ParkinsonsPredictionPayload>
-          }
-          findFirst: {
-            args: Prisma.ParkinsonsPredictionFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ParkinsonsPredictionPayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.ParkinsonsPredictionFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ParkinsonsPredictionPayload>
-          }
-          findMany: {
-            args: Prisma.ParkinsonsPredictionFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ParkinsonsPredictionPayload>[]
-          }
-          create: {
-            args: Prisma.ParkinsonsPredictionCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ParkinsonsPredictionPayload>
-          }
-          createMany: {
-            args: Prisma.ParkinsonsPredictionCreateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.ParkinsonsPredictionCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ParkinsonsPredictionPayload>[]
-          }
-          delete: {
-            args: Prisma.ParkinsonsPredictionDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ParkinsonsPredictionPayload>
-          }
-          update: {
-            args: Prisma.ParkinsonsPredictionUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ParkinsonsPredictionPayload>
-          }
-          deleteMany: {
-            args: Prisma.ParkinsonsPredictionDeleteManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateMany: {
-            args: Prisma.ParkinsonsPredictionUpdateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateManyAndReturn: {
-            args: Prisma.ParkinsonsPredictionUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ParkinsonsPredictionPayload>[]
-          }
-          upsert: {
-            args: Prisma.ParkinsonsPredictionUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ParkinsonsPredictionPayload>
-          }
-          aggregate: {
-            args: Prisma.ParkinsonsPredictionAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateParkinsonsPrediction>
-          }
-          groupBy: {
-            args: Prisma.ParkinsonsPredictionGroupByArgs<ExtArgs>
-            result: $Utils.Optional<ParkinsonsPredictionGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.ParkinsonsPredictionCountArgs<ExtArgs>
-            result: $Utils.Optional<ParkinsonsPredictionCountAggregateOutputType> | number
+            args: Prisma.VerificationCountArgs<ExtArgs>
+            result: $Utils.Optional<VerificationCountAggregateOutputType> | number
           }
         }
       }
@@ -1405,13 +1045,9 @@ export namespace Prisma {
   }
   export type GlobalOmitConfig = {
     user?: UserOmit
-    account?: AccountOmit
     session?: SessionOmit
-    breastCancerPrediction?: BreastCancerPredictionOmit
-    diabetesPrediction?: DiabetesPredictionOmit
-    heartDiseasePrediction?: HeartDiseasePredictionOmit
-    kidneyDiseasePrediction?: KidneyDiseasePredictionOmit
-    parkinsonsPrediction?: ParkinsonsPredictionOmit
+    account?: AccountOmit
+    verification?: VerificationOmit
   }
 
   /* Types for Logging */
@@ -1506,23 +1142,13 @@ export namespace Prisma {
    */
 
   export type UserCountOutputType = {
-    accounts: number
-    BreastCancerPrediction: number
-    DiabetesPrediction: number
-    HeartDiseasePrediction: number
-    KidneyDiseasePrediction: number
-    ParkinsonsPrediction: number
     sessions: number
+    accounts: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    accounts?: boolean | UserCountOutputTypeCountAccountsArgs
-    BreastCancerPrediction?: boolean | UserCountOutputTypeCountBreastCancerPredictionArgs
-    DiabetesPrediction?: boolean | UserCountOutputTypeCountDiabetesPredictionArgs
-    HeartDiseasePrediction?: boolean | UserCountOutputTypeCountHeartDiseasePredictionArgs
-    KidneyDiseasePrediction?: boolean | UserCountOutputTypeCountKidneyDiseasePredictionArgs
-    ParkinsonsPrediction?: boolean | UserCountOutputTypeCountParkinsonsPredictionArgs
     sessions?: boolean | UserCountOutputTypeCountSessionsArgs
+    accounts?: boolean | UserCountOutputTypeCountAccountsArgs
   }
 
   // Custom InputTypes
@@ -1539,50 +1165,15 @@ export namespace Prisma {
   /**
    * UserCountOutputType without action
    */
-  export type UserCountOutputTypeCountAccountsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: AccountWhereInput
-  }
-
-  /**
-   * UserCountOutputType without action
-   */
-  export type UserCountOutputTypeCountBreastCancerPredictionArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: BreastCancerPredictionWhereInput
-  }
-
-  /**
-   * UserCountOutputType without action
-   */
-  export type UserCountOutputTypeCountDiabetesPredictionArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: DiabetesPredictionWhereInput
-  }
-
-  /**
-   * UserCountOutputType without action
-   */
-  export type UserCountOutputTypeCountHeartDiseasePredictionArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: HeartDiseasePredictionWhereInput
-  }
-
-  /**
-   * UserCountOutputType without action
-   */
-  export type UserCountOutputTypeCountKidneyDiseasePredictionArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: KidneyDiseasePredictionWhereInput
-  }
-
-  /**
-   * UserCountOutputType without action
-   */
-  export type UserCountOutputTypeCountParkinsonsPredictionArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ParkinsonsPredictionWhereInput
-  }
-
-  /**
-   * UserCountOutputType without action
-   */
   export type UserCountOutputTypeCountSessionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: SessionWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountAccountsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AccountWhereInput
   }
 
 
@@ -1603,25 +1194,31 @@ export namespace Prisma {
   export type UserMinAggregateOutputType = {
     id: string | null
     name: string | null
-    email: string | null
-    emailVerified: Date | null
     image: string | null
+    email: string | null
+    emailVerified: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type UserMaxAggregateOutputType = {
     id: string | null
     name: string | null
-    email: string | null
-    emailVerified: Date | null
     image: string | null
+    email: string | null
+    emailVerified: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type UserCountAggregateOutputType = {
     id: number
     name: number
+    image: number
     email: number
     emailVerified: number
-    image: number
+    createdAt: number
+    updatedAt: number
     _all: number
   }
 
@@ -1629,25 +1226,31 @@ export namespace Prisma {
   export type UserMinAggregateInputType = {
     id?: true
     name?: true
+    image?: true
     email?: true
     emailVerified?: true
-    image?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type UserMaxAggregateInputType = {
     id?: true
     name?: true
+    image?: true
     email?: true
     emailVerified?: true
-    image?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type UserCountAggregateInputType = {
     id?: true
     name?: true
+    image?: true
     email?: true
     emailVerified?: true
-    image?: true
+    createdAt?: true
+    updatedAt?: true
     _all?: true
   }
 
@@ -1725,10 +1328,12 @@ export namespace Prisma {
 
   export type UserGroupByOutputType = {
     id: string
-    name: string | null
-    email: string | null
-    emailVerified: Date | null
-    image: string | null
+    name: string
+    image: string
+    email: string
+    emailVerified: boolean
+    createdAt: Date
+    updatedAt: Date
     _count: UserCountAggregateOutputType | null
     _min: UserMinAggregateOutputType | null
     _max: UserMaxAggregateOutputType | null
@@ -1751,52 +1356,50 @@ export namespace Prisma {
   export type UserSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
+    image?: boolean
     email?: boolean
     emailVerified?: boolean
-    image?: boolean
-    accounts?: boolean | User$accountsArgs<ExtArgs>
-    BreastCancerPrediction?: boolean | User$BreastCancerPredictionArgs<ExtArgs>
-    DiabetesPrediction?: boolean | User$DiabetesPredictionArgs<ExtArgs>
-    HeartDiseasePrediction?: boolean | User$HeartDiseasePredictionArgs<ExtArgs>
-    KidneyDiseasePrediction?: boolean | User$KidneyDiseasePredictionArgs<ExtArgs>
-    ParkinsonsPrediction?: boolean | User$ParkinsonsPredictionArgs<ExtArgs>
+    createdAt?: boolean
+    updatedAt?: boolean
     sessions?: boolean | User$sessionsArgs<ExtArgs>
+    accounts?: boolean | User$accountsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
+    image?: boolean
     email?: boolean
     emailVerified?: boolean
-    image?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
+    image?: boolean
     email?: boolean
     emailVerified?: boolean
-    image?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectScalar = {
     id?: boolean
     name?: boolean
+    image?: boolean
     email?: boolean
     emailVerified?: boolean
-    image?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "emailVerified" | "image", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "image" | "email" | "emailVerified" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    accounts?: boolean | User$accountsArgs<ExtArgs>
-    BreastCancerPrediction?: boolean | User$BreastCancerPredictionArgs<ExtArgs>
-    DiabetesPrediction?: boolean | User$DiabetesPredictionArgs<ExtArgs>
-    HeartDiseasePrediction?: boolean | User$HeartDiseasePredictionArgs<ExtArgs>
-    KidneyDiseasePrediction?: boolean | User$KidneyDiseasePredictionArgs<ExtArgs>
-    ParkinsonsPrediction?: boolean | User$ParkinsonsPredictionArgs<ExtArgs>
     sessions?: boolean | User$sessionsArgs<ExtArgs>
+    accounts?: boolean | User$accountsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -1805,20 +1408,17 @@ export namespace Prisma {
   export type $UserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "User"
     objects: {
-      accounts: Prisma.$AccountPayload<ExtArgs>[]
-      BreastCancerPrediction: Prisma.$BreastCancerPredictionPayload<ExtArgs>[]
-      DiabetesPrediction: Prisma.$DiabetesPredictionPayload<ExtArgs>[]
-      HeartDiseasePrediction: Prisma.$HeartDiseasePredictionPayload<ExtArgs>[]
-      KidneyDiseasePrediction: Prisma.$KidneyDiseasePredictionPayload<ExtArgs>[]
-      ParkinsonsPrediction: Prisma.$ParkinsonsPredictionPayload<ExtArgs>[]
       sessions: Prisma.$SessionPayload<ExtArgs>[]
+      accounts: Prisma.$AccountPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      name: string | null
-      email: string | null
-      emailVerified: Date | null
-      image: string | null
+      name: string
+      image: string
+      email: string
+      emailVerified: boolean
+      createdAt: Date
+      updatedAt: Date
     }, ExtArgs["result"]["user"]>
     composites: {}
   }
@@ -2213,13 +1813,8 @@ export namespace Prisma {
    */
   export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    accounts<T extends User$accountsArgs<ExtArgs> = {}>(args?: Subset<T, User$accountsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    BreastCancerPrediction<T extends User$BreastCancerPredictionArgs<ExtArgs> = {}>(args?: Subset<T, User$BreastCancerPredictionArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BreastCancerPredictionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    DiabetesPrediction<T extends User$DiabetesPredictionArgs<ExtArgs> = {}>(args?: Subset<T, User$DiabetesPredictionArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DiabetesPredictionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    HeartDiseasePrediction<T extends User$HeartDiseasePredictionArgs<ExtArgs> = {}>(args?: Subset<T, User$HeartDiseasePredictionArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HeartDiseasePredictionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    KidneyDiseasePrediction<T extends User$KidneyDiseasePredictionArgs<ExtArgs> = {}>(args?: Subset<T, User$KidneyDiseasePredictionArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$KidneyDiseasePredictionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    ParkinsonsPrediction<T extends User$ParkinsonsPredictionArgs<ExtArgs> = {}>(args?: Subset<T, User$ParkinsonsPredictionArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ParkinsonsPredictionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     sessions<T extends User$sessionsArgs<ExtArgs> = {}>(args?: Subset<T, User$sessionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    accounts<T extends User$accountsArgs<ExtArgs> = {}>(args?: Subset<T, User$accountsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2251,9 +1846,11 @@ export namespace Prisma {
   interface UserFieldRefs {
     readonly id: FieldRef<"User", 'String'>
     readonly name: FieldRef<"User", 'String'>
-    readonly email: FieldRef<"User", 'String'>
-    readonly emailVerified: FieldRef<"User", 'DateTime'>
     readonly image: FieldRef<"User", 'String'>
+    readonly email: FieldRef<"User", 'String'>
+    readonly emailVerified: FieldRef<"User", 'Boolean'>
+    readonly createdAt: FieldRef<"User", 'DateTime'>
+    readonly updatedAt: FieldRef<"User", 'DateTime'>
   }
     
 
@@ -2472,7 +2069,7 @@ export namespace Prisma {
     /**
      * The data needed to create a User.
      */
-    data?: XOR<UserCreateInput, UserUncheckedCreateInput>
+    data: XOR<UserCreateInput, UserUncheckedCreateInput>
   }
 
   /**
@@ -2642,150 +2239,6 @@ export namespace Prisma {
   }
 
   /**
-   * User.accounts
-   */
-  export type User$accountsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Account
-     */
-    select?: AccountSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Account
-     */
-    omit?: AccountOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: AccountInclude<ExtArgs> | null
-    where?: AccountWhereInput
-    orderBy?: AccountOrderByWithRelationInput | AccountOrderByWithRelationInput[]
-    cursor?: AccountWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: AccountScalarFieldEnum | AccountScalarFieldEnum[]
-  }
-
-  /**
-   * User.BreastCancerPrediction
-   */
-  export type User$BreastCancerPredictionArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the BreastCancerPrediction
-     */
-    select?: BreastCancerPredictionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the BreastCancerPrediction
-     */
-    omit?: BreastCancerPredictionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: BreastCancerPredictionInclude<ExtArgs> | null
-    where?: BreastCancerPredictionWhereInput
-    orderBy?: BreastCancerPredictionOrderByWithRelationInput | BreastCancerPredictionOrderByWithRelationInput[]
-    cursor?: BreastCancerPredictionWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: BreastCancerPredictionScalarFieldEnum | BreastCancerPredictionScalarFieldEnum[]
-  }
-
-  /**
-   * User.DiabetesPrediction
-   */
-  export type User$DiabetesPredictionArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the DiabetesPrediction
-     */
-    select?: DiabetesPredictionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the DiabetesPrediction
-     */
-    omit?: DiabetesPredictionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: DiabetesPredictionInclude<ExtArgs> | null
-    where?: DiabetesPredictionWhereInput
-    orderBy?: DiabetesPredictionOrderByWithRelationInput | DiabetesPredictionOrderByWithRelationInput[]
-    cursor?: DiabetesPredictionWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: DiabetesPredictionScalarFieldEnum | DiabetesPredictionScalarFieldEnum[]
-  }
-
-  /**
-   * User.HeartDiseasePrediction
-   */
-  export type User$HeartDiseasePredictionArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the HeartDiseasePrediction
-     */
-    select?: HeartDiseasePredictionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the HeartDiseasePrediction
-     */
-    omit?: HeartDiseasePredictionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: HeartDiseasePredictionInclude<ExtArgs> | null
-    where?: HeartDiseasePredictionWhereInput
-    orderBy?: HeartDiseasePredictionOrderByWithRelationInput | HeartDiseasePredictionOrderByWithRelationInput[]
-    cursor?: HeartDiseasePredictionWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: HeartDiseasePredictionScalarFieldEnum | HeartDiseasePredictionScalarFieldEnum[]
-  }
-
-  /**
-   * User.KidneyDiseasePrediction
-   */
-  export type User$KidneyDiseasePredictionArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the KidneyDiseasePrediction
-     */
-    select?: KidneyDiseasePredictionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the KidneyDiseasePrediction
-     */
-    omit?: KidneyDiseasePredictionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: KidneyDiseasePredictionInclude<ExtArgs> | null
-    where?: KidneyDiseasePredictionWhereInput
-    orderBy?: KidneyDiseasePredictionOrderByWithRelationInput | KidneyDiseasePredictionOrderByWithRelationInput[]
-    cursor?: KidneyDiseasePredictionWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: KidneyDiseasePredictionScalarFieldEnum | KidneyDiseasePredictionScalarFieldEnum[]
-  }
-
-  /**
-   * User.ParkinsonsPrediction
-   */
-  export type User$ParkinsonsPredictionArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ParkinsonsPrediction
-     */
-    select?: ParkinsonsPredictionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the ParkinsonsPrediction
-     */
-    omit?: ParkinsonsPredictionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ParkinsonsPredictionInclude<ExtArgs> | null
-    where?: ParkinsonsPredictionWhereInput
-    orderBy?: ParkinsonsPredictionOrderByWithRelationInput | ParkinsonsPredictionOrderByWithRelationInput[]
-    cursor?: ParkinsonsPredictionWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: ParkinsonsPredictionScalarFieldEnum | ParkinsonsPredictionScalarFieldEnum[]
-  }
-
-  /**
    * User.sessions
    */
   export type User$sessionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2810,6 +2263,30 @@ export namespace Prisma {
   }
 
   /**
+   * User.accounts
+   */
+  export type User$accountsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Account
+     */
+    select?: AccountSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Account
+     */
+    omit?: AccountOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AccountInclude<ExtArgs> | null
+    where?: AccountWhereInput
+    orderBy?: AccountOrderByWithRelationInput | AccountOrderByWithRelationInput[]
+    cursor?: AccountWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: AccountScalarFieldEnum | AccountScalarFieldEnum[]
+  }
+
+  /**
    * User without action
    */
   export type UserDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2829,1189 +2306,6 @@ export namespace Prisma {
 
 
   /**
-   * Model Account
-   */
-
-  export type AggregateAccount = {
-    _count: AccountCountAggregateOutputType | null
-    _avg: AccountAvgAggregateOutputType | null
-    _sum: AccountSumAggregateOutputType | null
-    _min: AccountMinAggregateOutputType | null
-    _max: AccountMaxAggregateOutputType | null
-  }
-
-  export type AccountAvgAggregateOutputType = {
-    expires_at: number | null
-  }
-
-  export type AccountSumAggregateOutputType = {
-    expires_at: number | null
-  }
-
-  export type AccountMinAggregateOutputType = {
-    id: string | null
-    userId: string | null
-    type: string | null
-    provider: string | null
-    providerAccountId: string | null
-    refresh_token: string | null
-    access_token: string | null
-    expires_at: number | null
-    token_type: string | null
-    scope: string | null
-    id_token: string | null
-    session_state: string | null
-  }
-
-  export type AccountMaxAggregateOutputType = {
-    id: string | null
-    userId: string | null
-    type: string | null
-    provider: string | null
-    providerAccountId: string | null
-    refresh_token: string | null
-    access_token: string | null
-    expires_at: number | null
-    token_type: string | null
-    scope: string | null
-    id_token: string | null
-    session_state: string | null
-  }
-
-  export type AccountCountAggregateOutputType = {
-    id: number
-    userId: number
-    type: number
-    provider: number
-    providerAccountId: number
-    refresh_token: number
-    access_token: number
-    expires_at: number
-    token_type: number
-    scope: number
-    id_token: number
-    session_state: number
-    _all: number
-  }
-
-
-  export type AccountAvgAggregateInputType = {
-    expires_at?: true
-  }
-
-  export type AccountSumAggregateInputType = {
-    expires_at?: true
-  }
-
-  export type AccountMinAggregateInputType = {
-    id?: true
-    userId?: true
-    type?: true
-    provider?: true
-    providerAccountId?: true
-    refresh_token?: true
-    access_token?: true
-    expires_at?: true
-    token_type?: true
-    scope?: true
-    id_token?: true
-    session_state?: true
-  }
-
-  export type AccountMaxAggregateInputType = {
-    id?: true
-    userId?: true
-    type?: true
-    provider?: true
-    providerAccountId?: true
-    refresh_token?: true
-    access_token?: true
-    expires_at?: true
-    token_type?: true
-    scope?: true
-    id_token?: true
-    session_state?: true
-  }
-
-  export type AccountCountAggregateInputType = {
-    id?: true
-    userId?: true
-    type?: true
-    provider?: true
-    providerAccountId?: true
-    refresh_token?: true
-    access_token?: true
-    expires_at?: true
-    token_type?: true
-    scope?: true
-    id_token?: true
-    session_state?: true
-    _all?: true
-  }
-
-  export type AccountAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Account to aggregate.
-     */
-    where?: AccountWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Accounts to fetch.
-     */
-    orderBy?: AccountOrderByWithRelationInput | AccountOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: AccountWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Accounts from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Accounts.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned Accounts
-    **/
-    _count?: true | AccountCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to average
-    **/
-    _avg?: AccountAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: AccountSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: AccountMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: AccountMaxAggregateInputType
-  }
-
-  export type GetAccountAggregateType<T extends AccountAggregateArgs> = {
-        [P in keyof T & keyof AggregateAccount]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateAccount[P]>
-      : GetScalarType<T[P], AggregateAccount[P]>
-  }
-
-
-
-
-  export type AccountGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: AccountWhereInput
-    orderBy?: AccountOrderByWithAggregationInput | AccountOrderByWithAggregationInput[]
-    by: AccountScalarFieldEnum[] | AccountScalarFieldEnum
-    having?: AccountScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: AccountCountAggregateInputType | true
-    _avg?: AccountAvgAggregateInputType
-    _sum?: AccountSumAggregateInputType
-    _min?: AccountMinAggregateInputType
-    _max?: AccountMaxAggregateInputType
-  }
-
-  export type AccountGroupByOutputType = {
-    id: string
-    userId: string
-    type: string
-    provider: string
-    providerAccountId: string
-    refresh_token: string | null
-    access_token: string | null
-    expires_at: number | null
-    token_type: string | null
-    scope: string | null
-    id_token: string | null
-    session_state: string | null
-    _count: AccountCountAggregateOutputType | null
-    _avg: AccountAvgAggregateOutputType | null
-    _sum: AccountSumAggregateOutputType | null
-    _min: AccountMinAggregateOutputType | null
-    _max: AccountMaxAggregateOutputType | null
-  }
-
-  type GetAccountGroupByPayload<T extends AccountGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<AccountGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof AccountGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], AccountGroupByOutputType[P]>
-            : GetScalarType<T[P], AccountGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type AccountSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    userId?: boolean
-    type?: boolean
-    provider?: boolean
-    providerAccountId?: boolean
-    refresh_token?: boolean
-    access_token?: boolean
-    expires_at?: boolean
-    token_type?: boolean
-    scope?: boolean
-    id_token?: boolean
-    session_state?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["account"]>
-
-  export type AccountSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    userId?: boolean
-    type?: boolean
-    provider?: boolean
-    providerAccountId?: boolean
-    refresh_token?: boolean
-    access_token?: boolean
-    expires_at?: boolean
-    token_type?: boolean
-    scope?: boolean
-    id_token?: boolean
-    session_state?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["account"]>
-
-  export type AccountSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    userId?: boolean
-    type?: boolean
-    provider?: boolean
-    providerAccountId?: boolean
-    refresh_token?: boolean
-    access_token?: boolean
-    expires_at?: boolean
-    token_type?: boolean
-    scope?: boolean
-    id_token?: boolean
-    session_state?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["account"]>
-
-  export type AccountSelectScalar = {
-    id?: boolean
-    userId?: boolean
-    type?: boolean
-    provider?: boolean
-    providerAccountId?: boolean
-    refresh_token?: boolean
-    access_token?: boolean
-    expires_at?: boolean
-    token_type?: boolean
-    scope?: boolean
-    id_token?: boolean
-    session_state?: boolean
-  }
-
-  export type AccountOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "type" | "provider" | "providerAccountId" | "refresh_token" | "access_token" | "expires_at" | "token_type" | "scope" | "id_token" | "session_state", ExtArgs["result"]["account"]>
-  export type AccountInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
-  }
-  export type AccountIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
-  }
-  export type AccountIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
-  }
-
-  export type $AccountPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Account"
-    objects: {
-      user: Prisma.$UserPayload<ExtArgs>
-    }
-    scalars: $Extensions.GetPayloadResult<{
-      id: string
-      userId: string
-      type: string
-      provider: string
-      providerAccountId: string
-      refresh_token: string | null
-      access_token: string | null
-      expires_at: number | null
-      token_type: string | null
-      scope: string | null
-      id_token: string | null
-      session_state: string | null
-    }, ExtArgs["result"]["account"]>
-    composites: {}
-  }
-
-  type AccountGetPayload<S extends boolean | null | undefined | AccountDefaultArgs> = $Result.GetResult<Prisma.$AccountPayload, S>
-
-  type AccountCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<AccountFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: AccountCountAggregateInputType | true
-    }
-
-  export interface AccountDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Account'], meta: { name: 'Account' } }
-    /**
-     * Find zero or one Account that matches the filter.
-     * @param {AccountFindUniqueArgs} args - Arguments to find a Account
-     * @example
-     * // Get one Account
-     * const account = await prisma.account.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends AccountFindUniqueArgs>(args: SelectSubset<T, AccountFindUniqueArgs<ExtArgs>>): Prisma__AccountClient<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find one Account that matches the filter or throw an error with `error.code='P2025'`
-     * if no matches were found.
-     * @param {AccountFindUniqueOrThrowArgs} args - Arguments to find a Account
-     * @example
-     * // Get one Account
-     * const account = await prisma.account.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends AccountFindUniqueOrThrowArgs>(args: SelectSubset<T, AccountFindUniqueOrThrowArgs<ExtArgs>>): Prisma__AccountClient<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first Account that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {AccountFindFirstArgs} args - Arguments to find a Account
-     * @example
-     * // Get one Account
-     * const account = await prisma.account.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends AccountFindFirstArgs>(args?: SelectSubset<T, AccountFindFirstArgs<ExtArgs>>): Prisma__AccountClient<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first Account that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {AccountFindFirstOrThrowArgs} args - Arguments to find a Account
-     * @example
-     * // Get one Account
-     * const account = await prisma.account.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends AccountFindFirstOrThrowArgs>(args?: SelectSubset<T, AccountFindFirstOrThrowArgs<ExtArgs>>): Prisma__AccountClient<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find zero or more Accounts that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {AccountFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all Accounts
-     * const accounts = await prisma.account.findMany()
-     * 
-     * // Get first 10 Accounts
-     * const accounts = await prisma.account.findMany({ take: 10 })
-     * 
-     * // Only select the `id`
-     * const accountWithIdOnly = await prisma.account.findMany({ select: { id: true } })
-     * 
-     */
-    findMany<T extends AccountFindManyArgs>(args?: SelectSubset<T, AccountFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
-
-    /**
-     * Create a Account.
-     * @param {AccountCreateArgs} args - Arguments to create a Account.
-     * @example
-     * // Create one Account
-     * const Account = await prisma.account.create({
-     *   data: {
-     *     // ... data to create a Account
-     *   }
-     * })
-     * 
-     */
-    create<T extends AccountCreateArgs>(args: SelectSubset<T, AccountCreateArgs<ExtArgs>>): Prisma__AccountClient<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Create many Accounts.
-     * @param {AccountCreateManyArgs} args - Arguments to create many Accounts.
-     * @example
-     * // Create many Accounts
-     * const account = await prisma.account.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends AccountCreateManyArgs>(args?: SelectSubset<T, AccountCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many Accounts and returns the data saved in the database.
-     * @param {AccountCreateManyAndReturnArgs} args - Arguments to create many Accounts.
-     * @example
-     * // Create many Accounts
-     * const account = await prisma.account.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many Accounts and only return the `id`
-     * const accountWithIdOnly = await prisma.account.createManyAndReturn({
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends AccountCreateManyAndReturnArgs>(args?: SelectSubset<T, AccountCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Delete a Account.
-     * @param {AccountDeleteArgs} args - Arguments to delete one Account.
-     * @example
-     * // Delete one Account
-     * const Account = await prisma.account.delete({
-     *   where: {
-     *     // ... filter to delete one Account
-     *   }
-     * })
-     * 
-     */
-    delete<T extends AccountDeleteArgs>(args: SelectSubset<T, AccountDeleteArgs<ExtArgs>>): Prisma__AccountClient<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Update one Account.
-     * @param {AccountUpdateArgs} args - Arguments to update one Account.
-     * @example
-     * // Update one Account
-     * const account = await prisma.account.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends AccountUpdateArgs>(args: SelectSubset<T, AccountUpdateArgs<ExtArgs>>): Prisma__AccountClient<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Delete zero or more Accounts.
-     * @param {AccountDeleteManyArgs} args - Arguments to filter Accounts to delete.
-     * @example
-     * // Delete a few Accounts
-     * const { count } = await prisma.account.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends AccountDeleteManyArgs>(args?: SelectSubset<T, AccountDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Accounts.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {AccountUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many Accounts
-     * const account = await prisma.account.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends AccountUpdateManyArgs>(args: SelectSubset<T, AccountUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Accounts and returns the data updated in the database.
-     * @param {AccountUpdateManyAndReturnArgs} args - Arguments to update many Accounts.
-     * @example
-     * // Update many Accounts
-     * const account = await prisma.account.updateManyAndReturn({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Update zero or more Accounts and only return the `id`
-     * const accountWithIdOnly = await prisma.account.updateManyAndReturn({
-     *   select: { id: true },
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    updateManyAndReturn<T extends AccountUpdateManyAndReturnArgs>(args: SelectSubset<T, AccountUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Create or update one Account.
-     * @param {AccountUpsertArgs} args - Arguments to update or create a Account.
-     * @example
-     * // Update or create a Account
-     * const account = await prisma.account.upsert({
-     *   create: {
-     *     // ... data to create a Account
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the Account we want to update
-     *   }
-     * })
-     */
-    upsert<T extends AccountUpsertArgs>(args: SelectSubset<T, AccountUpsertArgs<ExtArgs>>): Prisma__AccountClient<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-
-    /**
-     * Count the number of Accounts.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {AccountCountArgs} args - Arguments to filter Accounts to count.
-     * @example
-     * // Count the number of Accounts
-     * const count = await prisma.account.count({
-     *   where: {
-     *     // ... the filter for the Accounts we want to count
-     *   }
-     * })
-    **/
-    count<T extends AccountCountArgs>(
-      args?: Subset<T, AccountCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], AccountCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a Account.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {AccountAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends AccountAggregateArgs>(args: Subset<T, AccountAggregateArgs>): Prisma.PrismaPromise<GetAccountAggregateType<T>>
-
-    /**
-     * Group by Account.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {AccountGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends AccountGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: AccountGroupByArgs['orderBy'] }
-        : { orderBy?: AccountGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, AccountGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAccountGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the Account model
-   */
-  readonly fields: AccountFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for Account.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__AccountClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the Account model
-   */
-  interface AccountFieldRefs {
-    readonly id: FieldRef<"Account", 'String'>
-    readonly userId: FieldRef<"Account", 'String'>
-    readonly type: FieldRef<"Account", 'String'>
-    readonly provider: FieldRef<"Account", 'String'>
-    readonly providerAccountId: FieldRef<"Account", 'String'>
-    readonly refresh_token: FieldRef<"Account", 'String'>
-    readonly access_token: FieldRef<"Account", 'String'>
-    readonly expires_at: FieldRef<"Account", 'Int'>
-    readonly token_type: FieldRef<"Account", 'String'>
-    readonly scope: FieldRef<"Account", 'String'>
-    readonly id_token: FieldRef<"Account", 'String'>
-    readonly session_state: FieldRef<"Account", 'String'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * Account findUnique
-   */
-  export type AccountFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Account
-     */
-    select?: AccountSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Account
-     */
-    omit?: AccountOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: AccountInclude<ExtArgs> | null
-    /**
-     * Filter, which Account to fetch.
-     */
-    where: AccountWhereUniqueInput
-  }
-
-  /**
-   * Account findUniqueOrThrow
-   */
-  export type AccountFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Account
-     */
-    select?: AccountSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Account
-     */
-    omit?: AccountOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: AccountInclude<ExtArgs> | null
-    /**
-     * Filter, which Account to fetch.
-     */
-    where: AccountWhereUniqueInput
-  }
-
-  /**
-   * Account findFirst
-   */
-  export type AccountFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Account
-     */
-    select?: AccountSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Account
-     */
-    omit?: AccountOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: AccountInclude<ExtArgs> | null
-    /**
-     * Filter, which Account to fetch.
-     */
-    where?: AccountWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Accounts to fetch.
-     */
-    orderBy?: AccountOrderByWithRelationInput | AccountOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Accounts.
-     */
-    cursor?: AccountWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Accounts from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Accounts.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Accounts.
-     */
-    distinct?: AccountScalarFieldEnum | AccountScalarFieldEnum[]
-  }
-
-  /**
-   * Account findFirstOrThrow
-   */
-  export type AccountFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Account
-     */
-    select?: AccountSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Account
-     */
-    omit?: AccountOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: AccountInclude<ExtArgs> | null
-    /**
-     * Filter, which Account to fetch.
-     */
-    where?: AccountWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Accounts to fetch.
-     */
-    orderBy?: AccountOrderByWithRelationInput | AccountOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Accounts.
-     */
-    cursor?: AccountWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Accounts from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Accounts.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Accounts.
-     */
-    distinct?: AccountScalarFieldEnum | AccountScalarFieldEnum[]
-  }
-
-  /**
-   * Account findMany
-   */
-  export type AccountFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Account
-     */
-    select?: AccountSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Account
-     */
-    omit?: AccountOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: AccountInclude<ExtArgs> | null
-    /**
-     * Filter, which Accounts to fetch.
-     */
-    where?: AccountWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Accounts to fetch.
-     */
-    orderBy?: AccountOrderByWithRelationInput | AccountOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing Accounts.
-     */
-    cursor?: AccountWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Accounts from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Accounts.
-     */
-    skip?: number
-    distinct?: AccountScalarFieldEnum | AccountScalarFieldEnum[]
-  }
-
-  /**
-   * Account create
-   */
-  export type AccountCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Account
-     */
-    select?: AccountSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Account
-     */
-    omit?: AccountOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: AccountInclude<ExtArgs> | null
-    /**
-     * The data needed to create a Account.
-     */
-    data: XOR<AccountCreateInput, AccountUncheckedCreateInput>
-  }
-
-  /**
-   * Account createMany
-   */
-  export type AccountCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many Accounts.
-     */
-    data: AccountCreateManyInput | AccountCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * Account createManyAndReturn
-   */
-  export type AccountCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Account
-     */
-    select?: AccountSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the Account
-     */
-    omit?: AccountOmit<ExtArgs> | null
-    /**
-     * The data used to create many Accounts.
-     */
-    data: AccountCreateManyInput | AccountCreateManyInput[]
-    skipDuplicates?: boolean
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: AccountIncludeCreateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * Account update
-   */
-  export type AccountUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Account
-     */
-    select?: AccountSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Account
-     */
-    omit?: AccountOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: AccountInclude<ExtArgs> | null
-    /**
-     * The data needed to update a Account.
-     */
-    data: XOR<AccountUpdateInput, AccountUncheckedUpdateInput>
-    /**
-     * Choose, which Account to update.
-     */
-    where: AccountWhereUniqueInput
-  }
-
-  /**
-   * Account updateMany
-   */
-  export type AccountUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update Accounts.
-     */
-    data: XOR<AccountUpdateManyMutationInput, AccountUncheckedUpdateManyInput>
-    /**
-     * Filter which Accounts to update
-     */
-    where?: AccountWhereInput
-    /**
-     * Limit how many Accounts to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * Account updateManyAndReturn
-   */
-  export type AccountUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Account
-     */
-    select?: AccountSelectUpdateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the Account
-     */
-    omit?: AccountOmit<ExtArgs> | null
-    /**
-     * The data used to update Accounts.
-     */
-    data: XOR<AccountUpdateManyMutationInput, AccountUncheckedUpdateManyInput>
-    /**
-     * Filter which Accounts to update
-     */
-    where?: AccountWhereInput
-    /**
-     * Limit how many Accounts to update.
-     */
-    limit?: number
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: AccountIncludeUpdateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * Account upsert
-   */
-  export type AccountUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Account
-     */
-    select?: AccountSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Account
-     */
-    omit?: AccountOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: AccountInclude<ExtArgs> | null
-    /**
-     * The filter to search for the Account to update in case it exists.
-     */
-    where: AccountWhereUniqueInput
-    /**
-     * In case the Account found by the `where` argument doesn't exist, create a new Account with this data.
-     */
-    create: XOR<AccountCreateInput, AccountUncheckedCreateInput>
-    /**
-     * In case the Account was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<AccountUpdateInput, AccountUncheckedUpdateInput>
-  }
-
-  /**
-   * Account delete
-   */
-  export type AccountDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Account
-     */
-    select?: AccountSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Account
-     */
-    omit?: AccountOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: AccountInclude<ExtArgs> | null
-    /**
-     * Filter which Account to delete.
-     */
-    where: AccountWhereUniqueInput
-  }
-
-  /**
-   * Account deleteMany
-   */
-  export type AccountDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Accounts to delete
-     */
-    where?: AccountWhereInput
-    /**
-     * Limit how many Accounts to delete.
-     */
-    limit?: number
-  }
-
-  /**
-   * Account without action
-   */
-  export type AccountDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Account
-     */
-    select?: AccountSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Account
-     */
-    omit?: AccountOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: AccountInclude<ExtArgs> | null
-  }
-
-
-  /**
    * Model Session
    */
 
@@ -4023,46 +2317,70 @@ export namespace Prisma {
 
   export type SessionMinAggregateOutputType = {
     id: string | null
-    sessionToken: string | null
+    expiresAt: Date | null
+    token: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    ipAddress: string | null
+    userAgent: string | null
     userId: string | null
-    expires: Date | null
   }
 
   export type SessionMaxAggregateOutputType = {
     id: string | null
-    sessionToken: string | null
+    expiresAt: Date | null
+    token: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    ipAddress: string | null
+    userAgent: string | null
     userId: string | null
-    expires: Date | null
   }
 
   export type SessionCountAggregateOutputType = {
     id: number
-    sessionToken: number
+    expiresAt: number
+    token: number
+    createdAt: number
+    updatedAt: number
+    ipAddress: number
+    userAgent: number
     userId: number
-    expires: number
     _all: number
   }
 
 
   export type SessionMinAggregateInputType = {
     id?: true
-    sessionToken?: true
+    expiresAt?: true
+    token?: true
+    createdAt?: true
+    updatedAt?: true
+    ipAddress?: true
+    userAgent?: true
     userId?: true
-    expires?: true
   }
 
   export type SessionMaxAggregateInputType = {
     id?: true
-    sessionToken?: true
+    expiresAt?: true
+    token?: true
+    createdAt?: true
+    updatedAt?: true
+    ipAddress?: true
+    userAgent?: true
     userId?: true
-    expires?: true
   }
 
   export type SessionCountAggregateInputType = {
     id?: true
-    sessionToken?: true
+    expiresAt?: true
+    token?: true
+    createdAt?: true
+    updatedAt?: true
+    ipAddress?: true
+    userAgent?: true
     userId?: true
-    expires?: true
     _all?: true
   }
 
@@ -4140,9 +2458,13 @@ export namespace Prisma {
 
   export type SessionGroupByOutputType = {
     id: string
-    sessionToken: string
+    expiresAt: Date
+    token: string
+    createdAt: Date
+    updatedAt: Date
+    ipAddress: string | null
+    userAgent: string | null
     userId: string
-    expires: Date
     _count: SessionCountAggregateOutputType | null
     _min: SessionMinAggregateOutputType | null
     _max: SessionMaxAggregateOutputType | null
@@ -4164,36 +2486,52 @@ export namespace Prisma {
 
   export type SessionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    sessionToken?: boolean
+    expiresAt?: boolean
+    token?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    ipAddress?: boolean
+    userAgent?: boolean
     userId?: boolean
-    expires?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["session"]>
 
   export type SessionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    sessionToken?: boolean
+    expiresAt?: boolean
+    token?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    ipAddress?: boolean
+    userAgent?: boolean
     userId?: boolean
-    expires?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["session"]>
 
   export type SessionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    sessionToken?: boolean
+    expiresAt?: boolean
+    token?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    ipAddress?: boolean
+    userAgent?: boolean
     userId?: boolean
-    expires?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["session"]>
 
   export type SessionSelectScalar = {
     id?: boolean
-    sessionToken?: boolean
+    expiresAt?: boolean
+    token?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    ipAddress?: boolean
+    userAgent?: boolean
     userId?: boolean
-    expires?: boolean
   }
 
-  export type SessionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "sessionToken" | "userId" | "expires", ExtArgs["result"]["session"]>
+  export type SessionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "expiresAt" | "token" | "createdAt" | "updatedAt" | "ipAddress" | "userAgent" | "userId", ExtArgs["result"]["session"]>
   export type SessionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
   }
@@ -4211,9 +2549,13 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      sessionToken: string
+      expiresAt: Date
+      token: string
+      createdAt: Date
+      updatedAt: Date
+      ipAddress: string | null
+      userAgent: string | null
       userId: string
-      expires: Date
     }, ExtArgs["result"]["session"]>
     composites: {}
   }
@@ -4639,9 +2981,13 @@ export namespace Prisma {
    */
   interface SessionFieldRefs {
     readonly id: FieldRef<"Session", 'String'>
-    readonly sessionToken: FieldRef<"Session", 'String'>
+    readonly expiresAt: FieldRef<"Session", 'DateTime'>
+    readonly token: FieldRef<"Session", 'String'>
+    readonly createdAt: FieldRef<"Session", 'DateTime'>
+    readonly updatedAt: FieldRef<"Session", 'DateTime'>
+    readonly ipAddress: FieldRef<"Session", 'String'>
+    readonly userAgent: FieldRef<"Session", 'String'>
     readonly userId: FieldRef<"Session", 'String'>
-    readonly expires: FieldRef<"Session", 'DateTime'>
   }
     
 
@@ -5057,453 +3403,447 @@ export namespace Prisma {
 
 
   /**
-   * Model BreastCancerPrediction
+   * Model Account
    */
 
-  export type AggregateBreastCancerPrediction = {
-    _count: BreastCancerPredictionCountAggregateOutputType | null
-    _avg: BreastCancerPredictionAvgAggregateOutputType | null
-    _sum: BreastCancerPredictionSumAggregateOutputType | null
-    _min: BreastCancerPredictionMinAggregateOutputType | null
-    _max: BreastCancerPredictionMaxAggregateOutputType | null
+  export type AggregateAccount = {
+    _count: AccountCountAggregateOutputType | null
+    _min: AccountMinAggregateOutputType | null
+    _max: AccountMaxAggregateOutputType | null
   }
 
-  export type BreastCancerPredictionAvgAggregateOutputType = {
-    prediction_id: number | null
-    radius_mean: number | null
-    texture_mean: number | null
-    perimeter_mean: number | null
-    area_mean: number | null
-    smoothness_mean: number | null
+  export type AccountMinAggregateOutputType = {
+    id: string | null
+    accountId: string | null
+    providerId: string | null
+    userId: string | null
+    accessToken: string | null
+    refreshToken: string | null
+    idToken: string | null
+    accessTokenExpiresAt: Date | null
+    refreshTokenExpiresAt: Date | null
+    scope: string | null
+    password: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
-  export type BreastCancerPredictionSumAggregateOutputType = {
-    prediction_id: number | null
-    radius_mean: number | null
-    texture_mean: number | null
-    perimeter_mean: number | null
-    area_mean: number | null
-    smoothness_mean: number | null
+  export type AccountMaxAggregateOutputType = {
+    id: string | null
+    accountId: string | null
+    providerId: string | null
+    userId: string | null
+    accessToken: string | null
+    refreshToken: string | null
+    idToken: string | null
+    accessTokenExpiresAt: Date | null
+    refreshTokenExpiresAt: Date | null
+    scope: string | null
+    password: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
-  export type BreastCancerPredictionMinAggregateOutputType = {
-    prediction_id: number | null
-    user_id: string | null
-    radius_mean: number | null
-    texture_mean: number | null
-    perimeter_mean: number | null
-    area_mean: number | null
-    smoothness_mean: number | null
-    result: string | null
-    created_at: Date | null
-  }
-
-  export type BreastCancerPredictionMaxAggregateOutputType = {
-    prediction_id: number | null
-    user_id: string | null
-    radius_mean: number | null
-    texture_mean: number | null
-    perimeter_mean: number | null
-    area_mean: number | null
-    smoothness_mean: number | null
-    result: string | null
-    created_at: Date | null
-  }
-
-  export type BreastCancerPredictionCountAggregateOutputType = {
-    prediction_id: number
-    user_id: number
-    radius_mean: number
-    texture_mean: number
-    perimeter_mean: number
-    area_mean: number
-    smoothness_mean: number
-    result: number
-    created_at: number
+  export type AccountCountAggregateOutputType = {
+    id: number
+    accountId: number
+    providerId: number
+    userId: number
+    accessToken: number
+    refreshToken: number
+    idToken: number
+    accessTokenExpiresAt: number
+    refreshTokenExpiresAt: number
+    scope: number
+    password: number
+    createdAt: number
+    updatedAt: number
     _all: number
   }
 
 
-  export type BreastCancerPredictionAvgAggregateInputType = {
-    prediction_id?: true
-    radius_mean?: true
-    texture_mean?: true
-    perimeter_mean?: true
-    area_mean?: true
-    smoothness_mean?: true
+  export type AccountMinAggregateInputType = {
+    id?: true
+    accountId?: true
+    providerId?: true
+    userId?: true
+    accessToken?: true
+    refreshToken?: true
+    idToken?: true
+    accessTokenExpiresAt?: true
+    refreshTokenExpiresAt?: true
+    scope?: true
+    password?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
-  export type BreastCancerPredictionSumAggregateInputType = {
-    prediction_id?: true
-    radius_mean?: true
-    texture_mean?: true
-    perimeter_mean?: true
-    area_mean?: true
-    smoothness_mean?: true
+  export type AccountMaxAggregateInputType = {
+    id?: true
+    accountId?: true
+    providerId?: true
+    userId?: true
+    accessToken?: true
+    refreshToken?: true
+    idToken?: true
+    accessTokenExpiresAt?: true
+    refreshTokenExpiresAt?: true
+    scope?: true
+    password?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
-  export type BreastCancerPredictionMinAggregateInputType = {
-    prediction_id?: true
-    user_id?: true
-    radius_mean?: true
-    texture_mean?: true
-    perimeter_mean?: true
-    area_mean?: true
-    smoothness_mean?: true
-    result?: true
-    created_at?: true
-  }
-
-  export type BreastCancerPredictionMaxAggregateInputType = {
-    prediction_id?: true
-    user_id?: true
-    radius_mean?: true
-    texture_mean?: true
-    perimeter_mean?: true
-    area_mean?: true
-    smoothness_mean?: true
-    result?: true
-    created_at?: true
-  }
-
-  export type BreastCancerPredictionCountAggregateInputType = {
-    prediction_id?: true
-    user_id?: true
-    radius_mean?: true
-    texture_mean?: true
-    perimeter_mean?: true
-    area_mean?: true
-    smoothness_mean?: true
-    result?: true
-    created_at?: true
+  export type AccountCountAggregateInputType = {
+    id?: true
+    accountId?: true
+    providerId?: true
+    userId?: true
+    accessToken?: true
+    refreshToken?: true
+    idToken?: true
+    accessTokenExpiresAt?: true
+    refreshTokenExpiresAt?: true
+    scope?: true
+    password?: true
+    createdAt?: true
+    updatedAt?: true
     _all?: true
   }
 
-  export type BreastCancerPredictionAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AccountAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which BreastCancerPrediction to aggregate.
+     * Filter which Account to aggregate.
      */
-    where?: BreastCancerPredictionWhereInput
+    where?: AccountWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of BreastCancerPredictions to fetch.
+     * Determine the order of Accounts to fetch.
      */
-    orderBy?: BreastCancerPredictionOrderByWithRelationInput | BreastCancerPredictionOrderByWithRelationInput[]
+    orderBy?: AccountOrderByWithRelationInput | AccountOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: BreastCancerPredictionWhereUniqueInput
+    cursor?: AccountWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` BreastCancerPredictions from the position of the cursor.
+     * Take `±n` Accounts from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` BreastCancerPredictions.
+     * Skip the first `n` Accounts.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned BreastCancerPredictions
+     * Count returned Accounts
     **/
-    _count?: true | BreastCancerPredictionCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to average
-    **/
-    _avg?: BreastCancerPredictionAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: BreastCancerPredictionSumAggregateInputType
+    _count?: true | AccountCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: BreastCancerPredictionMinAggregateInputType
+    _min?: AccountMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: BreastCancerPredictionMaxAggregateInputType
+    _max?: AccountMaxAggregateInputType
   }
 
-  export type GetBreastCancerPredictionAggregateType<T extends BreastCancerPredictionAggregateArgs> = {
-        [P in keyof T & keyof AggregateBreastCancerPrediction]: P extends '_count' | 'count'
+  export type GetAccountAggregateType<T extends AccountAggregateArgs> = {
+        [P in keyof T & keyof AggregateAccount]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateBreastCancerPrediction[P]>
-      : GetScalarType<T[P], AggregateBreastCancerPrediction[P]>
+        : GetScalarType<T[P], AggregateAccount[P]>
+      : GetScalarType<T[P], AggregateAccount[P]>
   }
 
 
 
 
-  export type BreastCancerPredictionGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: BreastCancerPredictionWhereInput
-    orderBy?: BreastCancerPredictionOrderByWithAggregationInput | BreastCancerPredictionOrderByWithAggregationInput[]
-    by: BreastCancerPredictionScalarFieldEnum[] | BreastCancerPredictionScalarFieldEnum
-    having?: BreastCancerPredictionScalarWhereWithAggregatesInput
+  export type AccountGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AccountWhereInput
+    orderBy?: AccountOrderByWithAggregationInput | AccountOrderByWithAggregationInput[]
+    by: AccountScalarFieldEnum[] | AccountScalarFieldEnum
+    having?: AccountScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: BreastCancerPredictionCountAggregateInputType | true
-    _avg?: BreastCancerPredictionAvgAggregateInputType
-    _sum?: BreastCancerPredictionSumAggregateInputType
-    _min?: BreastCancerPredictionMinAggregateInputType
-    _max?: BreastCancerPredictionMaxAggregateInputType
+    _count?: AccountCountAggregateInputType | true
+    _min?: AccountMinAggregateInputType
+    _max?: AccountMaxAggregateInputType
   }
 
-  export type BreastCancerPredictionGroupByOutputType = {
-    prediction_id: number
-    user_id: string
-    radius_mean: number
-    texture_mean: number
-    perimeter_mean: number
-    area_mean: number
-    smoothness_mean: number
-    result: string
-    created_at: Date
-    _count: BreastCancerPredictionCountAggregateOutputType | null
-    _avg: BreastCancerPredictionAvgAggregateOutputType | null
-    _sum: BreastCancerPredictionSumAggregateOutputType | null
-    _min: BreastCancerPredictionMinAggregateOutputType | null
-    _max: BreastCancerPredictionMaxAggregateOutputType | null
+  export type AccountGroupByOutputType = {
+    id: string
+    accountId: string
+    providerId: string
+    userId: string
+    accessToken: string | null
+    refreshToken: string | null
+    idToken: string | null
+    accessTokenExpiresAt: Date | null
+    refreshTokenExpiresAt: Date | null
+    scope: string | null
+    password: string | null
+    createdAt: Date
+    updatedAt: Date
+    _count: AccountCountAggregateOutputType | null
+    _min: AccountMinAggregateOutputType | null
+    _max: AccountMaxAggregateOutputType | null
   }
 
-  type GetBreastCancerPredictionGroupByPayload<T extends BreastCancerPredictionGroupByArgs> = Prisma.PrismaPromise<
+  type GetAccountGroupByPayload<T extends AccountGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<BreastCancerPredictionGroupByOutputType, T['by']> &
+      PickEnumerable<AccountGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof BreastCancerPredictionGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof AccountGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], BreastCancerPredictionGroupByOutputType[P]>
-            : GetScalarType<T[P], BreastCancerPredictionGroupByOutputType[P]>
+              : GetScalarType<T[P], AccountGroupByOutputType[P]>
+            : GetScalarType<T[P], AccountGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type BreastCancerPredictionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    prediction_id?: boolean
-    user_id?: boolean
-    radius_mean?: boolean
-    texture_mean?: boolean
-    perimeter_mean?: boolean
-    area_mean?: boolean
-    smoothness_mean?: boolean
-    result?: boolean
-    created_at?: boolean
-    User?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["breastCancerPrediction"]>
+  export type AccountSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    accountId?: boolean
+    providerId?: boolean
+    userId?: boolean
+    accessToken?: boolean
+    refreshToken?: boolean
+    idToken?: boolean
+    accessTokenExpiresAt?: boolean
+    refreshTokenExpiresAt?: boolean
+    scope?: boolean
+    password?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["account"]>
 
-  export type BreastCancerPredictionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    prediction_id?: boolean
-    user_id?: boolean
-    radius_mean?: boolean
-    texture_mean?: boolean
-    perimeter_mean?: boolean
-    area_mean?: boolean
-    smoothness_mean?: boolean
-    result?: boolean
-    created_at?: boolean
-    User?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["breastCancerPrediction"]>
+  export type AccountSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    accountId?: boolean
+    providerId?: boolean
+    userId?: boolean
+    accessToken?: boolean
+    refreshToken?: boolean
+    idToken?: boolean
+    accessTokenExpiresAt?: boolean
+    refreshTokenExpiresAt?: boolean
+    scope?: boolean
+    password?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["account"]>
 
-  export type BreastCancerPredictionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    prediction_id?: boolean
-    user_id?: boolean
-    radius_mean?: boolean
-    texture_mean?: boolean
-    perimeter_mean?: boolean
-    area_mean?: boolean
-    smoothness_mean?: boolean
-    result?: boolean
-    created_at?: boolean
-    User?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["breastCancerPrediction"]>
+  export type AccountSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    accountId?: boolean
+    providerId?: boolean
+    userId?: boolean
+    accessToken?: boolean
+    refreshToken?: boolean
+    idToken?: boolean
+    accessTokenExpiresAt?: boolean
+    refreshTokenExpiresAt?: boolean
+    scope?: boolean
+    password?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["account"]>
 
-  export type BreastCancerPredictionSelectScalar = {
-    prediction_id?: boolean
-    user_id?: boolean
-    radius_mean?: boolean
-    texture_mean?: boolean
-    perimeter_mean?: boolean
-    area_mean?: boolean
-    smoothness_mean?: boolean
-    result?: boolean
-    created_at?: boolean
+  export type AccountSelectScalar = {
+    id?: boolean
+    accountId?: boolean
+    providerId?: boolean
+    userId?: boolean
+    accessToken?: boolean
+    refreshToken?: boolean
+    idToken?: boolean
+    accessTokenExpiresAt?: boolean
+    refreshTokenExpiresAt?: boolean
+    scope?: boolean
+    password?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }
 
-  export type BreastCancerPredictionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"prediction_id" | "user_id" | "radius_mean" | "texture_mean" | "perimeter_mean" | "area_mean" | "smoothness_mean" | "result" | "created_at", ExtArgs["result"]["breastCancerPrediction"]>
-  export type BreastCancerPredictionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    User?: boolean | UserDefaultArgs<ExtArgs>
+  export type AccountOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "accountId" | "providerId" | "userId" | "accessToken" | "refreshToken" | "idToken" | "accessTokenExpiresAt" | "refreshTokenExpiresAt" | "scope" | "password" | "createdAt" | "updatedAt", ExtArgs["result"]["account"]>
+  export type AccountInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }
-  export type BreastCancerPredictionIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    User?: boolean | UserDefaultArgs<ExtArgs>
+  export type AccountIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }
-  export type BreastCancerPredictionIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    User?: boolean | UserDefaultArgs<ExtArgs>
+  export type AccountIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }
 
-  export type $BreastCancerPredictionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "BreastCancerPrediction"
+  export type $AccountPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Account"
     objects: {
-      User: Prisma.$UserPayload<ExtArgs>
+      user: Prisma.$UserPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
-      prediction_id: number
-      user_id: string
-      radius_mean: number
-      texture_mean: number
-      perimeter_mean: number
-      area_mean: number
-      smoothness_mean: number
-      result: string
-      created_at: Date
-    }, ExtArgs["result"]["breastCancerPrediction"]>
+      id: string
+      accountId: string
+      providerId: string
+      userId: string
+      accessToken: string | null
+      refreshToken: string | null
+      idToken: string | null
+      accessTokenExpiresAt: Date | null
+      refreshTokenExpiresAt: Date | null
+      scope: string | null
+      password: string | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["account"]>
     composites: {}
   }
 
-  type BreastCancerPredictionGetPayload<S extends boolean | null | undefined | BreastCancerPredictionDefaultArgs> = $Result.GetResult<Prisma.$BreastCancerPredictionPayload, S>
+  type AccountGetPayload<S extends boolean | null | undefined | AccountDefaultArgs> = $Result.GetResult<Prisma.$AccountPayload, S>
 
-  type BreastCancerPredictionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<BreastCancerPredictionFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: BreastCancerPredictionCountAggregateInputType | true
+  type AccountCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<AccountFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: AccountCountAggregateInputType | true
     }
 
-  export interface BreastCancerPredictionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['BreastCancerPrediction'], meta: { name: 'BreastCancerPrediction' } }
+  export interface AccountDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Account'], meta: { name: 'Account' } }
     /**
-     * Find zero or one BreastCancerPrediction that matches the filter.
-     * @param {BreastCancerPredictionFindUniqueArgs} args - Arguments to find a BreastCancerPrediction
+     * Find zero or one Account that matches the filter.
+     * @param {AccountFindUniqueArgs} args - Arguments to find a Account
      * @example
-     * // Get one BreastCancerPrediction
-     * const breastCancerPrediction = await prisma.breastCancerPrediction.findUnique({
+     * // Get one Account
+     * const account = await prisma.account.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends BreastCancerPredictionFindUniqueArgs>(args: SelectSubset<T, BreastCancerPredictionFindUniqueArgs<ExtArgs>>): Prisma__BreastCancerPredictionClient<$Result.GetResult<Prisma.$BreastCancerPredictionPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends AccountFindUniqueArgs>(args: SelectSubset<T, AccountFindUniqueArgs<ExtArgs>>): Prisma__AccountClient<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one BreastCancerPrediction that matches the filter or throw an error with `error.code='P2025'`
+     * Find one Account that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {BreastCancerPredictionFindUniqueOrThrowArgs} args - Arguments to find a BreastCancerPrediction
+     * @param {AccountFindUniqueOrThrowArgs} args - Arguments to find a Account
      * @example
-     * // Get one BreastCancerPrediction
-     * const breastCancerPrediction = await prisma.breastCancerPrediction.findUniqueOrThrow({
+     * // Get one Account
+     * const account = await prisma.account.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends BreastCancerPredictionFindUniqueOrThrowArgs>(args: SelectSubset<T, BreastCancerPredictionFindUniqueOrThrowArgs<ExtArgs>>): Prisma__BreastCancerPredictionClient<$Result.GetResult<Prisma.$BreastCancerPredictionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends AccountFindUniqueOrThrowArgs>(args: SelectSubset<T, AccountFindUniqueOrThrowArgs<ExtArgs>>): Prisma__AccountClient<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first BreastCancerPrediction that matches the filter.
+     * Find the first Account that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {BreastCancerPredictionFindFirstArgs} args - Arguments to find a BreastCancerPrediction
+     * @param {AccountFindFirstArgs} args - Arguments to find a Account
      * @example
-     * // Get one BreastCancerPrediction
-     * const breastCancerPrediction = await prisma.breastCancerPrediction.findFirst({
+     * // Get one Account
+     * const account = await prisma.account.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends BreastCancerPredictionFindFirstArgs>(args?: SelectSubset<T, BreastCancerPredictionFindFirstArgs<ExtArgs>>): Prisma__BreastCancerPredictionClient<$Result.GetResult<Prisma.$BreastCancerPredictionPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends AccountFindFirstArgs>(args?: SelectSubset<T, AccountFindFirstArgs<ExtArgs>>): Prisma__AccountClient<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first BreastCancerPrediction that matches the filter or
+     * Find the first Account that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {BreastCancerPredictionFindFirstOrThrowArgs} args - Arguments to find a BreastCancerPrediction
+     * @param {AccountFindFirstOrThrowArgs} args - Arguments to find a Account
      * @example
-     * // Get one BreastCancerPrediction
-     * const breastCancerPrediction = await prisma.breastCancerPrediction.findFirstOrThrow({
+     * // Get one Account
+     * const account = await prisma.account.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends BreastCancerPredictionFindFirstOrThrowArgs>(args?: SelectSubset<T, BreastCancerPredictionFindFirstOrThrowArgs<ExtArgs>>): Prisma__BreastCancerPredictionClient<$Result.GetResult<Prisma.$BreastCancerPredictionPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends AccountFindFirstOrThrowArgs>(args?: SelectSubset<T, AccountFindFirstOrThrowArgs<ExtArgs>>): Prisma__AccountClient<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more BreastCancerPredictions that matches the filter.
+     * Find zero or more Accounts that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {BreastCancerPredictionFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {AccountFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all BreastCancerPredictions
-     * const breastCancerPredictions = await prisma.breastCancerPrediction.findMany()
+     * // Get all Accounts
+     * const accounts = await prisma.account.findMany()
      * 
-     * // Get first 10 BreastCancerPredictions
-     * const breastCancerPredictions = await prisma.breastCancerPrediction.findMany({ take: 10 })
+     * // Get first 10 Accounts
+     * const accounts = await prisma.account.findMany({ take: 10 })
      * 
-     * // Only select the `prediction_id`
-     * const breastCancerPredictionWithPrediction_idOnly = await prisma.breastCancerPrediction.findMany({ select: { prediction_id: true } })
+     * // Only select the `id`
+     * const accountWithIdOnly = await prisma.account.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends BreastCancerPredictionFindManyArgs>(args?: SelectSubset<T, BreastCancerPredictionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BreastCancerPredictionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends AccountFindManyArgs>(args?: SelectSubset<T, AccountFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a BreastCancerPrediction.
-     * @param {BreastCancerPredictionCreateArgs} args - Arguments to create a BreastCancerPrediction.
+     * Create a Account.
+     * @param {AccountCreateArgs} args - Arguments to create a Account.
      * @example
-     * // Create one BreastCancerPrediction
-     * const BreastCancerPrediction = await prisma.breastCancerPrediction.create({
+     * // Create one Account
+     * const Account = await prisma.account.create({
      *   data: {
-     *     // ... data to create a BreastCancerPrediction
+     *     // ... data to create a Account
      *   }
      * })
      * 
      */
-    create<T extends BreastCancerPredictionCreateArgs>(args: SelectSubset<T, BreastCancerPredictionCreateArgs<ExtArgs>>): Prisma__BreastCancerPredictionClient<$Result.GetResult<Prisma.$BreastCancerPredictionPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends AccountCreateArgs>(args: SelectSubset<T, AccountCreateArgs<ExtArgs>>): Prisma__AccountClient<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many BreastCancerPredictions.
-     * @param {BreastCancerPredictionCreateManyArgs} args - Arguments to create many BreastCancerPredictions.
+     * Create many Accounts.
+     * @param {AccountCreateManyArgs} args - Arguments to create many Accounts.
      * @example
-     * // Create many BreastCancerPredictions
-     * const breastCancerPrediction = await prisma.breastCancerPrediction.createMany({
+     * // Create many Accounts
+     * const account = await prisma.account.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends BreastCancerPredictionCreateManyArgs>(args?: SelectSubset<T, BreastCancerPredictionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends AccountCreateManyArgs>(args?: SelectSubset<T, AccountCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many BreastCancerPredictions and returns the data saved in the database.
-     * @param {BreastCancerPredictionCreateManyAndReturnArgs} args - Arguments to create many BreastCancerPredictions.
+     * Create many Accounts and returns the data saved in the database.
+     * @param {AccountCreateManyAndReturnArgs} args - Arguments to create many Accounts.
      * @example
-     * // Create many BreastCancerPredictions
-     * const breastCancerPrediction = await prisma.breastCancerPrediction.createManyAndReturn({
+     * // Create many Accounts
+     * const account = await prisma.account.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many BreastCancerPredictions and only return the `prediction_id`
-     * const breastCancerPredictionWithPrediction_idOnly = await prisma.breastCancerPrediction.createManyAndReturn({
-     *   select: { prediction_id: true },
+     * // Create many Accounts and only return the `id`
+     * const accountWithIdOnly = await prisma.account.createManyAndReturn({
+     *   select: { id: true },
      *   data: [
      *     // ... provide data here
      *   ]
@@ -5512,28 +3852,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends BreastCancerPredictionCreateManyAndReturnArgs>(args?: SelectSubset<T, BreastCancerPredictionCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BreastCancerPredictionPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends AccountCreateManyAndReturnArgs>(args?: SelectSubset<T, AccountCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a BreastCancerPrediction.
-     * @param {BreastCancerPredictionDeleteArgs} args - Arguments to delete one BreastCancerPrediction.
+     * Delete a Account.
+     * @param {AccountDeleteArgs} args - Arguments to delete one Account.
      * @example
-     * // Delete one BreastCancerPrediction
-     * const BreastCancerPrediction = await prisma.breastCancerPrediction.delete({
+     * // Delete one Account
+     * const Account = await prisma.account.delete({
      *   where: {
-     *     // ... filter to delete one BreastCancerPrediction
+     *     // ... filter to delete one Account
      *   }
      * })
      * 
      */
-    delete<T extends BreastCancerPredictionDeleteArgs>(args: SelectSubset<T, BreastCancerPredictionDeleteArgs<ExtArgs>>): Prisma__BreastCancerPredictionClient<$Result.GetResult<Prisma.$BreastCancerPredictionPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends AccountDeleteArgs>(args: SelectSubset<T, AccountDeleteArgs<ExtArgs>>): Prisma__AccountClient<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one BreastCancerPrediction.
-     * @param {BreastCancerPredictionUpdateArgs} args - Arguments to update one BreastCancerPrediction.
+     * Update one Account.
+     * @param {AccountUpdateArgs} args - Arguments to update one Account.
      * @example
-     * // Update one BreastCancerPrediction
-     * const breastCancerPrediction = await prisma.breastCancerPrediction.update({
+     * // Update one Account
+     * const account = await prisma.account.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -5543,30 +3883,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends BreastCancerPredictionUpdateArgs>(args: SelectSubset<T, BreastCancerPredictionUpdateArgs<ExtArgs>>): Prisma__BreastCancerPredictionClient<$Result.GetResult<Prisma.$BreastCancerPredictionPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends AccountUpdateArgs>(args: SelectSubset<T, AccountUpdateArgs<ExtArgs>>): Prisma__AccountClient<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more BreastCancerPredictions.
-     * @param {BreastCancerPredictionDeleteManyArgs} args - Arguments to filter BreastCancerPredictions to delete.
+     * Delete zero or more Accounts.
+     * @param {AccountDeleteManyArgs} args - Arguments to filter Accounts to delete.
      * @example
-     * // Delete a few BreastCancerPredictions
-     * const { count } = await prisma.breastCancerPrediction.deleteMany({
+     * // Delete a few Accounts
+     * const { count } = await prisma.account.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends BreastCancerPredictionDeleteManyArgs>(args?: SelectSubset<T, BreastCancerPredictionDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends AccountDeleteManyArgs>(args?: SelectSubset<T, AccountDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more BreastCancerPredictions.
+     * Update zero or more Accounts.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {BreastCancerPredictionUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {AccountUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many BreastCancerPredictions
-     * const breastCancerPrediction = await prisma.breastCancerPrediction.updateMany({
+     * // Update many Accounts
+     * const account = await prisma.account.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -5576,14 +3916,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends BreastCancerPredictionUpdateManyArgs>(args: SelectSubset<T, BreastCancerPredictionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends AccountUpdateManyArgs>(args: SelectSubset<T, AccountUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more BreastCancerPredictions and returns the data updated in the database.
-     * @param {BreastCancerPredictionUpdateManyAndReturnArgs} args - Arguments to update many BreastCancerPredictions.
+     * Update zero or more Accounts and returns the data updated in the database.
+     * @param {AccountUpdateManyAndReturnArgs} args - Arguments to update many Accounts.
      * @example
-     * // Update many BreastCancerPredictions
-     * const breastCancerPrediction = await prisma.breastCancerPrediction.updateManyAndReturn({
+     * // Update many Accounts
+     * const account = await prisma.account.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -5592,9 +3932,9 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more BreastCancerPredictions and only return the `prediction_id`
-     * const breastCancerPredictionWithPrediction_idOnly = await prisma.breastCancerPrediction.updateManyAndReturn({
-     *   select: { prediction_id: true },
+     * // Update zero or more Accounts and only return the `id`
+     * const accountWithIdOnly = await prisma.account.updateManyAndReturn({
+     *   select: { id: true },
      *   where: {
      *     // ... provide filter here
      *   },
@@ -5606,56 +3946,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends BreastCancerPredictionUpdateManyAndReturnArgs>(args: SelectSubset<T, BreastCancerPredictionUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BreastCancerPredictionPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends AccountUpdateManyAndReturnArgs>(args: SelectSubset<T, AccountUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one BreastCancerPrediction.
-     * @param {BreastCancerPredictionUpsertArgs} args - Arguments to update or create a BreastCancerPrediction.
+     * Create or update one Account.
+     * @param {AccountUpsertArgs} args - Arguments to update or create a Account.
      * @example
-     * // Update or create a BreastCancerPrediction
-     * const breastCancerPrediction = await prisma.breastCancerPrediction.upsert({
+     * // Update or create a Account
+     * const account = await prisma.account.upsert({
      *   create: {
-     *     // ... data to create a BreastCancerPrediction
+     *     // ... data to create a Account
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the BreastCancerPrediction we want to update
+     *     // ... the filter for the Account we want to update
      *   }
      * })
      */
-    upsert<T extends BreastCancerPredictionUpsertArgs>(args: SelectSubset<T, BreastCancerPredictionUpsertArgs<ExtArgs>>): Prisma__BreastCancerPredictionClient<$Result.GetResult<Prisma.$BreastCancerPredictionPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends AccountUpsertArgs>(args: SelectSubset<T, AccountUpsertArgs<ExtArgs>>): Prisma__AccountClient<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of BreastCancerPredictions.
+     * Count the number of Accounts.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {BreastCancerPredictionCountArgs} args - Arguments to filter BreastCancerPredictions to count.
+     * @param {AccountCountArgs} args - Arguments to filter Accounts to count.
      * @example
-     * // Count the number of BreastCancerPredictions
-     * const count = await prisma.breastCancerPrediction.count({
+     * // Count the number of Accounts
+     * const count = await prisma.account.count({
      *   where: {
-     *     // ... the filter for the BreastCancerPredictions we want to count
+     *     // ... the filter for the Accounts we want to count
      *   }
      * })
     **/
-    count<T extends BreastCancerPredictionCountArgs>(
-      args?: Subset<T, BreastCancerPredictionCountArgs>,
+    count<T extends AccountCountArgs>(
+      args?: Subset<T, AccountCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], BreastCancerPredictionCountAggregateOutputType>
+          : GetScalarType<T['select'], AccountCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a BreastCancerPrediction.
+     * Allows you to perform aggregations operations on a Account.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {BreastCancerPredictionAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {AccountAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -5675,13 +4015,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends BreastCancerPredictionAggregateArgs>(args: Subset<T, BreastCancerPredictionAggregateArgs>): Prisma.PrismaPromise<GetBreastCancerPredictionAggregateType<T>>
+    aggregate<T extends AccountAggregateArgs>(args: Subset<T, AccountAggregateArgs>): Prisma.PrismaPromise<GetAccountAggregateType<T>>
 
     /**
-     * Group by BreastCancerPrediction.
+     * Group by Account.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {BreastCancerPredictionGroupByArgs} args - Group by arguments.
+     * @param {AccountGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -5696,14 +4036,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends BreastCancerPredictionGroupByArgs,
+      T extends AccountGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: BreastCancerPredictionGroupByArgs['orderBy'] }
-        : { orderBy?: BreastCancerPredictionGroupByArgs['orderBy'] },
+        ? { orderBy: AccountGroupByArgs['orderBy'] }
+        : { orderBy?: AccountGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -5752,22 +4092,22 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, BreastCancerPredictionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetBreastCancerPredictionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, AccountGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAccountGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the BreastCancerPrediction model
+   * Fields of the Account model
    */
-  readonly fields: BreastCancerPredictionFieldRefs;
+  readonly fields: AccountFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for BreastCancerPrediction.
+   * The delegate class that acts as a "Promise-like" for Account.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__BreastCancerPredictionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__AccountClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    User<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -5794,928 +4134,780 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the BreastCancerPrediction model
+   * Fields of the Account model
    */
-  interface BreastCancerPredictionFieldRefs {
-    readonly prediction_id: FieldRef<"BreastCancerPrediction", 'Int'>
-    readonly user_id: FieldRef<"BreastCancerPrediction", 'String'>
-    readonly radius_mean: FieldRef<"BreastCancerPrediction", 'Float'>
-    readonly texture_mean: FieldRef<"BreastCancerPrediction", 'Float'>
-    readonly perimeter_mean: FieldRef<"BreastCancerPrediction", 'Float'>
-    readonly area_mean: FieldRef<"BreastCancerPrediction", 'Float'>
-    readonly smoothness_mean: FieldRef<"BreastCancerPrediction", 'Float'>
-    readonly result: FieldRef<"BreastCancerPrediction", 'String'>
-    readonly created_at: FieldRef<"BreastCancerPrediction", 'DateTime'>
+  interface AccountFieldRefs {
+    readonly id: FieldRef<"Account", 'String'>
+    readonly accountId: FieldRef<"Account", 'String'>
+    readonly providerId: FieldRef<"Account", 'String'>
+    readonly userId: FieldRef<"Account", 'String'>
+    readonly accessToken: FieldRef<"Account", 'String'>
+    readonly refreshToken: FieldRef<"Account", 'String'>
+    readonly idToken: FieldRef<"Account", 'String'>
+    readonly accessTokenExpiresAt: FieldRef<"Account", 'DateTime'>
+    readonly refreshTokenExpiresAt: FieldRef<"Account", 'DateTime'>
+    readonly scope: FieldRef<"Account", 'String'>
+    readonly password: FieldRef<"Account", 'String'>
+    readonly createdAt: FieldRef<"Account", 'DateTime'>
+    readonly updatedAt: FieldRef<"Account", 'DateTime'>
   }
     
 
   // Custom InputTypes
   /**
-   * BreastCancerPrediction findUnique
+   * Account findUnique
    */
-  export type BreastCancerPredictionFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AccountFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the BreastCancerPrediction
+     * Select specific fields to fetch from the Account
      */
-    select?: BreastCancerPredictionSelect<ExtArgs> | null
+    select?: AccountSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the BreastCancerPrediction
+     * Omit specific fields from the Account
      */
-    omit?: BreastCancerPredictionOmit<ExtArgs> | null
+    omit?: AccountOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: BreastCancerPredictionInclude<ExtArgs> | null
+    include?: AccountInclude<ExtArgs> | null
     /**
-     * Filter, which BreastCancerPrediction to fetch.
+     * Filter, which Account to fetch.
      */
-    where: BreastCancerPredictionWhereUniqueInput
+    where: AccountWhereUniqueInput
   }
 
   /**
-   * BreastCancerPrediction findUniqueOrThrow
+   * Account findUniqueOrThrow
    */
-  export type BreastCancerPredictionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AccountFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the BreastCancerPrediction
+     * Select specific fields to fetch from the Account
      */
-    select?: BreastCancerPredictionSelect<ExtArgs> | null
+    select?: AccountSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the BreastCancerPrediction
+     * Omit specific fields from the Account
      */
-    omit?: BreastCancerPredictionOmit<ExtArgs> | null
+    omit?: AccountOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: BreastCancerPredictionInclude<ExtArgs> | null
+    include?: AccountInclude<ExtArgs> | null
     /**
-     * Filter, which BreastCancerPrediction to fetch.
+     * Filter, which Account to fetch.
      */
-    where: BreastCancerPredictionWhereUniqueInput
+    where: AccountWhereUniqueInput
   }
 
   /**
-   * BreastCancerPrediction findFirst
+   * Account findFirst
    */
-  export type BreastCancerPredictionFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AccountFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the BreastCancerPrediction
+     * Select specific fields to fetch from the Account
      */
-    select?: BreastCancerPredictionSelect<ExtArgs> | null
+    select?: AccountSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the BreastCancerPrediction
+     * Omit specific fields from the Account
      */
-    omit?: BreastCancerPredictionOmit<ExtArgs> | null
+    omit?: AccountOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: BreastCancerPredictionInclude<ExtArgs> | null
+    include?: AccountInclude<ExtArgs> | null
     /**
-     * Filter, which BreastCancerPrediction to fetch.
+     * Filter, which Account to fetch.
      */
-    where?: BreastCancerPredictionWhereInput
+    where?: AccountWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of BreastCancerPredictions to fetch.
+     * Determine the order of Accounts to fetch.
      */
-    orderBy?: BreastCancerPredictionOrderByWithRelationInput | BreastCancerPredictionOrderByWithRelationInput[]
+    orderBy?: AccountOrderByWithRelationInput | AccountOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for BreastCancerPredictions.
+     * Sets the position for searching for Accounts.
      */
-    cursor?: BreastCancerPredictionWhereUniqueInput
+    cursor?: AccountWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` BreastCancerPredictions from the position of the cursor.
+     * Take `±n` Accounts from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` BreastCancerPredictions.
+     * Skip the first `n` Accounts.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of BreastCancerPredictions.
+     * Filter by unique combinations of Accounts.
      */
-    distinct?: BreastCancerPredictionScalarFieldEnum | BreastCancerPredictionScalarFieldEnum[]
+    distinct?: AccountScalarFieldEnum | AccountScalarFieldEnum[]
   }
 
   /**
-   * BreastCancerPrediction findFirstOrThrow
+   * Account findFirstOrThrow
    */
-  export type BreastCancerPredictionFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AccountFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the BreastCancerPrediction
+     * Select specific fields to fetch from the Account
      */
-    select?: BreastCancerPredictionSelect<ExtArgs> | null
+    select?: AccountSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the BreastCancerPrediction
+     * Omit specific fields from the Account
      */
-    omit?: BreastCancerPredictionOmit<ExtArgs> | null
+    omit?: AccountOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: BreastCancerPredictionInclude<ExtArgs> | null
+    include?: AccountInclude<ExtArgs> | null
     /**
-     * Filter, which BreastCancerPrediction to fetch.
+     * Filter, which Account to fetch.
      */
-    where?: BreastCancerPredictionWhereInput
+    where?: AccountWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of BreastCancerPredictions to fetch.
+     * Determine the order of Accounts to fetch.
      */
-    orderBy?: BreastCancerPredictionOrderByWithRelationInput | BreastCancerPredictionOrderByWithRelationInput[]
+    orderBy?: AccountOrderByWithRelationInput | AccountOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for BreastCancerPredictions.
+     * Sets the position for searching for Accounts.
      */
-    cursor?: BreastCancerPredictionWhereUniqueInput
+    cursor?: AccountWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` BreastCancerPredictions from the position of the cursor.
+     * Take `±n` Accounts from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` BreastCancerPredictions.
+     * Skip the first `n` Accounts.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of BreastCancerPredictions.
+     * Filter by unique combinations of Accounts.
      */
-    distinct?: BreastCancerPredictionScalarFieldEnum | BreastCancerPredictionScalarFieldEnum[]
+    distinct?: AccountScalarFieldEnum | AccountScalarFieldEnum[]
   }
 
   /**
-   * BreastCancerPrediction findMany
+   * Account findMany
    */
-  export type BreastCancerPredictionFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AccountFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the BreastCancerPrediction
+     * Select specific fields to fetch from the Account
      */
-    select?: BreastCancerPredictionSelect<ExtArgs> | null
+    select?: AccountSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the BreastCancerPrediction
+     * Omit specific fields from the Account
      */
-    omit?: BreastCancerPredictionOmit<ExtArgs> | null
+    omit?: AccountOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: BreastCancerPredictionInclude<ExtArgs> | null
+    include?: AccountInclude<ExtArgs> | null
     /**
-     * Filter, which BreastCancerPredictions to fetch.
+     * Filter, which Accounts to fetch.
      */
-    where?: BreastCancerPredictionWhereInput
+    where?: AccountWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of BreastCancerPredictions to fetch.
+     * Determine the order of Accounts to fetch.
      */
-    orderBy?: BreastCancerPredictionOrderByWithRelationInput | BreastCancerPredictionOrderByWithRelationInput[]
+    orderBy?: AccountOrderByWithRelationInput | AccountOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing BreastCancerPredictions.
+     * Sets the position for listing Accounts.
      */
-    cursor?: BreastCancerPredictionWhereUniqueInput
+    cursor?: AccountWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` BreastCancerPredictions from the position of the cursor.
+     * Take `±n` Accounts from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` BreastCancerPredictions.
+     * Skip the first `n` Accounts.
      */
     skip?: number
-    distinct?: BreastCancerPredictionScalarFieldEnum | BreastCancerPredictionScalarFieldEnum[]
+    distinct?: AccountScalarFieldEnum | AccountScalarFieldEnum[]
   }
 
   /**
-   * BreastCancerPrediction create
+   * Account create
    */
-  export type BreastCancerPredictionCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AccountCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the BreastCancerPrediction
+     * Select specific fields to fetch from the Account
      */
-    select?: BreastCancerPredictionSelect<ExtArgs> | null
+    select?: AccountSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the BreastCancerPrediction
+     * Omit specific fields from the Account
      */
-    omit?: BreastCancerPredictionOmit<ExtArgs> | null
+    omit?: AccountOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: BreastCancerPredictionInclude<ExtArgs> | null
+    include?: AccountInclude<ExtArgs> | null
     /**
-     * The data needed to create a BreastCancerPrediction.
+     * The data needed to create a Account.
      */
-    data: XOR<BreastCancerPredictionCreateInput, BreastCancerPredictionUncheckedCreateInput>
+    data: XOR<AccountCreateInput, AccountUncheckedCreateInput>
   }
 
   /**
-   * BreastCancerPrediction createMany
+   * Account createMany
    */
-  export type BreastCancerPredictionCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AccountCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many BreastCancerPredictions.
+     * The data used to create many Accounts.
      */
-    data: BreastCancerPredictionCreateManyInput | BreastCancerPredictionCreateManyInput[]
+    data: AccountCreateManyInput | AccountCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * BreastCancerPrediction createManyAndReturn
+   * Account createManyAndReturn
    */
-  export type BreastCancerPredictionCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AccountCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the BreastCancerPrediction
+     * Select specific fields to fetch from the Account
      */
-    select?: BreastCancerPredictionSelectCreateManyAndReturn<ExtArgs> | null
+    select?: AccountSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the BreastCancerPrediction
+     * Omit specific fields from the Account
      */
-    omit?: BreastCancerPredictionOmit<ExtArgs> | null
+    omit?: AccountOmit<ExtArgs> | null
     /**
-     * The data used to create many BreastCancerPredictions.
+     * The data used to create many Accounts.
      */
-    data: BreastCancerPredictionCreateManyInput | BreastCancerPredictionCreateManyInput[]
+    data: AccountCreateManyInput | AccountCreateManyInput[]
     skipDuplicates?: boolean
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: BreastCancerPredictionIncludeCreateManyAndReturn<ExtArgs> | null
+    include?: AccountIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * BreastCancerPrediction update
+   * Account update
    */
-  export type BreastCancerPredictionUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AccountUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the BreastCancerPrediction
+     * Select specific fields to fetch from the Account
      */
-    select?: BreastCancerPredictionSelect<ExtArgs> | null
+    select?: AccountSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the BreastCancerPrediction
+     * Omit specific fields from the Account
      */
-    omit?: BreastCancerPredictionOmit<ExtArgs> | null
+    omit?: AccountOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: BreastCancerPredictionInclude<ExtArgs> | null
+    include?: AccountInclude<ExtArgs> | null
     /**
-     * The data needed to update a BreastCancerPrediction.
+     * The data needed to update a Account.
      */
-    data: XOR<BreastCancerPredictionUpdateInput, BreastCancerPredictionUncheckedUpdateInput>
+    data: XOR<AccountUpdateInput, AccountUncheckedUpdateInput>
     /**
-     * Choose, which BreastCancerPrediction to update.
+     * Choose, which Account to update.
      */
-    where: BreastCancerPredictionWhereUniqueInput
+    where: AccountWhereUniqueInput
   }
 
   /**
-   * BreastCancerPrediction updateMany
+   * Account updateMany
    */
-  export type BreastCancerPredictionUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AccountUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update BreastCancerPredictions.
+     * The data used to update Accounts.
      */
-    data: XOR<BreastCancerPredictionUpdateManyMutationInput, BreastCancerPredictionUncheckedUpdateManyInput>
+    data: XOR<AccountUpdateManyMutationInput, AccountUncheckedUpdateManyInput>
     /**
-     * Filter which BreastCancerPredictions to update
+     * Filter which Accounts to update
      */
-    where?: BreastCancerPredictionWhereInput
+    where?: AccountWhereInput
     /**
-     * Limit how many BreastCancerPredictions to update.
+     * Limit how many Accounts to update.
      */
     limit?: number
   }
 
   /**
-   * BreastCancerPrediction updateManyAndReturn
+   * Account updateManyAndReturn
    */
-  export type BreastCancerPredictionUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AccountUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the BreastCancerPrediction
+     * Select specific fields to fetch from the Account
      */
-    select?: BreastCancerPredictionSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: AccountSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the BreastCancerPrediction
+     * Omit specific fields from the Account
      */
-    omit?: BreastCancerPredictionOmit<ExtArgs> | null
+    omit?: AccountOmit<ExtArgs> | null
     /**
-     * The data used to update BreastCancerPredictions.
+     * The data used to update Accounts.
      */
-    data: XOR<BreastCancerPredictionUpdateManyMutationInput, BreastCancerPredictionUncheckedUpdateManyInput>
+    data: XOR<AccountUpdateManyMutationInput, AccountUncheckedUpdateManyInput>
     /**
-     * Filter which BreastCancerPredictions to update
+     * Filter which Accounts to update
      */
-    where?: BreastCancerPredictionWhereInput
+    where?: AccountWhereInput
     /**
-     * Limit how many BreastCancerPredictions to update.
+     * Limit how many Accounts to update.
      */
     limit?: number
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: BreastCancerPredictionIncludeUpdateManyAndReturn<ExtArgs> | null
+    include?: AccountIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * BreastCancerPrediction upsert
+   * Account upsert
    */
-  export type BreastCancerPredictionUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AccountUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the BreastCancerPrediction
+     * Select specific fields to fetch from the Account
      */
-    select?: BreastCancerPredictionSelect<ExtArgs> | null
+    select?: AccountSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the BreastCancerPrediction
+     * Omit specific fields from the Account
      */
-    omit?: BreastCancerPredictionOmit<ExtArgs> | null
+    omit?: AccountOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: BreastCancerPredictionInclude<ExtArgs> | null
+    include?: AccountInclude<ExtArgs> | null
     /**
-     * The filter to search for the BreastCancerPrediction to update in case it exists.
+     * The filter to search for the Account to update in case it exists.
      */
-    where: BreastCancerPredictionWhereUniqueInput
+    where: AccountWhereUniqueInput
     /**
-     * In case the BreastCancerPrediction found by the `where` argument doesn't exist, create a new BreastCancerPrediction with this data.
+     * In case the Account found by the `where` argument doesn't exist, create a new Account with this data.
      */
-    create: XOR<BreastCancerPredictionCreateInput, BreastCancerPredictionUncheckedCreateInput>
+    create: XOR<AccountCreateInput, AccountUncheckedCreateInput>
     /**
-     * In case the BreastCancerPrediction was found with the provided `where` argument, update it with this data.
+     * In case the Account was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<BreastCancerPredictionUpdateInput, BreastCancerPredictionUncheckedUpdateInput>
+    update: XOR<AccountUpdateInput, AccountUncheckedUpdateInput>
   }
 
   /**
-   * BreastCancerPrediction delete
+   * Account delete
    */
-  export type BreastCancerPredictionDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AccountDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the BreastCancerPrediction
+     * Select specific fields to fetch from the Account
      */
-    select?: BreastCancerPredictionSelect<ExtArgs> | null
+    select?: AccountSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the BreastCancerPrediction
+     * Omit specific fields from the Account
      */
-    omit?: BreastCancerPredictionOmit<ExtArgs> | null
+    omit?: AccountOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: BreastCancerPredictionInclude<ExtArgs> | null
+    include?: AccountInclude<ExtArgs> | null
     /**
-     * Filter which BreastCancerPrediction to delete.
+     * Filter which Account to delete.
      */
-    where: BreastCancerPredictionWhereUniqueInput
+    where: AccountWhereUniqueInput
   }
 
   /**
-   * BreastCancerPrediction deleteMany
+   * Account deleteMany
    */
-  export type BreastCancerPredictionDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AccountDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which BreastCancerPredictions to delete
+     * Filter which Accounts to delete
      */
-    where?: BreastCancerPredictionWhereInput
+    where?: AccountWhereInput
     /**
-     * Limit how many BreastCancerPredictions to delete.
+     * Limit how many Accounts to delete.
      */
     limit?: number
   }
 
   /**
-   * BreastCancerPrediction without action
+   * Account without action
    */
-  export type BreastCancerPredictionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AccountDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the BreastCancerPrediction
+     * Select specific fields to fetch from the Account
      */
-    select?: BreastCancerPredictionSelect<ExtArgs> | null
+    select?: AccountSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the BreastCancerPrediction
+     * Omit specific fields from the Account
      */
-    omit?: BreastCancerPredictionOmit<ExtArgs> | null
+    omit?: AccountOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: BreastCancerPredictionInclude<ExtArgs> | null
+    include?: AccountInclude<ExtArgs> | null
   }
 
 
   /**
-   * Model DiabetesPrediction
+   * Model Verification
    */
 
-  export type AggregateDiabetesPrediction = {
-    _count: DiabetesPredictionCountAggregateOutputType | null
-    _avg: DiabetesPredictionAvgAggregateOutputType | null
-    _sum: DiabetesPredictionSumAggregateOutputType | null
-    _min: DiabetesPredictionMinAggregateOutputType | null
-    _max: DiabetesPredictionMaxAggregateOutputType | null
+  export type AggregateVerification = {
+    _count: VerificationCountAggregateOutputType | null
+    _min: VerificationMinAggregateOutputType | null
+    _max: VerificationMaxAggregateOutputType | null
   }
 
-  export type DiabetesPredictionAvgAggregateOutputType = {
-    prediction_id: number | null
-    pregnancies: number | null
-    glucose: number | null
-    blood_pressure: number | null
-    skin_thickness: number | null
-    insulin: number | null
-    bmi: number | null
-    diabetes_pedigree_function: number | null
-    age: number | null
+  export type VerificationMinAggregateOutputType = {
+    id: string | null
+    identifier: string | null
+    value: string | null
+    expiresAt: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
-  export type DiabetesPredictionSumAggregateOutputType = {
-    prediction_id: number | null
-    pregnancies: number | null
-    glucose: number | null
-    blood_pressure: number | null
-    skin_thickness: number | null
-    insulin: number | null
-    bmi: number | null
-    diabetes_pedigree_function: number | null
-    age: number | null
+  export type VerificationMaxAggregateOutputType = {
+    id: string | null
+    identifier: string | null
+    value: string | null
+    expiresAt: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
-  export type DiabetesPredictionMinAggregateOutputType = {
-    prediction_id: number | null
-    user_id: string | null
-    pregnancies: number | null
-    glucose: number | null
-    blood_pressure: number | null
-    skin_thickness: number | null
-    insulin: number | null
-    bmi: number | null
-    diabetes_pedigree_function: number | null
-    age: number | null
-    result: string | null
-    created_at: Date | null
-  }
-
-  export type DiabetesPredictionMaxAggregateOutputType = {
-    prediction_id: number | null
-    user_id: string | null
-    pregnancies: number | null
-    glucose: number | null
-    blood_pressure: number | null
-    skin_thickness: number | null
-    insulin: number | null
-    bmi: number | null
-    diabetes_pedigree_function: number | null
-    age: number | null
-    result: string | null
-    created_at: Date | null
-  }
-
-  export type DiabetesPredictionCountAggregateOutputType = {
-    prediction_id: number
-    user_id: number
-    pregnancies: number
-    glucose: number
-    blood_pressure: number
-    skin_thickness: number
-    insulin: number
-    bmi: number
-    diabetes_pedigree_function: number
-    age: number
-    result: number
-    created_at: number
+  export type VerificationCountAggregateOutputType = {
+    id: number
+    identifier: number
+    value: number
+    expiresAt: number
+    createdAt: number
+    updatedAt: number
     _all: number
   }
 
 
-  export type DiabetesPredictionAvgAggregateInputType = {
-    prediction_id?: true
-    pregnancies?: true
-    glucose?: true
-    blood_pressure?: true
-    skin_thickness?: true
-    insulin?: true
-    bmi?: true
-    diabetes_pedigree_function?: true
-    age?: true
+  export type VerificationMinAggregateInputType = {
+    id?: true
+    identifier?: true
+    value?: true
+    expiresAt?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
-  export type DiabetesPredictionSumAggregateInputType = {
-    prediction_id?: true
-    pregnancies?: true
-    glucose?: true
-    blood_pressure?: true
-    skin_thickness?: true
-    insulin?: true
-    bmi?: true
-    diabetes_pedigree_function?: true
-    age?: true
+  export type VerificationMaxAggregateInputType = {
+    id?: true
+    identifier?: true
+    value?: true
+    expiresAt?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
-  export type DiabetesPredictionMinAggregateInputType = {
-    prediction_id?: true
-    user_id?: true
-    pregnancies?: true
-    glucose?: true
-    blood_pressure?: true
-    skin_thickness?: true
-    insulin?: true
-    bmi?: true
-    diabetes_pedigree_function?: true
-    age?: true
-    result?: true
-    created_at?: true
-  }
-
-  export type DiabetesPredictionMaxAggregateInputType = {
-    prediction_id?: true
-    user_id?: true
-    pregnancies?: true
-    glucose?: true
-    blood_pressure?: true
-    skin_thickness?: true
-    insulin?: true
-    bmi?: true
-    diabetes_pedigree_function?: true
-    age?: true
-    result?: true
-    created_at?: true
-  }
-
-  export type DiabetesPredictionCountAggregateInputType = {
-    prediction_id?: true
-    user_id?: true
-    pregnancies?: true
-    glucose?: true
-    blood_pressure?: true
-    skin_thickness?: true
-    insulin?: true
-    bmi?: true
-    diabetes_pedigree_function?: true
-    age?: true
-    result?: true
-    created_at?: true
+  export type VerificationCountAggregateInputType = {
+    id?: true
+    identifier?: true
+    value?: true
+    expiresAt?: true
+    createdAt?: true
+    updatedAt?: true
     _all?: true
   }
 
-  export type DiabetesPredictionAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type VerificationAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which DiabetesPrediction to aggregate.
+     * Filter which Verification to aggregate.
      */
-    where?: DiabetesPredictionWhereInput
+    where?: VerificationWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of DiabetesPredictions to fetch.
+     * Determine the order of Verifications to fetch.
      */
-    orderBy?: DiabetesPredictionOrderByWithRelationInput | DiabetesPredictionOrderByWithRelationInput[]
+    orderBy?: VerificationOrderByWithRelationInput | VerificationOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: DiabetesPredictionWhereUniqueInput
+    cursor?: VerificationWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` DiabetesPredictions from the position of the cursor.
+     * Take `±n` Verifications from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` DiabetesPredictions.
+     * Skip the first `n` Verifications.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned DiabetesPredictions
+     * Count returned Verifications
     **/
-    _count?: true | DiabetesPredictionCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to average
-    **/
-    _avg?: DiabetesPredictionAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: DiabetesPredictionSumAggregateInputType
+    _count?: true | VerificationCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: DiabetesPredictionMinAggregateInputType
+    _min?: VerificationMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: DiabetesPredictionMaxAggregateInputType
+    _max?: VerificationMaxAggregateInputType
   }
 
-  export type GetDiabetesPredictionAggregateType<T extends DiabetesPredictionAggregateArgs> = {
-        [P in keyof T & keyof AggregateDiabetesPrediction]: P extends '_count' | 'count'
+  export type GetVerificationAggregateType<T extends VerificationAggregateArgs> = {
+        [P in keyof T & keyof AggregateVerification]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateDiabetesPrediction[P]>
-      : GetScalarType<T[P], AggregateDiabetesPrediction[P]>
+        : GetScalarType<T[P], AggregateVerification[P]>
+      : GetScalarType<T[P], AggregateVerification[P]>
   }
 
 
 
 
-  export type DiabetesPredictionGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: DiabetesPredictionWhereInput
-    orderBy?: DiabetesPredictionOrderByWithAggregationInput | DiabetesPredictionOrderByWithAggregationInput[]
-    by: DiabetesPredictionScalarFieldEnum[] | DiabetesPredictionScalarFieldEnum
-    having?: DiabetesPredictionScalarWhereWithAggregatesInput
+  export type VerificationGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: VerificationWhereInput
+    orderBy?: VerificationOrderByWithAggregationInput | VerificationOrderByWithAggregationInput[]
+    by: VerificationScalarFieldEnum[] | VerificationScalarFieldEnum
+    having?: VerificationScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: DiabetesPredictionCountAggregateInputType | true
-    _avg?: DiabetesPredictionAvgAggregateInputType
-    _sum?: DiabetesPredictionSumAggregateInputType
-    _min?: DiabetesPredictionMinAggregateInputType
-    _max?: DiabetesPredictionMaxAggregateInputType
+    _count?: VerificationCountAggregateInputType | true
+    _min?: VerificationMinAggregateInputType
+    _max?: VerificationMaxAggregateInputType
   }
 
-  export type DiabetesPredictionGroupByOutputType = {
-    prediction_id: number
-    user_id: string
-    pregnancies: number
-    glucose: number
-    blood_pressure: number
-    skin_thickness: number
-    insulin: number
-    bmi: number
-    diabetes_pedigree_function: number
-    age: number
-    result: string
-    created_at: Date
-    _count: DiabetesPredictionCountAggregateOutputType | null
-    _avg: DiabetesPredictionAvgAggregateOutputType | null
-    _sum: DiabetesPredictionSumAggregateOutputType | null
-    _min: DiabetesPredictionMinAggregateOutputType | null
-    _max: DiabetesPredictionMaxAggregateOutputType | null
+  export type VerificationGroupByOutputType = {
+    id: string
+    identifier: string
+    value: string
+    expiresAt: Date
+    createdAt: Date | null
+    updatedAt: Date | null
+    _count: VerificationCountAggregateOutputType | null
+    _min: VerificationMinAggregateOutputType | null
+    _max: VerificationMaxAggregateOutputType | null
   }
 
-  type GetDiabetesPredictionGroupByPayload<T extends DiabetesPredictionGroupByArgs> = Prisma.PrismaPromise<
+  type GetVerificationGroupByPayload<T extends VerificationGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<DiabetesPredictionGroupByOutputType, T['by']> &
+      PickEnumerable<VerificationGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof DiabetesPredictionGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof VerificationGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], DiabetesPredictionGroupByOutputType[P]>
-            : GetScalarType<T[P], DiabetesPredictionGroupByOutputType[P]>
+              : GetScalarType<T[P], VerificationGroupByOutputType[P]>
+            : GetScalarType<T[P], VerificationGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type DiabetesPredictionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    prediction_id?: boolean
-    user_id?: boolean
-    pregnancies?: boolean
-    glucose?: boolean
-    blood_pressure?: boolean
-    skin_thickness?: boolean
-    insulin?: boolean
-    bmi?: boolean
-    diabetes_pedigree_function?: boolean
-    age?: boolean
-    result?: boolean
-    created_at?: boolean
-    User?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["diabetesPrediction"]>
+  export type VerificationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    identifier?: boolean
+    value?: boolean
+    expiresAt?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["verification"]>
 
-  export type DiabetesPredictionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    prediction_id?: boolean
-    user_id?: boolean
-    pregnancies?: boolean
-    glucose?: boolean
-    blood_pressure?: boolean
-    skin_thickness?: boolean
-    insulin?: boolean
-    bmi?: boolean
-    diabetes_pedigree_function?: boolean
-    age?: boolean
-    result?: boolean
-    created_at?: boolean
-    User?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["diabetesPrediction"]>
+  export type VerificationSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    identifier?: boolean
+    value?: boolean
+    expiresAt?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["verification"]>
 
-  export type DiabetesPredictionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    prediction_id?: boolean
-    user_id?: boolean
-    pregnancies?: boolean
-    glucose?: boolean
-    blood_pressure?: boolean
-    skin_thickness?: boolean
-    insulin?: boolean
-    bmi?: boolean
-    diabetes_pedigree_function?: boolean
-    age?: boolean
-    result?: boolean
-    created_at?: boolean
-    User?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["diabetesPrediction"]>
+  export type VerificationSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    identifier?: boolean
+    value?: boolean
+    expiresAt?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["verification"]>
 
-  export type DiabetesPredictionSelectScalar = {
-    prediction_id?: boolean
-    user_id?: boolean
-    pregnancies?: boolean
-    glucose?: boolean
-    blood_pressure?: boolean
-    skin_thickness?: boolean
-    insulin?: boolean
-    bmi?: boolean
-    diabetes_pedigree_function?: boolean
-    age?: boolean
-    result?: boolean
-    created_at?: boolean
+  export type VerificationSelectScalar = {
+    id?: boolean
+    identifier?: boolean
+    value?: boolean
+    expiresAt?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }
 
-  export type DiabetesPredictionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"prediction_id" | "user_id" | "pregnancies" | "glucose" | "blood_pressure" | "skin_thickness" | "insulin" | "bmi" | "diabetes_pedigree_function" | "age" | "result" | "created_at", ExtArgs["result"]["diabetesPrediction"]>
-  export type DiabetesPredictionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    User?: boolean | UserDefaultArgs<ExtArgs>
-  }
-  export type DiabetesPredictionIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    User?: boolean | UserDefaultArgs<ExtArgs>
-  }
-  export type DiabetesPredictionIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    User?: boolean | UserDefaultArgs<ExtArgs>
-  }
+  export type VerificationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "identifier" | "value" | "expiresAt" | "createdAt" | "updatedAt", ExtArgs["result"]["verification"]>
 
-  export type $DiabetesPredictionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "DiabetesPrediction"
-    objects: {
-      User: Prisma.$UserPayload<ExtArgs>
-    }
+  export type $VerificationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Verification"
+    objects: {}
     scalars: $Extensions.GetPayloadResult<{
-      prediction_id: number
-      user_id: string
-      pregnancies: number
-      glucose: number
-      blood_pressure: number
-      skin_thickness: number
-      insulin: number
-      bmi: number
-      diabetes_pedigree_function: number
-      age: number
-      result: string
-      created_at: Date
-    }, ExtArgs["result"]["diabetesPrediction"]>
+      id: string
+      identifier: string
+      value: string
+      expiresAt: Date
+      createdAt: Date | null
+      updatedAt: Date | null
+    }, ExtArgs["result"]["verification"]>
     composites: {}
   }
 
-  type DiabetesPredictionGetPayload<S extends boolean | null | undefined | DiabetesPredictionDefaultArgs> = $Result.GetResult<Prisma.$DiabetesPredictionPayload, S>
+  type VerificationGetPayload<S extends boolean | null | undefined | VerificationDefaultArgs> = $Result.GetResult<Prisma.$VerificationPayload, S>
 
-  type DiabetesPredictionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<DiabetesPredictionFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: DiabetesPredictionCountAggregateInputType | true
+  type VerificationCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<VerificationFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: VerificationCountAggregateInputType | true
     }
 
-  export interface DiabetesPredictionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['DiabetesPrediction'], meta: { name: 'DiabetesPrediction' } }
+  export interface VerificationDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Verification'], meta: { name: 'Verification' } }
     /**
-     * Find zero or one DiabetesPrediction that matches the filter.
-     * @param {DiabetesPredictionFindUniqueArgs} args - Arguments to find a DiabetesPrediction
+     * Find zero or one Verification that matches the filter.
+     * @param {VerificationFindUniqueArgs} args - Arguments to find a Verification
      * @example
-     * // Get one DiabetesPrediction
-     * const diabetesPrediction = await prisma.diabetesPrediction.findUnique({
+     * // Get one Verification
+     * const verification = await prisma.verification.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends DiabetesPredictionFindUniqueArgs>(args: SelectSubset<T, DiabetesPredictionFindUniqueArgs<ExtArgs>>): Prisma__DiabetesPredictionClient<$Result.GetResult<Prisma.$DiabetesPredictionPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends VerificationFindUniqueArgs>(args: SelectSubset<T, VerificationFindUniqueArgs<ExtArgs>>): Prisma__VerificationClient<$Result.GetResult<Prisma.$VerificationPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one DiabetesPrediction that matches the filter or throw an error with `error.code='P2025'`
+     * Find one Verification that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {DiabetesPredictionFindUniqueOrThrowArgs} args - Arguments to find a DiabetesPrediction
+     * @param {VerificationFindUniqueOrThrowArgs} args - Arguments to find a Verification
      * @example
-     * // Get one DiabetesPrediction
-     * const diabetesPrediction = await prisma.diabetesPrediction.findUniqueOrThrow({
+     * // Get one Verification
+     * const verification = await prisma.verification.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends DiabetesPredictionFindUniqueOrThrowArgs>(args: SelectSubset<T, DiabetesPredictionFindUniqueOrThrowArgs<ExtArgs>>): Prisma__DiabetesPredictionClient<$Result.GetResult<Prisma.$DiabetesPredictionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends VerificationFindUniqueOrThrowArgs>(args: SelectSubset<T, VerificationFindUniqueOrThrowArgs<ExtArgs>>): Prisma__VerificationClient<$Result.GetResult<Prisma.$VerificationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first DiabetesPrediction that matches the filter.
+     * Find the first Verification that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {DiabetesPredictionFindFirstArgs} args - Arguments to find a DiabetesPrediction
+     * @param {VerificationFindFirstArgs} args - Arguments to find a Verification
      * @example
-     * // Get one DiabetesPrediction
-     * const diabetesPrediction = await prisma.diabetesPrediction.findFirst({
+     * // Get one Verification
+     * const verification = await prisma.verification.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends DiabetesPredictionFindFirstArgs>(args?: SelectSubset<T, DiabetesPredictionFindFirstArgs<ExtArgs>>): Prisma__DiabetesPredictionClient<$Result.GetResult<Prisma.$DiabetesPredictionPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends VerificationFindFirstArgs>(args?: SelectSubset<T, VerificationFindFirstArgs<ExtArgs>>): Prisma__VerificationClient<$Result.GetResult<Prisma.$VerificationPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first DiabetesPrediction that matches the filter or
+     * Find the first Verification that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {DiabetesPredictionFindFirstOrThrowArgs} args - Arguments to find a DiabetesPrediction
+     * @param {VerificationFindFirstOrThrowArgs} args - Arguments to find a Verification
      * @example
-     * // Get one DiabetesPrediction
-     * const diabetesPrediction = await prisma.diabetesPrediction.findFirstOrThrow({
+     * // Get one Verification
+     * const verification = await prisma.verification.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends DiabetesPredictionFindFirstOrThrowArgs>(args?: SelectSubset<T, DiabetesPredictionFindFirstOrThrowArgs<ExtArgs>>): Prisma__DiabetesPredictionClient<$Result.GetResult<Prisma.$DiabetesPredictionPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends VerificationFindFirstOrThrowArgs>(args?: SelectSubset<T, VerificationFindFirstOrThrowArgs<ExtArgs>>): Prisma__VerificationClient<$Result.GetResult<Prisma.$VerificationPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more DiabetesPredictions that matches the filter.
+     * Find zero or more Verifications that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {DiabetesPredictionFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {VerificationFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all DiabetesPredictions
-     * const diabetesPredictions = await prisma.diabetesPrediction.findMany()
+     * // Get all Verifications
+     * const verifications = await prisma.verification.findMany()
      * 
-     * // Get first 10 DiabetesPredictions
-     * const diabetesPredictions = await prisma.diabetesPrediction.findMany({ take: 10 })
+     * // Get first 10 Verifications
+     * const verifications = await prisma.verification.findMany({ take: 10 })
      * 
-     * // Only select the `prediction_id`
-     * const diabetesPredictionWithPrediction_idOnly = await prisma.diabetesPrediction.findMany({ select: { prediction_id: true } })
+     * // Only select the `id`
+     * const verificationWithIdOnly = await prisma.verification.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends DiabetesPredictionFindManyArgs>(args?: SelectSubset<T, DiabetesPredictionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DiabetesPredictionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends VerificationFindManyArgs>(args?: SelectSubset<T, VerificationFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$VerificationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a DiabetesPrediction.
-     * @param {DiabetesPredictionCreateArgs} args - Arguments to create a DiabetesPrediction.
+     * Create a Verification.
+     * @param {VerificationCreateArgs} args - Arguments to create a Verification.
      * @example
-     * // Create one DiabetesPrediction
-     * const DiabetesPrediction = await prisma.diabetesPrediction.create({
+     * // Create one Verification
+     * const Verification = await prisma.verification.create({
      *   data: {
-     *     // ... data to create a DiabetesPrediction
+     *     // ... data to create a Verification
      *   }
      * })
      * 
      */
-    create<T extends DiabetesPredictionCreateArgs>(args: SelectSubset<T, DiabetesPredictionCreateArgs<ExtArgs>>): Prisma__DiabetesPredictionClient<$Result.GetResult<Prisma.$DiabetesPredictionPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends VerificationCreateArgs>(args: SelectSubset<T, VerificationCreateArgs<ExtArgs>>): Prisma__VerificationClient<$Result.GetResult<Prisma.$VerificationPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many DiabetesPredictions.
-     * @param {DiabetesPredictionCreateManyArgs} args - Arguments to create many DiabetesPredictions.
+     * Create many Verifications.
+     * @param {VerificationCreateManyArgs} args - Arguments to create many Verifications.
      * @example
-     * // Create many DiabetesPredictions
-     * const diabetesPrediction = await prisma.diabetesPrediction.createMany({
+     * // Create many Verifications
+     * const verification = await prisma.verification.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends DiabetesPredictionCreateManyArgs>(args?: SelectSubset<T, DiabetesPredictionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends VerificationCreateManyArgs>(args?: SelectSubset<T, VerificationCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many DiabetesPredictions and returns the data saved in the database.
-     * @param {DiabetesPredictionCreateManyAndReturnArgs} args - Arguments to create many DiabetesPredictions.
+     * Create many Verifications and returns the data saved in the database.
+     * @param {VerificationCreateManyAndReturnArgs} args - Arguments to create many Verifications.
      * @example
-     * // Create many DiabetesPredictions
-     * const diabetesPrediction = await prisma.diabetesPrediction.createManyAndReturn({
+     * // Create many Verifications
+     * const verification = await prisma.verification.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many DiabetesPredictions and only return the `prediction_id`
-     * const diabetesPredictionWithPrediction_idOnly = await prisma.diabetesPrediction.createManyAndReturn({
-     *   select: { prediction_id: true },
+     * // Create many Verifications and only return the `id`
+     * const verificationWithIdOnly = await prisma.verification.createManyAndReturn({
+     *   select: { id: true },
      *   data: [
      *     // ... provide data here
      *   ]
@@ -6724,28 +4916,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends DiabetesPredictionCreateManyAndReturnArgs>(args?: SelectSubset<T, DiabetesPredictionCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DiabetesPredictionPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends VerificationCreateManyAndReturnArgs>(args?: SelectSubset<T, VerificationCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$VerificationPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a DiabetesPrediction.
-     * @param {DiabetesPredictionDeleteArgs} args - Arguments to delete one DiabetesPrediction.
+     * Delete a Verification.
+     * @param {VerificationDeleteArgs} args - Arguments to delete one Verification.
      * @example
-     * // Delete one DiabetesPrediction
-     * const DiabetesPrediction = await prisma.diabetesPrediction.delete({
+     * // Delete one Verification
+     * const Verification = await prisma.verification.delete({
      *   where: {
-     *     // ... filter to delete one DiabetesPrediction
+     *     // ... filter to delete one Verification
      *   }
      * })
      * 
      */
-    delete<T extends DiabetesPredictionDeleteArgs>(args: SelectSubset<T, DiabetesPredictionDeleteArgs<ExtArgs>>): Prisma__DiabetesPredictionClient<$Result.GetResult<Prisma.$DiabetesPredictionPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends VerificationDeleteArgs>(args: SelectSubset<T, VerificationDeleteArgs<ExtArgs>>): Prisma__VerificationClient<$Result.GetResult<Prisma.$VerificationPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one DiabetesPrediction.
-     * @param {DiabetesPredictionUpdateArgs} args - Arguments to update one DiabetesPrediction.
+     * Update one Verification.
+     * @param {VerificationUpdateArgs} args - Arguments to update one Verification.
      * @example
-     * // Update one DiabetesPrediction
-     * const diabetesPrediction = await prisma.diabetesPrediction.update({
+     * // Update one Verification
+     * const verification = await prisma.verification.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -6755,30 +4947,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends DiabetesPredictionUpdateArgs>(args: SelectSubset<T, DiabetesPredictionUpdateArgs<ExtArgs>>): Prisma__DiabetesPredictionClient<$Result.GetResult<Prisma.$DiabetesPredictionPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends VerificationUpdateArgs>(args: SelectSubset<T, VerificationUpdateArgs<ExtArgs>>): Prisma__VerificationClient<$Result.GetResult<Prisma.$VerificationPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more DiabetesPredictions.
-     * @param {DiabetesPredictionDeleteManyArgs} args - Arguments to filter DiabetesPredictions to delete.
+     * Delete zero or more Verifications.
+     * @param {VerificationDeleteManyArgs} args - Arguments to filter Verifications to delete.
      * @example
-     * // Delete a few DiabetesPredictions
-     * const { count } = await prisma.diabetesPrediction.deleteMany({
+     * // Delete a few Verifications
+     * const { count } = await prisma.verification.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends DiabetesPredictionDeleteManyArgs>(args?: SelectSubset<T, DiabetesPredictionDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends VerificationDeleteManyArgs>(args?: SelectSubset<T, VerificationDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more DiabetesPredictions.
+     * Update zero or more Verifications.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {DiabetesPredictionUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {VerificationUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many DiabetesPredictions
-     * const diabetesPrediction = await prisma.diabetesPrediction.updateMany({
+     * // Update many Verifications
+     * const verification = await prisma.verification.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -6788,14 +4980,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends DiabetesPredictionUpdateManyArgs>(args: SelectSubset<T, DiabetesPredictionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends VerificationUpdateManyArgs>(args: SelectSubset<T, VerificationUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more DiabetesPredictions and returns the data updated in the database.
-     * @param {DiabetesPredictionUpdateManyAndReturnArgs} args - Arguments to update many DiabetesPredictions.
+     * Update zero or more Verifications and returns the data updated in the database.
+     * @param {VerificationUpdateManyAndReturnArgs} args - Arguments to update many Verifications.
      * @example
-     * // Update many DiabetesPredictions
-     * const diabetesPrediction = await prisma.diabetesPrediction.updateManyAndReturn({
+     * // Update many Verifications
+     * const verification = await prisma.verification.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -6804,9 +4996,9 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more DiabetesPredictions and only return the `prediction_id`
-     * const diabetesPredictionWithPrediction_idOnly = await prisma.diabetesPrediction.updateManyAndReturn({
-     *   select: { prediction_id: true },
+     * // Update zero or more Verifications and only return the `id`
+     * const verificationWithIdOnly = await prisma.verification.updateManyAndReturn({
+     *   select: { id: true },
      *   where: {
      *     // ... provide filter here
      *   },
@@ -6818,56 +5010,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends DiabetesPredictionUpdateManyAndReturnArgs>(args: SelectSubset<T, DiabetesPredictionUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DiabetesPredictionPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends VerificationUpdateManyAndReturnArgs>(args: SelectSubset<T, VerificationUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$VerificationPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one DiabetesPrediction.
-     * @param {DiabetesPredictionUpsertArgs} args - Arguments to update or create a DiabetesPrediction.
+     * Create or update one Verification.
+     * @param {VerificationUpsertArgs} args - Arguments to update or create a Verification.
      * @example
-     * // Update or create a DiabetesPrediction
-     * const diabetesPrediction = await prisma.diabetesPrediction.upsert({
+     * // Update or create a Verification
+     * const verification = await prisma.verification.upsert({
      *   create: {
-     *     // ... data to create a DiabetesPrediction
+     *     // ... data to create a Verification
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the DiabetesPrediction we want to update
+     *     // ... the filter for the Verification we want to update
      *   }
      * })
      */
-    upsert<T extends DiabetesPredictionUpsertArgs>(args: SelectSubset<T, DiabetesPredictionUpsertArgs<ExtArgs>>): Prisma__DiabetesPredictionClient<$Result.GetResult<Prisma.$DiabetesPredictionPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends VerificationUpsertArgs>(args: SelectSubset<T, VerificationUpsertArgs<ExtArgs>>): Prisma__VerificationClient<$Result.GetResult<Prisma.$VerificationPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of DiabetesPredictions.
+     * Count the number of Verifications.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {DiabetesPredictionCountArgs} args - Arguments to filter DiabetesPredictions to count.
+     * @param {VerificationCountArgs} args - Arguments to filter Verifications to count.
      * @example
-     * // Count the number of DiabetesPredictions
-     * const count = await prisma.diabetesPrediction.count({
+     * // Count the number of Verifications
+     * const count = await prisma.verification.count({
      *   where: {
-     *     // ... the filter for the DiabetesPredictions we want to count
+     *     // ... the filter for the Verifications we want to count
      *   }
      * })
     **/
-    count<T extends DiabetesPredictionCountArgs>(
-      args?: Subset<T, DiabetesPredictionCountArgs>,
+    count<T extends VerificationCountArgs>(
+      args?: Subset<T, VerificationCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], DiabetesPredictionCountAggregateOutputType>
+          : GetScalarType<T['select'], VerificationCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a DiabetesPrediction.
+     * Allows you to perform aggregations operations on a Verification.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {DiabetesPredictionAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {VerificationAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -6887,13 +5079,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends DiabetesPredictionAggregateArgs>(args: Subset<T, DiabetesPredictionAggregateArgs>): Prisma.PrismaPromise<GetDiabetesPredictionAggregateType<T>>
+    aggregate<T extends VerificationAggregateArgs>(args: Subset<T, VerificationAggregateArgs>): Prisma.PrismaPromise<GetVerificationAggregateType<T>>
 
     /**
-     * Group by DiabetesPrediction.
+     * Group by Verification.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {DiabetesPredictionGroupByArgs} args - Group by arguments.
+     * @param {VerificationGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -6908,14 +5100,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends DiabetesPredictionGroupByArgs,
+      T extends VerificationGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: DiabetesPredictionGroupByArgs['orderBy'] }
-        : { orderBy?: DiabetesPredictionGroupByArgs['orderBy'] },
+        ? { orderBy: VerificationGroupByArgs['orderBy'] }
+        : { orderBy?: VerificationGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -6964,22 +5156,21 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, DiabetesPredictionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDiabetesPredictionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, VerificationGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetVerificationGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the DiabetesPrediction model
+   * Fields of the Verification model
    */
-  readonly fields: DiabetesPredictionFieldRefs;
+  readonly fields: VerificationFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for DiabetesPrediction.
+   * The delegate class that acts as a "Promise-like" for Verification.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__DiabetesPredictionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__VerificationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    User<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -7006,4655 +5197,378 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the DiabetesPrediction model
+   * Fields of the Verification model
    */
-  interface DiabetesPredictionFieldRefs {
-    readonly prediction_id: FieldRef<"DiabetesPrediction", 'Int'>
-    readonly user_id: FieldRef<"DiabetesPrediction", 'String'>
-    readonly pregnancies: FieldRef<"DiabetesPrediction", 'Int'>
-    readonly glucose: FieldRef<"DiabetesPrediction", 'Int'>
-    readonly blood_pressure: FieldRef<"DiabetesPrediction", 'Int'>
-    readonly skin_thickness: FieldRef<"DiabetesPrediction", 'Int'>
-    readonly insulin: FieldRef<"DiabetesPrediction", 'Int'>
-    readonly bmi: FieldRef<"DiabetesPrediction", 'Float'>
-    readonly diabetes_pedigree_function: FieldRef<"DiabetesPrediction", 'Float'>
-    readonly age: FieldRef<"DiabetesPrediction", 'Int'>
-    readonly result: FieldRef<"DiabetesPrediction", 'String'>
-    readonly created_at: FieldRef<"DiabetesPrediction", 'DateTime'>
+  interface VerificationFieldRefs {
+    readonly id: FieldRef<"Verification", 'String'>
+    readonly identifier: FieldRef<"Verification", 'String'>
+    readonly value: FieldRef<"Verification", 'String'>
+    readonly expiresAt: FieldRef<"Verification", 'DateTime'>
+    readonly createdAt: FieldRef<"Verification", 'DateTime'>
+    readonly updatedAt: FieldRef<"Verification", 'DateTime'>
   }
     
 
   // Custom InputTypes
   /**
-   * DiabetesPrediction findUnique
+   * Verification findUnique
    */
-  export type DiabetesPredictionFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type VerificationFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the DiabetesPrediction
+     * Select specific fields to fetch from the Verification
      */
-    select?: DiabetesPredictionSelect<ExtArgs> | null
+    select?: VerificationSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the DiabetesPrediction
+     * Omit specific fields from the Verification
      */
-    omit?: DiabetesPredictionOmit<ExtArgs> | null
+    omit?: VerificationOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
+     * Filter, which Verification to fetch.
      */
-    include?: DiabetesPredictionInclude<ExtArgs> | null
-    /**
-     * Filter, which DiabetesPrediction to fetch.
-     */
-    where: DiabetesPredictionWhereUniqueInput
+    where: VerificationWhereUniqueInput
   }
 
   /**
-   * DiabetesPrediction findUniqueOrThrow
+   * Verification findUniqueOrThrow
    */
-  export type DiabetesPredictionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type VerificationFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the DiabetesPrediction
+     * Select specific fields to fetch from the Verification
      */
-    select?: DiabetesPredictionSelect<ExtArgs> | null
+    select?: VerificationSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the DiabetesPrediction
+     * Omit specific fields from the Verification
      */
-    omit?: DiabetesPredictionOmit<ExtArgs> | null
+    omit?: VerificationOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
+     * Filter, which Verification to fetch.
      */
-    include?: DiabetesPredictionInclude<ExtArgs> | null
-    /**
-     * Filter, which DiabetesPrediction to fetch.
-     */
-    where: DiabetesPredictionWhereUniqueInput
+    where: VerificationWhereUniqueInput
   }
 
   /**
-   * DiabetesPrediction findFirst
+   * Verification findFirst
    */
-  export type DiabetesPredictionFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type VerificationFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the DiabetesPrediction
+     * Select specific fields to fetch from the Verification
      */
-    select?: DiabetesPredictionSelect<ExtArgs> | null
+    select?: VerificationSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the DiabetesPrediction
+     * Omit specific fields from the Verification
      */
-    omit?: DiabetesPredictionOmit<ExtArgs> | null
+    omit?: VerificationOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
+     * Filter, which Verification to fetch.
      */
-    include?: DiabetesPredictionInclude<ExtArgs> | null
-    /**
-     * Filter, which DiabetesPrediction to fetch.
-     */
-    where?: DiabetesPredictionWhereInput
+    where?: VerificationWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of DiabetesPredictions to fetch.
+     * Determine the order of Verifications to fetch.
      */
-    orderBy?: DiabetesPredictionOrderByWithRelationInput | DiabetesPredictionOrderByWithRelationInput[]
+    orderBy?: VerificationOrderByWithRelationInput | VerificationOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for DiabetesPredictions.
+     * Sets the position for searching for Verifications.
      */
-    cursor?: DiabetesPredictionWhereUniqueInput
+    cursor?: VerificationWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` DiabetesPredictions from the position of the cursor.
+     * Take `±n` Verifications from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` DiabetesPredictions.
+     * Skip the first `n` Verifications.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of DiabetesPredictions.
+     * Filter by unique combinations of Verifications.
      */
-    distinct?: DiabetesPredictionScalarFieldEnum | DiabetesPredictionScalarFieldEnum[]
+    distinct?: VerificationScalarFieldEnum | VerificationScalarFieldEnum[]
   }
 
   /**
-   * DiabetesPrediction findFirstOrThrow
+   * Verification findFirstOrThrow
    */
-  export type DiabetesPredictionFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type VerificationFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the DiabetesPrediction
+     * Select specific fields to fetch from the Verification
      */
-    select?: DiabetesPredictionSelect<ExtArgs> | null
+    select?: VerificationSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the DiabetesPrediction
+     * Omit specific fields from the Verification
      */
-    omit?: DiabetesPredictionOmit<ExtArgs> | null
+    omit?: VerificationOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
+     * Filter, which Verification to fetch.
      */
-    include?: DiabetesPredictionInclude<ExtArgs> | null
-    /**
-     * Filter, which DiabetesPrediction to fetch.
-     */
-    where?: DiabetesPredictionWhereInput
+    where?: VerificationWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of DiabetesPredictions to fetch.
+     * Determine the order of Verifications to fetch.
      */
-    orderBy?: DiabetesPredictionOrderByWithRelationInput | DiabetesPredictionOrderByWithRelationInput[]
+    orderBy?: VerificationOrderByWithRelationInput | VerificationOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for DiabetesPredictions.
+     * Sets the position for searching for Verifications.
      */
-    cursor?: DiabetesPredictionWhereUniqueInput
+    cursor?: VerificationWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` DiabetesPredictions from the position of the cursor.
+     * Take `±n` Verifications from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` DiabetesPredictions.
+     * Skip the first `n` Verifications.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of DiabetesPredictions.
+     * Filter by unique combinations of Verifications.
      */
-    distinct?: DiabetesPredictionScalarFieldEnum | DiabetesPredictionScalarFieldEnum[]
+    distinct?: VerificationScalarFieldEnum | VerificationScalarFieldEnum[]
   }
 
   /**
-   * DiabetesPrediction findMany
+   * Verification findMany
    */
-  export type DiabetesPredictionFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type VerificationFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the DiabetesPrediction
+     * Select specific fields to fetch from the Verification
      */
-    select?: DiabetesPredictionSelect<ExtArgs> | null
+    select?: VerificationSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the DiabetesPrediction
+     * Omit specific fields from the Verification
      */
-    omit?: DiabetesPredictionOmit<ExtArgs> | null
+    omit?: VerificationOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
+     * Filter, which Verifications to fetch.
      */
-    include?: DiabetesPredictionInclude<ExtArgs> | null
-    /**
-     * Filter, which DiabetesPredictions to fetch.
-     */
-    where?: DiabetesPredictionWhereInput
+    where?: VerificationWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of DiabetesPredictions to fetch.
+     * Determine the order of Verifications to fetch.
      */
-    orderBy?: DiabetesPredictionOrderByWithRelationInput | DiabetesPredictionOrderByWithRelationInput[]
+    orderBy?: VerificationOrderByWithRelationInput | VerificationOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing DiabetesPredictions.
+     * Sets the position for listing Verifications.
      */
-    cursor?: DiabetesPredictionWhereUniqueInput
+    cursor?: VerificationWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` DiabetesPredictions from the position of the cursor.
+     * Take `±n` Verifications from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` DiabetesPredictions.
+     * Skip the first `n` Verifications.
      */
     skip?: number
-    distinct?: DiabetesPredictionScalarFieldEnum | DiabetesPredictionScalarFieldEnum[]
+    distinct?: VerificationScalarFieldEnum | VerificationScalarFieldEnum[]
   }
 
   /**
-   * DiabetesPrediction create
+   * Verification create
    */
-  export type DiabetesPredictionCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type VerificationCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the DiabetesPrediction
+     * Select specific fields to fetch from the Verification
      */
-    select?: DiabetesPredictionSelect<ExtArgs> | null
+    select?: VerificationSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the DiabetesPrediction
+     * Omit specific fields from the Verification
      */
-    omit?: DiabetesPredictionOmit<ExtArgs> | null
+    omit?: VerificationOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
+     * The data needed to create a Verification.
      */
-    include?: DiabetesPredictionInclude<ExtArgs> | null
-    /**
-     * The data needed to create a DiabetesPrediction.
-     */
-    data: XOR<DiabetesPredictionCreateInput, DiabetesPredictionUncheckedCreateInput>
+    data: XOR<VerificationCreateInput, VerificationUncheckedCreateInput>
   }
 
   /**
-   * DiabetesPrediction createMany
+   * Verification createMany
    */
-  export type DiabetesPredictionCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type VerificationCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many DiabetesPredictions.
+     * The data used to create many Verifications.
      */
-    data: DiabetesPredictionCreateManyInput | DiabetesPredictionCreateManyInput[]
+    data: VerificationCreateManyInput | VerificationCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * DiabetesPrediction createManyAndReturn
+   * Verification createManyAndReturn
    */
-  export type DiabetesPredictionCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type VerificationCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the DiabetesPrediction
+     * Select specific fields to fetch from the Verification
      */
-    select?: DiabetesPredictionSelectCreateManyAndReturn<ExtArgs> | null
+    select?: VerificationSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the DiabetesPrediction
+     * Omit specific fields from the Verification
      */
-    omit?: DiabetesPredictionOmit<ExtArgs> | null
+    omit?: VerificationOmit<ExtArgs> | null
     /**
-     * The data used to create many DiabetesPredictions.
+     * The data used to create many Verifications.
      */
-    data: DiabetesPredictionCreateManyInput | DiabetesPredictionCreateManyInput[]
-    skipDuplicates?: boolean
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: DiabetesPredictionIncludeCreateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * DiabetesPrediction update
-   */
-  export type DiabetesPredictionUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the DiabetesPrediction
-     */
-    select?: DiabetesPredictionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the DiabetesPrediction
-     */
-    omit?: DiabetesPredictionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: DiabetesPredictionInclude<ExtArgs> | null
-    /**
-     * The data needed to update a DiabetesPrediction.
-     */
-    data: XOR<DiabetesPredictionUpdateInput, DiabetesPredictionUncheckedUpdateInput>
-    /**
-     * Choose, which DiabetesPrediction to update.
-     */
-    where: DiabetesPredictionWhereUniqueInput
-  }
-
-  /**
-   * DiabetesPrediction updateMany
-   */
-  export type DiabetesPredictionUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update DiabetesPredictions.
-     */
-    data: XOR<DiabetesPredictionUpdateManyMutationInput, DiabetesPredictionUncheckedUpdateManyInput>
-    /**
-     * Filter which DiabetesPredictions to update
-     */
-    where?: DiabetesPredictionWhereInput
-    /**
-     * Limit how many DiabetesPredictions to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * DiabetesPrediction updateManyAndReturn
-   */
-  export type DiabetesPredictionUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the DiabetesPrediction
-     */
-    select?: DiabetesPredictionSelectUpdateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the DiabetesPrediction
-     */
-    omit?: DiabetesPredictionOmit<ExtArgs> | null
-    /**
-     * The data used to update DiabetesPredictions.
-     */
-    data: XOR<DiabetesPredictionUpdateManyMutationInput, DiabetesPredictionUncheckedUpdateManyInput>
-    /**
-     * Filter which DiabetesPredictions to update
-     */
-    where?: DiabetesPredictionWhereInput
-    /**
-     * Limit how many DiabetesPredictions to update.
-     */
-    limit?: number
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: DiabetesPredictionIncludeUpdateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * DiabetesPrediction upsert
-   */
-  export type DiabetesPredictionUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the DiabetesPrediction
-     */
-    select?: DiabetesPredictionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the DiabetesPrediction
-     */
-    omit?: DiabetesPredictionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: DiabetesPredictionInclude<ExtArgs> | null
-    /**
-     * The filter to search for the DiabetesPrediction to update in case it exists.
-     */
-    where: DiabetesPredictionWhereUniqueInput
-    /**
-     * In case the DiabetesPrediction found by the `where` argument doesn't exist, create a new DiabetesPrediction with this data.
-     */
-    create: XOR<DiabetesPredictionCreateInput, DiabetesPredictionUncheckedCreateInput>
-    /**
-     * In case the DiabetesPrediction was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<DiabetesPredictionUpdateInput, DiabetesPredictionUncheckedUpdateInput>
-  }
-
-  /**
-   * DiabetesPrediction delete
-   */
-  export type DiabetesPredictionDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the DiabetesPrediction
-     */
-    select?: DiabetesPredictionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the DiabetesPrediction
-     */
-    omit?: DiabetesPredictionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: DiabetesPredictionInclude<ExtArgs> | null
-    /**
-     * Filter which DiabetesPrediction to delete.
-     */
-    where: DiabetesPredictionWhereUniqueInput
-  }
-
-  /**
-   * DiabetesPrediction deleteMany
-   */
-  export type DiabetesPredictionDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which DiabetesPredictions to delete
-     */
-    where?: DiabetesPredictionWhereInput
-    /**
-     * Limit how many DiabetesPredictions to delete.
-     */
-    limit?: number
-  }
-
-  /**
-   * DiabetesPrediction without action
-   */
-  export type DiabetesPredictionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the DiabetesPrediction
-     */
-    select?: DiabetesPredictionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the DiabetesPrediction
-     */
-    omit?: DiabetesPredictionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: DiabetesPredictionInclude<ExtArgs> | null
-  }
-
-
-  /**
-   * Model HeartDiseasePrediction
-   */
-
-  export type AggregateHeartDiseasePrediction = {
-    _count: HeartDiseasePredictionCountAggregateOutputType | null
-    _avg: HeartDiseasePredictionAvgAggregateOutputType | null
-    _sum: HeartDiseasePredictionSumAggregateOutputType | null
-    _min: HeartDiseasePredictionMinAggregateOutputType | null
-    _max: HeartDiseasePredictionMaxAggregateOutputType | null
-  }
-
-  export type HeartDiseasePredictionAvgAggregateOutputType = {
-    prediction_id: number | null
-    age: number | null
-    resting_blood_pressure: number | null
-    serum_cholesterol: number | null
-    resting_ecg: number | null
-    max_heart_rate: number | null
-    oldpeak: number | null
-    num_major_vessels: number | null
-  }
-
-  export type HeartDiseasePredictionSumAggregateOutputType = {
-    prediction_id: number | null
-    age: number | null
-    resting_blood_pressure: number | null
-    serum_cholesterol: number | null
-    resting_ecg: number | null
-    max_heart_rate: number | null
-    oldpeak: number | null
-    num_major_vessels: number | null
-  }
-
-  export type HeartDiseasePredictionMinAggregateOutputType = {
-    prediction_id: number | null
-    user_id: string | null
-    age: number | null
-    sex: string | null
-    chest_pain_type: string | null
-    resting_blood_pressure: number | null
-    serum_cholesterol: number | null
-    fasting_blood_sugar: boolean | null
-    resting_ecg: number | null
-    max_heart_rate: number | null
-    exercise_induced_angina: boolean | null
-    oldpeak: number | null
-    slope_of_peak_exercise_st_segment: string | null
-    num_major_vessels: number | null
-    thal: string | null
-    result: string | null
-    created_at: Date | null
-  }
-
-  export type HeartDiseasePredictionMaxAggregateOutputType = {
-    prediction_id: number | null
-    user_id: string | null
-    age: number | null
-    sex: string | null
-    chest_pain_type: string | null
-    resting_blood_pressure: number | null
-    serum_cholesterol: number | null
-    fasting_blood_sugar: boolean | null
-    resting_ecg: number | null
-    max_heart_rate: number | null
-    exercise_induced_angina: boolean | null
-    oldpeak: number | null
-    slope_of_peak_exercise_st_segment: string | null
-    num_major_vessels: number | null
-    thal: string | null
-    result: string | null
-    created_at: Date | null
-  }
-
-  export type HeartDiseasePredictionCountAggregateOutputType = {
-    prediction_id: number
-    user_id: number
-    age: number
-    sex: number
-    chest_pain_type: number
-    resting_blood_pressure: number
-    serum_cholesterol: number
-    fasting_blood_sugar: number
-    resting_ecg: number
-    max_heart_rate: number
-    exercise_induced_angina: number
-    oldpeak: number
-    slope_of_peak_exercise_st_segment: number
-    num_major_vessels: number
-    thal: number
-    result: number
-    created_at: number
-    _all: number
-  }
-
-
-  export type HeartDiseasePredictionAvgAggregateInputType = {
-    prediction_id?: true
-    age?: true
-    resting_blood_pressure?: true
-    serum_cholesterol?: true
-    resting_ecg?: true
-    max_heart_rate?: true
-    oldpeak?: true
-    num_major_vessels?: true
-  }
-
-  export type HeartDiseasePredictionSumAggregateInputType = {
-    prediction_id?: true
-    age?: true
-    resting_blood_pressure?: true
-    serum_cholesterol?: true
-    resting_ecg?: true
-    max_heart_rate?: true
-    oldpeak?: true
-    num_major_vessels?: true
-  }
-
-  export type HeartDiseasePredictionMinAggregateInputType = {
-    prediction_id?: true
-    user_id?: true
-    age?: true
-    sex?: true
-    chest_pain_type?: true
-    resting_blood_pressure?: true
-    serum_cholesterol?: true
-    fasting_blood_sugar?: true
-    resting_ecg?: true
-    max_heart_rate?: true
-    exercise_induced_angina?: true
-    oldpeak?: true
-    slope_of_peak_exercise_st_segment?: true
-    num_major_vessels?: true
-    thal?: true
-    result?: true
-    created_at?: true
-  }
-
-  export type HeartDiseasePredictionMaxAggregateInputType = {
-    prediction_id?: true
-    user_id?: true
-    age?: true
-    sex?: true
-    chest_pain_type?: true
-    resting_blood_pressure?: true
-    serum_cholesterol?: true
-    fasting_blood_sugar?: true
-    resting_ecg?: true
-    max_heart_rate?: true
-    exercise_induced_angina?: true
-    oldpeak?: true
-    slope_of_peak_exercise_st_segment?: true
-    num_major_vessels?: true
-    thal?: true
-    result?: true
-    created_at?: true
-  }
-
-  export type HeartDiseasePredictionCountAggregateInputType = {
-    prediction_id?: true
-    user_id?: true
-    age?: true
-    sex?: true
-    chest_pain_type?: true
-    resting_blood_pressure?: true
-    serum_cholesterol?: true
-    fasting_blood_sugar?: true
-    resting_ecg?: true
-    max_heart_rate?: true
-    exercise_induced_angina?: true
-    oldpeak?: true
-    slope_of_peak_exercise_st_segment?: true
-    num_major_vessels?: true
-    thal?: true
-    result?: true
-    created_at?: true
-    _all?: true
-  }
-
-  export type HeartDiseasePredictionAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which HeartDiseasePrediction to aggregate.
-     */
-    where?: HeartDiseasePredictionWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of HeartDiseasePredictions to fetch.
-     */
-    orderBy?: HeartDiseasePredictionOrderByWithRelationInput | HeartDiseasePredictionOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: HeartDiseasePredictionWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` HeartDiseasePredictions from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` HeartDiseasePredictions.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned HeartDiseasePredictions
-    **/
-    _count?: true | HeartDiseasePredictionCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to average
-    **/
-    _avg?: HeartDiseasePredictionAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: HeartDiseasePredictionSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: HeartDiseasePredictionMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: HeartDiseasePredictionMaxAggregateInputType
-  }
-
-  export type GetHeartDiseasePredictionAggregateType<T extends HeartDiseasePredictionAggregateArgs> = {
-        [P in keyof T & keyof AggregateHeartDiseasePrediction]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateHeartDiseasePrediction[P]>
-      : GetScalarType<T[P], AggregateHeartDiseasePrediction[P]>
-  }
-
-
-
-
-  export type HeartDiseasePredictionGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: HeartDiseasePredictionWhereInput
-    orderBy?: HeartDiseasePredictionOrderByWithAggregationInput | HeartDiseasePredictionOrderByWithAggregationInput[]
-    by: HeartDiseasePredictionScalarFieldEnum[] | HeartDiseasePredictionScalarFieldEnum
-    having?: HeartDiseasePredictionScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: HeartDiseasePredictionCountAggregateInputType | true
-    _avg?: HeartDiseasePredictionAvgAggregateInputType
-    _sum?: HeartDiseasePredictionSumAggregateInputType
-    _min?: HeartDiseasePredictionMinAggregateInputType
-    _max?: HeartDiseasePredictionMaxAggregateInputType
-  }
-
-  export type HeartDiseasePredictionGroupByOutputType = {
-    prediction_id: number
-    user_id: string
-    age: number
-    sex: string
-    chest_pain_type: string
-    resting_blood_pressure: number
-    serum_cholesterol: number
-    fasting_blood_sugar: boolean
-    resting_ecg: number
-    max_heart_rate: number
-    exercise_induced_angina: boolean
-    oldpeak: number
-    slope_of_peak_exercise_st_segment: string
-    num_major_vessels: number
-    thal: string
-    result: string
-    created_at: Date
-    _count: HeartDiseasePredictionCountAggregateOutputType | null
-    _avg: HeartDiseasePredictionAvgAggregateOutputType | null
-    _sum: HeartDiseasePredictionSumAggregateOutputType | null
-    _min: HeartDiseasePredictionMinAggregateOutputType | null
-    _max: HeartDiseasePredictionMaxAggregateOutputType | null
-  }
-
-  type GetHeartDiseasePredictionGroupByPayload<T extends HeartDiseasePredictionGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<HeartDiseasePredictionGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof HeartDiseasePredictionGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], HeartDiseasePredictionGroupByOutputType[P]>
-            : GetScalarType<T[P], HeartDiseasePredictionGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type HeartDiseasePredictionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    prediction_id?: boolean
-    user_id?: boolean
-    age?: boolean
-    sex?: boolean
-    chest_pain_type?: boolean
-    resting_blood_pressure?: boolean
-    serum_cholesterol?: boolean
-    fasting_blood_sugar?: boolean
-    resting_ecg?: boolean
-    max_heart_rate?: boolean
-    exercise_induced_angina?: boolean
-    oldpeak?: boolean
-    slope_of_peak_exercise_st_segment?: boolean
-    num_major_vessels?: boolean
-    thal?: boolean
-    result?: boolean
-    created_at?: boolean
-    User?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["heartDiseasePrediction"]>
-
-  export type HeartDiseasePredictionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    prediction_id?: boolean
-    user_id?: boolean
-    age?: boolean
-    sex?: boolean
-    chest_pain_type?: boolean
-    resting_blood_pressure?: boolean
-    serum_cholesterol?: boolean
-    fasting_blood_sugar?: boolean
-    resting_ecg?: boolean
-    max_heart_rate?: boolean
-    exercise_induced_angina?: boolean
-    oldpeak?: boolean
-    slope_of_peak_exercise_st_segment?: boolean
-    num_major_vessels?: boolean
-    thal?: boolean
-    result?: boolean
-    created_at?: boolean
-    User?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["heartDiseasePrediction"]>
-
-  export type HeartDiseasePredictionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    prediction_id?: boolean
-    user_id?: boolean
-    age?: boolean
-    sex?: boolean
-    chest_pain_type?: boolean
-    resting_blood_pressure?: boolean
-    serum_cholesterol?: boolean
-    fasting_blood_sugar?: boolean
-    resting_ecg?: boolean
-    max_heart_rate?: boolean
-    exercise_induced_angina?: boolean
-    oldpeak?: boolean
-    slope_of_peak_exercise_st_segment?: boolean
-    num_major_vessels?: boolean
-    thal?: boolean
-    result?: boolean
-    created_at?: boolean
-    User?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["heartDiseasePrediction"]>
-
-  export type HeartDiseasePredictionSelectScalar = {
-    prediction_id?: boolean
-    user_id?: boolean
-    age?: boolean
-    sex?: boolean
-    chest_pain_type?: boolean
-    resting_blood_pressure?: boolean
-    serum_cholesterol?: boolean
-    fasting_blood_sugar?: boolean
-    resting_ecg?: boolean
-    max_heart_rate?: boolean
-    exercise_induced_angina?: boolean
-    oldpeak?: boolean
-    slope_of_peak_exercise_st_segment?: boolean
-    num_major_vessels?: boolean
-    thal?: boolean
-    result?: boolean
-    created_at?: boolean
-  }
-
-  export type HeartDiseasePredictionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"prediction_id" | "user_id" | "age" | "sex" | "chest_pain_type" | "resting_blood_pressure" | "serum_cholesterol" | "fasting_blood_sugar" | "resting_ecg" | "max_heart_rate" | "exercise_induced_angina" | "oldpeak" | "slope_of_peak_exercise_st_segment" | "num_major_vessels" | "thal" | "result" | "created_at", ExtArgs["result"]["heartDiseasePrediction"]>
-  export type HeartDiseasePredictionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    User?: boolean | UserDefaultArgs<ExtArgs>
-  }
-  export type HeartDiseasePredictionIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    User?: boolean | UserDefaultArgs<ExtArgs>
-  }
-  export type HeartDiseasePredictionIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    User?: boolean | UserDefaultArgs<ExtArgs>
-  }
-
-  export type $HeartDiseasePredictionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "HeartDiseasePrediction"
-    objects: {
-      User: Prisma.$UserPayload<ExtArgs>
-    }
-    scalars: $Extensions.GetPayloadResult<{
-      prediction_id: number
-      user_id: string
-      age: number
-      sex: string
-      chest_pain_type: string
-      resting_blood_pressure: number
-      serum_cholesterol: number
-      fasting_blood_sugar: boolean
-      resting_ecg: number
-      max_heart_rate: number
-      exercise_induced_angina: boolean
-      oldpeak: number
-      slope_of_peak_exercise_st_segment: string
-      num_major_vessels: number
-      thal: string
-      result: string
-      created_at: Date
-    }, ExtArgs["result"]["heartDiseasePrediction"]>
-    composites: {}
-  }
-
-  type HeartDiseasePredictionGetPayload<S extends boolean | null | undefined | HeartDiseasePredictionDefaultArgs> = $Result.GetResult<Prisma.$HeartDiseasePredictionPayload, S>
-
-  type HeartDiseasePredictionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<HeartDiseasePredictionFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: HeartDiseasePredictionCountAggregateInputType | true
-    }
-
-  export interface HeartDiseasePredictionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['HeartDiseasePrediction'], meta: { name: 'HeartDiseasePrediction' } }
-    /**
-     * Find zero or one HeartDiseasePrediction that matches the filter.
-     * @param {HeartDiseasePredictionFindUniqueArgs} args - Arguments to find a HeartDiseasePrediction
-     * @example
-     * // Get one HeartDiseasePrediction
-     * const heartDiseasePrediction = await prisma.heartDiseasePrediction.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends HeartDiseasePredictionFindUniqueArgs>(args: SelectSubset<T, HeartDiseasePredictionFindUniqueArgs<ExtArgs>>): Prisma__HeartDiseasePredictionClient<$Result.GetResult<Prisma.$HeartDiseasePredictionPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find one HeartDiseasePrediction that matches the filter or throw an error with `error.code='P2025'`
-     * if no matches were found.
-     * @param {HeartDiseasePredictionFindUniqueOrThrowArgs} args - Arguments to find a HeartDiseasePrediction
-     * @example
-     * // Get one HeartDiseasePrediction
-     * const heartDiseasePrediction = await prisma.heartDiseasePrediction.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends HeartDiseasePredictionFindUniqueOrThrowArgs>(args: SelectSubset<T, HeartDiseasePredictionFindUniqueOrThrowArgs<ExtArgs>>): Prisma__HeartDiseasePredictionClient<$Result.GetResult<Prisma.$HeartDiseasePredictionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first HeartDiseasePrediction that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {HeartDiseasePredictionFindFirstArgs} args - Arguments to find a HeartDiseasePrediction
-     * @example
-     * // Get one HeartDiseasePrediction
-     * const heartDiseasePrediction = await prisma.heartDiseasePrediction.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends HeartDiseasePredictionFindFirstArgs>(args?: SelectSubset<T, HeartDiseasePredictionFindFirstArgs<ExtArgs>>): Prisma__HeartDiseasePredictionClient<$Result.GetResult<Prisma.$HeartDiseasePredictionPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first HeartDiseasePrediction that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {HeartDiseasePredictionFindFirstOrThrowArgs} args - Arguments to find a HeartDiseasePrediction
-     * @example
-     * // Get one HeartDiseasePrediction
-     * const heartDiseasePrediction = await prisma.heartDiseasePrediction.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends HeartDiseasePredictionFindFirstOrThrowArgs>(args?: SelectSubset<T, HeartDiseasePredictionFindFirstOrThrowArgs<ExtArgs>>): Prisma__HeartDiseasePredictionClient<$Result.GetResult<Prisma.$HeartDiseasePredictionPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find zero or more HeartDiseasePredictions that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {HeartDiseasePredictionFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all HeartDiseasePredictions
-     * const heartDiseasePredictions = await prisma.heartDiseasePrediction.findMany()
-     * 
-     * // Get first 10 HeartDiseasePredictions
-     * const heartDiseasePredictions = await prisma.heartDiseasePrediction.findMany({ take: 10 })
-     * 
-     * // Only select the `prediction_id`
-     * const heartDiseasePredictionWithPrediction_idOnly = await prisma.heartDiseasePrediction.findMany({ select: { prediction_id: true } })
-     * 
-     */
-    findMany<T extends HeartDiseasePredictionFindManyArgs>(args?: SelectSubset<T, HeartDiseasePredictionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HeartDiseasePredictionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
-
-    /**
-     * Create a HeartDiseasePrediction.
-     * @param {HeartDiseasePredictionCreateArgs} args - Arguments to create a HeartDiseasePrediction.
-     * @example
-     * // Create one HeartDiseasePrediction
-     * const HeartDiseasePrediction = await prisma.heartDiseasePrediction.create({
-     *   data: {
-     *     // ... data to create a HeartDiseasePrediction
-     *   }
-     * })
-     * 
-     */
-    create<T extends HeartDiseasePredictionCreateArgs>(args: SelectSubset<T, HeartDiseasePredictionCreateArgs<ExtArgs>>): Prisma__HeartDiseasePredictionClient<$Result.GetResult<Prisma.$HeartDiseasePredictionPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Create many HeartDiseasePredictions.
-     * @param {HeartDiseasePredictionCreateManyArgs} args - Arguments to create many HeartDiseasePredictions.
-     * @example
-     * // Create many HeartDiseasePredictions
-     * const heartDiseasePrediction = await prisma.heartDiseasePrediction.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends HeartDiseasePredictionCreateManyArgs>(args?: SelectSubset<T, HeartDiseasePredictionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many HeartDiseasePredictions and returns the data saved in the database.
-     * @param {HeartDiseasePredictionCreateManyAndReturnArgs} args - Arguments to create many HeartDiseasePredictions.
-     * @example
-     * // Create many HeartDiseasePredictions
-     * const heartDiseasePrediction = await prisma.heartDiseasePrediction.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many HeartDiseasePredictions and only return the `prediction_id`
-     * const heartDiseasePredictionWithPrediction_idOnly = await prisma.heartDiseasePrediction.createManyAndReturn({
-     *   select: { prediction_id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends HeartDiseasePredictionCreateManyAndReturnArgs>(args?: SelectSubset<T, HeartDiseasePredictionCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HeartDiseasePredictionPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Delete a HeartDiseasePrediction.
-     * @param {HeartDiseasePredictionDeleteArgs} args - Arguments to delete one HeartDiseasePrediction.
-     * @example
-     * // Delete one HeartDiseasePrediction
-     * const HeartDiseasePrediction = await prisma.heartDiseasePrediction.delete({
-     *   where: {
-     *     // ... filter to delete one HeartDiseasePrediction
-     *   }
-     * })
-     * 
-     */
-    delete<T extends HeartDiseasePredictionDeleteArgs>(args: SelectSubset<T, HeartDiseasePredictionDeleteArgs<ExtArgs>>): Prisma__HeartDiseasePredictionClient<$Result.GetResult<Prisma.$HeartDiseasePredictionPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Update one HeartDiseasePrediction.
-     * @param {HeartDiseasePredictionUpdateArgs} args - Arguments to update one HeartDiseasePrediction.
-     * @example
-     * // Update one HeartDiseasePrediction
-     * const heartDiseasePrediction = await prisma.heartDiseasePrediction.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends HeartDiseasePredictionUpdateArgs>(args: SelectSubset<T, HeartDiseasePredictionUpdateArgs<ExtArgs>>): Prisma__HeartDiseasePredictionClient<$Result.GetResult<Prisma.$HeartDiseasePredictionPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Delete zero or more HeartDiseasePredictions.
-     * @param {HeartDiseasePredictionDeleteManyArgs} args - Arguments to filter HeartDiseasePredictions to delete.
-     * @example
-     * // Delete a few HeartDiseasePredictions
-     * const { count } = await prisma.heartDiseasePrediction.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends HeartDiseasePredictionDeleteManyArgs>(args?: SelectSubset<T, HeartDiseasePredictionDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more HeartDiseasePredictions.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {HeartDiseasePredictionUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many HeartDiseasePredictions
-     * const heartDiseasePrediction = await prisma.heartDiseasePrediction.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends HeartDiseasePredictionUpdateManyArgs>(args: SelectSubset<T, HeartDiseasePredictionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more HeartDiseasePredictions and returns the data updated in the database.
-     * @param {HeartDiseasePredictionUpdateManyAndReturnArgs} args - Arguments to update many HeartDiseasePredictions.
-     * @example
-     * // Update many HeartDiseasePredictions
-     * const heartDiseasePrediction = await prisma.heartDiseasePrediction.updateManyAndReturn({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Update zero or more HeartDiseasePredictions and only return the `prediction_id`
-     * const heartDiseasePredictionWithPrediction_idOnly = await prisma.heartDiseasePrediction.updateManyAndReturn({
-     *   select: { prediction_id: true },
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    updateManyAndReturn<T extends HeartDiseasePredictionUpdateManyAndReturnArgs>(args: SelectSubset<T, HeartDiseasePredictionUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HeartDiseasePredictionPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Create or update one HeartDiseasePrediction.
-     * @param {HeartDiseasePredictionUpsertArgs} args - Arguments to update or create a HeartDiseasePrediction.
-     * @example
-     * // Update or create a HeartDiseasePrediction
-     * const heartDiseasePrediction = await prisma.heartDiseasePrediction.upsert({
-     *   create: {
-     *     // ... data to create a HeartDiseasePrediction
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the HeartDiseasePrediction we want to update
-     *   }
-     * })
-     */
-    upsert<T extends HeartDiseasePredictionUpsertArgs>(args: SelectSubset<T, HeartDiseasePredictionUpsertArgs<ExtArgs>>): Prisma__HeartDiseasePredictionClient<$Result.GetResult<Prisma.$HeartDiseasePredictionPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-
-    /**
-     * Count the number of HeartDiseasePredictions.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {HeartDiseasePredictionCountArgs} args - Arguments to filter HeartDiseasePredictions to count.
-     * @example
-     * // Count the number of HeartDiseasePredictions
-     * const count = await prisma.heartDiseasePrediction.count({
-     *   where: {
-     *     // ... the filter for the HeartDiseasePredictions we want to count
-     *   }
-     * })
-    **/
-    count<T extends HeartDiseasePredictionCountArgs>(
-      args?: Subset<T, HeartDiseasePredictionCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], HeartDiseasePredictionCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a HeartDiseasePrediction.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {HeartDiseasePredictionAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends HeartDiseasePredictionAggregateArgs>(args: Subset<T, HeartDiseasePredictionAggregateArgs>): Prisma.PrismaPromise<GetHeartDiseasePredictionAggregateType<T>>
-
-    /**
-     * Group by HeartDiseasePrediction.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {HeartDiseasePredictionGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends HeartDiseasePredictionGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: HeartDiseasePredictionGroupByArgs['orderBy'] }
-        : { orderBy?: HeartDiseasePredictionGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, HeartDiseasePredictionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetHeartDiseasePredictionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the HeartDiseasePrediction model
-   */
-  readonly fields: HeartDiseasePredictionFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for HeartDiseasePrediction.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__HeartDiseasePredictionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    User<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the HeartDiseasePrediction model
-   */
-  interface HeartDiseasePredictionFieldRefs {
-    readonly prediction_id: FieldRef<"HeartDiseasePrediction", 'Int'>
-    readonly user_id: FieldRef<"HeartDiseasePrediction", 'String'>
-    readonly age: FieldRef<"HeartDiseasePrediction", 'Int'>
-    readonly sex: FieldRef<"HeartDiseasePrediction", 'String'>
-    readonly chest_pain_type: FieldRef<"HeartDiseasePrediction", 'String'>
-    readonly resting_blood_pressure: FieldRef<"HeartDiseasePrediction", 'Int'>
-    readonly serum_cholesterol: FieldRef<"HeartDiseasePrediction", 'Int'>
-    readonly fasting_blood_sugar: FieldRef<"HeartDiseasePrediction", 'Boolean'>
-    readonly resting_ecg: FieldRef<"HeartDiseasePrediction", 'Int'>
-    readonly max_heart_rate: FieldRef<"HeartDiseasePrediction", 'Int'>
-    readonly exercise_induced_angina: FieldRef<"HeartDiseasePrediction", 'Boolean'>
-    readonly oldpeak: FieldRef<"HeartDiseasePrediction", 'Float'>
-    readonly slope_of_peak_exercise_st_segment: FieldRef<"HeartDiseasePrediction", 'String'>
-    readonly num_major_vessels: FieldRef<"HeartDiseasePrediction", 'Int'>
-    readonly thal: FieldRef<"HeartDiseasePrediction", 'String'>
-    readonly result: FieldRef<"HeartDiseasePrediction", 'String'>
-    readonly created_at: FieldRef<"HeartDiseasePrediction", 'DateTime'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * HeartDiseasePrediction findUnique
-   */
-  export type HeartDiseasePredictionFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the HeartDiseasePrediction
-     */
-    select?: HeartDiseasePredictionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the HeartDiseasePrediction
-     */
-    omit?: HeartDiseasePredictionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: HeartDiseasePredictionInclude<ExtArgs> | null
-    /**
-     * Filter, which HeartDiseasePrediction to fetch.
-     */
-    where: HeartDiseasePredictionWhereUniqueInput
-  }
-
-  /**
-   * HeartDiseasePrediction findUniqueOrThrow
-   */
-  export type HeartDiseasePredictionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the HeartDiseasePrediction
-     */
-    select?: HeartDiseasePredictionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the HeartDiseasePrediction
-     */
-    omit?: HeartDiseasePredictionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: HeartDiseasePredictionInclude<ExtArgs> | null
-    /**
-     * Filter, which HeartDiseasePrediction to fetch.
-     */
-    where: HeartDiseasePredictionWhereUniqueInput
-  }
-
-  /**
-   * HeartDiseasePrediction findFirst
-   */
-  export type HeartDiseasePredictionFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the HeartDiseasePrediction
-     */
-    select?: HeartDiseasePredictionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the HeartDiseasePrediction
-     */
-    omit?: HeartDiseasePredictionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: HeartDiseasePredictionInclude<ExtArgs> | null
-    /**
-     * Filter, which HeartDiseasePrediction to fetch.
-     */
-    where?: HeartDiseasePredictionWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of HeartDiseasePredictions to fetch.
-     */
-    orderBy?: HeartDiseasePredictionOrderByWithRelationInput | HeartDiseasePredictionOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for HeartDiseasePredictions.
-     */
-    cursor?: HeartDiseasePredictionWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` HeartDiseasePredictions from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` HeartDiseasePredictions.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of HeartDiseasePredictions.
-     */
-    distinct?: HeartDiseasePredictionScalarFieldEnum | HeartDiseasePredictionScalarFieldEnum[]
-  }
-
-  /**
-   * HeartDiseasePrediction findFirstOrThrow
-   */
-  export type HeartDiseasePredictionFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the HeartDiseasePrediction
-     */
-    select?: HeartDiseasePredictionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the HeartDiseasePrediction
-     */
-    omit?: HeartDiseasePredictionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: HeartDiseasePredictionInclude<ExtArgs> | null
-    /**
-     * Filter, which HeartDiseasePrediction to fetch.
-     */
-    where?: HeartDiseasePredictionWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of HeartDiseasePredictions to fetch.
-     */
-    orderBy?: HeartDiseasePredictionOrderByWithRelationInput | HeartDiseasePredictionOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for HeartDiseasePredictions.
-     */
-    cursor?: HeartDiseasePredictionWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` HeartDiseasePredictions from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` HeartDiseasePredictions.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of HeartDiseasePredictions.
-     */
-    distinct?: HeartDiseasePredictionScalarFieldEnum | HeartDiseasePredictionScalarFieldEnum[]
-  }
-
-  /**
-   * HeartDiseasePrediction findMany
-   */
-  export type HeartDiseasePredictionFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the HeartDiseasePrediction
-     */
-    select?: HeartDiseasePredictionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the HeartDiseasePrediction
-     */
-    omit?: HeartDiseasePredictionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: HeartDiseasePredictionInclude<ExtArgs> | null
-    /**
-     * Filter, which HeartDiseasePredictions to fetch.
-     */
-    where?: HeartDiseasePredictionWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of HeartDiseasePredictions to fetch.
-     */
-    orderBy?: HeartDiseasePredictionOrderByWithRelationInput | HeartDiseasePredictionOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing HeartDiseasePredictions.
-     */
-    cursor?: HeartDiseasePredictionWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` HeartDiseasePredictions from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` HeartDiseasePredictions.
-     */
-    skip?: number
-    distinct?: HeartDiseasePredictionScalarFieldEnum | HeartDiseasePredictionScalarFieldEnum[]
-  }
-
-  /**
-   * HeartDiseasePrediction create
-   */
-  export type HeartDiseasePredictionCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the HeartDiseasePrediction
-     */
-    select?: HeartDiseasePredictionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the HeartDiseasePrediction
-     */
-    omit?: HeartDiseasePredictionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: HeartDiseasePredictionInclude<ExtArgs> | null
-    /**
-     * The data needed to create a HeartDiseasePrediction.
-     */
-    data: XOR<HeartDiseasePredictionCreateInput, HeartDiseasePredictionUncheckedCreateInput>
-  }
-
-  /**
-   * HeartDiseasePrediction createMany
-   */
-  export type HeartDiseasePredictionCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many HeartDiseasePredictions.
-     */
-    data: HeartDiseasePredictionCreateManyInput | HeartDiseasePredictionCreateManyInput[]
+    data: VerificationCreateManyInput | VerificationCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * HeartDiseasePrediction createManyAndReturn
+   * Verification update
    */
-  export type HeartDiseasePredictionCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type VerificationUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the HeartDiseasePrediction
+     * Select specific fields to fetch from the Verification
      */
-    select?: HeartDiseasePredictionSelectCreateManyAndReturn<ExtArgs> | null
+    select?: VerificationSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the HeartDiseasePrediction
+     * Omit specific fields from the Verification
      */
-    omit?: HeartDiseasePredictionOmit<ExtArgs> | null
+    omit?: VerificationOmit<ExtArgs> | null
     /**
-     * The data used to create many HeartDiseasePredictions.
+     * The data needed to update a Verification.
      */
-    data: HeartDiseasePredictionCreateManyInput | HeartDiseasePredictionCreateManyInput[]
-    skipDuplicates?: boolean
+    data: XOR<VerificationUpdateInput, VerificationUncheckedUpdateInput>
     /**
-     * Choose, which related nodes to fetch as well
+     * Choose, which Verification to update.
      */
-    include?: HeartDiseasePredictionIncludeCreateManyAndReturn<ExtArgs> | null
+    where: VerificationWhereUniqueInput
   }
 
   /**
-   * HeartDiseasePrediction update
+   * Verification updateMany
    */
-  export type HeartDiseasePredictionUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type VerificationUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the HeartDiseasePrediction
+     * The data used to update Verifications.
      */
-    select?: HeartDiseasePredictionSelect<ExtArgs> | null
+    data: XOR<VerificationUpdateManyMutationInput, VerificationUncheckedUpdateManyInput>
     /**
-     * Omit specific fields from the HeartDiseasePrediction
+     * Filter which Verifications to update
      */
-    omit?: HeartDiseasePredictionOmit<ExtArgs> | null
+    where?: VerificationWhereInput
     /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: HeartDiseasePredictionInclude<ExtArgs> | null
-    /**
-     * The data needed to update a HeartDiseasePrediction.
-     */
-    data: XOR<HeartDiseasePredictionUpdateInput, HeartDiseasePredictionUncheckedUpdateInput>
-    /**
-     * Choose, which HeartDiseasePrediction to update.
-     */
-    where: HeartDiseasePredictionWhereUniqueInput
-  }
-
-  /**
-   * HeartDiseasePrediction updateMany
-   */
-  export type HeartDiseasePredictionUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update HeartDiseasePredictions.
-     */
-    data: XOR<HeartDiseasePredictionUpdateManyMutationInput, HeartDiseasePredictionUncheckedUpdateManyInput>
-    /**
-     * Filter which HeartDiseasePredictions to update
-     */
-    where?: HeartDiseasePredictionWhereInput
-    /**
-     * Limit how many HeartDiseasePredictions to update.
+     * Limit how many Verifications to update.
      */
     limit?: number
   }
 
   /**
-   * HeartDiseasePrediction updateManyAndReturn
+   * Verification updateManyAndReturn
    */
-  export type HeartDiseasePredictionUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type VerificationUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the HeartDiseasePrediction
+     * Select specific fields to fetch from the Verification
      */
-    select?: HeartDiseasePredictionSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: VerificationSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the HeartDiseasePrediction
+     * Omit specific fields from the Verification
      */
-    omit?: HeartDiseasePredictionOmit<ExtArgs> | null
+    omit?: VerificationOmit<ExtArgs> | null
     /**
-     * The data used to update HeartDiseasePredictions.
+     * The data used to update Verifications.
      */
-    data: XOR<HeartDiseasePredictionUpdateManyMutationInput, HeartDiseasePredictionUncheckedUpdateManyInput>
+    data: XOR<VerificationUpdateManyMutationInput, VerificationUncheckedUpdateManyInput>
     /**
-     * Filter which HeartDiseasePredictions to update
+     * Filter which Verifications to update
      */
-    where?: HeartDiseasePredictionWhereInput
+    where?: VerificationWhereInput
     /**
-     * Limit how many HeartDiseasePredictions to update.
-     */
-    limit?: number
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: HeartDiseasePredictionIncludeUpdateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * HeartDiseasePrediction upsert
-   */
-  export type HeartDiseasePredictionUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the HeartDiseasePrediction
-     */
-    select?: HeartDiseasePredictionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the HeartDiseasePrediction
-     */
-    omit?: HeartDiseasePredictionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: HeartDiseasePredictionInclude<ExtArgs> | null
-    /**
-     * The filter to search for the HeartDiseasePrediction to update in case it exists.
-     */
-    where: HeartDiseasePredictionWhereUniqueInput
-    /**
-     * In case the HeartDiseasePrediction found by the `where` argument doesn't exist, create a new HeartDiseasePrediction with this data.
-     */
-    create: XOR<HeartDiseasePredictionCreateInput, HeartDiseasePredictionUncheckedCreateInput>
-    /**
-     * In case the HeartDiseasePrediction was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<HeartDiseasePredictionUpdateInput, HeartDiseasePredictionUncheckedUpdateInput>
-  }
-
-  /**
-   * HeartDiseasePrediction delete
-   */
-  export type HeartDiseasePredictionDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the HeartDiseasePrediction
-     */
-    select?: HeartDiseasePredictionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the HeartDiseasePrediction
-     */
-    omit?: HeartDiseasePredictionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: HeartDiseasePredictionInclude<ExtArgs> | null
-    /**
-     * Filter which HeartDiseasePrediction to delete.
-     */
-    where: HeartDiseasePredictionWhereUniqueInput
-  }
-
-  /**
-   * HeartDiseasePrediction deleteMany
-   */
-  export type HeartDiseasePredictionDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which HeartDiseasePredictions to delete
-     */
-    where?: HeartDiseasePredictionWhereInput
-    /**
-     * Limit how many HeartDiseasePredictions to delete.
+     * Limit how many Verifications to update.
      */
     limit?: number
   }
 
   /**
-   * HeartDiseasePrediction without action
+   * Verification upsert
    */
-  export type HeartDiseasePredictionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type VerificationUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the HeartDiseasePrediction
+     * Select specific fields to fetch from the Verification
      */
-    select?: HeartDiseasePredictionSelect<ExtArgs> | null
+    select?: VerificationSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the HeartDiseasePrediction
+     * Omit specific fields from the Verification
      */
-    omit?: HeartDiseasePredictionOmit<ExtArgs> | null
+    omit?: VerificationOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
+     * The filter to search for the Verification to update in case it exists.
      */
-    include?: HeartDiseasePredictionInclude<ExtArgs> | null
-  }
-
-
-  /**
-   * Model KidneyDiseasePrediction
-   */
-
-  export type AggregateKidneyDiseasePrediction = {
-    _count: KidneyDiseasePredictionCountAggregateOutputType | null
-    _avg: KidneyDiseasePredictionAvgAggregateOutputType | null
-    _sum: KidneyDiseasePredictionSumAggregateOutputType | null
-    _min: KidneyDiseasePredictionMinAggregateOutputType | null
-    _max: KidneyDiseasePredictionMaxAggregateOutputType | null
-  }
-
-  export type KidneyDiseasePredictionAvgAggregateOutputType = {
-    prediction_id: number | null
-    age: number | null
-    blood_pressure: number | null
-    specific_gravity: number | null
-    albumin: number | null
-    sugar: number | null
-    blood_glucose_random: number | null
-    blood_urea: number | null
-    serum_creatinine: number | null
-    sodium: number | null
-    potassium: number | null
-    hemoglobin: number | null
-    packed_cell_volume: number | null
-    white_cell_count: number | null
-    red_cell_count: number | null
-  }
-
-  export type KidneyDiseasePredictionSumAggregateOutputType = {
-    prediction_id: number | null
-    age: number | null
-    blood_pressure: number | null
-    specific_gravity: number | null
-    albumin: number | null
-    sugar: number | null
-    blood_glucose_random: number | null
-    blood_urea: number | null
-    serum_creatinine: number | null
-    sodium: number | null
-    potassium: number | null
-    hemoglobin: number | null
-    packed_cell_volume: number | null
-    white_cell_count: number | null
-    red_cell_count: number | null
-  }
-
-  export type KidneyDiseasePredictionMinAggregateOutputType = {
-    prediction_id: number | null
-    user_id: string | null
-    age: number | null
-    blood_pressure: number | null
-    specific_gravity: number | null
-    albumin: number | null
-    sugar: number | null
-    red_blood_cells: string | null
-    pus_cell: string | null
-    pus_cell_clumps: string | null
-    bacteria: string | null
-    blood_glucose_random: number | null
-    blood_urea: number | null
-    serum_creatinine: number | null
-    sodium: number | null
-    potassium: number | null
-    hemoglobin: number | null
-    packed_cell_volume: number | null
-    white_cell_count: number | null
-    red_cell_count: number | null
-    hypertension: string | null
-    diabetes_mellitus: string | null
-    coronary_artery_disease: string | null
-    appetite: string | null
-    pedal_edema: string | null
-    anemia: string | null
-    classification: string | null
-    created_at: Date | null
-  }
-
-  export type KidneyDiseasePredictionMaxAggregateOutputType = {
-    prediction_id: number | null
-    user_id: string | null
-    age: number | null
-    blood_pressure: number | null
-    specific_gravity: number | null
-    albumin: number | null
-    sugar: number | null
-    red_blood_cells: string | null
-    pus_cell: string | null
-    pus_cell_clumps: string | null
-    bacteria: string | null
-    blood_glucose_random: number | null
-    blood_urea: number | null
-    serum_creatinine: number | null
-    sodium: number | null
-    potassium: number | null
-    hemoglobin: number | null
-    packed_cell_volume: number | null
-    white_cell_count: number | null
-    red_cell_count: number | null
-    hypertension: string | null
-    diabetes_mellitus: string | null
-    coronary_artery_disease: string | null
-    appetite: string | null
-    pedal_edema: string | null
-    anemia: string | null
-    classification: string | null
-    created_at: Date | null
-  }
-
-  export type KidneyDiseasePredictionCountAggregateOutputType = {
-    prediction_id: number
-    user_id: number
-    age: number
-    blood_pressure: number
-    specific_gravity: number
-    albumin: number
-    sugar: number
-    red_blood_cells: number
-    pus_cell: number
-    pus_cell_clumps: number
-    bacteria: number
-    blood_glucose_random: number
-    blood_urea: number
-    serum_creatinine: number
-    sodium: number
-    potassium: number
-    hemoglobin: number
-    packed_cell_volume: number
-    white_cell_count: number
-    red_cell_count: number
-    hypertension: number
-    diabetes_mellitus: number
-    coronary_artery_disease: number
-    appetite: number
-    pedal_edema: number
-    anemia: number
-    classification: number
-    created_at: number
-    _all: number
-  }
-
-
-  export type KidneyDiseasePredictionAvgAggregateInputType = {
-    prediction_id?: true
-    age?: true
-    blood_pressure?: true
-    specific_gravity?: true
-    albumin?: true
-    sugar?: true
-    blood_glucose_random?: true
-    blood_urea?: true
-    serum_creatinine?: true
-    sodium?: true
-    potassium?: true
-    hemoglobin?: true
-    packed_cell_volume?: true
-    white_cell_count?: true
-    red_cell_count?: true
-  }
-
-  export type KidneyDiseasePredictionSumAggregateInputType = {
-    prediction_id?: true
-    age?: true
-    blood_pressure?: true
-    specific_gravity?: true
-    albumin?: true
-    sugar?: true
-    blood_glucose_random?: true
-    blood_urea?: true
-    serum_creatinine?: true
-    sodium?: true
-    potassium?: true
-    hemoglobin?: true
-    packed_cell_volume?: true
-    white_cell_count?: true
-    red_cell_count?: true
-  }
-
-  export type KidneyDiseasePredictionMinAggregateInputType = {
-    prediction_id?: true
-    user_id?: true
-    age?: true
-    blood_pressure?: true
-    specific_gravity?: true
-    albumin?: true
-    sugar?: true
-    red_blood_cells?: true
-    pus_cell?: true
-    pus_cell_clumps?: true
-    bacteria?: true
-    blood_glucose_random?: true
-    blood_urea?: true
-    serum_creatinine?: true
-    sodium?: true
-    potassium?: true
-    hemoglobin?: true
-    packed_cell_volume?: true
-    white_cell_count?: true
-    red_cell_count?: true
-    hypertension?: true
-    diabetes_mellitus?: true
-    coronary_artery_disease?: true
-    appetite?: true
-    pedal_edema?: true
-    anemia?: true
-    classification?: true
-    created_at?: true
-  }
-
-  export type KidneyDiseasePredictionMaxAggregateInputType = {
-    prediction_id?: true
-    user_id?: true
-    age?: true
-    blood_pressure?: true
-    specific_gravity?: true
-    albumin?: true
-    sugar?: true
-    red_blood_cells?: true
-    pus_cell?: true
-    pus_cell_clumps?: true
-    bacteria?: true
-    blood_glucose_random?: true
-    blood_urea?: true
-    serum_creatinine?: true
-    sodium?: true
-    potassium?: true
-    hemoglobin?: true
-    packed_cell_volume?: true
-    white_cell_count?: true
-    red_cell_count?: true
-    hypertension?: true
-    diabetes_mellitus?: true
-    coronary_artery_disease?: true
-    appetite?: true
-    pedal_edema?: true
-    anemia?: true
-    classification?: true
-    created_at?: true
-  }
-
-  export type KidneyDiseasePredictionCountAggregateInputType = {
-    prediction_id?: true
-    user_id?: true
-    age?: true
-    blood_pressure?: true
-    specific_gravity?: true
-    albumin?: true
-    sugar?: true
-    red_blood_cells?: true
-    pus_cell?: true
-    pus_cell_clumps?: true
-    bacteria?: true
-    blood_glucose_random?: true
-    blood_urea?: true
-    serum_creatinine?: true
-    sodium?: true
-    potassium?: true
-    hemoglobin?: true
-    packed_cell_volume?: true
-    white_cell_count?: true
-    red_cell_count?: true
-    hypertension?: true
-    diabetes_mellitus?: true
-    coronary_artery_disease?: true
-    appetite?: true
-    pedal_edema?: true
-    anemia?: true
-    classification?: true
-    created_at?: true
-    _all?: true
-  }
-
-  export type KidneyDiseasePredictionAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where: VerificationWhereUniqueInput
     /**
-     * Filter which KidneyDiseasePrediction to aggregate.
+     * In case the Verification found by the `where` argument doesn't exist, create a new Verification with this data.
      */
-    where?: KidneyDiseasePredictionWhereInput
+    create: XOR<VerificationCreateInput, VerificationUncheckedCreateInput>
     /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of KidneyDiseasePredictions to fetch.
+     * In case the Verification was found with the provided `where` argument, update it with this data.
      */
-    orderBy?: KidneyDiseasePredictionOrderByWithRelationInput | KidneyDiseasePredictionOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: KidneyDiseasePredictionWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` KidneyDiseasePredictions from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` KidneyDiseasePredictions.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned KidneyDiseasePredictions
-    **/
-    _count?: true | KidneyDiseasePredictionCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to average
-    **/
-    _avg?: KidneyDiseasePredictionAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: KidneyDiseasePredictionSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: KidneyDiseasePredictionMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: KidneyDiseasePredictionMaxAggregateInputType
-  }
-
-  export type GetKidneyDiseasePredictionAggregateType<T extends KidneyDiseasePredictionAggregateArgs> = {
-        [P in keyof T & keyof AggregateKidneyDiseasePrediction]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateKidneyDiseasePrediction[P]>
-      : GetScalarType<T[P], AggregateKidneyDiseasePrediction[P]>
-  }
-
-
-
-
-  export type KidneyDiseasePredictionGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: KidneyDiseasePredictionWhereInput
-    orderBy?: KidneyDiseasePredictionOrderByWithAggregationInput | KidneyDiseasePredictionOrderByWithAggregationInput[]
-    by: KidneyDiseasePredictionScalarFieldEnum[] | KidneyDiseasePredictionScalarFieldEnum
-    having?: KidneyDiseasePredictionScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: KidneyDiseasePredictionCountAggregateInputType | true
-    _avg?: KidneyDiseasePredictionAvgAggregateInputType
-    _sum?: KidneyDiseasePredictionSumAggregateInputType
-    _min?: KidneyDiseasePredictionMinAggregateInputType
-    _max?: KidneyDiseasePredictionMaxAggregateInputType
-  }
-
-  export type KidneyDiseasePredictionGroupByOutputType = {
-    prediction_id: number
-    user_id: string
-    age: number
-    blood_pressure: number
-    specific_gravity: number
-    albumin: number
-    sugar: number
-    red_blood_cells: string
-    pus_cell: string
-    pus_cell_clumps: string
-    bacteria: string
-    blood_glucose_random: number
-    blood_urea: number
-    serum_creatinine: number
-    sodium: number
-    potassium: number
-    hemoglobin: number
-    packed_cell_volume: number
-    white_cell_count: number
-    red_cell_count: number
-    hypertension: string
-    diabetes_mellitus: string
-    coronary_artery_disease: string
-    appetite: string
-    pedal_edema: string
-    anemia: string
-    classification: string
-    created_at: Date
-    _count: KidneyDiseasePredictionCountAggregateOutputType | null
-    _avg: KidneyDiseasePredictionAvgAggregateOutputType | null
-    _sum: KidneyDiseasePredictionSumAggregateOutputType | null
-    _min: KidneyDiseasePredictionMinAggregateOutputType | null
-    _max: KidneyDiseasePredictionMaxAggregateOutputType | null
-  }
-
-  type GetKidneyDiseasePredictionGroupByPayload<T extends KidneyDiseasePredictionGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<KidneyDiseasePredictionGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof KidneyDiseasePredictionGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], KidneyDiseasePredictionGroupByOutputType[P]>
-            : GetScalarType<T[P], KidneyDiseasePredictionGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type KidneyDiseasePredictionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    prediction_id?: boolean
-    user_id?: boolean
-    age?: boolean
-    blood_pressure?: boolean
-    specific_gravity?: boolean
-    albumin?: boolean
-    sugar?: boolean
-    red_blood_cells?: boolean
-    pus_cell?: boolean
-    pus_cell_clumps?: boolean
-    bacteria?: boolean
-    blood_glucose_random?: boolean
-    blood_urea?: boolean
-    serum_creatinine?: boolean
-    sodium?: boolean
-    potassium?: boolean
-    hemoglobin?: boolean
-    packed_cell_volume?: boolean
-    white_cell_count?: boolean
-    red_cell_count?: boolean
-    hypertension?: boolean
-    diabetes_mellitus?: boolean
-    coronary_artery_disease?: boolean
-    appetite?: boolean
-    pedal_edema?: boolean
-    anemia?: boolean
-    classification?: boolean
-    created_at?: boolean
-    User?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["kidneyDiseasePrediction"]>
-
-  export type KidneyDiseasePredictionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    prediction_id?: boolean
-    user_id?: boolean
-    age?: boolean
-    blood_pressure?: boolean
-    specific_gravity?: boolean
-    albumin?: boolean
-    sugar?: boolean
-    red_blood_cells?: boolean
-    pus_cell?: boolean
-    pus_cell_clumps?: boolean
-    bacteria?: boolean
-    blood_glucose_random?: boolean
-    blood_urea?: boolean
-    serum_creatinine?: boolean
-    sodium?: boolean
-    potassium?: boolean
-    hemoglobin?: boolean
-    packed_cell_volume?: boolean
-    white_cell_count?: boolean
-    red_cell_count?: boolean
-    hypertension?: boolean
-    diabetes_mellitus?: boolean
-    coronary_artery_disease?: boolean
-    appetite?: boolean
-    pedal_edema?: boolean
-    anemia?: boolean
-    classification?: boolean
-    created_at?: boolean
-    User?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["kidneyDiseasePrediction"]>
-
-  export type KidneyDiseasePredictionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    prediction_id?: boolean
-    user_id?: boolean
-    age?: boolean
-    blood_pressure?: boolean
-    specific_gravity?: boolean
-    albumin?: boolean
-    sugar?: boolean
-    red_blood_cells?: boolean
-    pus_cell?: boolean
-    pus_cell_clumps?: boolean
-    bacteria?: boolean
-    blood_glucose_random?: boolean
-    blood_urea?: boolean
-    serum_creatinine?: boolean
-    sodium?: boolean
-    potassium?: boolean
-    hemoglobin?: boolean
-    packed_cell_volume?: boolean
-    white_cell_count?: boolean
-    red_cell_count?: boolean
-    hypertension?: boolean
-    diabetes_mellitus?: boolean
-    coronary_artery_disease?: boolean
-    appetite?: boolean
-    pedal_edema?: boolean
-    anemia?: boolean
-    classification?: boolean
-    created_at?: boolean
-    User?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["kidneyDiseasePrediction"]>
-
-  export type KidneyDiseasePredictionSelectScalar = {
-    prediction_id?: boolean
-    user_id?: boolean
-    age?: boolean
-    blood_pressure?: boolean
-    specific_gravity?: boolean
-    albumin?: boolean
-    sugar?: boolean
-    red_blood_cells?: boolean
-    pus_cell?: boolean
-    pus_cell_clumps?: boolean
-    bacteria?: boolean
-    blood_glucose_random?: boolean
-    blood_urea?: boolean
-    serum_creatinine?: boolean
-    sodium?: boolean
-    potassium?: boolean
-    hemoglobin?: boolean
-    packed_cell_volume?: boolean
-    white_cell_count?: boolean
-    red_cell_count?: boolean
-    hypertension?: boolean
-    diabetes_mellitus?: boolean
-    coronary_artery_disease?: boolean
-    appetite?: boolean
-    pedal_edema?: boolean
-    anemia?: boolean
-    classification?: boolean
-    created_at?: boolean
-  }
-
-  export type KidneyDiseasePredictionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"prediction_id" | "user_id" | "age" | "blood_pressure" | "specific_gravity" | "albumin" | "sugar" | "red_blood_cells" | "pus_cell" | "pus_cell_clumps" | "bacteria" | "blood_glucose_random" | "blood_urea" | "serum_creatinine" | "sodium" | "potassium" | "hemoglobin" | "packed_cell_volume" | "white_cell_count" | "red_cell_count" | "hypertension" | "diabetes_mellitus" | "coronary_artery_disease" | "appetite" | "pedal_edema" | "anemia" | "classification" | "created_at", ExtArgs["result"]["kidneyDiseasePrediction"]>
-  export type KidneyDiseasePredictionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    User?: boolean | UserDefaultArgs<ExtArgs>
-  }
-  export type KidneyDiseasePredictionIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    User?: boolean | UserDefaultArgs<ExtArgs>
-  }
-  export type KidneyDiseasePredictionIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    User?: boolean | UserDefaultArgs<ExtArgs>
-  }
-
-  export type $KidneyDiseasePredictionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "KidneyDiseasePrediction"
-    objects: {
-      User: Prisma.$UserPayload<ExtArgs>
-    }
-    scalars: $Extensions.GetPayloadResult<{
-      prediction_id: number
-      user_id: string
-      age: number
-      blood_pressure: number
-      specific_gravity: number
-      albumin: number
-      sugar: number
-      red_blood_cells: string
-      pus_cell: string
-      pus_cell_clumps: string
-      bacteria: string
-      blood_glucose_random: number
-      blood_urea: number
-      serum_creatinine: number
-      sodium: number
-      potassium: number
-      hemoglobin: number
-      packed_cell_volume: number
-      white_cell_count: number
-      red_cell_count: number
-      hypertension: string
-      diabetes_mellitus: string
-      coronary_artery_disease: string
-      appetite: string
-      pedal_edema: string
-      anemia: string
-      classification: string
-      created_at: Date
-    }, ExtArgs["result"]["kidneyDiseasePrediction"]>
-    composites: {}
-  }
-
-  type KidneyDiseasePredictionGetPayload<S extends boolean | null | undefined | KidneyDiseasePredictionDefaultArgs> = $Result.GetResult<Prisma.$KidneyDiseasePredictionPayload, S>
-
-  type KidneyDiseasePredictionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<KidneyDiseasePredictionFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: KidneyDiseasePredictionCountAggregateInputType | true
-    }
-
-  export interface KidneyDiseasePredictionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['KidneyDiseasePrediction'], meta: { name: 'KidneyDiseasePrediction' } }
-    /**
-     * Find zero or one KidneyDiseasePrediction that matches the filter.
-     * @param {KidneyDiseasePredictionFindUniqueArgs} args - Arguments to find a KidneyDiseasePrediction
-     * @example
-     * // Get one KidneyDiseasePrediction
-     * const kidneyDiseasePrediction = await prisma.kidneyDiseasePrediction.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends KidneyDiseasePredictionFindUniqueArgs>(args: SelectSubset<T, KidneyDiseasePredictionFindUniqueArgs<ExtArgs>>): Prisma__KidneyDiseasePredictionClient<$Result.GetResult<Prisma.$KidneyDiseasePredictionPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find one KidneyDiseasePrediction that matches the filter or throw an error with `error.code='P2025'`
-     * if no matches were found.
-     * @param {KidneyDiseasePredictionFindUniqueOrThrowArgs} args - Arguments to find a KidneyDiseasePrediction
-     * @example
-     * // Get one KidneyDiseasePrediction
-     * const kidneyDiseasePrediction = await prisma.kidneyDiseasePrediction.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends KidneyDiseasePredictionFindUniqueOrThrowArgs>(args: SelectSubset<T, KidneyDiseasePredictionFindUniqueOrThrowArgs<ExtArgs>>): Prisma__KidneyDiseasePredictionClient<$Result.GetResult<Prisma.$KidneyDiseasePredictionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first KidneyDiseasePrediction that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {KidneyDiseasePredictionFindFirstArgs} args - Arguments to find a KidneyDiseasePrediction
-     * @example
-     * // Get one KidneyDiseasePrediction
-     * const kidneyDiseasePrediction = await prisma.kidneyDiseasePrediction.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends KidneyDiseasePredictionFindFirstArgs>(args?: SelectSubset<T, KidneyDiseasePredictionFindFirstArgs<ExtArgs>>): Prisma__KidneyDiseasePredictionClient<$Result.GetResult<Prisma.$KidneyDiseasePredictionPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first KidneyDiseasePrediction that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {KidneyDiseasePredictionFindFirstOrThrowArgs} args - Arguments to find a KidneyDiseasePrediction
-     * @example
-     * // Get one KidneyDiseasePrediction
-     * const kidneyDiseasePrediction = await prisma.kidneyDiseasePrediction.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends KidneyDiseasePredictionFindFirstOrThrowArgs>(args?: SelectSubset<T, KidneyDiseasePredictionFindFirstOrThrowArgs<ExtArgs>>): Prisma__KidneyDiseasePredictionClient<$Result.GetResult<Prisma.$KidneyDiseasePredictionPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find zero or more KidneyDiseasePredictions that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {KidneyDiseasePredictionFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all KidneyDiseasePredictions
-     * const kidneyDiseasePredictions = await prisma.kidneyDiseasePrediction.findMany()
-     * 
-     * // Get first 10 KidneyDiseasePredictions
-     * const kidneyDiseasePredictions = await prisma.kidneyDiseasePrediction.findMany({ take: 10 })
-     * 
-     * // Only select the `prediction_id`
-     * const kidneyDiseasePredictionWithPrediction_idOnly = await prisma.kidneyDiseasePrediction.findMany({ select: { prediction_id: true } })
-     * 
-     */
-    findMany<T extends KidneyDiseasePredictionFindManyArgs>(args?: SelectSubset<T, KidneyDiseasePredictionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$KidneyDiseasePredictionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
-
-    /**
-     * Create a KidneyDiseasePrediction.
-     * @param {KidneyDiseasePredictionCreateArgs} args - Arguments to create a KidneyDiseasePrediction.
-     * @example
-     * // Create one KidneyDiseasePrediction
-     * const KidneyDiseasePrediction = await prisma.kidneyDiseasePrediction.create({
-     *   data: {
-     *     // ... data to create a KidneyDiseasePrediction
-     *   }
-     * })
-     * 
-     */
-    create<T extends KidneyDiseasePredictionCreateArgs>(args: SelectSubset<T, KidneyDiseasePredictionCreateArgs<ExtArgs>>): Prisma__KidneyDiseasePredictionClient<$Result.GetResult<Prisma.$KidneyDiseasePredictionPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Create many KidneyDiseasePredictions.
-     * @param {KidneyDiseasePredictionCreateManyArgs} args - Arguments to create many KidneyDiseasePredictions.
-     * @example
-     * // Create many KidneyDiseasePredictions
-     * const kidneyDiseasePrediction = await prisma.kidneyDiseasePrediction.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends KidneyDiseasePredictionCreateManyArgs>(args?: SelectSubset<T, KidneyDiseasePredictionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many KidneyDiseasePredictions and returns the data saved in the database.
-     * @param {KidneyDiseasePredictionCreateManyAndReturnArgs} args - Arguments to create many KidneyDiseasePredictions.
-     * @example
-     * // Create many KidneyDiseasePredictions
-     * const kidneyDiseasePrediction = await prisma.kidneyDiseasePrediction.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many KidneyDiseasePredictions and only return the `prediction_id`
-     * const kidneyDiseasePredictionWithPrediction_idOnly = await prisma.kidneyDiseasePrediction.createManyAndReturn({
-     *   select: { prediction_id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends KidneyDiseasePredictionCreateManyAndReturnArgs>(args?: SelectSubset<T, KidneyDiseasePredictionCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$KidneyDiseasePredictionPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Delete a KidneyDiseasePrediction.
-     * @param {KidneyDiseasePredictionDeleteArgs} args - Arguments to delete one KidneyDiseasePrediction.
-     * @example
-     * // Delete one KidneyDiseasePrediction
-     * const KidneyDiseasePrediction = await prisma.kidneyDiseasePrediction.delete({
-     *   where: {
-     *     // ... filter to delete one KidneyDiseasePrediction
-     *   }
-     * })
-     * 
-     */
-    delete<T extends KidneyDiseasePredictionDeleteArgs>(args: SelectSubset<T, KidneyDiseasePredictionDeleteArgs<ExtArgs>>): Prisma__KidneyDiseasePredictionClient<$Result.GetResult<Prisma.$KidneyDiseasePredictionPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Update one KidneyDiseasePrediction.
-     * @param {KidneyDiseasePredictionUpdateArgs} args - Arguments to update one KidneyDiseasePrediction.
-     * @example
-     * // Update one KidneyDiseasePrediction
-     * const kidneyDiseasePrediction = await prisma.kidneyDiseasePrediction.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends KidneyDiseasePredictionUpdateArgs>(args: SelectSubset<T, KidneyDiseasePredictionUpdateArgs<ExtArgs>>): Prisma__KidneyDiseasePredictionClient<$Result.GetResult<Prisma.$KidneyDiseasePredictionPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Delete zero or more KidneyDiseasePredictions.
-     * @param {KidneyDiseasePredictionDeleteManyArgs} args - Arguments to filter KidneyDiseasePredictions to delete.
-     * @example
-     * // Delete a few KidneyDiseasePredictions
-     * const { count } = await prisma.kidneyDiseasePrediction.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends KidneyDiseasePredictionDeleteManyArgs>(args?: SelectSubset<T, KidneyDiseasePredictionDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more KidneyDiseasePredictions.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {KidneyDiseasePredictionUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many KidneyDiseasePredictions
-     * const kidneyDiseasePrediction = await prisma.kidneyDiseasePrediction.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends KidneyDiseasePredictionUpdateManyArgs>(args: SelectSubset<T, KidneyDiseasePredictionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more KidneyDiseasePredictions and returns the data updated in the database.
-     * @param {KidneyDiseasePredictionUpdateManyAndReturnArgs} args - Arguments to update many KidneyDiseasePredictions.
-     * @example
-     * // Update many KidneyDiseasePredictions
-     * const kidneyDiseasePrediction = await prisma.kidneyDiseasePrediction.updateManyAndReturn({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Update zero or more KidneyDiseasePredictions and only return the `prediction_id`
-     * const kidneyDiseasePredictionWithPrediction_idOnly = await prisma.kidneyDiseasePrediction.updateManyAndReturn({
-     *   select: { prediction_id: true },
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    updateManyAndReturn<T extends KidneyDiseasePredictionUpdateManyAndReturnArgs>(args: SelectSubset<T, KidneyDiseasePredictionUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$KidneyDiseasePredictionPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Create or update one KidneyDiseasePrediction.
-     * @param {KidneyDiseasePredictionUpsertArgs} args - Arguments to update or create a KidneyDiseasePrediction.
-     * @example
-     * // Update or create a KidneyDiseasePrediction
-     * const kidneyDiseasePrediction = await prisma.kidneyDiseasePrediction.upsert({
-     *   create: {
-     *     // ... data to create a KidneyDiseasePrediction
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the KidneyDiseasePrediction we want to update
-     *   }
-     * })
-     */
-    upsert<T extends KidneyDiseasePredictionUpsertArgs>(args: SelectSubset<T, KidneyDiseasePredictionUpsertArgs<ExtArgs>>): Prisma__KidneyDiseasePredictionClient<$Result.GetResult<Prisma.$KidneyDiseasePredictionPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-
-    /**
-     * Count the number of KidneyDiseasePredictions.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {KidneyDiseasePredictionCountArgs} args - Arguments to filter KidneyDiseasePredictions to count.
-     * @example
-     * // Count the number of KidneyDiseasePredictions
-     * const count = await prisma.kidneyDiseasePrediction.count({
-     *   where: {
-     *     // ... the filter for the KidneyDiseasePredictions we want to count
-     *   }
-     * })
-    **/
-    count<T extends KidneyDiseasePredictionCountArgs>(
-      args?: Subset<T, KidneyDiseasePredictionCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], KidneyDiseasePredictionCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a KidneyDiseasePrediction.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {KidneyDiseasePredictionAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends KidneyDiseasePredictionAggregateArgs>(args: Subset<T, KidneyDiseasePredictionAggregateArgs>): Prisma.PrismaPromise<GetKidneyDiseasePredictionAggregateType<T>>
-
-    /**
-     * Group by KidneyDiseasePrediction.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {KidneyDiseasePredictionGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends KidneyDiseasePredictionGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: KidneyDiseasePredictionGroupByArgs['orderBy'] }
-        : { orderBy?: KidneyDiseasePredictionGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, KidneyDiseasePredictionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetKidneyDiseasePredictionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the KidneyDiseasePrediction model
-   */
-  readonly fields: KidneyDiseasePredictionFieldRefs;
+    update: XOR<VerificationUpdateInput, VerificationUncheckedUpdateInput>
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for KidneyDiseasePrediction.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
+   * Verification delete
    */
-  export interface Prisma__KidneyDiseasePredictionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    User<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  export type VerificationDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
+     * Select specific fields to fetch from the Verification
      */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    select?: VerificationSelect<ExtArgs> | null
     /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
+     * Omit specific fields from the Verification
      */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    omit?: VerificationOmit<ExtArgs> | null
     /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
+     * Filter which Verification to delete.
      */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the KidneyDiseasePrediction model
-   */
-  interface KidneyDiseasePredictionFieldRefs {
-    readonly prediction_id: FieldRef<"KidneyDiseasePrediction", 'Int'>
-    readonly user_id: FieldRef<"KidneyDiseasePrediction", 'String'>
-    readonly age: FieldRef<"KidneyDiseasePrediction", 'Int'>
-    readonly blood_pressure: FieldRef<"KidneyDiseasePrediction", 'Int'>
-    readonly specific_gravity: FieldRef<"KidneyDiseasePrediction", 'Float'>
-    readonly albumin: FieldRef<"KidneyDiseasePrediction", 'Int'>
-    readonly sugar: FieldRef<"KidneyDiseasePrediction", 'Int'>
-    readonly red_blood_cells: FieldRef<"KidneyDiseasePrediction", 'String'>
-    readonly pus_cell: FieldRef<"KidneyDiseasePrediction", 'String'>
-    readonly pus_cell_clumps: FieldRef<"KidneyDiseasePrediction", 'String'>
-    readonly bacteria: FieldRef<"KidneyDiseasePrediction", 'String'>
-    readonly blood_glucose_random: FieldRef<"KidneyDiseasePrediction", 'Int'>
-    readonly blood_urea: FieldRef<"KidneyDiseasePrediction", 'Int'>
-    readonly serum_creatinine: FieldRef<"KidneyDiseasePrediction", 'Float'>
-    readonly sodium: FieldRef<"KidneyDiseasePrediction", 'Float'>
-    readonly potassium: FieldRef<"KidneyDiseasePrediction", 'Float'>
-    readonly hemoglobin: FieldRef<"KidneyDiseasePrediction", 'Float'>
-    readonly packed_cell_volume: FieldRef<"KidneyDiseasePrediction", 'Float'>
-    readonly white_cell_count: FieldRef<"KidneyDiseasePrediction", 'Int'>
-    readonly red_cell_count: FieldRef<"KidneyDiseasePrediction", 'Int'>
-    readonly hypertension: FieldRef<"KidneyDiseasePrediction", 'String'>
-    readonly diabetes_mellitus: FieldRef<"KidneyDiseasePrediction", 'String'>
-    readonly coronary_artery_disease: FieldRef<"KidneyDiseasePrediction", 'String'>
-    readonly appetite: FieldRef<"KidneyDiseasePrediction", 'String'>
-    readonly pedal_edema: FieldRef<"KidneyDiseasePrediction", 'String'>
-    readonly anemia: FieldRef<"KidneyDiseasePrediction", 'String'>
-    readonly classification: FieldRef<"KidneyDiseasePrediction", 'String'>
-    readonly created_at: FieldRef<"KidneyDiseasePrediction", 'DateTime'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * KidneyDiseasePrediction findUnique
-   */
-  export type KidneyDiseasePredictionFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the KidneyDiseasePrediction
-     */
-    select?: KidneyDiseasePredictionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the KidneyDiseasePrediction
-     */
-    omit?: KidneyDiseasePredictionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: KidneyDiseasePredictionInclude<ExtArgs> | null
-    /**
-     * Filter, which KidneyDiseasePrediction to fetch.
-     */
-    where: KidneyDiseasePredictionWhereUniqueInput
+    where: VerificationWhereUniqueInput
   }
 
   /**
-   * KidneyDiseasePrediction findUniqueOrThrow
+   * Verification deleteMany
    */
-  export type KidneyDiseasePredictionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type VerificationDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the KidneyDiseasePrediction
+     * Filter which Verifications to delete
      */
-    select?: KidneyDiseasePredictionSelect<ExtArgs> | null
+    where?: VerificationWhereInput
     /**
-     * Omit specific fields from the KidneyDiseasePrediction
-     */
-    omit?: KidneyDiseasePredictionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: KidneyDiseasePredictionInclude<ExtArgs> | null
-    /**
-     * Filter, which KidneyDiseasePrediction to fetch.
-     */
-    where: KidneyDiseasePredictionWhereUniqueInput
-  }
-
-  /**
-   * KidneyDiseasePrediction findFirst
-   */
-  export type KidneyDiseasePredictionFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the KidneyDiseasePrediction
-     */
-    select?: KidneyDiseasePredictionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the KidneyDiseasePrediction
-     */
-    omit?: KidneyDiseasePredictionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: KidneyDiseasePredictionInclude<ExtArgs> | null
-    /**
-     * Filter, which KidneyDiseasePrediction to fetch.
-     */
-    where?: KidneyDiseasePredictionWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of KidneyDiseasePredictions to fetch.
-     */
-    orderBy?: KidneyDiseasePredictionOrderByWithRelationInput | KidneyDiseasePredictionOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for KidneyDiseasePredictions.
-     */
-    cursor?: KidneyDiseasePredictionWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` KidneyDiseasePredictions from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` KidneyDiseasePredictions.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of KidneyDiseasePredictions.
-     */
-    distinct?: KidneyDiseasePredictionScalarFieldEnum | KidneyDiseasePredictionScalarFieldEnum[]
-  }
-
-  /**
-   * KidneyDiseasePrediction findFirstOrThrow
-   */
-  export type KidneyDiseasePredictionFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the KidneyDiseasePrediction
-     */
-    select?: KidneyDiseasePredictionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the KidneyDiseasePrediction
-     */
-    omit?: KidneyDiseasePredictionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: KidneyDiseasePredictionInclude<ExtArgs> | null
-    /**
-     * Filter, which KidneyDiseasePrediction to fetch.
-     */
-    where?: KidneyDiseasePredictionWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of KidneyDiseasePredictions to fetch.
-     */
-    orderBy?: KidneyDiseasePredictionOrderByWithRelationInput | KidneyDiseasePredictionOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for KidneyDiseasePredictions.
-     */
-    cursor?: KidneyDiseasePredictionWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` KidneyDiseasePredictions from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` KidneyDiseasePredictions.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of KidneyDiseasePredictions.
-     */
-    distinct?: KidneyDiseasePredictionScalarFieldEnum | KidneyDiseasePredictionScalarFieldEnum[]
-  }
-
-  /**
-   * KidneyDiseasePrediction findMany
-   */
-  export type KidneyDiseasePredictionFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the KidneyDiseasePrediction
-     */
-    select?: KidneyDiseasePredictionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the KidneyDiseasePrediction
-     */
-    omit?: KidneyDiseasePredictionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: KidneyDiseasePredictionInclude<ExtArgs> | null
-    /**
-     * Filter, which KidneyDiseasePredictions to fetch.
-     */
-    where?: KidneyDiseasePredictionWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of KidneyDiseasePredictions to fetch.
-     */
-    orderBy?: KidneyDiseasePredictionOrderByWithRelationInput | KidneyDiseasePredictionOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing KidneyDiseasePredictions.
-     */
-    cursor?: KidneyDiseasePredictionWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` KidneyDiseasePredictions from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` KidneyDiseasePredictions.
-     */
-    skip?: number
-    distinct?: KidneyDiseasePredictionScalarFieldEnum | KidneyDiseasePredictionScalarFieldEnum[]
-  }
-
-  /**
-   * KidneyDiseasePrediction create
-   */
-  export type KidneyDiseasePredictionCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the KidneyDiseasePrediction
-     */
-    select?: KidneyDiseasePredictionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the KidneyDiseasePrediction
-     */
-    omit?: KidneyDiseasePredictionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: KidneyDiseasePredictionInclude<ExtArgs> | null
-    /**
-     * The data needed to create a KidneyDiseasePrediction.
-     */
-    data: XOR<KidneyDiseasePredictionCreateInput, KidneyDiseasePredictionUncheckedCreateInput>
-  }
-
-  /**
-   * KidneyDiseasePrediction createMany
-   */
-  export type KidneyDiseasePredictionCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many KidneyDiseasePredictions.
-     */
-    data: KidneyDiseasePredictionCreateManyInput | KidneyDiseasePredictionCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * KidneyDiseasePrediction createManyAndReturn
-   */
-  export type KidneyDiseasePredictionCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the KidneyDiseasePrediction
-     */
-    select?: KidneyDiseasePredictionSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the KidneyDiseasePrediction
-     */
-    omit?: KidneyDiseasePredictionOmit<ExtArgs> | null
-    /**
-     * The data used to create many KidneyDiseasePredictions.
-     */
-    data: KidneyDiseasePredictionCreateManyInput | KidneyDiseasePredictionCreateManyInput[]
-    skipDuplicates?: boolean
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: KidneyDiseasePredictionIncludeCreateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * KidneyDiseasePrediction update
-   */
-  export type KidneyDiseasePredictionUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the KidneyDiseasePrediction
-     */
-    select?: KidneyDiseasePredictionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the KidneyDiseasePrediction
-     */
-    omit?: KidneyDiseasePredictionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: KidneyDiseasePredictionInclude<ExtArgs> | null
-    /**
-     * The data needed to update a KidneyDiseasePrediction.
-     */
-    data: XOR<KidneyDiseasePredictionUpdateInput, KidneyDiseasePredictionUncheckedUpdateInput>
-    /**
-     * Choose, which KidneyDiseasePrediction to update.
-     */
-    where: KidneyDiseasePredictionWhereUniqueInput
-  }
-
-  /**
-   * KidneyDiseasePrediction updateMany
-   */
-  export type KidneyDiseasePredictionUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update KidneyDiseasePredictions.
-     */
-    data: XOR<KidneyDiseasePredictionUpdateManyMutationInput, KidneyDiseasePredictionUncheckedUpdateManyInput>
-    /**
-     * Filter which KidneyDiseasePredictions to update
-     */
-    where?: KidneyDiseasePredictionWhereInput
-    /**
-     * Limit how many KidneyDiseasePredictions to update.
+     * Limit how many Verifications to delete.
      */
     limit?: number
   }
 
   /**
-   * KidneyDiseasePrediction updateManyAndReturn
+   * Verification without action
    */
-  export type KidneyDiseasePredictionUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type VerificationDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the KidneyDiseasePrediction
+     * Select specific fields to fetch from the Verification
      */
-    select?: KidneyDiseasePredictionSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: VerificationSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the KidneyDiseasePrediction
+     * Omit specific fields from the Verification
      */
-    omit?: KidneyDiseasePredictionOmit<ExtArgs> | null
-    /**
-     * The data used to update KidneyDiseasePredictions.
-     */
-    data: XOR<KidneyDiseasePredictionUpdateManyMutationInput, KidneyDiseasePredictionUncheckedUpdateManyInput>
-    /**
-     * Filter which KidneyDiseasePredictions to update
-     */
-    where?: KidneyDiseasePredictionWhereInput
-    /**
-     * Limit how many KidneyDiseasePredictions to update.
-     */
-    limit?: number
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: KidneyDiseasePredictionIncludeUpdateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * KidneyDiseasePrediction upsert
-   */
-  export type KidneyDiseasePredictionUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the KidneyDiseasePrediction
-     */
-    select?: KidneyDiseasePredictionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the KidneyDiseasePrediction
-     */
-    omit?: KidneyDiseasePredictionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: KidneyDiseasePredictionInclude<ExtArgs> | null
-    /**
-     * The filter to search for the KidneyDiseasePrediction to update in case it exists.
-     */
-    where: KidneyDiseasePredictionWhereUniqueInput
-    /**
-     * In case the KidneyDiseasePrediction found by the `where` argument doesn't exist, create a new KidneyDiseasePrediction with this data.
-     */
-    create: XOR<KidneyDiseasePredictionCreateInput, KidneyDiseasePredictionUncheckedCreateInput>
-    /**
-     * In case the KidneyDiseasePrediction was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<KidneyDiseasePredictionUpdateInput, KidneyDiseasePredictionUncheckedUpdateInput>
-  }
-
-  /**
-   * KidneyDiseasePrediction delete
-   */
-  export type KidneyDiseasePredictionDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the KidneyDiseasePrediction
-     */
-    select?: KidneyDiseasePredictionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the KidneyDiseasePrediction
-     */
-    omit?: KidneyDiseasePredictionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: KidneyDiseasePredictionInclude<ExtArgs> | null
-    /**
-     * Filter which KidneyDiseasePrediction to delete.
-     */
-    where: KidneyDiseasePredictionWhereUniqueInput
-  }
-
-  /**
-   * KidneyDiseasePrediction deleteMany
-   */
-  export type KidneyDiseasePredictionDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which KidneyDiseasePredictions to delete
-     */
-    where?: KidneyDiseasePredictionWhereInput
-    /**
-     * Limit how many KidneyDiseasePredictions to delete.
-     */
-    limit?: number
-  }
-
-  /**
-   * KidneyDiseasePrediction without action
-   */
-  export type KidneyDiseasePredictionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the KidneyDiseasePrediction
-     */
-    select?: KidneyDiseasePredictionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the KidneyDiseasePrediction
-     */
-    omit?: KidneyDiseasePredictionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: KidneyDiseasePredictionInclude<ExtArgs> | null
-  }
-
-
-  /**
-   * Model ParkinsonsPrediction
-   */
-
-  export type AggregateParkinsonsPrediction = {
-    _count: ParkinsonsPredictionCountAggregateOutputType | null
-    _avg: ParkinsonsPredictionAvgAggregateOutputType | null
-    _sum: ParkinsonsPredictionSumAggregateOutputType | null
-    _min: ParkinsonsPredictionMinAggregateOutputType | null
-    _max: ParkinsonsPredictionMaxAggregateOutputType | null
-  }
-
-  export type ParkinsonsPredictionAvgAggregateOutputType = {
-    prediction_id: number | null
-    recording_number: number | null
-    mdvp_fo: number | null
-    mdvp_fhi: number | null
-    mdvp_flo: number | null
-    mdvp_jitter_percentage: number | null
-    mdvp_jitter_abs: number | null
-    mdvp_rap: number | null
-    mdvp_ppq: number | null
-    jitter_ddp: number | null
-    mdvp_shimmer: number | null
-    mdvp_shimmer_db: number | null
-    shimmer_apq3: number | null
-    shimmer_apq5: number | null
-    mdvp_apq: number | null
-    shimmer_dda: number | null
-    nhr: number | null
-    hnr: number | null
-    status: number | null
-    rpde: number | null
-    d2: number | null
-    dfa: number | null
-    spread1: number | null
-    spread2: number | null
-    ppe: number | null
-  }
-
-  export type ParkinsonsPredictionSumAggregateOutputType = {
-    prediction_id: number | null
-    recording_number: number | null
-    mdvp_fo: number | null
-    mdvp_fhi: number | null
-    mdvp_flo: number | null
-    mdvp_jitter_percentage: number | null
-    mdvp_jitter_abs: number | null
-    mdvp_rap: number | null
-    mdvp_ppq: number | null
-    jitter_ddp: number | null
-    mdvp_shimmer: number | null
-    mdvp_shimmer_db: number | null
-    shimmer_apq3: number | null
-    shimmer_apq5: number | null
-    mdvp_apq: number | null
-    shimmer_dda: number | null
-    nhr: number | null
-    hnr: number | null
-    status: number | null
-    rpde: number | null
-    d2: number | null
-    dfa: number | null
-    spread1: number | null
-    spread2: number | null
-    ppe: number | null
-  }
-
-  export type ParkinsonsPredictionMinAggregateOutputType = {
-    prediction_id: number | null
-    user_id: string | null
-    ascii_subject_name: string | null
-    recording_number: number | null
-    mdvp_fo: number | null
-    mdvp_fhi: number | null
-    mdvp_flo: number | null
-    mdvp_jitter_percentage: number | null
-    mdvp_jitter_abs: number | null
-    mdvp_rap: number | null
-    mdvp_ppq: number | null
-    jitter_ddp: number | null
-    mdvp_shimmer: number | null
-    mdvp_shimmer_db: number | null
-    shimmer_apq3: number | null
-    shimmer_apq5: number | null
-    mdvp_apq: number | null
-    shimmer_dda: number | null
-    nhr: number | null
-    hnr: number | null
-    status: number | null
-    rpde: number | null
-    d2: number | null
-    dfa: number | null
-    spread1: number | null
-    spread2: number | null
-    ppe: number | null
-    result: string | null
-    created_at: Date | null
-  }
-
-  export type ParkinsonsPredictionMaxAggregateOutputType = {
-    prediction_id: number | null
-    user_id: string | null
-    ascii_subject_name: string | null
-    recording_number: number | null
-    mdvp_fo: number | null
-    mdvp_fhi: number | null
-    mdvp_flo: number | null
-    mdvp_jitter_percentage: number | null
-    mdvp_jitter_abs: number | null
-    mdvp_rap: number | null
-    mdvp_ppq: number | null
-    jitter_ddp: number | null
-    mdvp_shimmer: number | null
-    mdvp_shimmer_db: number | null
-    shimmer_apq3: number | null
-    shimmer_apq5: number | null
-    mdvp_apq: number | null
-    shimmer_dda: number | null
-    nhr: number | null
-    hnr: number | null
-    status: number | null
-    rpde: number | null
-    d2: number | null
-    dfa: number | null
-    spread1: number | null
-    spread2: number | null
-    ppe: number | null
-    result: string | null
-    created_at: Date | null
-  }
-
-  export type ParkinsonsPredictionCountAggregateOutputType = {
-    prediction_id: number
-    user_id: number
-    ascii_subject_name: number
-    recording_number: number
-    mdvp_fo: number
-    mdvp_fhi: number
-    mdvp_flo: number
-    mdvp_jitter_percentage: number
-    mdvp_jitter_abs: number
-    mdvp_rap: number
-    mdvp_ppq: number
-    jitter_ddp: number
-    mdvp_shimmer: number
-    mdvp_shimmer_db: number
-    shimmer_apq3: number
-    shimmer_apq5: number
-    mdvp_apq: number
-    shimmer_dda: number
-    nhr: number
-    hnr: number
-    status: number
-    rpde: number
-    d2: number
-    dfa: number
-    spread1: number
-    spread2: number
-    ppe: number
-    result: number
-    created_at: number
-    _all: number
-  }
-
-
-  export type ParkinsonsPredictionAvgAggregateInputType = {
-    prediction_id?: true
-    recording_number?: true
-    mdvp_fo?: true
-    mdvp_fhi?: true
-    mdvp_flo?: true
-    mdvp_jitter_percentage?: true
-    mdvp_jitter_abs?: true
-    mdvp_rap?: true
-    mdvp_ppq?: true
-    jitter_ddp?: true
-    mdvp_shimmer?: true
-    mdvp_shimmer_db?: true
-    shimmer_apq3?: true
-    shimmer_apq5?: true
-    mdvp_apq?: true
-    shimmer_dda?: true
-    nhr?: true
-    hnr?: true
-    status?: true
-    rpde?: true
-    d2?: true
-    dfa?: true
-    spread1?: true
-    spread2?: true
-    ppe?: true
-  }
-
-  export type ParkinsonsPredictionSumAggregateInputType = {
-    prediction_id?: true
-    recording_number?: true
-    mdvp_fo?: true
-    mdvp_fhi?: true
-    mdvp_flo?: true
-    mdvp_jitter_percentage?: true
-    mdvp_jitter_abs?: true
-    mdvp_rap?: true
-    mdvp_ppq?: true
-    jitter_ddp?: true
-    mdvp_shimmer?: true
-    mdvp_shimmer_db?: true
-    shimmer_apq3?: true
-    shimmer_apq5?: true
-    mdvp_apq?: true
-    shimmer_dda?: true
-    nhr?: true
-    hnr?: true
-    status?: true
-    rpde?: true
-    d2?: true
-    dfa?: true
-    spread1?: true
-    spread2?: true
-    ppe?: true
-  }
-
-  export type ParkinsonsPredictionMinAggregateInputType = {
-    prediction_id?: true
-    user_id?: true
-    ascii_subject_name?: true
-    recording_number?: true
-    mdvp_fo?: true
-    mdvp_fhi?: true
-    mdvp_flo?: true
-    mdvp_jitter_percentage?: true
-    mdvp_jitter_abs?: true
-    mdvp_rap?: true
-    mdvp_ppq?: true
-    jitter_ddp?: true
-    mdvp_shimmer?: true
-    mdvp_shimmer_db?: true
-    shimmer_apq3?: true
-    shimmer_apq5?: true
-    mdvp_apq?: true
-    shimmer_dda?: true
-    nhr?: true
-    hnr?: true
-    status?: true
-    rpde?: true
-    d2?: true
-    dfa?: true
-    spread1?: true
-    spread2?: true
-    ppe?: true
-    result?: true
-    created_at?: true
-  }
-
-  export type ParkinsonsPredictionMaxAggregateInputType = {
-    prediction_id?: true
-    user_id?: true
-    ascii_subject_name?: true
-    recording_number?: true
-    mdvp_fo?: true
-    mdvp_fhi?: true
-    mdvp_flo?: true
-    mdvp_jitter_percentage?: true
-    mdvp_jitter_abs?: true
-    mdvp_rap?: true
-    mdvp_ppq?: true
-    jitter_ddp?: true
-    mdvp_shimmer?: true
-    mdvp_shimmer_db?: true
-    shimmer_apq3?: true
-    shimmer_apq5?: true
-    mdvp_apq?: true
-    shimmer_dda?: true
-    nhr?: true
-    hnr?: true
-    status?: true
-    rpde?: true
-    d2?: true
-    dfa?: true
-    spread1?: true
-    spread2?: true
-    ppe?: true
-    result?: true
-    created_at?: true
-  }
-
-  export type ParkinsonsPredictionCountAggregateInputType = {
-    prediction_id?: true
-    user_id?: true
-    ascii_subject_name?: true
-    recording_number?: true
-    mdvp_fo?: true
-    mdvp_fhi?: true
-    mdvp_flo?: true
-    mdvp_jitter_percentage?: true
-    mdvp_jitter_abs?: true
-    mdvp_rap?: true
-    mdvp_ppq?: true
-    jitter_ddp?: true
-    mdvp_shimmer?: true
-    mdvp_shimmer_db?: true
-    shimmer_apq3?: true
-    shimmer_apq5?: true
-    mdvp_apq?: true
-    shimmer_dda?: true
-    nhr?: true
-    hnr?: true
-    status?: true
-    rpde?: true
-    d2?: true
-    dfa?: true
-    spread1?: true
-    spread2?: true
-    ppe?: true
-    result?: true
-    created_at?: true
-    _all?: true
-  }
-
-  export type ParkinsonsPredictionAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which ParkinsonsPrediction to aggregate.
-     */
-    where?: ParkinsonsPredictionWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of ParkinsonsPredictions to fetch.
-     */
-    orderBy?: ParkinsonsPredictionOrderByWithRelationInput | ParkinsonsPredictionOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: ParkinsonsPredictionWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` ParkinsonsPredictions from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` ParkinsonsPredictions.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned ParkinsonsPredictions
-    **/
-    _count?: true | ParkinsonsPredictionCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to average
-    **/
-    _avg?: ParkinsonsPredictionAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: ParkinsonsPredictionSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: ParkinsonsPredictionMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: ParkinsonsPredictionMaxAggregateInputType
-  }
-
-  export type GetParkinsonsPredictionAggregateType<T extends ParkinsonsPredictionAggregateArgs> = {
-        [P in keyof T & keyof AggregateParkinsonsPrediction]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateParkinsonsPrediction[P]>
-      : GetScalarType<T[P], AggregateParkinsonsPrediction[P]>
-  }
-
-
-
-
-  export type ParkinsonsPredictionGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ParkinsonsPredictionWhereInput
-    orderBy?: ParkinsonsPredictionOrderByWithAggregationInput | ParkinsonsPredictionOrderByWithAggregationInput[]
-    by: ParkinsonsPredictionScalarFieldEnum[] | ParkinsonsPredictionScalarFieldEnum
-    having?: ParkinsonsPredictionScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: ParkinsonsPredictionCountAggregateInputType | true
-    _avg?: ParkinsonsPredictionAvgAggregateInputType
-    _sum?: ParkinsonsPredictionSumAggregateInputType
-    _min?: ParkinsonsPredictionMinAggregateInputType
-    _max?: ParkinsonsPredictionMaxAggregateInputType
-  }
-
-  export type ParkinsonsPredictionGroupByOutputType = {
-    prediction_id: number
-    user_id: string
-    ascii_subject_name: string
-    recording_number: number
-    mdvp_fo: number
-    mdvp_fhi: number
-    mdvp_flo: number
-    mdvp_jitter_percentage: number
-    mdvp_jitter_abs: number
-    mdvp_rap: number
-    mdvp_ppq: number
-    jitter_ddp: number
-    mdvp_shimmer: number
-    mdvp_shimmer_db: number
-    shimmer_apq3: number
-    shimmer_apq5: number
-    mdvp_apq: number
-    shimmer_dda: number
-    nhr: number
-    hnr: number
-    status: number
-    rpde: number
-    d2: number
-    dfa: number
-    spread1: number
-    spread2: number
-    ppe: number
-    result: string
-    created_at: Date
-    _count: ParkinsonsPredictionCountAggregateOutputType | null
-    _avg: ParkinsonsPredictionAvgAggregateOutputType | null
-    _sum: ParkinsonsPredictionSumAggregateOutputType | null
-    _min: ParkinsonsPredictionMinAggregateOutputType | null
-    _max: ParkinsonsPredictionMaxAggregateOutputType | null
-  }
-
-  type GetParkinsonsPredictionGroupByPayload<T extends ParkinsonsPredictionGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<ParkinsonsPredictionGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof ParkinsonsPredictionGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], ParkinsonsPredictionGroupByOutputType[P]>
-            : GetScalarType<T[P], ParkinsonsPredictionGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type ParkinsonsPredictionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    prediction_id?: boolean
-    user_id?: boolean
-    ascii_subject_name?: boolean
-    recording_number?: boolean
-    mdvp_fo?: boolean
-    mdvp_fhi?: boolean
-    mdvp_flo?: boolean
-    mdvp_jitter_percentage?: boolean
-    mdvp_jitter_abs?: boolean
-    mdvp_rap?: boolean
-    mdvp_ppq?: boolean
-    jitter_ddp?: boolean
-    mdvp_shimmer?: boolean
-    mdvp_shimmer_db?: boolean
-    shimmer_apq3?: boolean
-    shimmer_apq5?: boolean
-    mdvp_apq?: boolean
-    shimmer_dda?: boolean
-    nhr?: boolean
-    hnr?: boolean
-    status?: boolean
-    rpde?: boolean
-    d2?: boolean
-    dfa?: boolean
-    spread1?: boolean
-    spread2?: boolean
-    ppe?: boolean
-    result?: boolean
-    created_at?: boolean
-    User?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["parkinsonsPrediction"]>
-
-  export type ParkinsonsPredictionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    prediction_id?: boolean
-    user_id?: boolean
-    ascii_subject_name?: boolean
-    recording_number?: boolean
-    mdvp_fo?: boolean
-    mdvp_fhi?: boolean
-    mdvp_flo?: boolean
-    mdvp_jitter_percentage?: boolean
-    mdvp_jitter_abs?: boolean
-    mdvp_rap?: boolean
-    mdvp_ppq?: boolean
-    jitter_ddp?: boolean
-    mdvp_shimmer?: boolean
-    mdvp_shimmer_db?: boolean
-    shimmer_apq3?: boolean
-    shimmer_apq5?: boolean
-    mdvp_apq?: boolean
-    shimmer_dda?: boolean
-    nhr?: boolean
-    hnr?: boolean
-    status?: boolean
-    rpde?: boolean
-    d2?: boolean
-    dfa?: boolean
-    spread1?: boolean
-    spread2?: boolean
-    ppe?: boolean
-    result?: boolean
-    created_at?: boolean
-    User?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["parkinsonsPrediction"]>
-
-  export type ParkinsonsPredictionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    prediction_id?: boolean
-    user_id?: boolean
-    ascii_subject_name?: boolean
-    recording_number?: boolean
-    mdvp_fo?: boolean
-    mdvp_fhi?: boolean
-    mdvp_flo?: boolean
-    mdvp_jitter_percentage?: boolean
-    mdvp_jitter_abs?: boolean
-    mdvp_rap?: boolean
-    mdvp_ppq?: boolean
-    jitter_ddp?: boolean
-    mdvp_shimmer?: boolean
-    mdvp_shimmer_db?: boolean
-    shimmer_apq3?: boolean
-    shimmer_apq5?: boolean
-    mdvp_apq?: boolean
-    shimmer_dda?: boolean
-    nhr?: boolean
-    hnr?: boolean
-    status?: boolean
-    rpde?: boolean
-    d2?: boolean
-    dfa?: boolean
-    spread1?: boolean
-    spread2?: boolean
-    ppe?: boolean
-    result?: boolean
-    created_at?: boolean
-    User?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["parkinsonsPrediction"]>
-
-  export type ParkinsonsPredictionSelectScalar = {
-    prediction_id?: boolean
-    user_id?: boolean
-    ascii_subject_name?: boolean
-    recording_number?: boolean
-    mdvp_fo?: boolean
-    mdvp_fhi?: boolean
-    mdvp_flo?: boolean
-    mdvp_jitter_percentage?: boolean
-    mdvp_jitter_abs?: boolean
-    mdvp_rap?: boolean
-    mdvp_ppq?: boolean
-    jitter_ddp?: boolean
-    mdvp_shimmer?: boolean
-    mdvp_shimmer_db?: boolean
-    shimmer_apq3?: boolean
-    shimmer_apq5?: boolean
-    mdvp_apq?: boolean
-    shimmer_dda?: boolean
-    nhr?: boolean
-    hnr?: boolean
-    status?: boolean
-    rpde?: boolean
-    d2?: boolean
-    dfa?: boolean
-    spread1?: boolean
-    spread2?: boolean
-    ppe?: boolean
-    result?: boolean
-    created_at?: boolean
-  }
-
-  export type ParkinsonsPredictionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"prediction_id" | "user_id" | "ascii_subject_name" | "recording_number" | "mdvp_fo" | "mdvp_fhi" | "mdvp_flo" | "mdvp_jitter_percentage" | "mdvp_jitter_abs" | "mdvp_rap" | "mdvp_ppq" | "jitter_ddp" | "mdvp_shimmer" | "mdvp_shimmer_db" | "shimmer_apq3" | "shimmer_apq5" | "mdvp_apq" | "shimmer_dda" | "nhr" | "hnr" | "status" | "rpde" | "d2" | "dfa" | "spread1" | "spread2" | "ppe" | "result" | "created_at", ExtArgs["result"]["parkinsonsPrediction"]>
-  export type ParkinsonsPredictionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    User?: boolean | UserDefaultArgs<ExtArgs>
-  }
-  export type ParkinsonsPredictionIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    User?: boolean | UserDefaultArgs<ExtArgs>
-  }
-  export type ParkinsonsPredictionIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    User?: boolean | UserDefaultArgs<ExtArgs>
-  }
-
-  export type $ParkinsonsPredictionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "ParkinsonsPrediction"
-    objects: {
-      User: Prisma.$UserPayload<ExtArgs>
-    }
-    scalars: $Extensions.GetPayloadResult<{
-      prediction_id: number
-      user_id: string
-      ascii_subject_name: string
-      recording_number: number
-      mdvp_fo: number
-      mdvp_fhi: number
-      mdvp_flo: number
-      mdvp_jitter_percentage: number
-      mdvp_jitter_abs: number
-      mdvp_rap: number
-      mdvp_ppq: number
-      jitter_ddp: number
-      mdvp_shimmer: number
-      mdvp_shimmer_db: number
-      shimmer_apq3: number
-      shimmer_apq5: number
-      mdvp_apq: number
-      shimmer_dda: number
-      nhr: number
-      hnr: number
-      status: number
-      rpde: number
-      d2: number
-      dfa: number
-      spread1: number
-      spread2: number
-      ppe: number
-      result: string
-      created_at: Date
-    }, ExtArgs["result"]["parkinsonsPrediction"]>
-    composites: {}
-  }
-
-  type ParkinsonsPredictionGetPayload<S extends boolean | null | undefined | ParkinsonsPredictionDefaultArgs> = $Result.GetResult<Prisma.$ParkinsonsPredictionPayload, S>
-
-  type ParkinsonsPredictionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<ParkinsonsPredictionFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: ParkinsonsPredictionCountAggregateInputType | true
-    }
-
-  export interface ParkinsonsPredictionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ParkinsonsPrediction'], meta: { name: 'ParkinsonsPrediction' } }
-    /**
-     * Find zero or one ParkinsonsPrediction that matches the filter.
-     * @param {ParkinsonsPredictionFindUniqueArgs} args - Arguments to find a ParkinsonsPrediction
-     * @example
-     * // Get one ParkinsonsPrediction
-     * const parkinsonsPrediction = await prisma.parkinsonsPrediction.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends ParkinsonsPredictionFindUniqueArgs>(args: SelectSubset<T, ParkinsonsPredictionFindUniqueArgs<ExtArgs>>): Prisma__ParkinsonsPredictionClient<$Result.GetResult<Prisma.$ParkinsonsPredictionPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find one ParkinsonsPrediction that matches the filter or throw an error with `error.code='P2025'`
-     * if no matches were found.
-     * @param {ParkinsonsPredictionFindUniqueOrThrowArgs} args - Arguments to find a ParkinsonsPrediction
-     * @example
-     * // Get one ParkinsonsPrediction
-     * const parkinsonsPrediction = await prisma.parkinsonsPrediction.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends ParkinsonsPredictionFindUniqueOrThrowArgs>(args: SelectSubset<T, ParkinsonsPredictionFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ParkinsonsPredictionClient<$Result.GetResult<Prisma.$ParkinsonsPredictionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first ParkinsonsPrediction that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {ParkinsonsPredictionFindFirstArgs} args - Arguments to find a ParkinsonsPrediction
-     * @example
-     * // Get one ParkinsonsPrediction
-     * const parkinsonsPrediction = await prisma.parkinsonsPrediction.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends ParkinsonsPredictionFindFirstArgs>(args?: SelectSubset<T, ParkinsonsPredictionFindFirstArgs<ExtArgs>>): Prisma__ParkinsonsPredictionClient<$Result.GetResult<Prisma.$ParkinsonsPredictionPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first ParkinsonsPrediction that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {ParkinsonsPredictionFindFirstOrThrowArgs} args - Arguments to find a ParkinsonsPrediction
-     * @example
-     * // Get one ParkinsonsPrediction
-     * const parkinsonsPrediction = await prisma.parkinsonsPrediction.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends ParkinsonsPredictionFindFirstOrThrowArgs>(args?: SelectSubset<T, ParkinsonsPredictionFindFirstOrThrowArgs<ExtArgs>>): Prisma__ParkinsonsPredictionClient<$Result.GetResult<Prisma.$ParkinsonsPredictionPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find zero or more ParkinsonsPredictions that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {ParkinsonsPredictionFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all ParkinsonsPredictions
-     * const parkinsonsPredictions = await prisma.parkinsonsPrediction.findMany()
-     * 
-     * // Get first 10 ParkinsonsPredictions
-     * const parkinsonsPredictions = await prisma.parkinsonsPrediction.findMany({ take: 10 })
-     * 
-     * // Only select the `prediction_id`
-     * const parkinsonsPredictionWithPrediction_idOnly = await prisma.parkinsonsPrediction.findMany({ select: { prediction_id: true } })
-     * 
-     */
-    findMany<T extends ParkinsonsPredictionFindManyArgs>(args?: SelectSubset<T, ParkinsonsPredictionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ParkinsonsPredictionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
-
-    /**
-     * Create a ParkinsonsPrediction.
-     * @param {ParkinsonsPredictionCreateArgs} args - Arguments to create a ParkinsonsPrediction.
-     * @example
-     * // Create one ParkinsonsPrediction
-     * const ParkinsonsPrediction = await prisma.parkinsonsPrediction.create({
-     *   data: {
-     *     // ... data to create a ParkinsonsPrediction
-     *   }
-     * })
-     * 
-     */
-    create<T extends ParkinsonsPredictionCreateArgs>(args: SelectSubset<T, ParkinsonsPredictionCreateArgs<ExtArgs>>): Prisma__ParkinsonsPredictionClient<$Result.GetResult<Prisma.$ParkinsonsPredictionPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Create many ParkinsonsPredictions.
-     * @param {ParkinsonsPredictionCreateManyArgs} args - Arguments to create many ParkinsonsPredictions.
-     * @example
-     * // Create many ParkinsonsPredictions
-     * const parkinsonsPrediction = await prisma.parkinsonsPrediction.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends ParkinsonsPredictionCreateManyArgs>(args?: SelectSubset<T, ParkinsonsPredictionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many ParkinsonsPredictions and returns the data saved in the database.
-     * @param {ParkinsonsPredictionCreateManyAndReturnArgs} args - Arguments to create many ParkinsonsPredictions.
-     * @example
-     * // Create many ParkinsonsPredictions
-     * const parkinsonsPrediction = await prisma.parkinsonsPrediction.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many ParkinsonsPredictions and only return the `prediction_id`
-     * const parkinsonsPredictionWithPrediction_idOnly = await prisma.parkinsonsPrediction.createManyAndReturn({
-     *   select: { prediction_id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends ParkinsonsPredictionCreateManyAndReturnArgs>(args?: SelectSubset<T, ParkinsonsPredictionCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ParkinsonsPredictionPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Delete a ParkinsonsPrediction.
-     * @param {ParkinsonsPredictionDeleteArgs} args - Arguments to delete one ParkinsonsPrediction.
-     * @example
-     * // Delete one ParkinsonsPrediction
-     * const ParkinsonsPrediction = await prisma.parkinsonsPrediction.delete({
-     *   where: {
-     *     // ... filter to delete one ParkinsonsPrediction
-     *   }
-     * })
-     * 
-     */
-    delete<T extends ParkinsonsPredictionDeleteArgs>(args: SelectSubset<T, ParkinsonsPredictionDeleteArgs<ExtArgs>>): Prisma__ParkinsonsPredictionClient<$Result.GetResult<Prisma.$ParkinsonsPredictionPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Update one ParkinsonsPrediction.
-     * @param {ParkinsonsPredictionUpdateArgs} args - Arguments to update one ParkinsonsPrediction.
-     * @example
-     * // Update one ParkinsonsPrediction
-     * const parkinsonsPrediction = await prisma.parkinsonsPrediction.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends ParkinsonsPredictionUpdateArgs>(args: SelectSubset<T, ParkinsonsPredictionUpdateArgs<ExtArgs>>): Prisma__ParkinsonsPredictionClient<$Result.GetResult<Prisma.$ParkinsonsPredictionPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Delete zero or more ParkinsonsPredictions.
-     * @param {ParkinsonsPredictionDeleteManyArgs} args - Arguments to filter ParkinsonsPredictions to delete.
-     * @example
-     * // Delete a few ParkinsonsPredictions
-     * const { count } = await prisma.parkinsonsPrediction.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends ParkinsonsPredictionDeleteManyArgs>(args?: SelectSubset<T, ParkinsonsPredictionDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more ParkinsonsPredictions.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {ParkinsonsPredictionUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many ParkinsonsPredictions
-     * const parkinsonsPrediction = await prisma.parkinsonsPrediction.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends ParkinsonsPredictionUpdateManyArgs>(args: SelectSubset<T, ParkinsonsPredictionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more ParkinsonsPredictions and returns the data updated in the database.
-     * @param {ParkinsonsPredictionUpdateManyAndReturnArgs} args - Arguments to update many ParkinsonsPredictions.
-     * @example
-     * // Update many ParkinsonsPredictions
-     * const parkinsonsPrediction = await prisma.parkinsonsPrediction.updateManyAndReturn({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Update zero or more ParkinsonsPredictions and only return the `prediction_id`
-     * const parkinsonsPredictionWithPrediction_idOnly = await prisma.parkinsonsPrediction.updateManyAndReturn({
-     *   select: { prediction_id: true },
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    updateManyAndReturn<T extends ParkinsonsPredictionUpdateManyAndReturnArgs>(args: SelectSubset<T, ParkinsonsPredictionUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ParkinsonsPredictionPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Create or update one ParkinsonsPrediction.
-     * @param {ParkinsonsPredictionUpsertArgs} args - Arguments to update or create a ParkinsonsPrediction.
-     * @example
-     * // Update or create a ParkinsonsPrediction
-     * const parkinsonsPrediction = await prisma.parkinsonsPrediction.upsert({
-     *   create: {
-     *     // ... data to create a ParkinsonsPrediction
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the ParkinsonsPrediction we want to update
-     *   }
-     * })
-     */
-    upsert<T extends ParkinsonsPredictionUpsertArgs>(args: SelectSubset<T, ParkinsonsPredictionUpsertArgs<ExtArgs>>): Prisma__ParkinsonsPredictionClient<$Result.GetResult<Prisma.$ParkinsonsPredictionPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-
-    /**
-     * Count the number of ParkinsonsPredictions.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {ParkinsonsPredictionCountArgs} args - Arguments to filter ParkinsonsPredictions to count.
-     * @example
-     * // Count the number of ParkinsonsPredictions
-     * const count = await prisma.parkinsonsPrediction.count({
-     *   where: {
-     *     // ... the filter for the ParkinsonsPredictions we want to count
-     *   }
-     * })
-    **/
-    count<T extends ParkinsonsPredictionCountArgs>(
-      args?: Subset<T, ParkinsonsPredictionCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], ParkinsonsPredictionCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a ParkinsonsPrediction.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {ParkinsonsPredictionAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends ParkinsonsPredictionAggregateArgs>(args: Subset<T, ParkinsonsPredictionAggregateArgs>): Prisma.PrismaPromise<GetParkinsonsPredictionAggregateType<T>>
-
-    /**
-     * Group by ParkinsonsPrediction.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {ParkinsonsPredictionGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends ParkinsonsPredictionGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: ParkinsonsPredictionGroupByArgs['orderBy'] }
-        : { orderBy?: ParkinsonsPredictionGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, ParkinsonsPredictionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetParkinsonsPredictionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the ParkinsonsPrediction model
-   */
-  readonly fields: ParkinsonsPredictionFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for ParkinsonsPrediction.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__ParkinsonsPredictionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    User<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the ParkinsonsPrediction model
-   */
-  interface ParkinsonsPredictionFieldRefs {
-    readonly prediction_id: FieldRef<"ParkinsonsPrediction", 'Int'>
-    readonly user_id: FieldRef<"ParkinsonsPrediction", 'String'>
-    readonly ascii_subject_name: FieldRef<"ParkinsonsPrediction", 'String'>
-    readonly recording_number: FieldRef<"ParkinsonsPrediction", 'Int'>
-    readonly mdvp_fo: FieldRef<"ParkinsonsPrediction", 'Float'>
-    readonly mdvp_fhi: FieldRef<"ParkinsonsPrediction", 'Float'>
-    readonly mdvp_flo: FieldRef<"ParkinsonsPrediction", 'Float'>
-    readonly mdvp_jitter_percentage: FieldRef<"ParkinsonsPrediction", 'Float'>
-    readonly mdvp_jitter_abs: FieldRef<"ParkinsonsPrediction", 'Float'>
-    readonly mdvp_rap: FieldRef<"ParkinsonsPrediction", 'Float'>
-    readonly mdvp_ppq: FieldRef<"ParkinsonsPrediction", 'Float'>
-    readonly jitter_ddp: FieldRef<"ParkinsonsPrediction", 'Float'>
-    readonly mdvp_shimmer: FieldRef<"ParkinsonsPrediction", 'Float'>
-    readonly mdvp_shimmer_db: FieldRef<"ParkinsonsPrediction", 'Float'>
-    readonly shimmer_apq3: FieldRef<"ParkinsonsPrediction", 'Float'>
-    readonly shimmer_apq5: FieldRef<"ParkinsonsPrediction", 'Float'>
-    readonly mdvp_apq: FieldRef<"ParkinsonsPrediction", 'Float'>
-    readonly shimmer_dda: FieldRef<"ParkinsonsPrediction", 'Float'>
-    readonly nhr: FieldRef<"ParkinsonsPrediction", 'Float'>
-    readonly hnr: FieldRef<"ParkinsonsPrediction", 'Float'>
-    readonly status: FieldRef<"ParkinsonsPrediction", 'Int'>
-    readonly rpde: FieldRef<"ParkinsonsPrediction", 'Float'>
-    readonly d2: FieldRef<"ParkinsonsPrediction", 'Float'>
-    readonly dfa: FieldRef<"ParkinsonsPrediction", 'Float'>
-    readonly spread1: FieldRef<"ParkinsonsPrediction", 'Float'>
-    readonly spread2: FieldRef<"ParkinsonsPrediction", 'Float'>
-    readonly ppe: FieldRef<"ParkinsonsPrediction", 'Float'>
-    readonly result: FieldRef<"ParkinsonsPrediction", 'String'>
-    readonly created_at: FieldRef<"ParkinsonsPrediction", 'DateTime'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * ParkinsonsPrediction findUnique
-   */
-  export type ParkinsonsPredictionFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ParkinsonsPrediction
-     */
-    select?: ParkinsonsPredictionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the ParkinsonsPrediction
-     */
-    omit?: ParkinsonsPredictionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ParkinsonsPredictionInclude<ExtArgs> | null
-    /**
-     * Filter, which ParkinsonsPrediction to fetch.
-     */
-    where: ParkinsonsPredictionWhereUniqueInput
-  }
-
-  /**
-   * ParkinsonsPrediction findUniqueOrThrow
-   */
-  export type ParkinsonsPredictionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ParkinsonsPrediction
-     */
-    select?: ParkinsonsPredictionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the ParkinsonsPrediction
-     */
-    omit?: ParkinsonsPredictionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ParkinsonsPredictionInclude<ExtArgs> | null
-    /**
-     * Filter, which ParkinsonsPrediction to fetch.
-     */
-    where: ParkinsonsPredictionWhereUniqueInput
-  }
-
-  /**
-   * ParkinsonsPrediction findFirst
-   */
-  export type ParkinsonsPredictionFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ParkinsonsPrediction
-     */
-    select?: ParkinsonsPredictionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the ParkinsonsPrediction
-     */
-    omit?: ParkinsonsPredictionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ParkinsonsPredictionInclude<ExtArgs> | null
-    /**
-     * Filter, which ParkinsonsPrediction to fetch.
-     */
-    where?: ParkinsonsPredictionWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of ParkinsonsPredictions to fetch.
-     */
-    orderBy?: ParkinsonsPredictionOrderByWithRelationInput | ParkinsonsPredictionOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for ParkinsonsPredictions.
-     */
-    cursor?: ParkinsonsPredictionWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` ParkinsonsPredictions from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` ParkinsonsPredictions.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of ParkinsonsPredictions.
-     */
-    distinct?: ParkinsonsPredictionScalarFieldEnum | ParkinsonsPredictionScalarFieldEnum[]
-  }
-
-  /**
-   * ParkinsonsPrediction findFirstOrThrow
-   */
-  export type ParkinsonsPredictionFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ParkinsonsPrediction
-     */
-    select?: ParkinsonsPredictionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the ParkinsonsPrediction
-     */
-    omit?: ParkinsonsPredictionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ParkinsonsPredictionInclude<ExtArgs> | null
-    /**
-     * Filter, which ParkinsonsPrediction to fetch.
-     */
-    where?: ParkinsonsPredictionWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of ParkinsonsPredictions to fetch.
-     */
-    orderBy?: ParkinsonsPredictionOrderByWithRelationInput | ParkinsonsPredictionOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for ParkinsonsPredictions.
-     */
-    cursor?: ParkinsonsPredictionWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` ParkinsonsPredictions from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` ParkinsonsPredictions.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of ParkinsonsPredictions.
-     */
-    distinct?: ParkinsonsPredictionScalarFieldEnum | ParkinsonsPredictionScalarFieldEnum[]
-  }
-
-  /**
-   * ParkinsonsPrediction findMany
-   */
-  export type ParkinsonsPredictionFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ParkinsonsPrediction
-     */
-    select?: ParkinsonsPredictionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the ParkinsonsPrediction
-     */
-    omit?: ParkinsonsPredictionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ParkinsonsPredictionInclude<ExtArgs> | null
-    /**
-     * Filter, which ParkinsonsPredictions to fetch.
-     */
-    where?: ParkinsonsPredictionWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of ParkinsonsPredictions to fetch.
-     */
-    orderBy?: ParkinsonsPredictionOrderByWithRelationInput | ParkinsonsPredictionOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing ParkinsonsPredictions.
-     */
-    cursor?: ParkinsonsPredictionWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` ParkinsonsPredictions from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` ParkinsonsPredictions.
-     */
-    skip?: number
-    distinct?: ParkinsonsPredictionScalarFieldEnum | ParkinsonsPredictionScalarFieldEnum[]
-  }
-
-  /**
-   * ParkinsonsPrediction create
-   */
-  export type ParkinsonsPredictionCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ParkinsonsPrediction
-     */
-    select?: ParkinsonsPredictionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the ParkinsonsPrediction
-     */
-    omit?: ParkinsonsPredictionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ParkinsonsPredictionInclude<ExtArgs> | null
-    /**
-     * The data needed to create a ParkinsonsPrediction.
-     */
-    data: XOR<ParkinsonsPredictionCreateInput, ParkinsonsPredictionUncheckedCreateInput>
-  }
-
-  /**
-   * ParkinsonsPrediction createMany
-   */
-  export type ParkinsonsPredictionCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many ParkinsonsPredictions.
-     */
-    data: ParkinsonsPredictionCreateManyInput | ParkinsonsPredictionCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * ParkinsonsPrediction createManyAndReturn
-   */
-  export type ParkinsonsPredictionCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ParkinsonsPrediction
-     */
-    select?: ParkinsonsPredictionSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the ParkinsonsPrediction
-     */
-    omit?: ParkinsonsPredictionOmit<ExtArgs> | null
-    /**
-     * The data used to create many ParkinsonsPredictions.
-     */
-    data: ParkinsonsPredictionCreateManyInput | ParkinsonsPredictionCreateManyInput[]
-    skipDuplicates?: boolean
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ParkinsonsPredictionIncludeCreateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * ParkinsonsPrediction update
-   */
-  export type ParkinsonsPredictionUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ParkinsonsPrediction
-     */
-    select?: ParkinsonsPredictionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the ParkinsonsPrediction
-     */
-    omit?: ParkinsonsPredictionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ParkinsonsPredictionInclude<ExtArgs> | null
-    /**
-     * The data needed to update a ParkinsonsPrediction.
-     */
-    data: XOR<ParkinsonsPredictionUpdateInput, ParkinsonsPredictionUncheckedUpdateInput>
-    /**
-     * Choose, which ParkinsonsPrediction to update.
-     */
-    where: ParkinsonsPredictionWhereUniqueInput
-  }
-
-  /**
-   * ParkinsonsPrediction updateMany
-   */
-  export type ParkinsonsPredictionUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update ParkinsonsPredictions.
-     */
-    data: XOR<ParkinsonsPredictionUpdateManyMutationInput, ParkinsonsPredictionUncheckedUpdateManyInput>
-    /**
-     * Filter which ParkinsonsPredictions to update
-     */
-    where?: ParkinsonsPredictionWhereInput
-    /**
-     * Limit how many ParkinsonsPredictions to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * ParkinsonsPrediction updateManyAndReturn
-   */
-  export type ParkinsonsPredictionUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ParkinsonsPrediction
-     */
-    select?: ParkinsonsPredictionSelectUpdateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the ParkinsonsPrediction
-     */
-    omit?: ParkinsonsPredictionOmit<ExtArgs> | null
-    /**
-     * The data used to update ParkinsonsPredictions.
-     */
-    data: XOR<ParkinsonsPredictionUpdateManyMutationInput, ParkinsonsPredictionUncheckedUpdateManyInput>
-    /**
-     * Filter which ParkinsonsPredictions to update
-     */
-    where?: ParkinsonsPredictionWhereInput
-    /**
-     * Limit how many ParkinsonsPredictions to update.
-     */
-    limit?: number
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ParkinsonsPredictionIncludeUpdateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * ParkinsonsPrediction upsert
-   */
-  export type ParkinsonsPredictionUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ParkinsonsPrediction
-     */
-    select?: ParkinsonsPredictionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the ParkinsonsPrediction
-     */
-    omit?: ParkinsonsPredictionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ParkinsonsPredictionInclude<ExtArgs> | null
-    /**
-     * The filter to search for the ParkinsonsPrediction to update in case it exists.
-     */
-    where: ParkinsonsPredictionWhereUniqueInput
-    /**
-     * In case the ParkinsonsPrediction found by the `where` argument doesn't exist, create a new ParkinsonsPrediction with this data.
-     */
-    create: XOR<ParkinsonsPredictionCreateInput, ParkinsonsPredictionUncheckedCreateInput>
-    /**
-     * In case the ParkinsonsPrediction was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<ParkinsonsPredictionUpdateInput, ParkinsonsPredictionUncheckedUpdateInput>
-  }
-
-  /**
-   * ParkinsonsPrediction delete
-   */
-  export type ParkinsonsPredictionDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ParkinsonsPrediction
-     */
-    select?: ParkinsonsPredictionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the ParkinsonsPrediction
-     */
-    omit?: ParkinsonsPredictionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ParkinsonsPredictionInclude<ExtArgs> | null
-    /**
-     * Filter which ParkinsonsPrediction to delete.
-     */
-    where: ParkinsonsPredictionWhereUniqueInput
-  }
-
-  /**
-   * ParkinsonsPrediction deleteMany
-   */
-  export type ParkinsonsPredictionDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which ParkinsonsPredictions to delete
-     */
-    where?: ParkinsonsPredictionWhereInput
-    /**
-     * Limit how many ParkinsonsPredictions to delete.
-     */
-    limit?: number
-  }
-
-  /**
-   * ParkinsonsPrediction without action
-   */
-  export type ParkinsonsPredictionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ParkinsonsPrediction
-     */
-    select?: ParkinsonsPredictionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the ParkinsonsPrediction
-     */
-    omit?: ParkinsonsPredictionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ParkinsonsPredictionInclude<ExtArgs> | null
+    omit?: VerificationOmit<ExtArgs> | null
   }
 
 
@@ -11675,165 +5589,59 @@ export namespace Prisma {
   export const UserScalarFieldEnum: {
     id: 'id',
     name: 'name',
+    image: 'image',
     email: 'email',
     emailVerified: 'emailVerified',
-    image: 'image'
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
   };
 
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
 
 
-  export const AccountScalarFieldEnum: {
-    id: 'id',
-    userId: 'userId',
-    type: 'type',
-    provider: 'provider',
-    providerAccountId: 'providerAccountId',
-    refresh_token: 'refresh_token',
-    access_token: 'access_token',
-    expires_at: 'expires_at',
-    token_type: 'token_type',
-    scope: 'scope',
-    id_token: 'id_token',
-    session_state: 'session_state'
-  };
-
-  export type AccountScalarFieldEnum = (typeof AccountScalarFieldEnum)[keyof typeof AccountScalarFieldEnum]
-
-
   export const SessionScalarFieldEnum: {
     id: 'id',
-    sessionToken: 'sessionToken',
-    userId: 'userId',
-    expires: 'expires'
+    expiresAt: 'expiresAt',
+    token: 'token',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt',
+    ipAddress: 'ipAddress',
+    userAgent: 'userAgent',
+    userId: 'userId'
   };
 
   export type SessionScalarFieldEnum = (typeof SessionScalarFieldEnum)[keyof typeof SessionScalarFieldEnum]
 
 
-  export const BreastCancerPredictionScalarFieldEnum: {
-    prediction_id: 'prediction_id',
-    user_id: 'user_id',
-    radius_mean: 'radius_mean',
-    texture_mean: 'texture_mean',
-    perimeter_mean: 'perimeter_mean',
-    area_mean: 'area_mean',
-    smoothness_mean: 'smoothness_mean',
-    result: 'result',
-    created_at: 'created_at'
+  export const AccountScalarFieldEnum: {
+    id: 'id',
+    accountId: 'accountId',
+    providerId: 'providerId',
+    userId: 'userId',
+    accessToken: 'accessToken',
+    refreshToken: 'refreshToken',
+    idToken: 'idToken',
+    accessTokenExpiresAt: 'accessTokenExpiresAt',
+    refreshTokenExpiresAt: 'refreshTokenExpiresAt',
+    scope: 'scope',
+    password: 'password',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
   };
 
-  export type BreastCancerPredictionScalarFieldEnum = (typeof BreastCancerPredictionScalarFieldEnum)[keyof typeof BreastCancerPredictionScalarFieldEnum]
+  export type AccountScalarFieldEnum = (typeof AccountScalarFieldEnum)[keyof typeof AccountScalarFieldEnum]
 
 
-  export const DiabetesPredictionScalarFieldEnum: {
-    prediction_id: 'prediction_id',
-    user_id: 'user_id',
-    pregnancies: 'pregnancies',
-    glucose: 'glucose',
-    blood_pressure: 'blood_pressure',
-    skin_thickness: 'skin_thickness',
-    insulin: 'insulin',
-    bmi: 'bmi',
-    diabetes_pedigree_function: 'diabetes_pedigree_function',
-    age: 'age',
-    result: 'result',
-    created_at: 'created_at'
+  export const VerificationScalarFieldEnum: {
+    id: 'id',
+    identifier: 'identifier',
+    value: 'value',
+    expiresAt: 'expiresAt',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
   };
 
-  export type DiabetesPredictionScalarFieldEnum = (typeof DiabetesPredictionScalarFieldEnum)[keyof typeof DiabetesPredictionScalarFieldEnum]
-
-
-  export const HeartDiseasePredictionScalarFieldEnum: {
-    prediction_id: 'prediction_id',
-    user_id: 'user_id',
-    age: 'age',
-    sex: 'sex',
-    chest_pain_type: 'chest_pain_type',
-    resting_blood_pressure: 'resting_blood_pressure',
-    serum_cholesterol: 'serum_cholesterol',
-    fasting_blood_sugar: 'fasting_blood_sugar',
-    resting_ecg: 'resting_ecg',
-    max_heart_rate: 'max_heart_rate',
-    exercise_induced_angina: 'exercise_induced_angina',
-    oldpeak: 'oldpeak',
-    slope_of_peak_exercise_st_segment: 'slope_of_peak_exercise_st_segment',
-    num_major_vessels: 'num_major_vessels',
-    thal: 'thal',
-    result: 'result',
-    created_at: 'created_at'
-  };
-
-  export type HeartDiseasePredictionScalarFieldEnum = (typeof HeartDiseasePredictionScalarFieldEnum)[keyof typeof HeartDiseasePredictionScalarFieldEnum]
-
-
-  export const KidneyDiseasePredictionScalarFieldEnum: {
-    prediction_id: 'prediction_id',
-    user_id: 'user_id',
-    age: 'age',
-    blood_pressure: 'blood_pressure',
-    specific_gravity: 'specific_gravity',
-    albumin: 'albumin',
-    sugar: 'sugar',
-    red_blood_cells: 'red_blood_cells',
-    pus_cell: 'pus_cell',
-    pus_cell_clumps: 'pus_cell_clumps',
-    bacteria: 'bacteria',
-    blood_glucose_random: 'blood_glucose_random',
-    blood_urea: 'blood_urea',
-    serum_creatinine: 'serum_creatinine',
-    sodium: 'sodium',
-    potassium: 'potassium',
-    hemoglobin: 'hemoglobin',
-    packed_cell_volume: 'packed_cell_volume',
-    white_cell_count: 'white_cell_count',
-    red_cell_count: 'red_cell_count',
-    hypertension: 'hypertension',
-    diabetes_mellitus: 'diabetes_mellitus',
-    coronary_artery_disease: 'coronary_artery_disease',
-    appetite: 'appetite',
-    pedal_edema: 'pedal_edema',
-    anemia: 'anemia',
-    classification: 'classification',
-    created_at: 'created_at'
-  };
-
-  export type KidneyDiseasePredictionScalarFieldEnum = (typeof KidneyDiseasePredictionScalarFieldEnum)[keyof typeof KidneyDiseasePredictionScalarFieldEnum]
-
-
-  export const ParkinsonsPredictionScalarFieldEnum: {
-    prediction_id: 'prediction_id',
-    user_id: 'user_id',
-    ascii_subject_name: 'ascii_subject_name',
-    recording_number: 'recording_number',
-    mdvp_fo: 'mdvp_fo',
-    mdvp_fhi: 'mdvp_fhi',
-    mdvp_flo: 'mdvp_flo',
-    mdvp_jitter_percentage: 'mdvp_jitter_percentage',
-    mdvp_jitter_abs: 'mdvp_jitter_abs',
-    mdvp_rap: 'mdvp_rap',
-    mdvp_ppq: 'mdvp_ppq',
-    jitter_ddp: 'jitter_ddp',
-    mdvp_shimmer: 'mdvp_shimmer',
-    mdvp_shimmer_db: 'mdvp_shimmer_db',
-    shimmer_apq3: 'shimmer_apq3',
-    shimmer_apq5: 'shimmer_apq5',
-    mdvp_apq: 'mdvp_apq',
-    shimmer_dda: 'shimmer_dda',
-    nhr: 'nhr',
-    hnr: 'hnr',
-    status: 'status',
-    rpde: 'rpde',
-    d2: 'd2',
-    dfa: 'dfa',
-    spread1: 'spread1',
-    spread2: 'spread2',
-    ppe: 'ppe',
-    result: 'result',
-    created_at: 'created_at'
-  };
-
-  export type ParkinsonsPredictionScalarFieldEnum = (typeof ParkinsonsPredictionScalarFieldEnum)[keyof typeof ParkinsonsPredictionScalarFieldEnum]
+  export type VerificationScalarFieldEnum = (typeof VerificationScalarFieldEnum)[keyof typeof VerificationScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -11880,6 +5688,13 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
+
+
+  /**
    * Reference to a field of type 'DateTime'
    */
   export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
@@ -11905,27 +5720,6 @@ export namespace Prisma {
    */
   export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
     
-
-
-  /**
-   * Reference to a field of type 'Float'
-   */
-  export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
-    
-
-
-  /**
-   * Reference to a field of type 'Float[]'
-   */
-  export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
-    
-
-
-  /**
-   * Reference to a field of type 'Boolean'
-   */
-  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
-    
   /**
    * Deep Input Types
    */
@@ -11936,32 +5730,26 @@ export namespace Prisma {
     OR?: UserWhereInput[]
     NOT?: UserWhereInput | UserWhereInput[]
     id?: StringFilter<"User"> | string
-    name?: StringNullableFilter<"User"> | string | null
-    email?: StringNullableFilter<"User"> | string | null
-    emailVerified?: DateTimeNullableFilter<"User"> | Date | string | null
-    image?: StringNullableFilter<"User"> | string | null
-    accounts?: AccountListRelationFilter
-    BreastCancerPrediction?: BreastCancerPredictionListRelationFilter
-    DiabetesPrediction?: DiabetesPredictionListRelationFilter
-    HeartDiseasePrediction?: HeartDiseasePredictionListRelationFilter
-    KidneyDiseasePrediction?: KidneyDiseasePredictionListRelationFilter
-    ParkinsonsPrediction?: ParkinsonsPredictionListRelationFilter
+    name?: StringFilter<"User"> | string
+    image?: StringFilter<"User"> | string
+    email?: StringFilter<"User"> | string
+    emailVerified?: BoolFilter<"User"> | boolean
+    createdAt?: DateTimeFilter<"User"> | Date | string
+    updatedAt?: DateTimeFilter<"User"> | Date | string
     sessions?: SessionListRelationFilter
+    accounts?: AccountListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
     id?: SortOrder
-    name?: SortOrderInput | SortOrder
-    email?: SortOrderInput | SortOrder
-    emailVerified?: SortOrderInput | SortOrder
-    image?: SortOrderInput | SortOrder
-    accounts?: AccountOrderByRelationAggregateInput
-    BreastCancerPrediction?: BreastCancerPredictionOrderByRelationAggregateInput
-    DiabetesPrediction?: DiabetesPredictionOrderByRelationAggregateInput
-    HeartDiseasePrediction?: HeartDiseasePredictionOrderByRelationAggregateInput
-    KidneyDiseasePrediction?: KidneyDiseasePredictionOrderByRelationAggregateInput
-    ParkinsonsPrediction?: ParkinsonsPredictionOrderByRelationAggregateInput
+    name?: SortOrder
+    image?: SortOrder
+    email?: SortOrder
+    emailVerified?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
     sessions?: SessionOrderByRelationAggregateInput
+    accounts?: AccountOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -11970,24 +5758,23 @@ export namespace Prisma {
     AND?: UserWhereInput | UserWhereInput[]
     OR?: UserWhereInput[]
     NOT?: UserWhereInput | UserWhereInput[]
-    name?: StringNullableFilter<"User"> | string | null
-    emailVerified?: DateTimeNullableFilter<"User"> | Date | string | null
-    image?: StringNullableFilter<"User"> | string | null
-    accounts?: AccountListRelationFilter
-    BreastCancerPrediction?: BreastCancerPredictionListRelationFilter
-    DiabetesPrediction?: DiabetesPredictionListRelationFilter
-    HeartDiseasePrediction?: HeartDiseasePredictionListRelationFilter
-    KidneyDiseasePrediction?: KidneyDiseasePredictionListRelationFilter
-    ParkinsonsPrediction?: ParkinsonsPredictionListRelationFilter
+    name?: StringFilter<"User"> | string
+    image?: StringFilter<"User"> | string
+    emailVerified?: BoolFilter<"User"> | boolean
+    createdAt?: DateTimeFilter<"User"> | Date | string
+    updatedAt?: DateTimeFilter<"User"> | Date | string
     sessions?: SessionListRelationFilter
+    accounts?: AccountListRelationFilter
   }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
     id?: SortOrder
-    name?: SortOrderInput | SortOrder
-    email?: SortOrderInput | SortOrder
-    emailVerified?: SortOrderInput | SortOrder
-    image?: SortOrderInput | SortOrder
+    name?: SortOrder
+    image?: SortOrder
+    email?: SortOrder
+    emailVerified?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
     _count?: UserCountOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
     _min?: UserMinOrderByAggregateInput
@@ -11998,103 +5785,12 @@ export namespace Prisma {
     OR?: UserScalarWhereWithAggregatesInput[]
     NOT?: UserScalarWhereWithAggregatesInput | UserScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"User"> | string
-    name?: StringNullableWithAggregatesFilter<"User"> | string | null
-    email?: StringNullableWithAggregatesFilter<"User"> | string | null
-    emailVerified?: DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
-    image?: StringNullableWithAggregatesFilter<"User"> | string | null
-  }
-
-  export type AccountWhereInput = {
-    AND?: AccountWhereInput | AccountWhereInput[]
-    OR?: AccountWhereInput[]
-    NOT?: AccountWhereInput | AccountWhereInput[]
-    id?: StringFilter<"Account"> | string
-    userId?: StringFilter<"Account"> | string
-    type?: StringFilter<"Account"> | string
-    provider?: StringFilter<"Account"> | string
-    providerAccountId?: StringFilter<"Account"> | string
-    refresh_token?: StringNullableFilter<"Account"> | string | null
-    access_token?: StringNullableFilter<"Account"> | string | null
-    expires_at?: IntNullableFilter<"Account"> | number | null
-    token_type?: StringNullableFilter<"Account"> | string | null
-    scope?: StringNullableFilter<"Account"> | string | null
-    id_token?: StringNullableFilter<"Account"> | string | null
-    session_state?: StringNullableFilter<"Account"> | string | null
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
-  }
-
-  export type AccountOrderByWithRelationInput = {
-    id?: SortOrder
-    userId?: SortOrder
-    type?: SortOrder
-    provider?: SortOrder
-    providerAccountId?: SortOrder
-    refresh_token?: SortOrderInput | SortOrder
-    access_token?: SortOrderInput | SortOrder
-    expires_at?: SortOrderInput | SortOrder
-    token_type?: SortOrderInput | SortOrder
-    scope?: SortOrderInput | SortOrder
-    id_token?: SortOrderInput | SortOrder
-    session_state?: SortOrderInput | SortOrder
-    user?: UserOrderByWithRelationInput
-  }
-
-  export type AccountWhereUniqueInput = Prisma.AtLeast<{
-    id?: string
-    provider_providerAccountId?: AccountProviderProviderAccountIdCompoundUniqueInput
-    AND?: AccountWhereInput | AccountWhereInput[]
-    OR?: AccountWhereInput[]
-    NOT?: AccountWhereInput | AccountWhereInput[]
-    userId?: StringFilter<"Account"> | string
-    type?: StringFilter<"Account"> | string
-    provider?: StringFilter<"Account"> | string
-    providerAccountId?: StringFilter<"Account"> | string
-    refresh_token?: StringNullableFilter<"Account"> | string | null
-    access_token?: StringNullableFilter<"Account"> | string | null
-    expires_at?: IntNullableFilter<"Account"> | number | null
-    token_type?: StringNullableFilter<"Account"> | string | null
-    scope?: StringNullableFilter<"Account"> | string | null
-    id_token?: StringNullableFilter<"Account"> | string | null
-    session_state?: StringNullableFilter<"Account"> | string | null
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
-  }, "id" | "provider_providerAccountId">
-
-  export type AccountOrderByWithAggregationInput = {
-    id?: SortOrder
-    userId?: SortOrder
-    type?: SortOrder
-    provider?: SortOrder
-    providerAccountId?: SortOrder
-    refresh_token?: SortOrderInput | SortOrder
-    access_token?: SortOrderInput | SortOrder
-    expires_at?: SortOrderInput | SortOrder
-    token_type?: SortOrderInput | SortOrder
-    scope?: SortOrderInput | SortOrder
-    id_token?: SortOrderInput | SortOrder
-    session_state?: SortOrderInput | SortOrder
-    _count?: AccountCountOrderByAggregateInput
-    _avg?: AccountAvgOrderByAggregateInput
-    _max?: AccountMaxOrderByAggregateInput
-    _min?: AccountMinOrderByAggregateInput
-    _sum?: AccountSumOrderByAggregateInput
-  }
-
-  export type AccountScalarWhereWithAggregatesInput = {
-    AND?: AccountScalarWhereWithAggregatesInput | AccountScalarWhereWithAggregatesInput[]
-    OR?: AccountScalarWhereWithAggregatesInput[]
-    NOT?: AccountScalarWhereWithAggregatesInput | AccountScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"Account"> | string
-    userId?: StringWithAggregatesFilter<"Account"> | string
-    type?: StringWithAggregatesFilter<"Account"> | string
-    provider?: StringWithAggregatesFilter<"Account"> | string
-    providerAccountId?: StringWithAggregatesFilter<"Account"> | string
-    refresh_token?: StringNullableWithAggregatesFilter<"Account"> | string | null
-    access_token?: StringNullableWithAggregatesFilter<"Account"> | string | null
-    expires_at?: IntNullableWithAggregatesFilter<"Account"> | number | null
-    token_type?: StringNullableWithAggregatesFilter<"Account"> | string | null
-    scope?: StringNullableWithAggregatesFilter<"Account"> | string | null
-    id_token?: StringNullableWithAggregatesFilter<"Account"> | string | null
-    session_state?: StringNullableWithAggregatesFilter<"Account"> | string | null
+    name?: StringWithAggregatesFilter<"User"> | string
+    image?: StringWithAggregatesFilter<"User"> | string
+    email?: StringWithAggregatesFilter<"User"> | string
+    emailVerified?: BoolWithAggregatesFilter<"User"> | boolean
+    createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
   }
 
   export type SessionWhereInput = {
@@ -12102,36 +5798,52 @@ export namespace Prisma {
     OR?: SessionWhereInput[]
     NOT?: SessionWhereInput | SessionWhereInput[]
     id?: StringFilter<"Session"> | string
-    sessionToken?: StringFilter<"Session"> | string
+    expiresAt?: DateTimeFilter<"Session"> | Date | string
+    token?: StringFilter<"Session"> | string
+    createdAt?: DateTimeFilter<"Session"> | Date | string
+    updatedAt?: DateTimeFilter<"Session"> | Date | string
+    ipAddress?: StringNullableFilter<"Session"> | string | null
+    userAgent?: StringNullableFilter<"Session"> | string | null
     userId?: StringFilter<"Session"> | string
-    expires?: DateTimeFilter<"Session"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }
 
   export type SessionOrderByWithRelationInput = {
     id?: SortOrder
-    sessionToken?: SortOrder
+    expiresAt?: SortOrder
+    token?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    ipAddress?: SortOrderInput | SortOrder
+    userAgent?: SortOrderInput | SortOrder
     userId?: SortOrder
-    expires?: SortOrder
     user?: UserOrderByWithRelationInput
   }
 
   export type SessionWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    sessionToken?: string
+    token?: string
     AND?: SessionWhereInput | SessionWhereInput[]
     OR?: SessionWhereInput[]
     NOT?: SessionWhereInput | SessionWhereInput[]
+    expiresAt?: DateTimeFilter<"Session"> | Date | string
+    createdAt?: DateTimeFilter<"Session"> | Date | string
+    updatedAt?: DateTimeFilter<"Session"> | Date | string
+    ipAddress?: StringNullableFilter<"Session"> | string | null
+    userAgent?: StringNullableFilter<"Session"> | string | null
     userId?: StringFilter<"Session"> | string
-    expires?: DateTimeFilter<"Session"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
-  }, "id" | "sessionToken">
+  }, "id" | "token">
 
   export type SessionOrderByWithAggregationInput = {
     id?: SortOrder
-    sessionToken?: SortOrder
+    expiresAt?: SortOrder
+    token?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    ipAddress?: SortOrderInput | SortOrder
+    userAgent?: SortOrderInput | SortOrder
     userId?: SortOrder
-    expires?: SortOrder
     _count?: SessionCountOrderByAggregateInput
     _max?: SessionMaxOrderByAggregateInput
     _min?: SessionMinOrderByAggregateInput
@@ -12142,1630 +5854,493 @@ export namespace Prisma {
     OR?: SessionScalarWhereWithAggregatesInput[]
     NOT?: SessionScalarWhereWithAggregatesInput | SessionScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Session"> | string
-    sessionToken?: StringWithAggregatesFilter<"Session"> | string
+    expiresAt?: DateTimeWithAggregatesFilter<"Session"> | Date | string
+    token?: StringWithAggregatesFilter<"Session"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"Session"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Session"> | Date | string
+    ipAddress?: StringNullableWithAggregatesFilter<"Session"> | string | null
+    userAgent?: StringNullableWithAggregatesFilter<"Session"> | string | null
     userId?: StringWithAggregatesFilter<"Session"> | string
-    expires?: DateTimeWithAggregatesFilter<"Session"> | Date | string
   }
 
-  export type BreastCancerPredictionWhereInput = {
-    AND?: BreastCancerPredictionWhereInput | BreastCancerPredictionWhereInput[]
-    OR?: BreastCancerPredictionWhereInput[]
-    NOT?: BreastCancerPredictionWhereInput | BreastCancerPredictionWhereInput[]
-    prediction_id?: IntFilter<"BreastCancerPrediction"> | number
-    user_id?: StringFilter<"BreastCancerPrediction"> | string
-    radius_mean?: FloatFilter<"BreastCancerPrediction"> | number
-    texture_mean?: FloatFilter<"BreastCancerPrediction"> | number
-    perimeter_mean?: FloatFilter<"BreastCancerPrediction"> | number
-    area_mean?: FloatFilter<"BreastCancerPrediction"> | number
-    smoothness_mean?: FloatFilter<"BreastCancerPrediction"> | number
-    result?: StringFilter<"BreastCancerPrediction"> | string
-    created_at?: DateTimeFilter<"BreastCancerPrediction"> | Date | string
-    User?: XOR<UserScalarRelationFilter, UserWhereInput>
+  export type AccountWhereInput = {
+    AND?: AccountWhereInput | AccountWhereInput[]
+    OR?: AccountWhereInput[]
+    NOT?: AccountWhereInput | AccountWhereInput[]
+    id?: StringFilter<"Account"> | string
+    accountId?: StringFilter<"Account"> | string
+    providerId?: StringFilter<"Account"> | string
+    userId?: StringFilter<"Account"> | string
+    accessToken?: StringNullableFilter<"Account"> | string | null
+    refreshToken?: StringNullableFilter<"Account"> | string | null
+    idToken?: StringNullableFilter<"Account"> | string | null
+    accessTokenExpiresAt?: DateTimeNullableFilter<"Account"> | Date | string | null
+    refreshTokenExpiresAt?: DateTimeNullableFilter<"Account"> | Date | string | null
+    scope?: StringNullableFilter<"Account"> | string | null
+    password?: StringNullableFilter<"Account"> | string | null
+    createdAt?: DateTimeFilter<"Account"> | Date | string
+    updatedAt?: DateTimeFilter<"Account"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }
 
-  export type BreastCancerPredictionOrderByWithRelationInput = {
-    prediction_id?: SortOrder
-    user_id?: SortOrder
-    radius_mean?: SortOrder
-    texture_mean?: SortOrder
-    perimeter_mean?: SortOrder
-    area_mean?: SortOrder
-    smoothness_mean?: SortOrder
-    result?: SortOrder
-    created_at?: SortOrder
-    User?: UserOrderByWithRelationInput
+  export type AccountOrderByWithRelationInput = {
+    id?: SortOrder
+    accountId?: SortOrder
+    providerId?: SortOrder
+    userId?: SortOrder
+    accessToken?: SortOrderInput | SortOrder
+    refreshToken?: SortOrderInput | SortOrder
+    idToken?: SortOrderInput | SortOrder
+    accessTokenExpiresAt?: SortOrderInput | SortOrder
+    refreshTokenExpiresAt?: SortOrderInput | SortOrder
+    scope?: SortOrderInput | SortOrder
+    password?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    user?: UserOrderByWithRelationInput
   }
 
-  export type BreastCancerPredictionWhereUniqueInput = Prisma.AtLeast<{
-    prediction_id?: number
-    AND?: BreastCancerPredictionWhereInput | BreastCancerPredictionWhereInput[]
-    OR?: BreastCancerPredictionWhereInput[]
-    NOT?: BreastCancerPredictionWhereInput | BreastCancerPredictionWhereInput[]
-    user_id?: StringFilter<"BreastCancerPrediction"> | string
-    radius_mean?: FloatFilter<"BreastCancerPrediction"> | number
-    texture_mean?: FloatFilter<"BreastCancerPrediction"> | number
-    perimeter_mean?: FloatFilter<"BreastCancerPrediction"> | number
-    area_mean?: FloatFilter<"BreastCancerPrediction"> | number
-    smoothness_mean?: FloatFilter<"BreastCancerPrediction"> | number
-    result?: StringFilter<"BreastCancerPrediction"> | string
-    created_at?: DateTimeFilter<"BreastCancerPrediction"> | Date | string
-    User?: XOR<UserScalarRelationFilter, UserWhereInput>
-  }, "prediction_id">
+  export type AccountWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: AccountWhereInput | AccountWhereInput[]
+    OR?: AccountWhereInput[]
+    NOT?: AccountWhereInput | AccountWhereInput[]
+    accountId?: StringFilter<"Account"> | string
+    providerId?: StringFilter<"Account"> | string
+    userId?: StringFilter<"Account"> | string
+    accessToken?: StringNullableFilter<"Account"> | string | null
+    refreshToken?: StringNullableFilter<"Account"> | string | null
+    idToken?: StringNullableFilter<"Account"> | string | null
+    accessTokenExpiresAt?: DateTimeNullableFilter<"Account"> | Date | string | null
+    refreshTokenExpiresAt?: DateTimeNullableFilter<"Account"> | Date | string | null
+    scope?: StringNullableFilter<"Account"> | string | null
+    password?: StringNullableFilter<"Account"> | string | null
+    createdAt?: DateTimeFilter<"Account"> | Date | string
+    updatedAt?: DateTimeFilter<"Account"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }, "id">
 
-  export type BreastCancerPredictionOrderByWithAggregationInput = {
-    prediction_id?: SortOrder
-    user_id?: SortOrder
-    radius_mean?: SortOrder
-    texture_mean?: SortOrder
-    perimeter_mean?: SortOrder
-    area_mean?: SortOrder
-    smoothness_mean?: SortOrder
-    result?: SortOrder
-    created_at?: SortOrder
-    _count?: BreastCancerPredictionCountOrderByAggregateInput
-    _avg?: BreastCancerPredictionAvgOrderByAggregateInput
-    _max?: BreastCancerPredictionMaxOrderByAggregateInput
-    _min?: BreastCancerPredictionMinOrderByAggregateInput
-    _sum?: BreastCancerPredictionSumOrderByAggregateInput
+  export type AccountOrderByWithAggregationInput = {
+    id?: SortOrder
+    accountId?: SortOrder
+    providerId?: SortOrder
+    userId?: SortOrder
+    accessToken?: SortOrderInput | SortOrder
+    refreshToken?: SortOrderInput | SortOrder
+    idToken?: SortOrderInput | SortOrder
+    accessTokenExpiresAt?: SortOrderInput | SortOrder
+    refreshTokenExpiresAt?: SortOrderInput | SortOrder
+    scope?: SortOrderInput | SortOrder
+    password?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: AccountCountOrderByAggregateInput
+    _max?: AccountMaxOrderByAggregateInput
+    _min?: AccountMinOrderByAggregateInput
   }
 
-  export type BreastCancerPredictionScalarWhereWithAggregatesInput = {
-    AND?: BreastCancerPredictionScalarWhereWithAggregatesInput | BreastCancerPredictionScalarWhereWithAggregatesInput[]
-    OR?: BreastCancerPredictionScalarWhereWithAggregatesInput[]
-    NOT?: BreastCancerPredictionScalarWhereWithAggregatesInput | BreastCancerPredictionScalarWhereWithAggregatesInput[]
-    prediction_id?: IntWithAggregatesFilter<"BreastCancerPrediction"> | number
-    user_id?: StringWithAggregatesFilter<"BreastCancerPrediction"> | string
-    radius_mean?: FloatWithAggregatesFilter<"BreastCancerPrediction"> | number
-    texture_mean?: FloatWithAggregatesFilter<"BreastCancerPrediction"> | number
-    perimeter_mean?: FloatWithAggregatesFilter<"BreastCancerPrediction"> | number
-    area_mean?: FloatWithAggregatesFilter<"BreastCancerPrediction"> | number
-    smoothness_mean?: FloatWithAggregatesFilter<"BreastCancerPrediction"> | number
-    result?: StringWithAggregatesFilter<"BreastCancerPrediction"> | string
-    created_at?: DateTimeWithAggregatesFilter<"BreastCancerPrediction"> | Date | string
+  export type AccountScalarWhereWithAggregatesInput = {
+    AND?: AccountScalarWhereWithAggregatesInput | AccountScalarWhereWithAggregatesInput[]
+    OR?: AccountScalarWhereWithAggregatesInput[]
+    NOT?: AccountScalarWhereWithAggregatesInput | AccountScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Account"> | string
+    accountId?: StringWithAggregatesFilter<"Account"> | string
+    providerId?: StringWithAggregatesFilter<"Account"> | string
+    userId?: StringWithAggregatesFilter<"Account"> | string
+    accessToken?: StringNullableWithAggregatesFilter<"Account"> | string | null
+    refreshToken?: StringNullableWithAggregatesFilter<"Account"> | string | null
+    idToken?: StringNullableWithAggregatesFilter<"Account"> | string | null
+    accessTokenExpiresAt?: DateTimeNullableWithAggregatesFilter<"Account"> | Date | string | null
+    refreshTokenExpiresAt?: DateTimeNullableWithAggregatesFilter<"Account"> | Date | string | null
+    scope?: StringNullableWithAggregatesFilter<"Account"> | string | null
+    password?: StringNullableWithAggregatesFilter<"Account"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"Account"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Account"> | Date | string
   }
 
-  export type DiabetesPredictionWhereInput = {
-    AND?: DiabetesPredictionWhereInput | DiabetesPredictionWhereInput[]
-    OR?: DiabetesPredictionWhereInput[]
-    NOT?: DiabetesPredictionWhereInput | DiabetesPredictionWhereInput[]
-    prediction_id?: IntFilter<"DiabetesPrediction"> | number
-    user_id?: StringFilter<"DiabetesPrediction"> | string
-    pregnancies?: IntFilter<"DiabetesPrediction"> | number
-    glucose?: IntFilter<"DiabetesPrediction"> | number
-    blood_pressure?: IntFilter<"DiabetesPrediction"> | number
-    skin_thickness?: IntFilter<"DiabetesPrediction"> | number
-    insulin?: IntFilter<"DiabetesPrediction"> | number
-    bmi?: FloatFilter<"DiabetesPrediction"> | number
-    diabetes_pedigree_function?: FloatFilter<"DiabetesPrediction"> | number
-    age?: IntFilter<"DiabetesPrediction"> | number
-    result?: StringFilter<"DiabetesPrediction"> | string
-    created_at?: DateTimeFilter<"DiabetesPrediction"> | Date | string
-    User?: XOR<UserScalarRelationFilter, UserWhereInput>
+  export type VerificationWhereInput = {
+    AND?: VerificationWhereInput | VerificationWhereInput[]
+    OR?: VerificationWhereInput[]
+    NOT?: VerificationWhereInput | VerificationWhereInput[]
+    id?: StringFilter<"Verification"> | string
+    identifier?: StringFilter<"Verification"> | string
+    value?: StringFilter<"Verification"> | string
+    expiresAt?: DateTimeFilter<"Verification"> | Date | string
+    createdAt?: DateTimeNullableFilter<"Verification"> | Date | string | null
+    updatedAt?: DateTimeNullableFilter<"Verification"> | Date | string | null
   }
 
-  export type DiabetesPredictionOrderByWithRelationInput = {
-    prediction_id?: SortOrder
-    user_id?: SortOrder
-    pregnancies?: SortOrder
-    glucose?: SortOrder
-    blood_pressure?: SortOrder
-    skin_thickness?: SortOrder
-    insulin?: SortOrder
-    bmi?: SortOrder
-    diabetes_pedigree_function?: SortOrder
-    age?: SortOrder
-    result?: SortOrder
-    created_at?: SortOrder
-    User?: UserOrderByWithRelationInput
+  export type VerificationOrderByWithRelationInput = {
+    id?: SortOrder
+    identifier?: SortOrder
+    value?: SortOrder
+    expiresAt?: SortOrder
+    createdAt?: SortOrderInput | SortOrder
+    updatedAt?: SortOrderInput | SortOrder
   }
 
-  export type DiabetesPredictionWhereUniqueInput = Prisma.AtLeast<{
-    prediction_id?: number
-    AND?: DiabetesPredictionWhereInput | DiabetesPredictionWhereInput[]
-    OR?: DiabetesPredictionWhereInput[]
-    NOT?: DiabetesPredictionWhereInput | DiabetesPredictionWhereInput[]
-    user_id?: StringFilter<"DiabetesPrediction"> | string
-    pregnancies?: IntFilter<"DiabetesPrediction"> | number
-    glucose?: IntFilter<"DiabetesPrediction"> | number
-    blood_pressure?: IntFilter<"DiabetesPrediction"> | number
-    skin_thickness?: IntFilter<"DiabetesPrediction"> | number
-    insulin?: IntFilter<"DiabetesPrediction"> | number
-    bmi?: FloatFilter<"DiabetesPrediction"> | number
-    diabetes_pedigree_function?: FloatFilter<"DiabetesPrediction"> | number
-    age?: IntFilter<"DiabetesPrediction"> | number
-    result?: StringFilter<"DiabetesPrediction"> | string
-    created_at?: DateTimeFilter<"DiabetesPrediction"> | Date | string
-    User?: XOR<UserScalarRelationFilter, UserWhereInput>
-  }, "prediction_id">
+  export type VerificationWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: VerificationWhereInput | VerificationWhereInput[]
+    OR?: VerificationWhereInput[]
+    NOT?: VerificationWhereInput | VerificationWhereInput[]
+    identifier?: StringFilter<"Verification"> | string
+    value?: StringFilter<"Verification"> | string
+    expiresAt?: DateTimeFilter<"Verification"> | Date | string
+    createdAt?: DateTimeNullableFilter<"Verification"> | Date | string | null
+    updatedAt?: DateTimeNullableFilter<"Verification"> | Date | string | null
+  }, "id">
 
-  export type DiabetesPredictionOrderByWithAggregationInput = {
-    prediction_id?: SortOrder
-    user_id?: SortOrder
-    pregnancies?: SortOrder
-    glucose?: SortOrder
-    blood_pressure?: SortOrder
-    skin_thickness?: SortOrder
-    insulin?: SortOrder
-    bmi?: SortOrder
-    diabetes_pedigree_function?: SortOrder
-    age?: SortOrder
-    result?: SortOrder
-    created_at?: SortOrder
-    _count?: DiabetesPredictionCountOrderByAggregateInput
-    _avg?: DiabetesPredictionAvgOrderByAggregateInput
-    _max?: DiabetesPredictionMaxOrderByAggregateInput
-    _min?: DiabetesPredictionMinOrderByAggregateInput
-    _sum?: DiabetesPredictionSumOrderByAggregateInput
+  export type VerificationOrderByWithAggregationInput = {
+    id?: SortOrder
+    identifier?: SortOrder
+    value?: SortOrder
+    expiresAt?: SortOrder
+    createdAt?: SortOrderInput | SortOrder
+    updatedAt?: SortOrderInput | SortOrder
+    _count?: VerificationCountOrderByAggregateInput
+    _max?: VerificationMaxOrderByAggregateInput
+    _min?: VerificationMinOrderByAggregateInput
   }
 
-  export type DiabetesPredictionScalarWhereWithAggregatesInput = {
-    AND?: DiabetesPredictionScalarWhereWithAggregatesInput | DiabetesPredictionScalarWhereWithAggregatesInput[]
-    OR?: DiabetesPredictionScalarWhereWithAggregatesInput[]
-    NOT?: DiabetesPredictionScalarWhereWithAggregatesInput | DiabetesPredictionScalarWhereWithAggregatesInput[]
-    prediction_id?: IntWithAggregatesFilter<"DiabetesPrediction"> | number
-    user_id?: StringWithAggregatesFilter<"DiabetesPrediction"> | string
-    pregnancies?: IntWithAggregatesFilter<"DiabetesPrediction"> | number
-    glucose?: IntWithAggregatesFilter<"DiabetesPrediction"> | number
-    blood_pressure?: IntWithAggregatesFilter<"DiabetesPrediction"> | number
-    skin_thickness?: IntWithAggregatesFilter<"DiabetesPrediction"> | number
-    insulin?: IntWithAggregatesFilter<"DiabetesPrediction"> | number
-    bmi?: FloatWithAggregatesFilter<"DiabetesPrediction"> | number
-    diabetes_pedigree_function?: FloatWithAggregatesFilter<"DiabetesPrediction"> | number
-    age?: IntWithAggregatesFilter<"DiabetesPrediction"> | number
-    result?: StringWithAggregatesFilter<"DiabetesPrediction"> | string
-    created_at?: DateTimeWithAggregatesFilter<"DiabetesPrediction"> | Date | string
-  }
-
-  export type HeartDiseasePredictionWhereInput = {
-    AND?: HeartDiseasePredictionWhereInput | HeartDiseasePredictionWhereInput[]
-    OR?: HeartDiseasePredictionWhereInput[]
-    NOT?: HeartDiseasePredictionWhereInput | HeartDiseasePredictionWhereInput[]
-    prediction_id?: IntFilter<"HeartDiseasePrediction"> | number
-    user_id?: StringFilter<"HeartDiseasePrediction"> | string
-    age?: IntFilter<"HeartDiseasePrediction"> | number
-    sex?: StringFilter<"HeartDiseasePrediction"> | string
-    chest_pain_type?: StringFilter<"HeartDiseasePrediction"> | string
-    resting_blood_pressure?: IntFilter<"HeartDiseasePrediction"> | number
-    serum_cholesterol?: IntFilter<"HeartDiseasePrediction"> | number
-    fasting_blood_sugar?: BoolFilter<"HeartDiseasePrediction"> | boolean
-    resting_ecg?: IntFilter<"HeartDiseasePrediction"> | number
-    max_heart_rate?: IntFilter<"HeartDiseasePrediction"> | number
-    exercise_induced_angina?: BoolFilter<"HeartDiseasePrediction"> | boolean
-    oldpeak?: FloatFilter<"HeartDiseasePrediction"> | number
-    slope_of_peak_exercise_st_segment?: StringFilter<"HeartDiseasePrediction"> | string
-    num_major_vessels?: IntFilter<"HeartDiseasePrediction"> | number
-    thal?: StringFilter<"HeartDiseasePrediction"> | string
-    result?: StringFilter<"HeartDiseasePrediction"> | string
-    created_at?: DateTimeFilter<"HeartDiseasePrediction"> | Date | string
-    User?: XOR<UserScalarRelationFilter, UserWhereInput>
-  }
-
-  export type HeartDiseasePredictionOrderByWithRelationInput = {
-    prediction_id?: SortOrder
-    user_id?: SortOrder
-    age?: SortOrder
-    sex?: SortOrder
-    chest_pain_type?: SortOrder
-    resting_blood_pressure?: SortOrder
-    serum_cholesterol?: SortOrder
-    fasting_blood_sugar?: SortOrder
-    resting_ecg?: SortOrder
-    max_heart_rate?: SortOrder
-    exercise_induced_angina?: SortOrder
-    oldpeak?: SortOrder
-    slope_of_peak_exercise_st_segment?: SortOrder
-    num_major_vessels?: SortOrder
-    thal?: SortOrder
-    result?: SortOrder
-    created_at?: SortOrder
-    User?: UserOrderByWithRelationInput
-  }
-
-  export type HeartDiseasePredictionWhereUniqueInput = Prisma.AtLeast<{
-    prediction_id?: number
-    AND?: HeartDiseasePredictionWhereInput | HeartDiseasePredictionWhereInput[]
-    OR?: HeartDiseasePredictionWhereInput[]
-    NOT?: HeartDiseasePredictionWhereInput | HeartDiseasePredictionWhereInput[]
-    user_id?: StringFilter<"HeartDiseasePrediction"> | string
-    age?: IntFilter<"HeartDiseasePrediction"> | number
-    sex?: StringFilter<"HeartDiseasePrediction"> | string
-    chest_pain_type?: StringFilter<"HeartDiseasePrediction"> | string
-    resting_blood_pressure?: IntFilter<"HeartDiseasePrediction"> | number
-    serum_cholesterol?: IntFilter<"HeartDiseasePrediction"> | number
-    fasting_blood_sugar?: BoolFilter<"HeartDiseasePrediction"> | boolean
-    resting_ecg?: IntFilter<"HeartDiseasePrediction"> | number
-    max_heart_rate?: IntFilter<"HeartDiseasePrediction"> | number
-    exercise_induced_angina?: BoolFilter<"HeartDiseasePrediction"> | boolean
-    oldpeak?: FloatFilter<"HeartDiseasePrediction"> | number
-    slope_of_peak_exercise_st_segment?: StringFilter<"HeartDiseasePrediction"> | string
-    num_major_vessels?: IntFilter<"HeartDiseasePrediction"> | number
-    thal?: StringFilter<"HeartDiseasePrediction"> | string
-    result?: StringFilter<"HeartDiseasePrediction"> | string
-    created_at?: DateTimeFilter<"HeartDiseasePrediction"> | Date | string
-    User?: XOR<UserScalarRelationFilter, UserWhereInput>
-  }, "prediction_id">
-
-  export type HeartDiseasePredictionOrderByWithAggregationInput = {
-    prediction_id?: SortOrder
-    user_id?: SortOrder
-    age?: SortOrder
-    sex?: SortOrder
-    chest_pain_type?: SortOrder
-    resting_blood_pressure?: SortOrder
-    serum_cholesterol?: SortOrder
-    fasting_blood_sugar?: SortOrder
-    resting_ecg?: SortOrder
-    max_heart_rate?: SortOrder
-    exercise_induced_angina?: SortOrder
-    oldpeak?: SortOrder
-    slope_of_peak_exercise_st_segment?: SortOrder
-    num_major_vessels?: SortOrder
-    thal?: SortOrder
-    result?: SortOrder
-    created_at?: SortOrder
-    _count?: HeartDiseasePredictionCountOrderByAggregateInput
-    _avg?: HeartDiseasePredictionAvgOrderByAggregateInput
-    _max?: HeartDiseasePredictionMaxOrderByAggregateInput
-    _min?: HeartDiseasePredictionMinOrderByAggregateInput
-    _sum?: HeartDiseasePredictionSumOrderByAggregateInput
-  }
-
-  export type HeartDiseasePredictionScalarWhereWithAggregatesInput = {
-    AND?: HeartDiseasePredictionScalarWhereWithAggregatesInput | HeartDiseasePredictionScalarWhereWithAggregatesInput[]
-    OR?: HeartDiseasePredictionScalarWhereWithAggregatesInput[]
-    NOT?: HeartDiseasePredictionScalarWhereWithAggregatesInput | HeartDiseasePredictionScalarWhereWithAggregatesInput[]
-    prediction_id?: IntWithAggregatesFilter<"HeartDiseasePrediction"> | number
-    user_id?: StringWithAggregatesFilter<"HeartDiseasePrediction"> | string
-    age?: IntWithAggregatesFilter<"HeartDiseasePrediction"> | number
-    sex?: StringWithAggregatesFilter<"HeartDiseasePrediction"> | string
-    chest_pain_type?: StringWithAggregatesFilter<"HeartDiseasePrediction"> | string
-    resting_blood_pressure?: IntWithAggregatesFilter<"HeartDiseasePrediction"> | number
-    serum_cholesterol?: IntWithAggregatesFilter<"HeartDiseasePrediction"> | number
-    fasting_blood_sugar?: BoolWithAggregatesFilter<"HeartDiseasePrediction"> | boolean
-    resting_ecg?: IntWithAggregatesFilter<"HeartDiseasePrediction"> | number
-    max_heart_rate?: IntWithAggregatesFilter<"HeartDiseasePrediction"> | number
-    exercise_induced_angina?: BoolWithAggregatesFilter<"HeartDiseasePrediction"> | boolean
-    oldpeak?: FloatWithAggregatesFilter<"HeartDiseasePrediction"> | number
-    slope_of_peak_exercise_st_segment?: StringWithAggregatesFilter<"HeartDiseasePrediction"> | string
-    num_major_vessels?: IntWithAggregatesFilter<"HeartDiseasePrediction"> | number
-    thal?: StringWithAggregatesFilter<"HeartDiseasePrediction"> | string
-    result?: StringWithAggregatesFilter<"HeartDiseasePrediction"> | string
-    created_at?: DateTimeWithAggregatesFilter<"HeartDiseasePrediction"> | Date | string
-  }
-
-  export type KidneyDiseasePredictionWhereInput = {
-    AND?: KidneyDiseasePredictionWhereInput | KidneyDiseasePredictionWhereInput[]
-    OR?: KidneyDiseasePredictionWhereInput[]
-    NOT?: KidneyDiseasePredictionWhereInput | KidneyDiseasePredictionWhereInput[]
-    prediction_id?: IntFilter<"KidneyDiseasePrediction"> | number
-    user_id?: StringFilter<"KidneyDiseasePrediction"> | string
-    age?: IntFilter<"KidneyDiseasePrediction"> | number
-    blood_pressure?: IntFilter<"KidneyDiseasePrediction"> | number
-    specific_gravity?: FloatFilter<"KidneyDiseasePrediction"> | number
-    albumin?: IntFilter<"KidneyDiseasePrediction"> | number
-    sugar?: IntFilter<"KidneyDiseasePrediction"> | number
-    red_blood_cells?: StringFilter<"KidneyDiseasePrediction"> | string
-    pus_cell?: StringFilter<"KidneyDiseasePrediction"> | string
-    pus_cell_clumps?: StringFilter<"KidneyDiseasePrediction"> | string
-    bacteria?: StringFilter<"KidneyDiseasePrediction"> | string
-    blood_glucose_random?: IntFilter<"KidneyDiseasePrediction"> | number
-    blood_urea?: IntFilter<"KidneyDiseasePrediction"> | number
-    serum_creatinine?: FloatFilter<"KidneyDiseasePrediction"> | number
-    sodium?: FloatFilter<"KidneyDiseasePrediction"> | number
-    potassium?: FloatFilter<"KidneyDiseasePrediction"> | number
-    hemoglobin?: FloatFilter<"KidneyDiseasePrediction"> | number
-    packed_cell_volume?: FloatFilter<"KidneyDiseasePrediction"> | number
-    white_cell_count?: IntFilter<"KidneyDiseasePrediction"> | number
-    red_cell_count?: IntFilter<"KidneyDiseasePrediction"> | number
-    hypertension?: StringFilter<"KidneyDiseasePrediction"> | string
-    diabetes_mellitus?: StringFilter<"KidneyDiseasePrediction"> | string
-    coronary_artery_disease?: StringFilter<"KidneyDiseasePrediction"> | string
-    appetite?: StringFilter<"KidneyDiseasePrediction"> | string
-    pedal_edema?: StringFilter<"KidneyDiseasePrediction"> | string
-    anemia?: StringFilter<"KidneyDiseasePrediction"> | string
-    classification?: StringFilter<"KidneyDiseasePrediction"> | string
-    created_at?: DateTimeFilter<"KidneyDiseasePrediction"> | Date | string
-    User?: XOR<UserScalarRelationFilter, UserWhereInput>
-  }
-
-  export type KidneyDiseasePredictionOrderByWithRelationInput = {
-    prediction_id?: SortOrder
-    user_id?: SortOrder
-    age?: SortOrder
-    blood_pressure?: SortOrder
-    specific_gravity?: SortOrder
-    albumin?: SortOrder
-    sugar?: SortOrder
-    red_blood_cells?: SortOrder
-    pus_cell?: SortOrder
-    pus_cell_clumps?: SortOrder
-    bacteria?: SortOrder
-    blood_glucose_random?: SortOrder
-    blood_urea?: SortOrder
-    serum_creatinine?: SortOrder
-    sodium?: SortOrder
-    potassium?: SortOrder
-    hemoglobin?: SortOrder
-    packed_cell_volume?: SortOrder
-    white_cell_count?: SortOrder
-    red_cell_count?: SortOrder
-    hypertension?: SortOrder
-    diabetes_mellitus?: SortOrder
-    coronary_artery_disease?: SortOrder
-    appetite?: SortOrder
-    pedal_edema?: SortOrder
-    anemia?: SortOrder
-    classification?: SortOrder
-    created_at?: SortOrder
-    User?: UserOrderByWithRelationInput
-  }
-
-  export type KidneyDiseasePredictionWhereUniqueInput = Prisma.AtLeast<{
-    prediction_id?: number
-    AND?: KidneyDiseasePredictionWhereInput | KidneyDiseasePredictionWhereInput[]
-    OR?: KidneyDiseasePredictionWhereInput[]
-    NOT?: KidneyDiseasePredictionWhereInput | KidneyDiseasePredictionWhereInput[]
-    user_id?: StringFilter<"KidneyDiseasePrediction"> | string
-    age?: IntFilter<"KidneyDiseasePrediction"> | number
-    blood_pressure?: IntFilter<"KidneyDiseasePrediction"> | number
-    specific_gravity?: FloatFilter<"KidneyDiseasePrediction"> | number
-    albumin?: IntFilter<"KidneyDiseasePrediction"> | number
-    sugar?: IntFilter<"KidneyDiseasePrediction"> | number
-    red_blood_cells?: StringFilter<"KidneyDiseasePrediction"> | string
-    pus_cell?: StringFilter<"KidneyDiseasePrediction"> | string
-    pus_cell_clumps?: StringFilter<"KidneyDiseasePrediction"> | string
-    bacteria?: StringFilter<"KidneyDiseasePrediction"> | string
-    blood_glucose_random?: IntFilter<"KidneyDiseasePrediction"> | number
-    blood_urea?: IntFilter<"KidneyDiseasePrediction"> | number
-    serum_creatinine?: FloatFilter<"KidneyDiseasePrediction"> | number
-    sodium?: FloatFilter<"KidneyDiseasePrediction"> | number
-    potassium?: FloatFilter<"KidneyDiseasePrediction"> | number
-    hemoglobin?: FloatFilter<"KidneyDiseasePrediction"> | number
-    packed_cell_volume?: FloatFilter<"KidneyDiseasePrediction"> | number
-    white_cell_count?: IntFilter<"KidneyDiseasePrediction"> | number
-    red_cell_count?: IntFilter<"KidneyDiseasePrediction"> | number
-    hypertension?: StringFilter<"KidneyDiseasePrediction"> | string
-    diabetes_mellitus?: StringFilter<"KidneyDiseasePrediction"> | string
-    coronary_artery_disease?: StringFilter<"KidneyDiseasePrediction"> | string
-    appetite?: StringFilter<"KidneyDiseasePrediction"> | string
-    pedal_edema?: StringFilter<"KidneyDiseasePrediction"> | string
-    anemia?: StringFilter<"KidneyDiseasePrediction"> | string
-    classification?: StringFilter<"KidneyDiseasePrediction"> | string
-    created_at?: DateTimeFilter<"KidneyDiseasePrediction"> | Date | string
-    User?: XOR<UserScalarRelationFilter, UserWhereInput>
-  }, "prediction_id">
-
-  export type KidneyDiseasePredictionOrderByWithAggregationInput = {
-    prediction_id?: SortOrder
-    user_id?: SortOrder
-    age?: SortOrder
-    blood_pressure?: SortOrder
-    specific_gravity?: SortOrder
-    albumin?: SortOrder
-    sugar?: SortOrder
-    red_blood_cells?: SortOrder
-    pus_cell?: SortOrder
-    pus_cell_clumps?: SortOrder
-    bacteria?: SortOrder
-    blood_glucose_random?: SortOrder
-    blood_urea?: SortOrder
-    serum_creatinine?: SortOrder
-    sodium?: SortOrder
-    potassium?: SortOrder
-    hemoglobin?: SortOrder
-    packed_cell_volume?: SortOrder
-    white_cell_count?: SortOrder
-    red_cell_count?: SortOrder
-    hypertension?: SortOrder
-    diabetes_mellitus?: SortOrder
-    coronary_artery_disease?: SortOrder
-    appetite?: SortOrder
-    pedal_edema?: SortOrder
-    anemia?: SortOrder
-    classification?: SortOrder
-    created_at?: SortOrder
-    _count?: KidneyDiseasePredictionCountOrderByAggregateInput
-    _avg?: KidneyDiseasePredictionAvgOrderByAggregateInput
-    _max?: KidneyDiseasePredictionMaxOrderByAggregateInput
-    _min?: KidneyDiseasePredictionMinOrderByAggregateInput
-    _sum?: KidneyDiseasePredictionSumOrderByAggregateInput
-  }
-
-  export type KidneyDiseasePredictionScalarWhereWithAggregatesInput = {
-    AND?: KidneyDiseasePredictionScalarWhereWithAggregatesInput | KidneyDiseasePredictionScalarWhereWithAggregatesInput[]
-    OR?: KidneyDiseasePredictionScalarWhereWithAggregatesInput[]
-    NOT?: KidneyDiseasePredictionScalarWhereWithAggregatesInput | KidneyDiseasePredictionScalarWhereWithAggregatesInput[]
-    prediction_id?: IntWithAggregatesFilter<"KidneyDiseasePrediction"> | number
-    user_id?: StringWithAggregatesFilter<"KidneyDiseasePrediction"> | string
-    age?: IntWithAggregatesFilter<"KidneyDiseasePrediction"> | number
-    blood_pressure?: IntWithAggregatesFilter<"KidneyDiseasePrediction"> | number
-    specific_gravity?: FloatWithAggregatesFilter<"KidneyDiseasePrediction"> | number
-    albumin?: IntWithAggregatesFilter<"KidneyDiseasePrediction"> | number
-    sugar?: IntWithAggregatesFilter<"KidneyDiseasePrediction"> | number
-    red_blood_cells?: StringWithAggregatesFilter<"KidneyDiseasePrediction"> | string
-    pus_cell?: StringWithAggregatesFilter<"KidneyDiseasePrediction"> | string
-    pus_cell_clumps?: StringWithAggregatesFilter<"KidneyDiseasePrediction"> | string
-    bacteria?: StringWithAggregatesFilter<"KidneyDiseasePrediction"> | string
-    blood_glucose_random?: IntWithAggregatesFilter<"KidneyDiseasePrediction"> | number
-    blood_urea?: IntWithAggregatesFilter<"KidneyDiseasePrediction"> | number
-    serum_creatinine?: FloatWithAggregatesFilter<"KidneyDiseasePrediction"> | number
-    sodium?: FloatWithAggregatesFilter<"KidneyDiseasePrediction"> | number
-    potassium?: FloatWithAggregatesFilter<"KidneyDiseasePrediction"> | number
-    hemoglobin?: FloatWithAggregatesFilter<"KidneyDiseasePrediction"> | number
-    packed_cell_volume?: FloatWithAggregatesFilter<"KidneyDiseasePrediction"> | number
-    white_cell_count?: IntWithAggregatesFilter<"KidneyDiseasePrediction"> | number
-    red_cell_count?: IntWithAggregatesFilter<"KidneyDiseasePrediction"> | number
-    hypertension?: StringWithAggregatesFilter<"KidneyDiseasePrediction"> | string
-    diabetes_mellitus?: StringWithAggregatesFilter<"KidneyDiseasePrediction"> | string
-    coronary_artery_disease?: StringWithAggregatesFilter<"KidneyDiseasePrediction"> | string
-    appetite?: StringWithAggregatesFilter<"KidneyDiseasePrediction"> | string
-    pedal_edema?: StringWithAggregatesFilter<"KidneyDiseasePrediction"> | string
-    anemia?: StringWithAggregatesFilter<"KidneyDiseasePrediction"> | string
-    classification?: StringWithAggregatesFilter<"KidneyDiseasePrediction"> | string
-    created_at?: DateTimeWithAggregatesFilter<"KidneyDiseasePrediction"> | Date | string
-  }
-
-  export type ParkinsonsPredictionWhereInput = {
-    AND?: ParkinsonsPredictionWhereInput | ParkinsonsPredictionWhereInput[]
-    OR?: ParkinsonsPredictionWhereInput[]
-    NOT?: ParkinsonsPredictionWhereInput | ParkinsonsPredictionWhereInput[]
-    prediction_id?: IntFilter<"ParkinsonsPrediction"> | number
-    user_id?: StringFilter<"ParkinsonsPrediction"> | string
-    ascii_subject_name?: StringFilter<"ParkinsonsPrediction"> | string
-    recording_number?: IntFilter<"ParkinsonsPrediction"> | number
-    mdvp_fo?: FloatFilter<"ParkinsonsPrediction"> | number
-    mdvp_fhi?: FloatFilter<"ParkinsonsPrediction"> | number
-    mdvp_flo?: FloatFilter<"ParkinsonsPrediction"> | number
-    mdvp_jitter_percentage?: FloatFilter<"ParkinsonsPrediction"> | number
-    mdvp_jitter_abs?: FloatFilter<"ParkinsonsPrediction"> | number
-    mdvp_rap?: FloatFilter<"ParkinsonsPrediction"> | number
-    mdvp_ppq?: FloatFilter<"ParkinsonsPrediction"> | number
-    jitter_ddp?: FloatFilter<"ParkinsonsPrediction"> | number
-    mdvp_shimmer?: FloatFilter<"ParkinsonsPrediction"> | number
-    mdvp_shimmer_db?: FloatFilter<"ParkinsonsPrediction"> | number
-    shimmer_apq3?: FloatFilter<"ParkinsonsPrediction"> | number
-    shimmer_apq5?: FloatFilter<"ParkinsonsPrediction"> | number
-    mdvp_apq?: FloatFilter<"ParkinsonsPrediction"> | number
-    shimmer_dda?: FloatFilter<"ParkinsonsPrediction"> | number
-    nhr?: FloatFilter<"ParkinsonsPrediction"> | number
-    hnr?: FloatFilter<"ParkinsonsPrediction"> | number
-    status?: IntFilter<"ParkinsonsPrediction"> | number
-    rpde?: FloatFilter<"ParkinsonsPrediction"> | number
-    d2?: FloatFilter<"ParkinsonsPrediction"> | number
-    dfa?: FloatFilter<"ParkinsonsPrediction"> | number
-    spread1?: FloatFilter<"ParkinsonsPrediction"> | number
-    spread2?: FloatFilter<"ParkinsonsPrediction"> | number
-    ppe?: FloatFilter<"ParkinsonsPrediction"> | number
-    result?: StringFilter<"ParkinsonsPrediction"> | string
-    created_at?: DateTimeFilter<"ParkinsonsPrediction"> | Date | string
-    User?: XOR<UserScalarRelationFilter, UserWhereInput>
-  }
-
-  export type ParkinsonsPredictionOrderByWithRelationInput = {
-    prediction_id?: SortOrder
-    user_id?: SortOrder
-    ascii_subject_name?: SortOrder
-    recording_number?: SortOrder
-    mdvp_fo?: SortOrder
-    mdvp_fhi?: SortOrder
-    mdvp_flo?: SortOrder
-    mdvp_jitter_percentage?: SortOrder
-    mdvp_jitter_abs?: SortOrder
-    mdvp_rap?: SortOrder
-    mdvp_ppq?: SortOrder
-    jitter_ddp?: SortOrder
-    mdvp_shimmer?: SortOrder
-    mdvp_shimmer_db?: SortOrder
-    shimmer_apq3?: SortOrder
-    shimmer_apq5?: SortOrder
-    mdvp_apq?: SortOrder
-    shimmer_dda?: SortOrder
-    nhr?: SortOrder
-    hnr?: SortOrder
-    status?: SortOrder
-    rpde?: SortOrder
-    d2?: SortOrder
-    dfa?: SortOrder
-    spread1?: SortOrder
-    spread2?: SortOrder
-    ppe?: SortOrder
-    result?: SortOrder
-    created_at?: SortOrder
-    User?: UserOrderByWithRelationInput
-  }
-
-  export type ParkinsonsPredictionWhereUniqueInput = Prisma.AtLeast<{
-    prediction_id?: number
-    AND?: ParkinsonsPredictionWhereInput | ParkinsonsPredictionWhereInput[]
-    OR?: ParkinsonsPredictionWhereInput[]
-    NOT?: ParkinsonsPredictionWhereInput | ParkinsonsPredictionWhereInput[]
-    user_id?: StringFilter<"ParkinsonsPrediction"> | string
-    ascii_subject_name?: StringFilter<"ParkinsonsPrediction"> | string
-    recording_number?: IntFilter<"ParkinsonsPrediction"> | number
-    mdvp_fo?: FloatFilter<"ParkinsonsPrediction"> | number
-    mdvp_fhi?: FloatFilter<"ParkinsonsPrediction"> | number
-    mdvp_flo?: FloatFilter<"ParkinsonsPrediction"> | number
-    mdvp_jitter_percentage?: FloatFilter<"ParkinsonsPrediction"> | number
-    mdvp_jitter_abs?: FloatFilter<"ParkinsonsPrediction"> | number
-    mdvp_rap?: FloatFilter<"ParkinsonsPrediction"> | number
-    mdvp_ppq?: FloatFilter<"ParkinsonsPrediction"> | number
-    jitter_ddp?: FloatFilter<"ParkinsonsPrediction"> | number
-    mdvp_shimmer?: FloatFilter<"ParkinsonsPrediction"> | number
-    mdvp_shimmer_db?: FloatFilter<"ParkinsonsPrediction"> | number
-    shimmer_apq3?: FloatFilter<"ParkinsonsPrediction"> | number
-    shimmer_apq5?: FloatFilter<"ParkinsonsPrediction"> | number
-    mdvp_apq?: FloatFilter<"ParkinsonsPrediction"> | number
-    shimmer_dda?: FloatFilter<"ParkinsonsPrediction"> | number
-    nhr?: FloatFilter<"ParkinsonsPrediction"> | number
-    hnr?: FloatFilter<"ParkinsonsPrediction"> | number
-    status?: IntFilter<"ParkinsonsPrediction"> | number
-    rpde?: FloatFilter<"ParkinsonsPrediction"> | number
-    d2?: FloatFilter<"ParkinsonsPrediction"> | number
-    dfa?: FloatFilter<"ParkinsonsPrediction"> | number
-    spread1?: FloatFilter<"ParkinsonsPrediction"> | number
-    spread2?: FloatFilter<"ParkinsonsPrediction"> | number
-    ppe?: FloatFilter<"ParkinsonsPrediction"> | number
-    result?: StringFilter<"ParkinsonsPrediction"> | string
-    created_at?: DateTimeFilter<"ParkinsonsPrediction"> | Date | string
-    User?: XOR<UserScalarRelationFilter, UserWhereInput>
-  }, "prediction_id">
-
-  export type ParkinsonsPredictionOrderByWithAggregationInput = {
-    prediction_id?: SortOrder
-    user_id?: SortOrder
-    ascii_subject_name?: SortOrder
-    recording_number?: SortOrder
-    mdvp_fo?: SortOrder
-    mdvp_fhi?: SortOrder
-    mdvp_flo?: SortOrder
-    mdvp_jitter_percentage?: SortOrder
-    mdvp_jitter_abs?: SortOrder
-    mdvp_rap?: SortOrder
-    mdvp_ppq?: SortOrder
-    jitter_ddp?: SortOrder
-    mdvp_shimmer?: SortOrder
-    mdvp_shimmer_db?: SortOrder
-    shimmer_apq3?: SortOrder
-    shimmer_apq5?: SortOrder
-    mdvp_apq?: SortOrder
-    shimmer_dda?: SortOrder
-    nhr?: SortOrder
-    hnr?: SortOrder
-    status?: SortOrder
-    rpde?: SortOrder
-    d2?: SortOrder
-    dfa?: SortOrder
-    spread1?: SortOrder
-    spread2?: SortOrder
-    ppe?: SortOrder
-    result?: SortOrder
-    created_at?: SortOrder
-    _count?: ParkinsonsPredictionCountOrderByAggregateInput
-    _avg?: ParkinsonsPredictionAvgOrderByAggregateInput
-    _max?: ParkinsonsPredictionMaxOrderByAggregateInput
-    _min?: ParkinsonsPredictionMinOrderByAggregateInput
-    _sum?: ParkinsonsPredictionSumOrderByAggregateInput
-  }
-
-  export type ParkinsonsPredictionScalarWhereWithAggregatesInput = {
-    AND?: ParkinsonsPredictionScalarWhereWithAggregatesInput | ParkinsonsPredictionScalarWhereWithAggregatesInput[]
-    OR?: ParkinsonsPredictionScalarWhereWithAggregatesInput[]
-    NOT?: ParkinsonsPredictionScalarWhereWithAggregatesInput | ParkinsonsPredictionScalarWhereWithAggregatesInput[]
-    prediction_id?: IntWithAggregatesFilter<"ParkinsonsPrediction"> | number
-    user_id?: StringWithAggregatesFilter<"ParkinsonsPrediction"> | string
-    ascii_subject_name?: StringWithAggregatesFilter<"ParkinsonsPrediction"> | string
-    recording_number?: IntWithAggregatesFilter<"ParkinsonsPrediction"> | number
-    mdvp_fo?: FloatWithAggregatesFilter<"ParkinsonsPrediction"> | number
-    mdvp_fhi?: FloatWithAggregatesFilter<"ParkinsonsPrediction"> | number
-    mdvp_flo?: FloatWithAggregatesFilter<"ParkinsonsPrediction"> | number
-    mdvp_jitter_percentage?: FloatWithAggregatesFilter<"ParkinsonsPrediction"> | number
-    mdvp_jitter_abs?: FloatWithAggregatesFilter<"ParkinsonsPrediction"> | number
-    mdvp_rap?: FloatWithAggregatesFilter<"ParkinsonsPrediction"> | number
-    mdvp_ppq?: FloatWithAggregatesFilter<"ParkinsonsPrediction"> | number
-    jitter_ddp?: FloatWithAggregatesFilter<"ParkinsonsPrediction"> | number
-    mdvp_shimmer?: FloatWithAggregatesFilter<"ParkinsonsPrediction"> | number
-    mdvp_shimmer_db?: FloatWithAggregatesFilter<"ParkinsonsPrediction"> | number
-    shimmer_apq3?: FloatWithAggregatesFilter<"ParkinsonsPrediction"> | number
-    shimmer_apq5?: FloatWithAggregatesFilter<"ParkinsonsPrediction"> | number
-    mdvp_apq?: FloatWithAggregatesFilter<"ParkinsonsPrediction"> | number
-    shimmer_dda?: FloatWithAggregatesFilter<"ParkinsonsPrediction"> | number
-    nhr?: FloatWithAggregatesFilter<"ParkinsonsPrediction"> | number
-    hnr?: FloatWithAggregatesFilter<"ParkinsonsPrediction"> | number
-    status?: IntWithAggregatesFilter<"ParkinsonsPrediction"> | number
-    rpde?: FloatWithAggregatesFilter<"ParkinsonsPrediction"> | number
-    d2?: FloatWithAggregatesFilter<"ParkinsonsPrediction"> | number
-    dfa?: FloatWithAggregatesFilter<"ParkinsonsPrediction"> | number
-    spread1?: FloatWithAggregatesFilter<"ParkinsonsPrediction"> | number
-    spread2?: FloatWithAggregatesFilter<"ParkinsonsPrediction"> | number
-    ppe?: FloatWithAggregatesFilter<"ParkinsonsPrediction"> | number
-    result?: StringWithAggregatesFilter<"ParkinsonsPrediction"> | string
-    created_at?: DateTimeWithAggregatesFilter<"ParkinsonsPrediction"> | Date | string
+  export type VerificationScalarWhereWithAggregatesInput = {
+    AND?: VerificationScalarWhereWithAggregatesInput | VerificationScalarWhereWithAggregatesInput[]
+    OR?: VerificationScalarWhereWithAggregatesInput[]
+    NOT?: VerificationScalarWhereWithAggregatesInput | VerificationScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Verification"> | string
+    identifier?: StringWithAggregatesFilter<"Verification"> | string
+    value?: StringWithAggregatesFilter<"Verification"> | string
+    expiresAt?: DateTimeWithAggregatesFilter<"Verification"> | Date | string
+    createdAt?: DateTimeNullableWithAggregatesFilter<"Verification"> | Date | string | null
+    updatedAt?: DateTimeNullableWithAggregatesFilter<"Verification"> | Date | string | null
   }
 
   export type UserCreateInput = {
-    id?: string
-    name?: string | null
-    email?: string | null
-    emailVerified?: Date | string | null
-    image?: string | null
-    accounts?: AccountCreateNestedManyWithoutUserInput
-    BreastCancerPrediction?: BreastCancerPredictionCreateNestedManyWithoutUserInput
-    DiabetesPrediction?: DiabetesPredictionCreateNestedManyWithoutUserInput
-    HeartDiseasePrediction?: HeartDiseasePredictionCreateNestedManyWithoutUserInput
-    KidneyDiseasePrediction?: KidneyDiseasePredictionCreateNestedManyWithoutUserInput
-    ParkinsonsPrediction?: ParkinsonsPredictionCreateNestedManyWithoutUserInput
+    id: string
+    name: string
+    image: string
+    email: string
+    emailVerified: boolean
+    createdAt: Date | string
+    updatedAt: Date | string
     sessions?: SessionCreateNestedManyWithoutUserInput
+    accounts?: AccountCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
-    id?: string
-    name?: string | null
-    email?: string | null
-    emailVerified?: Date | string | null
-    image?: string | null
-    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
-    BreastCancerPrediction?: BreastCancerPredictionUncheckedCreateNestedManyWithoutUserInput
-    DiabetesPrediction?: DiabetesPredictionUncheckedCreateNestedManyWithoutUserInput
-    HeartDiseasePrediction?: HeartDiseasePredictionUncheckedCreateNestedManyWithoutUserInput
-    KidneyDiseasePrediction?: KidneyDiseasePredictionUncheckedCreateNestedManyWithoutUserInput
-    ParkinsonsPrediction?: ParkinsonsPredictionUncheckedCreateNestedManyWithoutUserInput
+    id: string
+    name: string
+    image: string
+    email: string
+    emailVerified: boolean
+    createdAt: Date | string
+    updatedAt: Date | string
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    accounts?: AccountUpdateManyWithoutUserNestedInput
-    BreastCancerPrediction?: BreastCancerPredictionUpdateManyWithoutUserNestedInput
-    DiabetesPrediction?: DiabetesPredictionUpdateManyWithoutUserNestedInput
-    HeartDiseasePrediction?: HeartDiseasePredictionUpdateManyWithoutUserNestedInput
-    KidneyDiseasePrediction?: KidneyDiseasePredictionUpdateManyWithoutUserNestedInput
-    ParkinsonsPrediction?: ParkinsonsPredictionUpdateManyWithoutUserNestedInput
+    name?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    emailVerified?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     sessions?: SessionUpdateManyWithoutUserNestedInput
+    accounts?: AccountUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
-    BreastCancerPrediction?: BreastCancerPredictionUncheckedUpdateManyWithoutUserNestedInput
-    DiabetesPrediction?: DiabetesPredictionUncheckedUpdateManyWithoutUserNestedInput
-    HeartDiseasePrediction?: HeartDiseasePredictionUncheckedUpdateManyWithoutUserNestedInput
-    KidneyDiseasePrediction?: KidneyDiseasePredictionUncheckedUpdateManyWithoutUserNestedInput
-    ParkinsonsPrediction?: ParkinsonsPredictionUncheckedUpdateManyWithoutUserNestedInput
+    name?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    emailVerified?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
-    id?: string
-    name?: string | null
-    email?: string | null
-    emailVerified?: Date | string | null
-    image?: string | null
+    id: string
+    name: string
+    image: string
+    email: string
+    emailVerified: boolean
+    createdAt: Date | string
+    updatedAt: Date | string
   }
 
   export type UserUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    image?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    emailVerified?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type UserUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type AccountCreateInput = {
-    id?: string
-    type: string
-    provider: string
-    providerAccountId: string
-    refresh_token?: string | null
-    access_token?: string | null
-    expires_at?: number | null
-    token_type?: string | null
-    scope?: string | null
-    id_token?: string | null
-    session_state?: string | null
-    user: UserCreateNestedOneWithoutAccountsInput
-  }
-
-  export type AccountUncheckedCreateInput = {
-    id?: string
-    userId: string
-    type: string
-    provider: string
-    providerAccountId: string
-    refresh_token?: string | null
-    access_token?: string | null
-    expires_at?: number | null
-    token_type?: string | null
-    scope?: string | null
-    id_token?: string | null
-    session_state?: string | null
-  }
-
-  export type AccountUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    type?: StringFieldUpdateOperationsInput | string
-    provider?: StringFieldUpdateOperationsInput | string
-    providerAccountId?: StringFieldUpdateOperationsInput | string
-    refresh_token?: NullableStringFieldUpdateOperationsInput | string | null
-    access_token?: NullableStringFieldUpdateOperationsInput | string | null
-    expires_at?: NullableIntFieldUpdateOperationsInput | number | null
-    token_type?: NullableStringFieldUpdateOperationsInput | string | null
-    scope?: NullableStringFieldUpdateOperationsInput | string | null
-    id_token?: NullableStringFieldUpdateOperationsInput | string | null
-    session_state?: NullableStringFieldUpdateOperationsInput | string | null
-    user?: UserUpdateOneRequiredWithoutAccountsNestedInput
-  }
-
-  export type AccountUncheckedUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    userId?: StringFieldUpdateOperationsInput | string
-    type?: StringFieldUpdateOperationsInput | string
-    provider?: StringFieldUpdateOperationsInput | string
-    providerAccountId?: StringFieldUpdateOperationsInput | string
-    refresh_token?: NullableStringFieldUpdateOperationsInput | string | null
-    access_token?: NullableStringFieldUpdateOperationsInput | string | null
-    expires_at?: NullableIntFieldUpdateOperationsInput | number | null
-    token_type?: NullableStringFieldUpdateOperationsInput | string | null
-    scope?: NullableStringFieldUpdateOperationsInput | string | null
-    id_token?: NullableStringFieldUpdateOperationsInput | string | null
-    session_state?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type AccountCreateManyInput = {
-    id?: string
-    userId: string
-    type: string
-    provider: string
-    providerAccountId: string
-    refresh_token?: string | null
-    access_token?: string | null
-    expires_at?: number | null
-    token_type?: string | null
-    scope?: string | null
-    id_token?: string | null
-    session_state?: string | null
-  }
-
-  export type AccountUpdateManyMutationInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    type?: StringFieldUpdateOperationsInput | string
-    provider?: StringFieldUpdateOperationsInput | string
-    providerAccountId?: StringFieldUpdateOperationsInput | string
-    refresh_token?: NullableStringFieldUpdateOperationsInput | string | null
-    access_token?: NullableStringFieldUpdateOperationsInput | string | null
-    expires_at?: NullableIntFieldUpdateOperationsInput | number | null
-    token_type?: NullableStringFieldUpdateOperationsInput | string | null
-    scope?: NullableStringFieldUpdateOperationsInput | string | null
-    id_token?: NullableStringFieldUpdateOperationsInput | string | null
-    session_state?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type AccountUncheckedUpdateManyInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    userId?: StringFieldUpdateOperationsInput | string
-    type?: StringFieldUpdateOperationsInput | string
-    provider?: StringFieldUpdateOperationsInput | string
-    providerAccountId?: StringFieldUpdateOperationsInput | string
-    refresh_token?: NullableStringFieldUpdateOperationsInput | string | null
-    access_token?: NullableStringFieldUpdateOperationsInput | string | null
-    expires_at?: NullableIntFieldUpdateOperationsInput | number | null
-    token_type?: NullableStringFieldUpdateOperationsInput | string | null
-    scope?: NullableStringFieldUpdateOperationsInput | string | null
-    id_token?: NullableStringFieldUpdateOperationsInput | string | null
-    session_state?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    emailVerified?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type SessionCreateInput = {
-    id?: string
-    sessionToken: string
-    expires: Date | string
+    id: string
+    expiresAt: Date | string
+    token: string
+    createdAt: Date | string
+    updatedAt: Date | string
+    ipAddress?: string | null
+    userAgent?: string | null
     user: UserCreateNestedOneWithoutSessionsInput
   }
 
   export type SessionUncheckedCreateInput = {
-    id?: string
-    sessionToken: string
+    id: string
+    expiresAt: Date | string
+    token: string
+    createdAt: Date | string
+    updatedAt: Date | string
+    ipAddress?: string | null
+    userAgent?: string | null
     userId: string
-    expires: Date | string
   }
 
   export type SessionUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    sessionToken?: StringFieldUpdateOperationsInput | string
-    expires?: DateTimeFieldUpdateOperationsInput | Date | string
+    expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    token?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    ipAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    userAgent?: NullableStringFieldUpdateOperationsInput | string | null
     user?: UserUpdateOneRequiredWithoutSessionsNestedInput
   }
 
   export type SessionUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    sessionToken?: StringFieldUpdateOperationsInput | string
+    expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    token?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    ipAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    userAgent?: NullableStringFieldUpdateOperationsInput | string | null
     userId?: StringFieldUpdateOperationsInput | string
-    expires?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type SessionCreateManyInput = {
-    id?: string
-    sessionToken: string
+    id: string
+    expiresAt: Date | string
+    token: string
+    createdAt: Date | string
+    updatedAt: Date | string
+    ipAddress?: string | null
+    userAgent?: string | null
     userId: string
-    expires: Date | string
   }
 
   export type SessionUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    sessionToken?: StringFieldUpdateOperationsInput | string
-    expires?: DateTimeFieldUpdateOperationsInput | Date | string
+    expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    token?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    ipAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    userAgent?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type SessionUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    sessionToken?: StringFieldUpdateOperationsInput | string
+    expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    token?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    ipAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    userAgent?: NullableStringFieldUpdateOperationsInput | string | null
     userId?: StringFieldUpdateOperationsInput | string
-    expires?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type BreastCancerPredictionCreateInput = {
-    radius_mean: number
-    texture_mean: number
-    perimeter_mean: number
-    area_mean: number
-    smoothness_mean: number
-    result: string
-    created_at?: Date | string
-    User: UserCreateNestedOneWithoutBreastCancerPredictionInput
+  export type AccountCreateInput = {
+    id: string
+    accountId: string
+    providerId: string
+    accessToken?: string | null
+    refreshToken?: string | null
+    idToken?: string | null
+    accessTokenExpiresAt?: Date | string | null
+    refreshTokenExpiresAt?: Date | string | null
+    scope?: string | null
+    password?: string | null
+    createdAt: Date | string
+    updatedAt: Date | string
+    user: UserCreateNestedOneWithoutAccountsInput
   }
 
-  export type BreastCancerPredictionUncheckedCreateInput = {
-    prediction_id?: number
-    user_id: string
-    radius_mean: number
-    texture_mean: number
-    perimeter_mean: number
-    area_mean: number
-    smoothness_mean: number
-    result: string
-    created_at?: Date | string
+  export type AccountUncheckedCreateInput = {
+    id: string
+    accountId: string
+    providerId: string
+    userId: string
+    accessToken?: string | null
+    refreshToken?: string | null
+    idToken?: string | null
+    accessTokenExpiresAt?: Date | string | null
+    refreshTokenExpiresAt?: Date | string | null
+    scope?: string | null
+    password?: string | null
+    createdAt: Date | string
+    updatedAt: Date | string
   }
 
-  export type BreastCancerPredictionUpdateInput = {
-    radius_mean?: FloatFieldUpdateOperationsInput | number
-    texture_mean?: FloatFieldUpdateOperationsInput | number
-    perimeter_mean?: FloatFieldUpdateOperationsInput | number
-    area_mean?: FloatFieldUpdateOperationsInput | number
-    smoothness_mean?: FloatFieldUpdateOperationsInput | number
-    result?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    User?: UserUpdateOneRequiredWithoutBreastCancerPredictionNestedInput
+  export type AccountUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    accountId?: StringFieldUpdateOperationsInput | string
+    providerId?: StringFieldUpdateOperationsInput | string
+    accessToken?: NullableStringFieldUpdateOperationsInput | string | null
+    refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
+    idToken?: NullableStringFieldUpdateOperationsInput | string | null
+    accessTokenExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    refreshTokenExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    scope?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutAccountsNestedInput
   }
 
-  export type BreastCancerPredictionUncheckedUpdateInput = {
-    prediction_id?: IntFieldUpdateOperationsInput | number
-    user_id?: StringFieldUpdateOperationsInput | string
-    radius_mean?: FloatFieldUpdateOperationsInput | number
-    texture_mean?: FloatFieldUpdateOperationsInput | number
-    perimeter_mean?: FloatFieldUpdateOperationsInput | number
-    area_mean?: FloatFieldUpdateOperationsInput | number
-    smoothness_mean?: FloatFieldUpdateOperationsInput | number
-    result?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  export type AccountUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    accountId?: StringFieldUpdateOperationsInput | string
+    providerId?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    accessToken?: NullableStringFieldUpdateOperationsInput | string | null
+    refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
+    idToken?: NullableStringFieldUpdateOperationsInput | string | null
+    accessTokenExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    refreshTokenExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    scope?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type BreastCancerPredictionCreateManyInput = {
-    prediction_id?: number
-    user_id: string
-    radius_mean: number
-    texture_mean: number
-    perimeter_mean: number
-    area_mean: number
-    smoothness_mean: number
-    result: string
-    created_at?: Date | string
+  export type AccountCreateManyInput = {
+    id: string
+    accountId: string
+    providerId: string
+    userId: string
+    accessToken?: string | null
+    refreshToken?: string | null
+    idToken?: string | null
+    accessTokenExpiresAt?: Date | string | null
+    refreshTokenExpiresAt?: Date | string | null
+    scope?: string | null
+    password?: string | null
+    createdAt: Date | string
+    updatedAt: Date | string
   }
 
-  export type BreastCancerPredictionUpdateManyMutationInput = {
-    radius_mean?: FloatFieldUpdateOperationsInput | number
-    texture_mean?: FloatFieldUpdateOperationsInput | number
-    perimeter_mean?: FloatFieldUpdateOperationsInput | number
-    area_mean?: FloatFieldUpdateOperationsInput | number
-    smoothness_mean?: FloatFieldUpdateOperationsInput | number
-    result?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  export type AccountUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    accountId?: StringFieldUpdateOperationsInput | string
+    providerId?: StringFieldUpdateOperationsInput | string
+    accessToken?: NullableStringFieldUpdateOperationsInput | string | null
+    refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
+    idToken?: NullableStringFieldUpdateOperationsInput | string | null
+    accessTokenExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    refreshTokenExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    scope?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type BreastCancerPredictionUncheckedUpdateManyInput = {
-    prediction_id?: IntFieldUpdateOperationsInput | number
-    user_id?: StringFieldUpdateOperationsInput | string
-    radius_mean?: FloatFieldUpdateOperationsInput | number
-    texture_mean?: FloatFieldUpdateOperationsInput | number
-    perimeter_mean?: FloatFieldUpdateOperationsInput | number
-    area_mean?: FloatFieldUpdateOperationsInput | number
-    smoothness_mean?: FloatFieldUpdateOperationsInput | number
-    result?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  export type AccountUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    accountId?: StringFieldUpdateOperationsInput | string
+    providerId?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    accessToken?: NullableStringFieldUpdateOperationsInput | string | null
+    refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
+    idToken?: NullableStringFieldUpdateOperationsInput | string | null
+    accessTokenExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    refreshTokenExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    scope?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type DiabetesPredictionCreateInput = {
-    pregnancies: number
-    glucose: number
-    blood_pressure: number
-    skin_thickness: number
-    insulin: number
-    bmi: number
-    diabetes_pedigree_function: number
-    age: number
-    result: string
-    created_at?: Date | string
-    User: UserCreateNestedOneWithoutDiabetesPredictionInput
+  export type VerificationCreateInput = {
+    id: string
+    identifier: string
+    value: string
+    expiresAt: Date | string
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
   }
 
-  export type DiabetesPredictionUncheckedCreateInput = {
-    prediction_id?: number
-    user_id: string
-    pregnancies: number
-    glucose: number
-    blood_pressure: number
-    skin_thickness: number
-    insulin: number
-    bmi: number
-    diabetes_pedigree_function: number
-    age: number
-    result: string
-    created_at?: Date | string
+  export type VerificationUncheckedCreateInput = {
+    id: string
+    identifier: string
+    value: string
+    expiresAt: Date | string
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
   }
 
-  export type DiabetesPredictionUpdateInput = {
-    pregnancies?: IntFieldUpdateOperationsInput | number
-    glucose?: IntFieldUpdateOperationsInput | number
-    blood_pressure?: IntFieldUpdateOperationsInput | number
-    skin_thickness?: IntFieldUpdateOperationsInput | number
-    insulin?: IntFieldUpdateOperationsInput | number
-    bmi?: FloatFieldUpdateOperationsInput | number
-    diabetes_pedigree_function?: FloatFieldUpdateOperationsInput | number
-    age?: IntFieldUpdateOperationsInput | number
-    result?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    User?: UserUpdateOneRequiredWithoutDiabetesPredictionNestedInput
+  export type VerificationUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    identifier?: StringFieldUpdateOperationsInput | string
+    value?: StringFieldUpdateOperationsInput | string
+    expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type DiabetesPredictionUncheckedUpdateInput = {
-    prediction_id?: IntFieldUpdateOperationsInput | number
-    user_id?: StringFieldUpdateOperationsInput | string
-    pregnancies?: IntFieldUpdateOperationsInput | number
-    glucose?: IntFieldUpdateOperationsInput | number
-    blood_pressure?: IntFieldUpdateOperationsInput | number
-    skin_thickness?: IntFieldUpdateOperationsInput | number
-    insulin?: IntFieldUpdateOperationsInput | number
-    bmi?: FloatFieldUpdateOperationsInput | number
-    diabetes_pedigree_function?: FloatFieldUpdateOperationsInput | number
-    age?: IntFieldUpdateOperationsInput | number
-    result?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  export type VerificationUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    identifier?: StringFieldUpdateOperationsInput | string
+    value?: StringFieldUpdateOperationsInput | string
+    expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type DiabetesPredictionCreateManyInput = {
-    prediction_id?: number
-    user_id: string
-    pregnancies: number
-    glucose: number
-    blood_pressure: number
-    skin_thickness: number
-    insulin: number
-    bmi: number
-    diabetes_pedigree_function: number
-    age: number
-    result: string
-    created_at?: Date | string
+  export type VerificationCreateManyInput = {
+    id: string
+    identifier: string
+    value: string
+    expiresAt: Date | string
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
   }
 
-  export type DiabetesPredictionUpdateManyMutationInput = {
-    pregnancies?: IntFieldUpdateOperationsInput | number
-    glucose?: IntFieldUpdateOperationsInput | number
-    blood_pressure?: IntFieldUpdateOperationsInput | number
-    skin_thickness?: IntFieldUpdateOperationsInput | number
-    insulin?: IntFieldUpdateOperationsInput | number
-    bmi?: FloatFieldUpdateOperationsInput | number
-    diabetes_pedigree_function?: FloatFieldUpdateOperationsInput | number
-    age?: IntFieldUpdateOperationsInput | number
-    result?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  export type VerificationUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    identifier?: StringFieldUpdateOperationsInput | string
+    value?: StringFieldUpdateOperationsInput | string
+    expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type DiabetesPredictionUncheckedUpdateManyInput = {
-    prediction_id?: IntFieldUpdateOperationsInput | number
-    user_id?: StringFieldUpdateOperationsInput | string
-    pregnancies?: IntFieldUpdateOperationsInput | number
-    glucose?: IntFieldUpdateOperationsInput | number
-    blood_pressure?: IntFieldUpdateOperationsInput | number
-    skin_thickness?: IntFieldUpdateOperationsInput | number
-    insulin?: IntFieldUpdateOperationsInput | number
-    bmi?: FloatFieldUpdateOperationsInput | number
-    diabetes_pedigree_function?: FloatFieldUpdateOperationsInput | number
-    age?: IntFieldUpdateOperationsInput | number
-    result?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type HeartDiseasePredictionCreateInput = {
-    age: number
-    sex: string
-    chest_pain_type: string
-    resting_blood_pressure: number
-    serum_cholesterol: number
-    fasting_blood_sugar: boolean
-    resting_ecg: number
-    max_heart_rate: number
-    exercise_induced_angina: boolean
-    oldpeak: number
-    slope_of_peak_exercise_st_segment: string
-    num_major_vessels: number
-    thal: string
-    result: string
-    created_at?: Date | string
-    User: UserCreateNestedOneWithoutHeartDiseasePredictionInput
-  }
-
-  export type HeartDiseasePredictionUncheckedCreateInput = {
-    prediction_id?: number
-    user_id: string
-    age: number
-    sex: string
-    chest_pain_type: string
-    resting_blood_pressure: number
-    serum_cholesterol: number
-    fasting_blood_sugar: boolean
-    resting_ecg: number
-    max_heart_rate: number
-    exercise_induced_angina: boolean
-    oldpeak: number
-    slope_of_peak_exercise_st_segment: string
-    num_major_vessels: number
-    thal: string
-    result: string
-    created_at?: Date | string
-  }
-
-  export type HeartDiseasePredictionUpdateInput = {
-    age?: IntFieldUpdateOperationsInput | number
-    sex?: StringFieldUpdateOperationsInput | string
-    chest_pain_type?: StringFieldUpdateOperationsInput | string
-    resting_blood_pressure?: IntFieldUpdateOperationsInput | number
-    serum_cholesterol?: IntFieldUpdateOperationsInput | number
-    fasting_blood_sugar?: BoolFieldUpdateOperationsInput | boolean
-    resting_ecg?: IntFieldUpdateOperationsInput | number
-    max_heart_rate?: IntFieldUpdateOperationsInput | number
-    exercise_induced_angina?: BoolFieldUpdateOperationsInput | boolean
-    oldpeak?: FloatFieldUpdateOperationsInput | number
-    slope_of_peak_exercise_st_segment?: StringFieldUpdateOperationsInput | string
-    num_major_vessels?: IntFieldUpdateOperationsInput | number
-    thal?: StringFieldUpdateOperationsInput | string
-    result?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    User?: UserUpdateOneRequiredWithoutHeartDiseasePredictionNestedInput
-  }
-
-  export type HeartDiseasePredictionUncheckedUpdateInput = {
-    prediction_id?: IntFieldUpdateOperationsInput | number
-    user_id?: StringFieldUpdateOperationsInput | string
-    age?: IntFieldUpdateOperationsInput | number
-    sex?: StringFieldUpdateOperationsInput | string
-    chest_pain_type?: StringFieldUpdateOperationsInput | string
-    resting_blood_pressure?: IntFieldUpdateOperationsInput | number
-    serum_cholesterol?: IntFieldUpdateOperationsInput | number
-    fasting_blood_sugar?: BoolFieldUpdateOperationsInput | boolean
-    resting_ecg?: IntFieldUpdateOperationsInput | number
-    max_heart_rate?: IntFieldUpdateOperationsInput | number
-    exercise_induced_angina?: BoolFieldUpdateOperationsInput | boolean
-    oldpeak?: FloatFieldUpdateOperationsInput | number
-    slope_of_peak_exercise_st_segment?: StringFieldUpdateOperationsInput | string
-    num_major_vessels?: IntFieldUpdateOperationsInput | number
-    thal?: StringFieldUpdateOperationsInput | string
-    result?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type HeartDiseasePredictionCreateManyInput = {
-    prediction_id?: number
-    user_id: string
-    age: number
-    sex: string
-    chest_pain_type: string
-    resting_blood_pressure: number
-    serum_cholesterol: number
-    fasting_blood_sugar: boolean
-    resting_ecg: number
-    max_heart_rate: number
-    exercise_induced_angina: boolean
-    oldpeak: number
-    slope_of_peak_exercise_st_segment: string
-    num_major_vessels: number
-    thal: string
-    result: string
-    created_at?: Date | string
-  }
-
-  export type HeartDiseasePredictionUpdateManyMutationInput = {
-    age?: IntFieldUpdateOperationsInput | number
-    sex?: StringFieldUpdateOperationsInput | string
-    chest_pain_type?: StringFieldUpdateOperationsInput | string
-    resting_blood_pressure?: IntFieldUpdateOperationsInput | number
-    serum_cholesterol?: IntFieldUpdateOperationsInput | number
-    fasting_blood_sugar?: BoolFieldUpdateOperationsInput | boolean
-    resting_ecg?: IntFieldUpdateOperationsInput | number
-    max_heart_rate?: IntFieldUpdateOperationsInput | number
-    exercise_induced_angina?: BoolFieldUpdateOperationsInput | boolean
-    oldpeak?: FloatFieldUpdateOperationsInput | number
-    slope_of_peak_exercise_st_segment?: StringFieldUpdateOperationsInput | string
-    num_major_vessels?: IntFieldUpdateOperationsInput | number
-    thal?: StringFieldUpdateOperationsInput | string
-    result?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type HeartDiseasePredictionUncheckedUpdateManyInput = {
-    prediction_id?: IntFieldUpdateOperationsInput | number
-    user_id?: StringFieldUpdateOperationsInput | string
-    age?: IntFieldUpdateOperationsInput | number
-    sex?: StringFieldUpdateOperationsInput | string
-    chest_pain_type?: StringFieldUpdateOperationsInput | string
-    resting_blood_pressure?: IntFieldUpdateOperationsInput | number
-    serum_cholesterol?: IntFieldUpdateOperationsInput | number
-    fasting_blood_sugar?: BoolFieldUpdateOperationsInput | boolean
-    resting_ecg?: IntFieldUpdateOperationsInput | number
-    max_heart_rate?: IntFieldUpdateOperationsInput | number
-    exercise_induced_angina?: BoolFieldUpdateOperationsInput | boolean
-    oldpeak?: FloatFieldUpdateOperationsInput | number
-    slope_of_peak_exercise_st_segment?: StringFieldUpdateOperationsInput | string
-    num_major_vessels?: IntFieldUpdateOperationsInput | number
-    thal?: StringFieldUpdateOperationsInput | string
-    result?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type KidneyDiseasePredictionCreateInput = {
-    age: number
-    blood_pressure: number
-    specific_gravity: number
-    albumin: number
-    sugar: number
-    red_blood_cells: string
-    pus_cell: string
-    pus_cell_clumps: string
-    bacteria: string
-    blood_glucose_random: number
-    blood_urea: number
-    serum_creatinine: number
-    sodium: number
-    potassium: number
-    hemoglobin: number
-    packed_cell_volume: number
-    white_cell_count: number
-    red_cell_count: number
-    hypertension: string
-    diabetes_mellitus: string
-    coronary_artery_disease: string
-    appetite: string
-    pedal_edema: string
-    anemia: string
-    classification: string
-    created_at?: Date | string
-    User: UserCreateNestedOneWithoutKidneyDiseasePredictionInput
-  }
-
-  export type KidneyDiseasePredictionUncheckedCreateInput = {
-    prediction_id?: number
-    user_id: string
-    age: number
-    blood_pressure: number
-    specific_gravity: number
-    albumin: number
-    sugar: number
-    red_blood_cells: string
-    pus_cell: string
-    pus_cell_clumps: string
-    bacteria: string
-    blood_glucose_random: number
-    blood_urea: number
-    serum_creatinine: number
-    sodium: number
-    potassium: number
-    hemoglobin: number
-    packed_cell_volume: number
-    white_cell_count: number
-    red_cell_count: number
-    hypertension: string
-    diabetes_mellitus: string
-    coronary_artery_disease: string
-    appetite: string
-    pedal_edema: string
-    anemia: string
-    classification: string
-    created_at?: Date | string
-  }
-
-  export type KidneyDiseasePredictionUpdateInput = {
-    age?: IntFieldUpdateOperationsInput | number
-    blood_pressure?: IntFieldUpdateOperationsInput | number
-    specific_gravity?: FloatFieldUpdateOperationsInput | number
-    albumin?: IntFieldUpdateOperationsInput | number
-    sugar?: IntFieldUpdateOperationsInput | number
-    red_blood_cells?: StringFieldUpdateOperationsInput | string
-    pus_cell?: StringFieldUpdateOperationsInput | string
-    pus_cell_clumps?: StringFieldUpdateOperationsInput | string
-    bacteria?: StringFieldUpdateOperationsInput | string
-    blood_glucose_random?: IntFieldUpdateOperationsInput | number
-    blood_urea?: IntFieldUpdateOperationsInput | number
-    serum_creatinine?: FloatFieldUpdateOperationsInput | number
-    sodium?: FloatFieldUpdateOperationsInput | number
-    potassium?: FloatFieldUpdateOperationsInput | number
-    hemoglobin?: FloatFieldUpdateOperationsInput | number
-    packed_cell_volume?: FloatFieldUpdateOperationsInput | number
-    white_cell_count?: IntFieldUpdateOperationsInput | number
-    red_cell_count?: IntFieldUpdateOperationsInput | number
-    hypertension?: StringFieldUpdateOperationsInput | string
-    diabetes_mellitus?: StringFieldUpdateOperationsInput | string
-    coronary_artery_disease?: StringFieldUpdateOperationsInput | string
-    appetite?: StringFieldUpdateOperationsInput | string
-    pedal_edema?: StringFieldUpdateOperationsInput | string
-    anemia?: StringFieldUpdateOperationsInput | string
-    classification?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    User?: UserUpdateOneRequiredWithoutKidneyDiseasePredictionNestedInput
-  }
-
-  export type KidneyDiseasePredictionUncheckedUpdateInput = {
-    prediction_id?: IntFieldUpdateOperationsInput | number
-    user_id?: StringFieldUpdateOperationsInput | string
-    age?: IntFieldUpdateOperationsInput | number
-    blood_pressure?: IntFieldUpdateOperationsInput | number
-    specific_gravity?: FloatFieldUpdateOperationsInput | number
-    albumin?: IntFieldUpdateOperationsInput | number
-    sugar?: IntFieldUpdateOperationsInput | number
-    red_blood_cells?: StringFieldUpdateOperationsInput | string
-    pus_cell?: StringFieldUpdateOperationsInput | string
-    pus_cell_clumps?: StringFieldUpdateOperationsInput | string
-    bacteria?: StringFieldUpdateOperationsInput | string
-    blood_glucose_random?: IntFieldUpdateOperationsInput | number
-    blood_urea?: IntFieldUpdateOperationsInput | number
-    serum_creatinine?: FloatFieldUpdateOperationsInput | number
-    sodium?: FloatFieldUpdateOperationsInput | number
-    potassium?: FloatFieldUpdateOperationsInput | number
-    hemoglobin?: FloatFieldUpdateOperationsInput | number
-    packed_cell_volume?: FloatFieldUpdateOperationsInput | number
-    white_cell_count?: IntFieldUpdateOperationsInput | number
-    red_cell_count?: IntFieldUpdateOperationsInput | number
-    hypertension?: StringFieldUpdateOperationsInput | string
-    diabetes_mellitus?: StringFieldUpdateOperationsInput | string
-    coronary_artery_disease?: StringFieldUpdateOperationsInput | string
-    appetite?: StringFieldUpdateOperationsInput | string
-    pedal_edema?: StringFieldUpdateOperationsInput | string
-    anemia?: StringFieldUpdateOperationsInput | string
-    classification?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type KidneyDiseasePredictionCreateManyInput = {
-    prediction_id?: number
-    user_id: string
-    age: number
-    blood_pressure: number
-    specific_gravity: number
-    albumin: number
-    sugar: number
-    red_blood_cells: string
-    pus_cell: string
-    pus_cell_clumps: string
-    bacteria: string
-    blood_glucose_random: number
-    blood_urea: number
-    serum_creatinine: number
-    sodium: number
-    potassium: number
-    hemoglobin: number
-    packed_cell_volume: number
-    white_cell_count: number
-    red_cell_count: number
-    hypertension: string
-    diabetes_mellitus: string
-    coronary_artery_disease: string
-    appetite: string
-    pedal_edema: string
-    anemia: string
-    classification: string
-    created_at?: Date | string
-  }
-
-  export type KidneyDiseasePredictionUpdateManyMutationInput = {
-    age?: IntFieldUpdateOperationsInput | number
-    blood_pressure?: IntFieldUpdateOperationsInput | number
-    specific_gravity?: FloatFieldUpdateOperationsInput | number
-    albumin?: IntFieldUpdateOperationsInput | number
-    sugar?: IntFieldUpdateOperationsInput | number
-    red_blood_cells?: StringFieldUpdateOperationsInput | string
-    pus_cell?: StringFieldUpdateOperationsInput | string
-    pus_cell_clumps?: StringFieldUpdateOperationsInput | string
-    bacteria?: StringFieldUpdateOperationsInput | string
-    blood_glucose_random?: IntFieldUpdateOperationsInput | number
-    blood_urea?: IntFieldUpdateOperationsInput | number
-    serum_creatinine?: FloatFieldUpdateOperationsInput | number
-    sodium?: FloatFieldUpdateOperationsInput | number
-    potassium?: FloatFieldUpdateOperationsInput | number
-    hemoglobin?: FloatFieldUpdateOperationsInput | number
-    packed_cell_volume?: FloatFieldUpdateOperationsInput | number
-    white_cell_count?: IntFieldUpdateOperationsInput | number
-    red_cell_count?: IntFieldUpdateOperationsInput | number
-    hypertension?: StringFieldUpdateOperationsInput | string
-    diabetes_mellitus?: StringFieldUpdateOperationsInput | string
-    coronary_artery_disease?: StringFieldUpdateOperationsInput | string
-    appetite?: StringFieldUpdateOperationsInput | string
-    pedal_edema?: StringFieldUpdateOperationsInput | string
-    anemia?: StringFieldUpdateOperationsInput | string
-    classification?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type KidneyDiseasePredictionUncheckedUpdateManyInput = {
-    prediction_id?: IntFieldUpdateOperationsInput | number
-    user_id?: StringFieldUpdateOperationsInput | string
-    age?: IntFieldUpdateOperationsInput | number
-    blood_pressure?: IntFieldUpdateOperationsInput | number
-    specific_gravity?: FloatFieldUpdateOperationsInput | number
-    albumin?: IntFieldUpdateOperationsInput | number
-    sugar?: IntFieldUpdateOperationsInput | number
-    red_blood_cells?: StringFieldUpdateOperationsInput | string
-    pus_cell?: StringFieldUpdateOperationsInput | string
-    pus_cell_clumps?: StringFieldUpdateOperationsInput | string
-    bacteria?: StringFieldUpdateOperationsInput | string
-    blood_glucose_random?: IntFieldUpdateOperationsInput | number
-    blood_urea?: IntFieldUpdateOperationsInput | number
-    serum_creatinine?: FloatFieldUpdateOperationsInput | number
-    sodium?: FloatFieldUpdateOperationsInput | number
-    potassium?: FloatFieldUpdateOperationsInput | number
-    hemoglobin?: FloatFieldUpdateOperationsInput | number
-    packed_cell_volume?: FloatFieldUpdateOperationsInput | number
-    white_cell_count?: IntFieldUpdateOperationsInput | number
-    red_cell_count?: IntFieldUpdateOperationsInput | number
-    hypertension?: StringFieldUpdateOperationsInput | string
-    diabetes_mellitus?: StringFieldUpdateOperationsInput | string
-    coronary_artery_disease?: StringFieldUpdateOperationsInput | string
-    appetite?: StringFieldUpdateOperationsInput | string
-    pedal_edema?: StringFieldUpdateOperationsInput | string
-    anemia?: StringFieldUpdateOperationsInput | string
-    classification?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type ParkinsonsPredictionCreateInput = {
-    ascii_subject_name: string
-    recording_number: number
-    mdvp_fo: number
-    mdvp_fhi: number
-    mdvp_flo: number
-    mdvp_jitter_percentage: number
-    mdvp_jitter_abs: number
-    mdvp_rap: number
-    mdvp_ppq: number
-    jitter_ddp: number
-    mdvp_shimmer: number
-    mdvp_shimmer_db: number
-    shimmer_apq3: number
-    shimmer_apq5: number
-    mdvp_apq: number
-    shimmer_dda: number
-    nhr: number
-    hnr: number
-    status: number
-    rpde: number
-    d2: number
-    dfa: number
-    spread1: number
-    spread2: number
-    ppe: number
-    result: string
-    created_at?: Date | string
-    User: UserCreateNestedOneWithoutParkinsonsPredictionInput
-  }
-
-  export type ParkinsonsPredictionUncheckedCreateInput = {
-    prediction_id?: number
-    user_id: string
-    ascii_subject_name: string
-    recording_number: number
-    mdvp_fo: number
-    mdvp_fhi: number
-    mdvp_flo: number
-    mdvp_jitter_percentage: number
-    mdvp_jitter_abs: number
-    mdvp_rap: number
-    mdvp_ppq: number
-    jitter_ddp: number
-    mdvp_shimmer: number
-    mdvp_shimmer_db: number
-    shimmer_apq3: number
-    shimmer_apq5: number
-    mdvp_apq: number
-    shimmer_dda: number
-    nhr: number
-    hnr: number
-    status: number
-    rpde: number
-    d2: number
-    dfa: number
-    spread1: number
-    spread2: number
-    ppe: number
-    result: string
-    created_at?: Date | string
-  }
-
-  export type ParkinsonsPredictionUpdateInput = {
-    ascii_subject_name?: StringFieldUpdateOperationsInput | string
-    recording_number?: IntFieldUpdateOperationsInput | number
-    mdvp_fo?: FloatFieldUpdateOperationsInput | number
-    mdvp_fhi?: FloatFieldUpdateOperationsInput | number
-    mdvp_flo?: FloatFieldUpdateOperationsInput | number
-    mdvp_jitter_percentage?: FloatFieldUpdateOperationsInput | number
-    mdvp_jitter_abs?: FloatFieldUpdateOperationsInput | number
-    mdvp_rap?: FloatFieldUpdateOperationsInput | number
-    mdvp_ppq?: FloatFieldUpdateOperationsInput | number
-    jitter_ddp?: FloatFieldUpdateOperationsInput | number
-    mdvp_shimmer?: FloatFieldUpdateOperationsInput | number
-    mdvp_shimmer_db?: FloatFieldUpdateOperationsInput | number
-    shimmer_apq3?: FloatFieldUpdateOperationsInput | number
-    shimmer_apq5?: FloatFieldUpdateOperationsInput | number
-    mdvp_apq?: FloatFieldUpdateOperationsInput | number
-    shimmer_dda?: FloatFieldUpdateOperationsInput | number
-    nhr?: FloatFieldUpdateOperationsInput | number
-    hnr?: FloatFieldUpdateOperationsInput | number
-    status?: IntFieldUpdateOperationsInput | number
-    rpde?: FloatFieldUpdateOperationsInput | number
-    d2?: FloatFieldUpdateOperationsInput | number
-    dfa?: FloatFieldUpdateOperationsInput | number
-    spread1?: FloatFieldUpdateOperationsInput | number
-    spread2?: FloatFieldUpdateOperationsInput | number
-    ppe?: FloatFieldUpdateOperationsInput | number
-    result?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    User?: UserUpdateOneRequiredWithoutParkinsonsPredictionNestedInput
-  }
-
-  export type ParkinsonsPredictionUncheckedUpdateInput = {
-    prediction_id?: IntFieldUpdateOperationsInput | number
-    user_id?: StringFieldUpdateOperationsInput | string
-    ascii_subject_name?: StringFieldUpdateOperationsInput | string
-    recording_number?: IntFieldUpdateOperationsInput | number
-    mdvp_fo?: FloatFieldUpdateOperationsInput | number
-    mdvp_fhi?: FloatFieldUpdateOperationsInput | number
-    mdvp_flo?: FloatFieldUpdateOperationsInput | number
-    mdvp_jitter_percentage?: FloatFieldUpdateOperationsInput | number
-    mdvp_jitter_abs?: FloatFieldUpdateOperationsInput | number
-    mdvp_rap?: FloatFieldUpdateOperationsInput | number
-    mdvp_ppq?: FloatFieldUpdateOperationsInput | number
-    jitter_ddp?: FloatFieldUpdateOperationsInput | number
-    mdvp_shimmer?: FloatFieldUpdateOperationsInput | number
-    mdvp_shimmer_db?: FloatFieldUpdateOperationsInput | number
-    shimmer_apq3?: FloatFieldUpdateOperationsInput | number
-    shimmer_apq5?: FloatFieldUpdateOperationsInput | number
-    mdvp_apq?: FloatFieldUpdateOperationsInput | number
-    shimmer_dda?: FloatFieldUpdateOperationsInput | number
-    nhr?: FloatFieldUpdateOperationsInput | number
-    hnr?: FloatFieldUpdateOperationsInput | number
-    status?: IntFieldUpdateOperationsInput | number
-    rpde?: FloatFieldUpdateOperationsInput | number
-    d2?: FloatFieldUpdateOperationsInput | number
-    dfa?: FloatFieldUpdateOperationsInput | number
-    spread1?: FloatFieldUpdateOperationsInput | number
-    spread2?: FloatFieldUpdateOperationsInput | number
-    ppe?: FloatFieldUpdateOperationsInput | number
-    result?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type ParkinsonsPredictionCreateManyInput = {
-    prediction_id?: number
-    user_id: string
-    ascii_subject_name: string
-    recording_number: number
-    mdvp_fo: number
-    mdvp_fhi: number
-    mdvp_flo: number
-    mdvp_jitter_percentage: number
-    mdvp_jitter_abs: number
-    mdvp_rap: number
-    mdvp_ppq: number
-    jitter_ddp: number
-    mdvp_shimmer: number
-    mdvp_shimmer_db: number
-    shimmer_apq3: number
-    shimmer_apq5: number
-    mdvp_apq: number
-    shimmer_dda: number
-    nhr: number
-    hnr: number
-    status: number
-    rpde: number
-    d2: number
-    dfa: number
-    spread1: number
-    spread2: number
-    ppe: number
-    result: string
-    created_at?: Date | string
-  }
-
-  export type ParkinsonsPredictionUpdateManyMutationInput = {
-    ascii_subject_name?: StringFieldUpdateOperationsInput | string
-    recording_number?: IntFieldUpdateOperationsInput | number
-    mdvp_fo?: FloatFieldUpdateOperationsInput | number
-    mdvp_fhi?: FloatFieldUpdateOperationsInput | number
-    mdvp_flo?: FloatFieldUpdateOperationsInput | number
-    mdvp_jitter_percentage?: FloatFieldUpdateOperationsInput | number
-    mdvp_jitter_abs?: FloatFieldUpdateOperationsInput | number
-    mdvp_rap?: FloatFieldUpdateOperationsInput | number
-    mdvp_ppq?: FloatFieldUpdateOperationsInput | number
-    jitter_ddp?: FloatFieldUpdateOperationsInput | number
-    mdvp_shimmer?: FloatFieldUpdateOperationsInput | number
-    mdvp_shimmer_db?: FloatFieldUpdateOperationsInput | number
-    shimmer_apq3?: FloatFieldUpdateOperationsInput | number
-    shimmer_apq5?: FloatFieldUpdateOperationsInput | number
-    mdvp_apq?: FloatFieldUpdateOperationsInput | number
-    shimmer_dda?: FloatFieldUpdateOperationsInput | number
-    nhr?: FloatFieldUpdateOperationsInput | number
-    hnr?: FloatFieldUpdateOperationsInput | number
-    status?: IntFieldUpdateOperationsInput | number
-    rpde?: FloatFieldUpdateOperationsInput | number
-    d2?: FloatFieldUpdateOperationsInput | number
-    dfa?: FloatFieldUpdateOperationsInput | number
-    spread1?: FloatFieldUpdateOperationsInput | number
-    spread2?: FloatFieldUpdateOperationsInput | number
-    ppe?: FloatFieldUpdateOperationsInput | number
-    result?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type ParkinsonsPredictionUncheckedUpdateManyInput = {
-    prediction_id?: IntFieldUpdateOperationsInput | number
-    user_id?: StringFieldUpdateOperationsInput | string
-    ascii_subject_name?: StringFieldUpdateOperationsInput | string
-    recording_number?: IntFieldUpdateOperationsInput | number
-    mdvp_fo?: FloatFieldUpdateOperationsInput | number
-    mdvp_fhi?: FloatFieldUpdateOperationsInput | number
-    mdvp_flo?: FloatFieldUpdateOperationsInput | number
-    mdvp_jitter_percentage?: FloatFieldUpdateOperationsInput | number
-    mdvp_jitter_abs?: FloatFieldUpdateOperationsInput | number
-    mdvp_rap?: FloatFieldUpdateOperationsInput | number
-    mdvp_ppq?: FloatFieldUpdateOperationsInput | number
-    jitter_ddp?: FloatFieldUpdateOperationsInput | number
-    mdvp_shimmer?: FloatFieldUpdateOperationsInput | number
-    mdvp_shimmer_db?: FloatFieldUpdateOperationsInput | number
-    shimmer_apq3?: FloatFieldUpdateOperationsInput | number
-    shimmer_apq5?: FloatFieldUpdateOperationsInput | number
-    mdvp_apq?: FloatFieldUpdateOperationsInput | number
-    shimmer_dda?: FloatFieldUpdateOperationsInput | number
-    nhr?: FloatFieldUpdateOperationsInput | number
-    hnr?: FloatFieldUpdateOperationsInput | number
-    status?: IntFieldUpdateOperationsInput | number
-    rpde?: FloatFieldUpdateOperationsInput | number
-    d2?: FloatFieldUpdateOperationsInput | number
-    dfa?: FloatFieldUpdateOperationsInput | number
-    spread1?: FloatFieldUpdateOperationsInput | number
-    spread2?: FloatFieldUpdateOperationsInput | number
-    ppe?: FloatFieldUpdateOperationsInput | number
-    result?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  export type VerificationUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    identifier?: StringFieldUpdateOperationsInput | string
+    value?: StringFieldUpdateOperationsInput | string
+    expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -13783,66 +6358,20 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
-  export type StringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    mode?: QueryMode
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
-  export type DateTimeNullableFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+  export type DateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
     lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
-  }
-
-  export type AccountListRelationFilter = {
-    every?: AccountWhereInput
-    some?: AccountWhereInput
-    none?: AccountWhereInput
-  }
-
-  export type BreastCancerPredictionListRelationFilter = {
-    every?: BreastCancerPredictionWhereInput
-    some?: BreastCancerPredictionWhereInput
-    none?: BreastCancerPredictionWhereInput
-  }
-
-  export type DiabetesPredictionListRelationFilter = {
-    every?: DiabetesPredictionWhereInput
-    some?: DiabetesPredictionWhereInput
-    none?: DiabetesPredictionWhereInput
-  }
-
-  export type HeartDiseasePredictionListRelationFilter = {
-    every?: HeartDiseasePredictionWhereInput
-    some?: HeartDiseasePredictionWhereInput
-    none?: HeartDiseasePredictionWhereInput
-  }
-
-  export type KidneyDiseasePredictionListRelationFilter = {
-    every?: KidneyDiseasePredictionWhereInput
-    some?: KidneyDiseasePredictionWhereInput
-    none?: KidneyDiseasePredictionWhereInput
-  }
-
-  export type ParkinsonsPredictionListRelationFilter = {
-    every?: ParkinsonsPredictionWhereInput
-    some?: ParkinsonsPredictionWhereInput
-    none?: ParkinsonsPredictionWhereInput
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
   export type SessionListRelationFilter = {
@@ -13851,61 +6380,48 @@ export namespace Prisma {
     none?: SessionWhereInput
   }
 
-  export type SortOrderInput = {
-    sort: SortOrder
-    nulls?: NullsOrder
-  }
-
-  export type AccountOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
-  export type BreastCancerPredictionOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
-  export type DiabetesPredictionOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
-  export type HeartDiseasePredictionOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
-  export type KidneyDiseasePredictionOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
-  export type ParkinsonsPredictionOrderByRelationAggregateInput = {
-    _count?: SortOrder
+  export type AccountListRelationFilter = {
+    every?: AccountWhereInput
+    some?: AccountWhereInput
+    none?: AccountWhereInput
   }
 
   export type SessionOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
+  export type AccountOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type UserCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    image?: SortOrder
     email?: SortOrder
     emailVerified?: SortOrder
-    image?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type UserMaxOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    image?: SortOrder
     email?: SortOrder
     emailVerified?: SortOrder
-    image?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type UserMinOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    image?: SortOrder
     email?: SortOrder
     emailVerified?: SortOrder
-    image?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
@@ -13926,6 +6442,86 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
+  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type UserScalarRelationFilter = {
+    is?: UserWhereInput
+    isNot?: UserWhereInput
+  }
+
+  export type SortOrderInput = {
+    sort: SortOrder
+    nulls?: NullsOrder
+  }
+
+  export type SessionCountOrderByAggregateInput = {
+    id?: SortOrder
+    expiresAt?: SortOrder
+    token?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    ipAddress?: SortOrder
+    userAgent?: SortOrder
+    userId?: SortOrder
+  }
+
+  export type SessionMaxOrderByAggregateInput = {
+    id?: SortOrder
+    expiresAt?: SortOrder
+    token?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    ipAddress?: SortOrder
+    userAgent?: SortOrder
+    userId?: SortOrder
+  }
+
+  export type SessionMinOrderByAggregateInput = {
+    id?: SortOrder
+    expiresAt?: SortOrder
+    token?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    ipAddress?: SortOrder
+    userAgent?: SortOrder
+    userId?: SortOrder
+  }
+
   export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
@@ -13944,6 +6540,65 @@ export namespace Prisma {
     _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type AccountCountOrderByAggregateInput = {
+    id?: SortOrder
+    accountId?: SortOrder
+    providerId?: SortOrder
+    userId?: SortOrder
+    accessToken?: SortOrder
+    refreshToken?: SortOrder
+    idToken?: SortOrder
+    accessTokenExpiresAt?: SortOrder
+    refreshTokenExpiresAt?: SortOrder
+    scope?: SortOrder
+    password?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type AccountMaxOrderByAggregateInput = {
+    id?: SortOrder
+    accountId?: SortOrder
+    providerId?: SortOrder
+    userId?: SortOrder
+    accessToken?: SortOrder
+    refreshToken?: SortOrder
+    idToken?: SortOrder
+    accessTokenExpiresAt?: SortOrder
+    refreshTokenExpiresAt?: SortOrder
+    scope?: SortOrder
+    password?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type AccountMinOrderByAggregateInput = {
+    id?: SortOrder
+    accountId?: SortOrder
+    providerId?: SortOrder
+    userId?: SortOrder
+    accessToken?: SortOrder
+    refreshToken?: SortOrder
+    idToken?: SortOrder
+    accessTokenExpiresAt?: SortOrder
+    refreshTokenExpiresAt?: SortOrder
+    scope?: SortOrder
+    password?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
   export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
@@ -13958,693 +6613,38 @@ export namespace Prisma {
     _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
-  export type IntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
-  }
-
-  export type UserScalarRelationFilter = {
-    is?: UserWhereInput
-    isNot?: UserWhereInput
-  }
-
-  export type AccountProviderProviderAccountIdCompoundUniqueInput = {
-    provider: string
-    providerAccountId: string
-  }
-
-  export type AccountCountOrderByAggregateInput = {
+  export type VerificationCountOrderByAggregateInput = {
     id?: SortOrder
-    userId?: SortOrder
-    type?: SortOrder
-    provider?: SortOrder
-    providerAccountId?: SortOrder
-    refresh_token?: SortOrder
-    access_token?: SortOrder
-    expires_at?: SortOrder
-    token_type?: SortOrder
-    scope?: SortOrder
-    id_token?: SortOrder
-    session_state?: SortOrder
+    identifier?: SortOrder
+    value?: SortOrder
+    expiresAt?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
-  export type AccountAvgOrderByAggregateInput = {
-    expires_at?: SortOrder
-  }
-
-  export type AccountMaxOrderByAggregateInput = {
+  export type VerificationMaxOrderByAggregateInput = {
     id?: SortOrder
-    userId?: SortOrder
-    type?: SortOrder
-    provider?: SortOrder
-    providerAccountId?: SortOrder
-    refresh_token?: SortOrder
-    access_token?: SortOrder
-    expires_at?: SortOrder
-    token_type?: SortOrder
-    scope?: SortOrder
-    id_token?: SortOrder
-    session_state?: SortOrder
+    identifier?: SortOrder
+    value?: SortOrder
+    expiresAt?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
-  export type AccountMinOrderByAggregateInput = {
+  export type VerificationMinOrderByAggregateInput = {
     id?: SortOrder
-    userId?: SortOrder
-    type?: SortOrder
-    provider?: SortOrder
-    providerAccountId?: SortOrder
-    refresh_token?: SortOrder
-    access_token?: SortOrder
-    expires_at?: SortOrder
-    token_type?: SortOrder
-    scope?: SortOrder
-    id_token?: SortOrder
-    session_state?: SortOrder
+    identifier?: SortOrder
+    value?: SortOrder
+    expiresAt?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
-  export type AccountSumOrderByAggregateInput = {
-    expires_at?: SortOrder
-  }
-
-  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedIntNullableFilter<$PrismaModel>
-    _max?: NestedIntNullableFilter<$PrismaModel>
-  }
-
-  export type DateTimeFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
-  }
-
-  export type SessionCountOrderByAggregateInput = {
-    id?: SortOrder
-    sessionToken?: SortOrder
-    userId?: SortOrder
-    expires?: SortOrder
-  }
-
-  export type SessionMaxOrderByAggregateInput = {
-    id?: SortOrder
-    sessionToken?: SortOrder
-    userId?: SortOrder
-    expires?: SortOrder
-  }
-
-  export type SessionMinOrderByAggregateInput = {
-    id?: SortOrder
-    sessionToken?: SortOrder
-    userId?: SortOrder
-    expires?: SortOrder
-  }
-
-  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedDateTimeFilter<$PrismaModel>
-    _max?: NestedDateTimeFilter<$PrismaModel>
-  }
-
-  export type IntFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntFilter<$PrismaModel> | number
-  }
-
-  export type FloatFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel>
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatFilter<$PrismaModel> | number
-  }
-
-  export type BreastCancerPredictionCountOrderByAggregateInput = {
-    prediction_id?: SortOrder
-    user_id?: SortOrder
-    radius_mean?: SortOrder
-    texture_mean?: SortOrder
-    perimeter_mean?: SortOrder
-    area_mean?: SortOrder
-    smoothness_mean?: SortOrder
-    result?: SortOrder
-    created_at?: SortOrder
-  }
-
-  export type BreastCancerPredictionAvgOrderByAggregateInput = {
-    prediction_id?: SortOrder
-    radius_mean?: SortOrder
-    texture_mean?: SortOrder
-    perimeter_mean?: SortOrder
-    area_mean?: SortOrder
-    smoothness_mean?: SortOrder
-  }
-
-  export type BreastCancerPredictionMaxOrderByAggregateInput = {
-    prediction_id?: SortOrder
-    user_id?: SortOrder
-    radius_mean?: SortOrder
-    texture_mean?: SortOrder
-    perimeter_mean?: SortOrder
-    area_mean?: SortOrder
-    smoothness_mean?: SortOrder
-    result?: SortOrder
-    created_at?: SortOrder
-  }
-
-  export type BreastCancerPredictionMinOrderByAggregateInput = {
-    prediction_id?: SortOrder
-    user_id?: SortOrder
-    radius_mean?: SortOrder
-    texture_mean?: SortOrder
-    perimeter_mean?: SortOrder
-    area_mean?: SortOrder
-    smoothness_mean?: SortOrder
-    result?: SortOrder
-    created_at?: SortOrder
-  }
-
-  export type BreastCancerPredictionSumOrderByAggregateInput = {
-    prediction_id?: SortOrder
-    radius_mean?: SortOrder
-    texture_mean?: SortOrder
-    perimeter_mean?: SortOrder
-    area_mean?: SortOrder
-    smoothness_mean?: SortOrder
-  }
-
-  export type IntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedIntFilter<$PrismaModel>
-    _min?: NestedIntFilter<$PrismaModel>
-    _max?: NestedIntFilter<$PrismaModel>
-  }
-
-  export type FloatWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel>
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedFloatFilter<$PrismaModel>
-    _min?: NestedFloatFilter<$PrismaModel>
-    _max?: NestedFloatFilter<$PrismaModel>
-  }
-
-  export type DiabetesPredictionCountOrderByAggregateInput = {
-    prediction_id?: SortOrder
-    user_id?: SortOrder
-    pregnancies?: SortOrder
-    glucose?: SortOrder
-    blood_pressure?: SortOrder
-    skin_thickness?: SortOrder
-    insulin?: SortOrder
-    bmi?: SortOrder
-    diabetes_pedigree_function?: SortOrder
-    age?: SortOrder
-    result?: SortOrder
-    created_at?: SortOrder
-  }
-
-  export type DiabetesPredictionAvgOrderByAggregateInput = {
-    prediction_id?: SortOrder
-    pregnancies?: SortOrder
-    glucose?: SortOrder
-    blood_pressure?: SortOrder
-    skin_thickness?: SortOrder
-    insulin?: SortOrder
-    bmi?: SortOrder
-    diabetes_pedigree_function?: SortOrder
-    age?: SortOrder
-  }
-
-  export type DiabetesPredictionMaxOrderByAggregateInput = {
-    prediction_id?: SortOrder
-    user_id?: SortOrder
-    pregnancies?: SortOrder
-    glucose?: SortOrder
-    blood_pressure?: SortOrder
-    skin_thickness?: SortOrder
-    insulin?: SortOrder
-    bmi?: SortOrder
-    diabetes_pedigree_function?: SortOrder
-    age?: SortOrder
-    result?: SortOrder
-    created_at?: SortOrder
-  }
-
-  export type DiabetesPredictionMinOrderByAggregateInput = {
-    prediction_id?: SortOrder
-    user_id?: SortOrder
-    pregnancies?: SortOrder
-    glucose?: SortOrder
-    blood_pressure?: SortOrder
-    skin_thickness?: SortOrder
-    insulin?: SortOrder
-    bmi?: SortOrder
-    diabetes_pedigree_function?: SortOrder
-    age?: SortOrder
-    result?: SortOrder
-    created_at?: SortOrder
-  }
-
-  export type DiabetesPredictionSumOrderByAggregateInput = {
-    prediction_id?: SortOrder
-    pregnancies?: SortOrder
-    glucose?: SortOrder
-    blood_pressure?: SortOrder
-    skin_thickness?: SortOrder
-    insulin?: SortOrder
-    bmi?: SortOrder
-    diabetes_pedigree_function?: SortOrder
-    age?: SortOrder
-  }
-
-  export type BoolFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolFilter<$PrismaModel> | boolean
-  }
-
-  export type HeartDiseasePredictionCountOrderByAggregateInput = {
-    prediction_id?: SortOrder
-    user_id?: SortOrder
-    age?: SortOrder
-    sex?: SortOrder
-    chest_pain_type?: SortOrder
-    resting_blood_pressure?: SortOrder
-    serum_cholesterol?: SortOrder
-    fasting_blood_sugar?: SortOrder
-    resting_ecg?: SortOrder
-    max_heart_rate?: SortOrder
-    exercise_induced_angina?: SortOrder
-    oldpeak?: SortOrder
-    slope_of_peak_exercise_st_segment?: SortOrder
-    num_major_vessels?: SortOrder
-    thal?: SortOrder
-    result?: SortOrder
-    created_at?: SortOrder
-  }
-
-  export type HeartDiseasePredictionAvgOrderByAggregateInput = {
-    prediction_id?: SortOrder
-    age?: SortOrder
-    resting_blood_pressure?: SortOrder
-    serum_cholesterol?: SortOrder
-    resting_ecg?: SortOrder
-    max_heart_rate?: SortOrder
-    oldpeak?: SortOrder
-    num_major_vessels?: SortOrder
-  }
-
-  export type HeartDiseasePredictionMaxOrderByAggregateInput = {
-    prediction_id?: SortOrder
-    user_id?: SortOrder
-    age?: SortOrder
-    sex?: SortOrder
-    chest_pain_type?: SortOrder
-    resting_blood_pressure?: SortOrder
-    serum_cholesterol?: SortOrder
-    fasting_blood_sugar?: SortOrder
-    resting_ecg?: SortOrder
-    max_heart_rate?: SortOrder
-    exercise_induced_angina?: SortOrder
-    oldpeak?: SortOrder
-    slope_of_peak_exercise_st_segment?: SortOrder
-    num_major_vessels?: SortOrder
-    thal?: SortOrder
-    result?: SortOrder
-    created_at?: SortOrder
-  }
-
-  export type HeartDiseasePredictionMinOrderByAggregateInput = {
-    prediction_id?: SortOrder
-    user_id?: SortOrder
-    age?: SortOrder
-    sex?: SortOrder
-    chest_pain_type?: SortOrder
-    resting_blood_pressure?: SortOrder
-    serum_cholesterol?: SortOrder
-    fasting_blood_sugar?: SortOrder
-    resting_ecg?: SortOrder
-    max_heart_rate?: SortOrder
-    exercise_induced_angina?: SortOrder
-    oldpeak?: SortOrder
-    slope_of_peak_exercise_st_segment?: SortOrder
-    num_major_vessels?: SortOrder
-    thal?: SortOrder
-    result?: SortOrder
-    created_at?: SortOrder
-  }
-
-  export type HeartDiseasePredictionSumOrderByAggregateInput = {
-    prediction_id?: SortOrder
-    age?: SortOrder
-    resting_blood_pressure?: SortOrder
-    serum_cholesterol?: SortOrder
-    resting_ecg?: SortOrder
-    max_heart_rate?: SortOrder
-    oldpeak?: SortOrder
-    num_major_vessels?: SortOrder
-  }
-
-  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedBoolFilter<$PrismaModel>
-    _max?: NestedBoolFilter<$PrismaModel>
-  }
-
-  export type KidneyDiseasePredictionCountOrderByAggregateInput = {
-    prediction_id?: SortOrder
-    user_id?: SortOrder
-    age?: SortOrder
-    blood_pressure?: SortOrder
-    specific_gravity?: SortOrder
-    albumin?: SortOrder
-    sugar?: SortOrder
-    red_blood_cells?: SortOrder
-    pus_cell?: SortOrder
-    pus_cell_clumps?: SortOrder
-    bacteria?: SortOrder
-    blood_glucose_random?: SortOrder
-    blood_urea?: SortOrder
-    serum_creatinine?: SortOrder
-    sodium?: SortOrder
-    potassium?: SortOrder
-    hemoglobin?: SortOrder
-    packed_cell_volume?: SortOrder
-    white_cell_count?: SortOrder
-    red_cell_count?: SortOrder
-    hypertension?: SortOrder
-    diabetes_mellitus?: SortOrder
-    coronary_artery_disease?: SortOrder
-    appetite?: SortOrder
-    pedal_edema?: SortOrder
-    anemia?: SortOrder
-    classification?: SortOrder
-    created_at?: SortOrder
-  }
-
-  export type KidneyDiseasePredictionAvgOrderByAggregateInput = {
-    prediction_id?: SortOrder
-    age?: SortOrder
-    blood_pressure?: SortOrder
-    specific_gravity?: SortOrder
-    albumin?: SortOrder
-    sugar?: SortOrder
-    blood_glucose_random?: SortOrder
-    blood_urea?: SortOrder
-    serum_creatinine?: SortOrder
-    sodium?: SortOrder
-    potassium?: SortOrder
-    hemoglobin?: SortOrder
-    packed_cell_volume?: SortOrder
-    white_cell_count?: SortOrder
-    red_cell_count?: SortOrder
-  }
-
-  export type KidneyDiseasePredictionMaxOrderByAggregateInput = {
-    prediction_id?: SortOrder
-    user_id?: SortOrder
-    age?: SortOrder
-    blood_pressure?: SortOrder
-    specific_gravity?: SortOrder
-    albumin?: SortOrder
-    sugar?: SortOrder
-    red_blood_cells?: SortOrder
-    pus_cell?: SortOrder
-    pus_cell_clumps?: SortOrder
-    bacteria?: SortOrder
-    blood_glucose_random?: SortOrder
-    blood_urea?: SortOrder
-    serum_creatinine?: SortOrder
-    sodium?: SortOrder
-    potassium?: SortOrder
-    hemoglobin?: SortOrder
-    packed_cell_volume?: SortOrder
-    white_cell_count?: SortOrder
-    red_cell_count?: SortOrder
-    hypertension?: SortOrder
-    diabetes_mellitus?: SortOrder
-    coronary_artery_disease?: SortOrder
-    appetite?: SortOrder
-    pedal_edema?: SortOrder
-    anemia?: SortOrder
-    classification?: SortOrder
-    created_at?: SortOrder
-  }
-
-  export type KidneyDiseasePredictionMinOrderByAggregateInput = {
-    prediction_id?: SortOrder
-    user_id?: SortOrder
-    age?: SortOrder
-    blood_pressure?: SortOrder
-    specific_gravity?: SortOrder
-    albumin?: SortOrder
-    sugar?: SortOrder
-    red_blood_cells?: SortOrder
-    pus_cell?: SortOrder
-    pus_cell_clumps?: SortOrder
-    bacteria?: SortOrder
-    blood_glucose_random?: SortOrder
-    blood_urea?: SortOrder
-    serum_creatinine?: SortOrder
-    sodium?: SortOrder
-    potassium?: SortOrder
-    hemoglobin?: SortOrder
-    packed_cell_volume?: SortOrder
-    white_cell_count?: SortOrder
-    red_cell_count?: SortOrder
-    hypertension?: SortOrder
-    diabetes_mellitus?: SortOrder
-    coronary_artery_disease?: SortOrder
-    appetite?: SortOrder
-    pedal_edema?: SortOrder
-    anemia?: SortOrder
-    classification?: SortOrder
-    created_at?: SortOrder
-  }
-
-  export type KidneyDiseasePredictionSumOrderByAggregateInput = {
-    prediction_id?: SortOrder
-    age?: SortOrder
-    blood_pressure?: SortOrder
-    specific_gravity?: SortOrder
-    albumin?: SortOrder
-    sugar?: SortOrder
-    blood_glucose_random?: SortOrder
-    blood_urea?: SortOrder
-    serum_creatinine?: SortOrder
-    sodium?: SortOrder
-    potassium?: SortOrder
-    hemoglobin?: SortOrder
-    packed_cell_volume?: SortOrder
-    white_cell_count?: SortOrder
-    red_cell_count?: SortOrder
-  }
-
-  export type ParkinsonsPredictionCountOrderByAggregateInput = {
-    prediction_id?: SortOrder
-    user_id?: SortOrder
-    ascii_subject_name?: SortOrder
-    recording_number?: SortOrder
-    mdvp_fo?: SortOrder
-    mdvp_fhi?: SortOrder
-    mdvp_flo?: SortOrder
-    mdvp_jitter_percentage?: SortOrder
-    mdvp_jitter_abs?: SortOrder
-    mdvp_rap?: SortOrder
-    mdvp_ppq?: SortOrder
-    jitter_ddp?: SortOrder
-    mdvp_shimmer?: SortOrder
-    mdvp_shimmer_db?: SortOrder
-    shimmer_apq3?: SortOrder
-    shimmer_apq5?: SortOrder
-    mdvp_apq?: SortOrder
-    shimmer_dda?: SortOrder
-    nhr?: SortOrder
-    hnr?: SortOrder
-    status?: SortOrder
-    rpde?: SortOrder
-    d2?: SortOrder
-    dfa?: SortOrder
-    spread1?: SortOrder
-    spread2?: SortOrder
-    ppe?: SortOrder
-    result?: SortOrder
-    created_at?: SortOrder
-  }
-
-  export type ParkinsonsPredictionAvgOrderByAggregateInput = {
-    prediction_id?: SortOrder
-    recording_number?: SortOrder
-    mdvp_fo?: SortOrder
-    mdvp_fhi?: SortOrder
-    mdvp_flo?: SortOrder
-    mdvp_jitter_percentage?: SortOrder
-    mdvp_jitter_abs?: SortOrder
-    mdvp_rap?: SortOrder
-    mdvp_ppq?: SortOrder
-    jitter_ddp?: SortOrder
-    mdvp_shimmer?: SortOrder
-    mdvp_shimmer_db?: SortOrder
-    shimmer_apq3?: SortOrder
-    shimmer_apq5?: SortOrder
-    mdvp_apq?: SortOrder
-    shimmer_dda?: SortOrder
-    nhr?: SortOrder
-    hnr?: SortOrder
-    status?: SortOrder
-    rpde?: SortOrder
-    d2?: SortOrder
-    dfa?: SortOrder
-    spread1?: SortOrder
-    spread2?: SortOrder
-    ppe?: SortOrder
-  }
-
-  export type ParkinsonsPredictionMaxOrderByAggregateInput = {
-    prediction_id?: SortOrder
-    user_id?: SortOrder
-    ascii_subject_name?: SortOrder
-    recording_number?: SortOrder
-    mdvp_fo?: SortOrder
-    mdvp_fhi?: SortOrder
-    mdvp_flo?: SortOrder
-    mdvp_jitter_percentage?: SortOrder
-    mdvp_jitter_abs?: SortOrder
-    mdvp_rap?: SortOrder
-    mdvp_ppq?: SortOrder
-    jitter_ddp?: SortOrder
-    mdvp_shimmer?: SortOrder
-    mdvp_shimmer_db?: SortOrder
-    shimmer_apq3?: SortOrder
-    shimmer_apq5?: SortOrder
-    mdvp_apq?: SortOrder
-    shimmer_dda?: SortOrder
-    nhr?: SortOrder
-    hnr?: SortOrder
-    status?: SortOrder
-    rpde?: SortOrder
-    d2?: SortOrder
-    dfa?: SortOrder
-    spread1?: SortOrder
-    spread2?: SortOrder
-    ppe?: SortOrder
-    result?: SortOrder
-    created_at?: SortOrder
-  }
-
-  export type ParkinsonsPredictionMinOrderByAggregateInput = {
-    prediction_id?: SortOrder
-    user_id?: SortOrder
-    ascii_subject_name?: SortOrder
-    recording_number?: SortOrder
-    mdvp_fo?: SortOrder
-    mdvp_fhi?: SortOrder
-    mdvp_flo?: SortOrder
-    mdvp_jitter_percentage?: SortOrder
-    mdvp_jitter_abs?: SortOrder
-    mdvp_rap?: SortOrder
-    mdvp_ppq?: SortOrder
-    jitter_ddp?: SortOrder
-    mdvp_shimmer?: SortOrder
-    mdvp_shimmer_db?: SortOrder
-    shimmer_apq3?: SortOrder
-    shimmer_apq5?: SortOrder
-    mdvp_apq?: SortOrder
-    shimmer_dda?: SortOrder
-    nhr?: SortOrder
-    hnr?: SortOrder
-    status?: SortOrder
-    rpde?: SortOrder
-    d2?: SortOrder
-    dfa?: SortOrder
-    spread1?: SortOrder
-    spread2?: SortOrder
-    ppe?: SortOrder
-    result?: SortOrder
-    created_at?: SortOrder
-  }
-
-  export type ParkinsonsPredictionSumOrderByAggregateInput = {
-    prediction_id?: SortOrder
-    recording_number?: SortOrder
-    mdvp_fo?: SortOrder
-    mdvp_fhi?: SortOrder
-    mdvp_flo?: SortOrder
-    mdvp_jitter_percentage?: SortOrder
-    mdvp_jitter_abs?: SortOrder
-    mdvp_rap?: SortOrder
-    mdvp_ppq?: SortOrder
-    jitter_ddp?: SortOrder
-    mdvp_shimmer?: SortOrder
-    mdvp_shimmer_db?: SortOrder
-    shimmer_apq3?: SortOrder
-    shimmer_apq5?: SortOrder
-    mdvp_apq?: SortOrder
-    shimmer_dda?: SortOrder
-    nhr?: SortOrder
-    hnr?: SortOrder
-    status?: SortOrder
-    rpde?: SortOrder
-    d2?: SortOrder
-    dfa?: SortOrder
-    spread1?: SortOrder
-    spread2?: SortOrder
-    ppe?: SortOrder
+  export type SessionCreateNestedManyWithoutUserInput = {
+    create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
+    createMany?: SessionCreateManyUserInputEnvelope
+    connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
   }
 
   export type AccountCreateNestedManyWithoutUserInput = {
@@ -14654,42 +6654,7 @@ export namespace Prisma {
     connect?: AccountWhereUniqueInput | AccountWhereUniqueInput[]
   }
 
-  export type BreastCancerPredictionCreateNestedManyWithoutUserInput = {
-    create?: XOR<BreastCancerPredictionCreateWithoutUserInput, BreastCancerPredictionUncheckedCreateWithoutUserInput> | BreastCancerPredictionCreateWithoutUserInput[] | BreastCancerPredictionUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: BreastCancerPredictionCreateOrConnectWithoutUserInput | BreastCancerPredictionCreateOrConnectWithoutUserInput[]
-    createMany?: BreastCancerPredictionCreateManyUserInputEnvelope
-    connect?: BreastCancerPredictionWhereUniqueInput | BreastCancerPredictionWhereUniqueInput[]
-  }
-
-  export type DiabetesPredictionCreateNestedManyWithoutUserInput = {
-    create?: XOR<DiabetesPredictionCreateWithoutUserInput, DiabetesPredictionUncheckedCreateWithoutUserInput> | DiabetesPredictionCreateWithoutUserInput[] | DiabetesPredictionUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: DiabetesPredictionCreateOrConnectWithoutUserInput | DiabetesPredictionCreateOrConnectWithoutUserInput[]
-    createMany?: DiabetesPredictionCreateManyUserInputEnvelope
-    connect?: DiabetesPredictionWhereUniqueInput | DiabetesPredictionWhereUniqueInput[]
-  }
-
-  export type HeartDiseasePredictionCreateNestedManyWithoutUserInput = {
-    create?: XOR<HeartDiseasePredictionCreateWithoutUserInput, HeartDiseasePredictionUncheckedCreateWithoutUserInput> | HeartDiseasePredictionCreateWithoutUserInput[] | HeartDiseasePredictionUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: HeartDiseasePredictionCreateOrConnectWithoutUserInput | HeartDiseasePredictionCreateOrConnectWithoutUserInput[]
-    createMany?: HeartDiseasePredictionCreateManyUserInputEnvelope
-    connect?: HeartDiseasePredictionWhereUniqueInput | HeartDiseasePredictionWhereUniqueInput[]
-  }
-
-  export type KidneyDiseasePredictionCreateNestedManyWithoutUserInput = {
-    create?: XOR<KidneyDiseasePredictionCreateWithoutUserInput, KidneyDiseasePredictionUncheckedCreateWithoutUserInput> | KidneyDiseasePredictionCreateWithoutUserInput[] | KidneyDiseasePredictionUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: KidneyDiseasePredictionCreateOrConnectWithoutUserInput | KidneyDiseasePredictionCreateOrConnectWithoutUserInput[]
-    createMany?: KidneyDiseasePredictionCreateManyUserInputEnvelope
-    connect?: KidneyDiseasePredictionWhereUniqueInput | KidneyDiseasePredictionWhereUniqueInput[]
-  }
-
-  export type ParkinsonsPredictionCreateNestedManyWithoutUserInput = {
-    create?: XOR<ParkinsonsPredictionCreateWithoutUserInput, ParkinsonsPredictionUncheckedCreateWithoutUserInput> | ParkinsonsPredictionCreateWithoutUserInput[] | ParkinsonsPredictionUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: ParkinsonsPredictionCreateOrConnectWithoutUserInput | ParkinsonsPredictionCreateOrConnectWithoutUserInput[]
-    createMany?: ParkinsonsPredictionCreateManyUserInputEnvelope
-    connect?: ParkinsonsPredictionWhereUniqueInput | ParkinsonsPredictionWhereUniqueInput[]
-  }
-
-  export type SessionCreateNestedManyWithoutUserInput = {
+  export type SessionUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
     connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
     createMany?: SessionCreateManyUserInputEnvelope
@@ -14703,58 +6668,30 @@ export namespace Prisma {
     connect?: AccountWhereUniqueInput | AccountWhereUniqueInput[]
   }
 
-  export type BreastCancerPredictionUncheckedCreateNestedManyWithoutUserInput = {
-    create?: XOR<BreastCancerPredictionCreateWithoutUserInput, BreastCancerPredictionUncheckedCreateWithoutUserInput> | BreastCancerPredictionCreateWithoutUserInput[] | BreastCancerPredictionUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: BreastCancerPredictionCreateOrConnectWithoutUserInput | BreastCancerPredictionCreateOrConnectWithoutUserInput[]
-    createMany?: BreastCancerPredictionCreateManyUserInputEnvelope
-    connect?: BreastCancerPredictionWhereUniqueInput | BreastCancerPredictionWhereUniqueInput[]
-  }
-
-  export type DiabetesPredictionUncheckedCreateNestedManyWithoutUserInput = {
-    create?: XOR<DiabetesPredictionCreateWithoutUserInput, DiabetesPredictionUncheckedCreateWithoutUserInput> | DiabetesPredictionCreateWithoutUserInput[] | DiabetesPredictionUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: DiabetesPredictionCreateOrConnectWithoutUserInput | DiabetesPredictionCreateOrConnectWithoutUserInput[]
-    createMany?: DiabetesPredictionCreateManyUserInputEnvelope
-    connect?: DiabetesPredictionWhereUniqueInput | DiabetesPredictionWhereUniqueInput[]
-  }
-
-  export type HeartDiseasePredictionUncheckedCreateNestedManyWithoutUserInput = {
-    create?: XOR<HeartDiseasePredictionCreateWithoutUserInput, HeartDiseasePredictionUncheckedCreateWithoutUserInput> | HeartDiseasePredictionCreateWithoutUserInput[] | HeartDiseasePredictionUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: HeartDiseasePredictionCreateOrConnectWithoutUserInput | HeartDiseasePredictionCreateOrConnectWithoutUserInput[]
-    createMany?: HeartDiseasePredictionCreateManyUserInputEnvelope
-    connect?: HeartDiseasePredictionWhereUniqueInput | HeartDiseasePredictionWhereUniqueInput[]
-  }
-
-  export type KidneyDiseasePredictionUncheckedCreateNestedManyWithoutUserInput = {
-    create?: XOR<KidneyDiseasePredictionCreateWithoutUserInput, KidneyDiseasePredictionUncheckedCreateWithoutUserInput> | KidneyDiseasePredictionCreateWithoutUserInput[] | KidneyDiseasePredictionUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: KidneyDiseasePredictionCreateOrConnectWithoutUserInput | KidneyDiseasePredictionCreateOrConnectWithoutUserInput[]
-    createMany?: KidneyDiseasePredictionCreateManyUserInputEnvelope
-    connect?: KidneyDiseasePredictionWhereUniqueInput | KidneyDiseasePredictionWhereUniqueInput[]
-  }
-
-  export type ParkinsonsPredictionUncheckedCreateNestedManyWithoutUserInput = {
-    create?: XOR<ParkinsonsPredictionCreateWithoutUserInput, ParkinsonsPredictionUncheckedCreateWithoutUserInput> | ParkinsonsPredictionCreateWithoutUserInput[] | ParkinsonsPredictionUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: ParkinsonsPredictionCreateOrConnectWithoutUserInput | ParkinsonsPredictionCreateOrConnectWithoutUserInput[]
-    createMany?: ParkinsonsPredictionCreateManyUserInputEnvelope
-    connect?: ParkinsonsPredictionWhereUniqueInput | ParkinsonsPredictionWhereUniqueInput[]
-  }
-
-  export type SessionUncheckedCreateNestedManyWithoutUserInput = {
-    create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
-    createMany?: SessionCreateManyUserInputEnvelope
-    connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
-  }
-
   export type StringFieldUpdateOperationsInput = {
     set?: string
   }
 
-  export type NullableStringFieldUpdateOperationsInput = {
-    set?: string | null
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
   }
 
-  export type NullableDateTimeFieldUpdateOperationsInput = {
-    set?: Date | string | null
+  export type DateTimeFieldUpdateOperationsInput = {
+    set?: Date | string
+  }
+
+  export type SessionUpdateManyWithoutUserNestedInput = {
+    create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
+    upsert?: SessionUpsertWithWhereUniqueWithoutUserInput | SessionUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: SessionCreateManyUserInputEnvelope
+    set?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+    disconnect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+    delete?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+    connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+    update?: SessionUpdateWithWhereUniqueWithoutUserInput | SessionUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: SessionUpdateManyWithWhereWithoutUserInput | SessionUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: SessionScalarWhereInput | SessionScalarWhereInput[]
   }
 
   export type AccountUpdateManyWithoutUserNestedInput = {
@@ -14771,77 +6708,7 @@ export namespace Prisma {
     deleteMany?: AccountScalarWhereInput | AccountScalarWhereInput[]
   }
 
-  export type BreastCancerPredictionUpdateManyWithoutUserNestedInput = {
-    create?: XOR<BreastCancerPredictionCreateWithoutUserInput, BreastCancerPredictionUncheckedCreateWithoutUserInput> | BreastCancerPredictionCreateWithoutUserInput[] | BreastCancerPredictionUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: BreastCancerPredictionCreateOrConnectWithoutUserInput | BreastCancerPredictionCreateOrConnectWithoutUserInput[]
-    upsert?: BreastCancerPredictionUpsertWithWhereUniqueWithoutUserInput | BreastCancerPredictionUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: BreastCancerPredictionCreateManyUserInputEnvelope
-    set?: BreastCancerPredictionWhereUniqueInput | BreastCancerPredictionWhereUniqueInput[]
-    disconnect?: BreastCancerPredictionWhereUniqueInput | BreastCancerPredictionWhereUniqueInput[]
-    delete?: BreastCancerPredictionWhereUniqueInput | BreastCancerPredictionWhereUniqueInput[]
-    connect?: BreastCancerPredictionWhereUniqueInput | BreastCancerPredictionWhereUniqueInput[]
-    update?: BreastCancerPredictionUpdateWithWhereUniqueWithoutUserInput | BreastCancerPredictionUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: BreastCancerPredictionUpdateManyWithWhereWithoutUserInput | BreastCancerPredictionUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: BreastCancerPredictionScalarWhereInput | BreastCancerPredictionScalarWhereInput[]
-  }
-
-  export type DiabetesPredictionUpdateManyWithoutUserNestedInput = {
-    create?: XOR<DiabetesPredictionCreateWithoutUserInput, DiabetesPredictionUncheckedCreateWithoutUserInput> | DiabetesPredictionCreateWithoutUserInput[] | DiabetesPredictionUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: DiabetesPredictionCreateOrConnectWithoutUserInput | DiabetesPredictionCreateOrConnectWithoutUserInput[]
-    upsert?: DiabetesPredictionUpsertWithWhereUniqueWithoutUserInput | DiabetesPredictionUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: DiabetesPredictionCreateManyUserInputEnvelope
-    set?: DiabetesPredictionWhereUniqueInput | DiabetesPredictionWhereUniqueInput[]
-    disconnect?: DiabetesPredictionWhereUniqueInput | DiabetesPredictionWhereUniqueInput[]
-    delete?: DiabetesPredictionWhereUniqueInput | DiabetesPredictionWhereUniqueInput[]
-    connect?: DiabetesPredictionWhereUniqueInput | DiabetesPredictionWhereUniqueInput[]
-    update?: DiabetesPredictionUpdateWithWhereUniqueWithoutUserInput | DiabetesPredictionUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: DiabetesPredictionUpdateManyWithWhereWithoutUserInput | DiabetesPredictionUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: DiabetesPredictionScalarWhereInput | DiabetesPredictionScalarWhereInput[]
-  }
-
-  export type HeartDiseasePredictionUpdateManyWithoutUserNestedInput = {
-    create?: XOR<HeartDiseasePredictionCreateWithoutUserInput, HeartDiseasePredictionUncheckedCreateWithoutUserInput> | HeartDiseasePredictionCreateWithoutUserInput[] | HeartDiseasePredictionUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: HeartDiseasePredictionCreateOrConnectWithoutUserInput | HeartDiseasePredictionCreateOrConnectWithoutUserInput[]
-    upsert?: HeartDiseasePredictionUpsertWithWhereUniqueWithoutUserInput | HeartDiseasePredictionUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: HeartDiseasePredictionCreateManyUserInputEnvelope
-    set?: HeartDiseasePredictionWhereUniqueInput | HeartDiseasePredictionWhereUniqueInput[]
-    disconnect?: HeartDiseasePredictionWhereUniqueInput | HeartDiseasePredictionWhereUniqueInput[]
-    delete?: HeartDiseasePredictionWhereUniqueInput | HeartDiseasePredictionWhereUniqueInput[]
-    connect?: HeartDiseasePredictionWhereUniqueInput | HeartDiseasePredictionWhereUniqueInput[]
-    update?: HeartDiseasePredictionUpdateWithWhereUniqueWithoutUserInput | HeartDiseasePredictionUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: HeartDiseasePredictionUpdateManyWithWhereWithoutUserInput | HeartDiseasePredictionUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: HeartDiseasePredictionScalarWhereInput | HeartDiseasePredictionScalarWhereInput[]
-  }
-
-  export type KidneyDiseasePredictionUpdateManyWithoutUserNestedInput = {
-    create?: XOR<KidneyDiseasePredictionCreateWithoutUserInput, KidneyDiseasePredictionUncheckedCreateWithoutUserInput> | KidneyDiseasePredictionCreateWithoutUserInput[] | KidneyDiseasePredictionUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: KidneyDiseasePredictionCreateOrConnectWithoutUserInput | KidneyDiseasePredictionCreateOrConnectWithoutUserInput[]
-    upsert?: KidneyDiseasePredictionUpsertWithWhereUniqueWithoutUserInput | KidneyDiseasePredictionUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: KidneyDiseasePredictionCreateManyUserInputEnvelope
-    set?: KidneyDiseasePredictionWhereUniqueInput | KidneyDiseasePredictionWhereUniqueInput[]
-    disconnect?: KidneyDiseasePredictionWhereUniqueInput | KidneyDiseasePredictionWhereUniqueInput[]
-    delete?: KidneyDiseasePredictionWhereUniqueInput | KidneyDiseasePredictionWhereUniqueInput[]
-    connect?: KidneyDiseasePredictionWhereUniqueInput | KidneyDiseasePredictionWhereUniqueInput[]
-    update?: KidneyDiseasePredictionUpdateWithWhereUniqueWithoutUserInput | KidneyDiseasePredictionUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: KidneyDiseasePredictionUpdateManyWithWhereWithoutUserInput | KidneyDiseasePredictionUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: KidneyDiseasePredictionScalarWhereInput | KidneyDiseasePredictionScalarWhereInput[]
-  }
-
-  export type ParkinsonsPredictionUpdateManyWithoutUserNestedInput = {
-    create?: XOR<ParkinsonsPredictionCreateWithoutUserInput, ParkinsonsPredictionUncheckedCreateWithoutUserInput> | ParkinsonsPredictionCreateWithoutUserInput[] | ParkinsonsPredictionUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: ParkinsonsPredictionCreateOrConnectWithoutUserInput | ParkinsonsPredictionCreateOrConnectWithoutUserInput[]
-    upsert?: ParkinsonsPredictionUpsertWithWhereUniqueWithoutUserInput | ParkinsonsPredictionUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: ParkinsonsPredictionCreateManyUserInputEnvelope
-    set?: ParkinsonsPredictionWhereUniqueInput | ParkinsonsPredictionWhereUniqueInput[]
-    disconnect?: ParkinsonsPredictionWhereUniqueInput | ParkinsonsPredictionWhereUniqueInput[]
-    delete?: ParkinsonsPredictionWhereUniqueInput | ParkinsonsPredictionWhereUniqueInput[]
-    connect?: ParkinsonsPredictionWhereUniqueInput | ParkinsonsPredictionWhereUniqueInput[]
-    update?: ParkinsonsPredictionUpdateWithWhereUniqueWithoutUserInput | ParkinsonsPredictionUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: ParkinsonsPredictionUpdateManyWithWhereWithoutUserInput | ParkinsonsPredictionUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: ParkinsonsPredictionScalarWhereInput | ParkinsonsPredictionScalarWhereInput[]
-  }
-
-  export type SessionUpdateManyWithoutUserNestedInput = {
+  export type SessionUncheckedUpdateManyWithoutUserNestedInput = {
     create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
     connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
     upsert?: SessionUpsertWithWhereUniqueWithoutUserInput | SessionUpsertWithWhereUniqueWithoutUserInput[]
@@ -14869,120 +6736,14 @@ export namespace Prisma {
     deleteMany?: AccountScalarWhereInput | AccountScalarWhereInput[]
   }
 
-  export type BreastCancerPredictionUncheckedUpdateManyWithoutUserNestedInput = {
-    create?: XOR<BreastCancerPredictionCreateWithoutUserInput, BreastCancerPredictionUncheckedCreateWithoutUserInput> | BreastCancerPredictionCreateWithoutUserInput[] | BreastCancerPredictionUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: BreastCancerPredictionCreateOrConnectWithoutUserInput | BreastCancerPredictionCreateOrConnectWithoutUserInput[]
-    upsert?: BreastCancerPredictionUpsertWithWhereUniqueWithoutUserInput | BreastCancerPredictionUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: BreastCancerPredictionCreateManyUserInputEnvelope
-    set?: BreastCancerPredictionWhereUniqueInput | BreastCancerPredictionWhereUniqueInput[]
-    disconnect?: BreastCancerPredictionWhereUniqueInput | BreastCancerPredictionWhereUniqueInput[]
-    delete?: BreastCancerPredictionWhereUniqueInput | BreastCancerPredictionWhereUniqueInput[]
-    connect?: BreastCancerPredictionWhereUniqueInput | BreastCancerPredictionWhereUniqueInput[]
-    update?: BreastCancerPredictionUpdateWithWhereUniqueWithoutUserInput | BreastCancerPredictionUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: BreastCancerPredictionUpdateManyWithWhereWithoutUserInput | BreastCancerPredictionUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: BreastCancerPredictionScalarWhereInput | BreastCancerPredictionScalarWhereInput[]
-  }
-
-  export type DiabetesPredictionUncheckedUpdateManyWithoutUserNestedInput = {
-    create?: XOR<DiabetesPredictionCreateWithoutUserInput, DiabetesPredictionUncheckedCreateWithoutUserInput> | DiabetesPredictionCreateWithoutUserInput[] | DiabetesPredictionUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: DiabetesPredictionCreateOrConnectWithoutUserInput | DiabetesPredictionCreateOrConnectWithoutUserInput[]
-    upsert?: DiabetesPredictionUpsertWithWhereUniqueWithoutUserInput | DiabetesPredictionUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: DiabetesPredictionCreateManyUserInputEnvelope
-    set?: DiabetesPredictionWhereUniqueInput | DiabetesPredictionWhereUniqueInput[]
-    disconnect?: DiabetesPredictionWhereUniqueInput | DiabetesPredictionWhereUniqueInput[]
-    delete?: DiabetesPredictionWhereUniqueInput | DiabetesPredictionWhereUniqueInput[]
-    connect?: DiabetesPredictionWhereUniqueInput | DiabetesPredictionWhereUniqueInput[]
-    update?: DiabetesPredictionUpdateWithWhereUniqueWithoutUserInput | DiabetesPredictionUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: DiabetesPredictionUpdateManyWithWhereWithoutUserInput | DiabetesPredictionUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: DiabetesPredictionScalarWhereInput | DiabetesPredictionScalarWhereInput[]
-  }
-
-  export type HeartDiseasePredictionUncheckedUpdateManyWithoutUserNestedInput = {
-    create?: XOR<HeartDiseasePredictionCreateWithoutUserInput, HeartDiseasePredictionUncheckedCreateWithoutUserInput> | HeartDiseasePredictionCreateWithoutUserInput[] | HeartDiseasePredictionUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: HeartDiseasePredictionCreateOrConnectWithoutUserInput | HeartDiseasePredictionCreateOrConnectWithoutUserInput[]
-    upsert?: HeartDiseasePredictionUpsertWithWhereUniqueWithoutUserInput | HeartDiseasePredictionUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: HeartDiseasePredictionCreateManyUserInputEnvelope
-    set?: HeartDiseasePredictionWhereUniqueInput | HeartDiseasePredictionWhereUniqueInput[]
-    disconnect?: HeartDiseasePredictionWhereUniqueInput | HeartDiseasePredictionWhereUniqueInput[]
-    delete?: HeartDiseasePredictionWhereUniqueInput | HeartDiseasePredictionWhereUniqueInput[]
-    connect?: HeartDiseasePredictionWhereUniqueInput | HeartDiseasePredictionWhereUniqueInput[]
-    update?: HeartDiseasePredictionUpdateWithWhereUniqueWithoutUserInput | HeartDiseasePredictionUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: HeartDiseasePredictionUpdateManyWithWhereWithoutUserInput | HeartDiseasePredictionUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: HeartDiseasePredictionScalarWhereInput | HeartDiseasePredictionScalarWhereInput[]
-  }
-
-  export type KidneyDiseasePredictionUncheckedUpdateManyWithoutUserNestedInput = {
-    create?: XOR<KidneyDiseasePredictionCreateWithoutUserInput, KidneyDiseasePredictionUncheckedCreateWithoutUserInput> | KidneyDiseasePredictionCreateWithoutUserInput[] | KidneyDiseasePredictionUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: KidneyDiseasePredictionCreateOrConnectWithoutUserInput | KidneyDiseasePredictionCreateOrConnectWithoutUserInput[]
-    upsert?: KidneyDiseasePredictionUpsertWithWhereUniqueWithoutUserInput | KidneyDiseasePredictionUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: KidneyDiseasePredictionCreateManyUserInputEnvelope
-    set?: KidneyDiseasePredictionWhereUniqueInput | KidneyDiseasePredictionWhereUniqueInput[]
-    disconnect?: KidneyDiseasePredictionWhereUniqueInput | KidneyDiseasePredictionWhereUniqueInput[]
-    delete?: KidneyDiseasePredictionWhereUniqueInput | KidneyDiseasePredictionWhereUniqueInput[]
-    connect?: KidneyDiseasePredictionWhereUniqueInput | KidneyDiseasePredictionWhereUniqueInput[]
-    update?: KidneyDiseasePredictionUpdateWithWhereUniqueWithoutUserInput | KidneyDiseasePredictionUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: KidneyDiseasePredictionUpdateManyWithWhereWithoutUserInput | KidneyDiseasePredictionUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: KidneyDiseasePredictionScalarWhereInput | KidneyDiseasePredictionScalarWhereInput[]
-  }
-
-  export type ParkinsonsPredictionUncheckedUpdateManyWithoutUserNestedInput = {
-    create?: XOR<ParkinsonsPredictionCreateWithoutUserInput, ParkinsonsPredictionUncheckedCreateWithoutUserInput> | ParkinsonsPredictionCreateWithoutUserInput[] | ParkinsonsPredictionUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: ParkinsonsPredictionCreateOrConnectWithoutUserInput | ParkinsonsPredictionCreateOrConnectWithoutUserInput[]
-    upsert?: ParkinsonsPredictionUpsertWithWhereUniqueWithoutUserInput | ParkinsonsPredictionUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: ParkinsonsPredictionCreateManyUserInputEnvelope
-    set?: ParkinsonsPredictionWhereUniqueInput | ParkinsonsPredictionWhereUniqueInput[]
-    disconnect?: ParkinsonsPredictionWhereUniqueInput | ParkinsonsPredictionWhereUniqueInput[]
-    delete?: ParkinsonsPredictionWhereUniqueInput | ParkinsonsPredictionWhereUniqueInput[]
-    connect?: ParkinsonsPredictionWhereUniqueInput | ParkinsonsPredictionWhereUniqueInput[]
-    update?: ParkinsonsPredictionUpdateWithWhereUniqueWithoutUserInput | ParkinsonsPredictionUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: ParkinsonsPredictionUpdateManyWithWhereWithoutUserInput | ParkinsonsPredictionUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: ParkinsonsPredictionScalarWhereInput | ParkinsonsPredictionScalarWhereInput[]
-  }
-
-  export type SessionUncheckedUpdateManyWithoutUserNestedInput = {
-    create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
-    upsert?: SessionUpsertWithWhereUniqueWithoutUserInput | SessionUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: SessionCreateManyUserInputEnvelope
-    set?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
-    disconnect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
-    delete?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
-    connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
-    update?: SessionUpdateWithWhereUniqueWithoutUserInput | SessionUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: SessionUpdateManyWithWhereWithoutUserInput | SessionUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: SessionScalarWhereInput | SessionScalarWhereInput[]
-  }
-
-  export type UserCreateNestedOneWithoutAccountsInput = {
-    create?: XOR<UserCreateWithoutAccountsInput, UserUncheckedCreateWithoutAccountsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutAccountsInput
-    connect?: UserWhereUniqueInput
-  }
-
-  export type NullableIntFieldUpdateOperationsInput = {
-    set?: number | null
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
-  }
-
-  export type UserUpdateOneRequiredWithoutAccountsNestedInput = {
-    create?: XOR<UserCreateWithoutAccountsInput, UserUncheckedCreateWithoutAccountsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutAccountsInput
-    upsert?: UserUpsertWithoutAccountsInput
-    connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutAccountsInput, UserUpdateWithoutAccountsInput>, UserUncheckedUpdateWithoutAccountsInput>
-  }
-
   export type UserCreateNestedOneWithoutSessionsInput = {
     create?: XOR<UserCreateWithoutSessionsInput, UserUncheckedCreateWithoutSessionsInput>
     connectOrCreate?: UserCreateOrConnectWithoutSessionsInput
     connect?: UserWhereUniqueInput
   }
 
-  export type DateTimeFieldUpdateOperationsInput = {
-    set?: Date | string
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
   }
 
   export type UserUpdateOneRequiredWithoutSessionsNestedInput = {
@@ -14993,94 +6754,22 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutSessionsInput, UserUpdateWithoutSessionsInput>, UserUncheckedUpdateWithoutSessionsInput>
   }
 
-  export type UserCreateNestedOneWithoutBreastCancerPredictionInput = {
-    create?: XOR<UserCreateWithoutBreastCancerPredictionInput, UserUncheckedCreateWithoutBreastCancerPredictionInput>
-    connectOrCreate?: UserCreateOrConnectWithoutBreastCancerPredictionInput
+  export type UserCreateNestedOneWithoutAccountsInput = {
+    create?: XOR<UserCreateWithoutAccountsInput, UserUncheckedCreateWithoutAccountsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutAccountsInput
     connect?: UserWhereUniqueInput
   }
 
-  export type FloatFieldUpdateOperationsInput = {
-    set?: number
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
   }
 
-  export type UserUpdateOneRequiredWithoutBreastCancerPredictionNestedInput = {
-    create?: XOR<UserCreateWithoutBreastCancerPredictionInput, UserUncheckedCreateWithoutBreastCancerPredictionInput>
-    connectOrCreate?: UserCreateOrConnectWithoutBreastCancerPredictionInput
-    upsert?: UserUpsertWithoutBreastCancerPredictionInput
+  export type UserUpdateOneRequiredWithoutAccountsNestedInput = {
+    create?: XOR<UserCreateWithoutAccountsInput, UserUncheckedCreateWithoutAccountsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutAccountsInput
+    upsert?: UserUpsertWithoutAccountsInput
     connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutBreastCancerPredictionInput, UserUpdateWithoutBreastCancerPredictionInput>, UserUncheckedUpdateWithoutBreastCancerPredictionInput>
-  }
-
-  export type IntFieldUpdateOperationsInput = {
-    set?: number
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
-  }
-
-  export type UserCreateNestedOneWithoutDiabetesPredictionInput = {
-    create?: XOR<UserCreateWithoutDiabetesPredictionInput, UserUncheckedCreateWithoutDiabetesPredictionInput>
-    connectOrCreate?: UserCreateOrConnectWithoutDiabetesPredictionInput
-    connect?: UserWhereUniqueInput
-  }
-
-  export type UserUpdateOneRequiredWithoutDiabetesPredictionNestedInput = {
-    create?: XOR<UserCreateWithoutDiabetesPredictionInput, UserUncheckedCreateWithoutDiabetesPredictionInput>
-    connectOrCreate?: UserCreateOrConnectWithoutDiabetesPredictionInput
-    upsert?: UserUpsertWithoutDiabetesPredictionInput
-    connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutDiabetesPredictionInput, UserUpdateWithoutDiabetesPredictionInput>, UserUncheckedUpdateWithoutDiabetesPredictionInput>
-  }
-
-  export type UserCreateNestedOneWithoutHeartDiseasePredictionInput = {
-    create?: XOR<UserCreateWithoutHeartDiseasePredictionInput, UserUncheckedCreateWithoutHeartDiseasePredictionInput>
-    connectOrCreate?: UserCreateOrConnectWithoutHeartDiseasePredictionInput
-    connect?: UserWhereUniqueInput
-  }
-
-  export type BoolFieldUpdateOperationsInput = {
-    set?: boolean
-  }
-
-  export type UserUpdateOneRequiredWithoutHeartDiseasePredictionNestedInput = {
-    create?: XOR<UserCreateWithoutHeartDiseasePredictionInput, UserUncheckedCreateWithoutHeartDiseasePredictionInput>
-    connectOrCreate?: UserCreateOrConnectWithoutHeartDiseasePredictionInput
-    upsert?: UserUpsertWithoutHeartDiseasePredictionInput
-    connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutHeartDiseasePredictionInput, UserUpdateWithoutHeartDiseasePredictionInput>, UserUncheckedUpdateWithoutHeartDiseasePredictionInput>
-  }
-
-  export type UserCreateNestedOneWithoutKidneyDiseasePredictionInput = {
-    create?: XOR<UserCreateWithoutKidneyDiseasePredictionInput, UserUncheckedCreateWithoutKidneyDiseasePredictionInput>
-    connectOrCreate?: UserCreateOrConnectWithoutKidneyDiseasePredictionInput
-    connect?: UserWhereUniqueInput
-  }
-
-  export type UserUpdateOneRequiredWithoutKidneyDiseasePredictionNestedInput = {
-    create?: XOR<UserCreateWithoutKidneyDiseasePredictionInput, UserUncheckedCreateWithoutKidneyDiseasePredictionInput>
-    connectOrCreate?: UserCreateOrConnectWithoutKidneyDiseasePredictionInput
-    upsert?: UserUpsertWithoutKidneyDiseasePredictionInput
-    connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutKidneyDiseasePredictionInput, UserUpdateWithoutKidneyDiseasePredictionInput>, UserUncheckedUpdateWithoutKidneyDiseasePredictionInput>
-  }
-
-  export type UserCreateNestedOneWithoutParkinsonsPredictionInput = {
-    create?: XOR<UserCreateWithoutParkinsonsPredictionInput, UserUncheckedCreateWithoutParkinsonsPredictionInput>
-    connectOrCreate?: UserCreateOrConnectWithoutParkinsonsPredictionInput
-    connect?: UserWhereUniqueInput
-  }
-
-  export type UserUpdateOneRequiredWithoutParkinsonsPredictionNestedInput = {
-    create?: XOR<UserCreateWithoutParkinsonsPredictionInput, UserUncheckedCreateWithoutParkinsonsPredictionInput>
-    connectOrCreate?: UserCreateOrConnectWithoutParkinsonsPredictionInput
-    upsert?: UserUpsertWithoutParkinsonsPredictionInput
-    connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutParkinsonsPredictionInput, UserUpdateWithoutParkinsonsPredictionInput>, UserUncheckedUpdateWithoutParkinsonsPredictionInput>
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutAccountsInput, UserUpdateWithoutAccountsInput>, UserUncheckedUpdateWithoutAccountsInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -15097,29 +6786,20 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
-  export type NestedStringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
-  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+  export type NestedDateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
     lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
   export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
@@ -15150,6 +6830,42 @@ export namespace Prisma {
     not?: NestedIntFilter<$PrismaModel> | number
   }
 
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
+  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
   export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
@@ -15178,6 +6894,17 @@ export namespace Prisma {
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
   export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
@@ -15192,417 +6919,24 @@ export namespace Prisma {
     _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
-  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedIntNullableFilter<$PrismaModel>
-    _max?: NestedIntNullableFilter<$PrismaModel>
-  }
-
-  export type NestedFloatNullableFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
-  }
-
-  export type NestedDateTimeFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
-  }
-
-  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedDateTimeFilter<$PrismaModel>
-    _max?: NestedDateTimeFilter<$PrismaModel>
-  }
-
-  export type NestedFloatFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel>
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatFilter<$PrismaModel> | number
-  }
-
-  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedIntFilter<$PrismaModel>
-    _min?: NestedIntFilter<$PrismaModel>
-    _max?: NestedIntFilter<$PrismaModel>
-  }
-
-  export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel>
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedFloatFilter<$PrismaModel>
-    _min?: NestedFloatFilter<$PrismaModel>
-    _max?: NestedFloatFilter<$PrismaModel>
-  }
-
-  export type NestedBoolFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolFilter<$PrismaModel> | boolean
-  }
-
-  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedBoolFilter<$PrismaModel>
-    _max?: NestedBoolFilter<$PrismaModel>
-  }
-
-  export type AccountCreateWithoutUserInput = {
-    id?: string
-    type: string
-    provider: string
-    providerAccountId: string
-    refresh_token?: string | null
-    access_token?: string | null
-    expires_at?: number | null
-    token_type?: string | null
-    scope?: string | null
-    id_token?: string | null
-    session_state?: string | null
-  }
-
-  export type AccountUncheckedCreateWithoutUserInput = {
-    id?: string
-    type: string
-    provider: string
-    providerAccountId: string
-    refresh_token?: string | null
-    access_token?: string | null
-    expires_at?: number | null
-    token_type?: string | null
-    scope?: string | null
-    id_token?: string | null
-    session_state?: string | null
-  }
-
-  export type AccountCreateOrConnectWithoutUserInput = {
-    where: AccountWhereUniqueInput
-    create: XOR<AccountCreateWithoutUserInput, AccountUncheckedCreateWithoutUserInput>
-  }
-
-  export type AccountCreateManyUserInputEnvelope = {
-    data: AccountCreateManyUserInput | AccountCreateManyUserInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type BreastCancerPredictionCreateWithoutUserInput = {
-    radius_mean: number
-    texture_mean: number
-    perimeter_mean: number
-    area_mean: number
-    smoothness_mean: number
-    result: string
-    created_at?: Date | string
-  }
-
-  export type BreastCancerPredictionUncheckedCreateWithoutUserInput = {
-    prediction_id?: number
-    radius_mean: number
-    texture_mean: number
-    perimeter_mean: number
-    area_mean: number
-    smoothness_mean: number
-    result: string
-    created_at?: Date | string
-  }
-
-  export type BreastCancerPredictionCreateOrConnectWithoutUserInput = {
-    where: BreastCancerPredictionWhereUniqueInput
-    create: XOR<BreastCancerPredictionCreateWithoutUserInput, BreastCancerPredictionUncheckedCreateWithoutUserInput>
-  }
-
-  export type BreastCancerPredictionCreateManyUserInputEnvelope = {
-    data: BreastCancerPredictionCreateManyUserInput | BreastCancerPredictionCreateManyUserInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type DiabetesPredictionCreateWithoutUserInput = {
-    pregnancies: number
-    glucose: number
-    blood_pressure: number
-    skin_thickness: number
-    insulin: number
-    bmi: number
-    diabetes_pedigree_function: number
-    age: number
-    result: string
-    created_at?: Date | string
-  }
-
-  export type DiabetesPredictionUncheckedCreateWithoutUserInput = {
-    prediction_id?: number
-    pregnancies: number
-    glucose: number
-    blood_pressure: number
-    skin_thickness: number
-    insulin: number
-    bmi: number
-    diabetes_pedigree_function: number
-    age: number
-    result: string
-    created_at?: Date | string
-  }
-
-  export type DiabetesPredictionCreateOrConnectWithoutUserInput = {
-    where: DiabetesPredictionWhereUniqueInput
-    create: XOR<DiabetesPredictionCreateWithoutUserInput, DiabetesPredictionUncheckedCreateWithoutUserInput>
-  }
-
-  export type DiabetesPredictionCreateManyUserInputEnvelope = {
-    data: DiabetesPredictionCreateManyUserInput | DiabetesPredictionCreateManyUserInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type HeartDiseasePredictionCreateWithoutUserInput = {
-    age: number
-    sex: string
-    chest_pain_type: string
-    resting_blood_pressure: number
-    serum_cholesterol: number
-    fasting_blood_sugar: boolean
-    resting_ecg: number
-    max_heart_rate: number
-    exercise_induced_angina: boolean
-    oldpeak: number
-    slope_of_peak_exercise_st_segment: string
-    num_major_vessels: number
-    thal: string
-    result: string
-    created_at?: Date | string
-  }
-
-  export type HeartDiseasePredictionUncheckedCreateWithoutUserInput = {
-    prediction_id?: number
-    age: number
-    sex: string
-    chest_pain_type: string
-    resting_blood_pressure: number
-    serum_cholesterol: number
-    fasting_blood_sugar: boolean
-    resting_ecg: number
-    max_heart_rate: number
-    exercise_induced_angina: boolean
-    oldpeak: number
-    slope_of_peak_exercise_st_segment: string
-    num_major_vessels: number
-    thal: string
-    result: string
-    created_at?: Date | string
-  }
-
-  export type HeartDiseasePredictionCreateOrConnectWithoutUserInput = {
-    where: HeartDiseasePredictionWhereUniqueInput
-    create: XOR<HeartDiseasePredictionCreateWithoutUserInput, HeartDiseasePredictionUncheckedCreateWithoutUserInput>
-  }
-
-  export type HeartDiseasePredictionCreateManyUserInputEnvelope = {
-    data: HeartDiseasePredictionCreateManyUserInput | HeartDiseasePredictionCreateManyUserInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type KidneyDiseasePredictionCreateWithoutUserInput = {
-    age: number
-    blood_pressure: number
-    specific_gravity: number
-    albumin: number
-    sugar: number
-    red_blood_cells: string
-    pus_cell: string
-    pus_cell_clumps: string
-    bacteria: string
-    blood_glucose_random: number
-    blood_urea: number
-    serum_creatinine: number
-    sodium: number
-    potassium: number
-    hemoglobin: number
-    packed_cell_volume: number
-    white_cell_count: number
-    red_cell_count: number
-    hypertension: string
-    diabetes_mellitus: string
-    coronary_artery_disease: string
-    appetite: string
-    pedal_edema: string
-    anemia: string
-    classification: string
-    created_at?: Date | string
-  }
-
-  export type KidneyDiseasePredictionUncheckedCreateWithoutUserInput = {
-    prediction_id?: number
-    age: number
-    blood_pressure: number
-    specific_gravity: number
-    albumin: number
-    sugar: number
-    red_blood_cells: string
-    pus_cell: string
-    pus_cell_clumps: string
-    bacteria: string
-    blood_glucose_random: number
-    blood_urea: number
-    serum_creatinine: number
-    sodium: number
-    potassium: number
-    hemoglobin: number
-    packed_cell_volume: number
-    white_cell_count: number
-    red_cell_count: number
-    hypertension: string
-    diabetes_mellitus: string
-    coronary_artery_disease: string
-    appetite: string
-    pedal_edema: string
-    anemia: string
-    classification: string
-    created_at?: Date | string
-  }
-
-  export type KidneyDiseasePredictionCreateOrConnectWithoutUserInput = {
-    where: KidneyDiseasePredictionWhereUniqueInput
-    create: XOR<KidneyDiseasePredictionCreateWithoutUserInput, KidneyDiseasePredictionUncheckedCreateWithoutUserInput>
-  }
-
-  export type KidneyDiseasePredictionCreateManyUserInputEnvelope = {
-    data: KidneyDiseasePredictionCreateManyUserInput | KidneyDiseasePredictionCreateManyUserInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type ParkinsonsPredictionCreateWithoutUserInput = {
-    ascii_subject_name: string
-    recording_number: number
-    mdvp_fo: number
-    mdvp_fhi: number
-    mdvp_flo: number
-    mdvp_jitter_percentage: number
-    mdvp_jitter_abs: number
-    mdvp_rap: number
-    mdvp_ppq: number
-    jitter_ddp: number
-    mdvp_shimmer: number
-    mdvp_shimmer_db: number
-    shimmer_apq3: number
-    shimmer_apq5: number
-    mdvp_apq: number
-    shimmer_dda: number
-    nhr: number
-    hnr: number
-    status: number
-    rpde: number
-    d2: number
-    dfa: number
-    spread1: number
-    spread2: number
-    ppe: number
-    result: string
-    created_at?: Date | string
-  }
-
-  export type ParkinsonsPredictionUncheckedCreateWithoutUserInput = {
-    prediction_id?: number
-    ascii_subject_name: string
-    recording_number: number
-    mdvp_fo: number
-    mdvp_fhi: number
-    mdvp_flo: number
-    mdvp_jitter_percentage: number
-    mdvp_jitter_abs: number
-    mdvp_rap: number
-    mdvp_ppq: number
-    jitter_ddp: number
-    mdvp_shimmer: number
-    mdvp_shimmer_db: number
-    shimmer_apq3: number
-    shimmer_apq5: number
-    mdvp_apq: number
-    shimmer_dda: number
-    nhr: number
-    hnr: number
-    status: number
-    rpde: number
-    d2: number
-    dfa: number
-    spread1: number
-    spread2: number
-    ppe: number
-    result: string
-    created_at?: Date | string
-  }
-
-  export type ParkinsonsPredictionCreateOrConnectWithoutUserInput = {
-    where: ParkinsonsPredictionWhereUniqueInput
-    create: XOR<ParkinsonsPredictionCreateWithoutUserInput, ParkinsonsPredictionUncheckedCreateWithoutUserInput>
-  }
-
-  export type ParkinsonsPredictionCreateManyUserInputEnvelope = {
-    data: ParkinsonsPredictionCreateManyUserInput | ParkinsonsPredictionCreateManyUserInput[]
-    skipDuplicates?: boolean
-  }
-
   export type SessionCreateWithoutUserInput = {
-    id?: string
-    sessionToken: string
-    expires: Date | string
+    id: string
+    expiresAt: Date | string
+    token: string
+    createdAt: Date | string
+    updatedAt: Date | string
+    ipAddress?: string | null
+    userAgent?: string | null
   }
 
   export type SessionUncheckedCreateWithoutUserInput = {
-    id?: string
-    sessionToken: string
-    expires: Date | string
+    id: string
+    expiresAt: Date | string
+    token: string
+    createdAt: Date | string
+    updatedAt: Date | string
+    ipAddress?: string | null
+    userAgent?: string | null
   }
 
   export type SessionCreateOrConnectWithoutUserInput = {
@@ -15615,243 +6949,44 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type AccountUpsertWithWhereUniqueWithoutUserInput = {
+  export type AccountCreateWithoutUserInput = {
+    id: string
+    accountId: string
+    providerId: string
+    accessToken?: string | null
+    refreshToken?: string | null
+    idToken?: string | null
+    accessTokenExpiresAt?: Date | string | null
+    refreshTokenExpiresAt?: Date | string | null
+    scope?: string | null
+    password?: string | null
+    createdAt: Date | string
+    updatedAt: Date | string
+  }
+
+  export type AccountUncheckedCreateWithoutUserInput = {
+    id: string
+    accountId: string
+    providerId: string
+    accessToken?: string | null
+    refreshToken?: string | null
+    idToken?: string | null
+    accessTokenExpiresAt?: Date | string | null
+    refreshTokenExpiresAt?: Date | string | null
+    scope?: string | null
+    password?: string | null
+    createdAt: Date | string
+    updatedAt: Date | string
+  }
+
+  export type AccountCreateOrConnectWithoutUserInput = {
     where: AccountWhereUniqueInput
-    update: XOR<AccountUpdateWithoutUserInput, AccountUncheckedUpdateWithoutUserInput>
     create: XOR<AccountCreateWithoutUserInput, AccountUncheckedCreateWithoutUserInput>
   }
 
-  export type AccountUpdateWithWhereUniqueWithoutUserInput = {
-    where: AccountWhereUniqueInput
-    data: XOR<AccountUpdateWithoutUserInput, AccountUncheckedUpdateWithoutUserInput>
-  }
-
-  export type AccountUpdateManyWithWhereWithoutUserInput = {
-    where: AccountScalarWhereInput
-    data: XOR<AccountUpdateManyMutationInput, AccountUncheckedUpdateManyWithoutUserInput>
-  }
-
-  export type AccountScalarWhereInput = {
-    AND?: AccountScalarWhereInput | AccountScalarWhereInput[]
-    OR?: AccountScalarWhereInput[]
-    NOT?: AccountScalarWhereInput | AccountScalarWhereInput[]
-    id?: StringFilter<"Account"> | string
-    userId?: StringFilter<"Account"> | string
-    type?: StringFilter<"Account"> | string
-    provider?: StringFilter<"Account"> | string
-    providerAccountId?: StringFilter<"Account"> | string
-    refresh_token?: StringNullableFilter<"Account"> | string | null
-    access_token?: StringNullableFilter<"Account"> | string | null
-    expires_at?: IntNullableFilter<"Account"> | number | null
-    token_type?: StringNullableFilter<"Account"> | string | null
-    scope?: StringNullableFilter<"Account"> | string | null
-    id_token?: StringNullableFilter<"Account"> | string | null
-    session_state?: StringNullableFilter<"Account"> | string | null
-  }
-
-  export type BreastCancerPredictionUpsertWithWhereUniqueWithoutUserInput = {
-    where: BreastCancerPredictionWhereUniqueInput
-    update: XOR<BreastCancerPredictionUpdateWithoutUserInput, BreastCancerPredictionUncheckedUpdateWithoutUserInput>
-    create: XOR<BreastCancerPredictionCreateWithoutUserInput, BreastCancerPredictionUncheckedCreateWithoutUserInput>
-  }
-
-  export type BreastCancerPredictionUpdateWithWhereUniqueWithoutUserInput = {
-    where: BreastCancerPredictionWhereUniqueInput
-    data: XOR<BreastCancerPredictionUpdateWithoutUserInput, BreastCancerPredictionUncheckedUpdateWithoutUserInput>
-  }
-
-  export type BreastCancerPredictionUpdateManyWithWhereWithoutUserInput = {
-    where: BreastCancerPredictionScalarWhereInput
-    data: XOR<BreastCancerPredictionUpdateManyMutationInput, BreastCancerPredictionUncheckedUpdateManyWithoutUserInput>
-  }
-
-  export type BreastCancerPredictionScalarWhereInput = {
-    AND?: BreastCancerPredictionScalarWhereInput | BreastCancerPredictionScalarWhereInput[]
-    OR?: BreastCancerPredictionScalarWhereInput[]
-    NOT?: BreastCancerPredictionScalarWhereInput | BreastCancerPredictionScalarWhereInput[]
-    prediction_id?: IntFilter<"BreastCancerPrediction"> | number
-    user_id?: StringFilter<"BreastCancerPrediction"> | string
-    radius_mean?: FloatFilter<"BreastCancerPrediction"> | number
-    texture_mean?: FloatFilter<"BreastCancerPrediction"> | number
-    perimeter_mean?: FloatFilter<"BreastCancerPrediction"> | number
-    area_mean?: FloatFilter<"BreastCancerPrediction"> | number
-    smoothness_mean?: FloatFilter<"BreastCancerPrediction"> | number
-    result?: StringFilter<"BreastCancerPrediction"> | string
-    created_at?: DateTimeFilter<"BreastCancerPrediction"> | Date | string
-  }
-
-  export type DiabetesPredictionUpsertWithWhereUniqueWithoutUserInput = {
-    where: DiabetesPredictionWhereUniqueInput
-    update: XOR<DiabetesPredictionUpdateWithoutUserInput, DiabetesPredictionUncheckedUpdateWithoutUserInput>
-    create: XOR<DiabetesPredictionCreateWithoutUserInput, DiabetesPredictionUncheckedCreateWithoutUserInput>
-  }
-
-  export type DiabetesPredictionUpdateWithWhereUniqueWithoutUserInput = {
-    where: DiabetesPredictionWhereUniqueInput
-    data: XOR<DiabetesPredictionUpdateWithoutUserInput, DiabetesPredictionUncheckedUpdateWithoutUserInput>
-  }
-
-  export type DiabetesPredictionUpdateManyWithWhereWithoutUserInput = {
-    where: DiabetesPredictionScalarWhereInput
-    data: XOR<DiabetesPredictionUpdateManyMutationInput, DiabetesPredictionUncheckedUpdateManyWithoutUserInput>
-  }
-
-  export type DiabetesPredictionScalarWhereInput = {
-    AND?: DiabetesPredictionScalarWhereInput | DiabetesPredictionScalarWhereInput[]
-    OR?: DiabetesPredictionScalarWhereInput[]
-    NOT?: DiabetesPredictionScalarWhereInput | DiabetesPredictionScalarWhereInput[]
-    prediction_id?: IntFilter<"DiabetesPrediction"> | number
-    user_id?: StringFilter<"DiabetesPrediction"> | string
-    pregnancies?: IntFilter<"DiabetesPrediction"> | number
-    glucose?: IntFilter<"DiabetesPrediction"> | number
-    blood_pressure?: IntFilter<"DiabetesPrediction"> | number
-    skin_thickness?: IntFilter<"DiabetesPrediction"> | number
-    insulin?: IntFilter<"DiabetesPrediction"> | number
-    bmi?: FloatFilter<"DiabetesPrediction"> | number
-    diabetes_pedigree_function?: FloatFilter<"DiabetesPrediction"> | number
-    age?: IntFilter<"DiabetesPrediction"> | number
-    result?: StringFilter<"DiabetesPrediction"> | string
-    created_at?: DateTimeFilter<"DiabetesPrediction"> | Date | string
-  }
-
-  export type HeartDiseasePredictionUpsertWithWhereUniqueWithoutUserInput = {
-    where: HeartDiseasePredictionWhereUniqueInput
-    update: XOR<HeartDiseasePredictionUpdateWithoutUserInput, HeartDiseasePredictionUncheckedUpdateWithoutUserInput>
-    create: XOR<HeartDiseasePredictionCreateWithoutUserInput, HeartDiseasePredictionUncheckedCreateWithoutUserInput>
-  }
-
-  export type HeartDiseasePredictionUpdateWithWhereUniqueWithoutUserInput = {
-    where: HeartDiseasePredictionWhereUniqueInput
-    data: XOR<HeartDiseasePredictionUpdateWithoutUserInput, HeartDiseasePredictionUncheckedUpdateWithoutUserInput>
-  }
-
-  export type HeartDiseasePredictionUpdateManyWithWhereWithoutUserInput = {
-    where: HeartDiseasePredictionScalarWhereInput
-    data: XOR<HeartDiseasePredictionUpdateManyMutationInput, HeartDiseasePredictionUncheckedUpdateManyWithoutUserInput>
-  }
-
-  export type HeartDiseasePredictionScalarWhereInput = {
-    AND?: HeartDiseasePredictionScalarWhereInput | HeartDiseasePredictionScalarWhereInput[]
-    OR?: HeartDiseasePredictionScalarWhereInput[]
-    NOT?: HeartDiseasePredictionScalarWhereInput | HeartDiseasePredictionScalarWhereInput[]
-    prediction_id?: IntFilter<"HeartDiseasePrediction"> | number
-    user_id?: StringFilter<"HeartDiseasePrediction"> | string
-    age?: IntFilter<"HeartDiseasePrediction"> | number
-    sex?: StringFilter<"HeartDiseasePrediction"> | string
-    chest_pain_type?: StringFilter<"HeartDiseasePrediction"> | string
-    resting_blood_pressure?: IntFilter<"HeartDiseasePrediction"> | number
-    serum_cholesterol?: IntFilter<"HeartDiseasePrediction"> | number
-    fasting_blood_sugar?: BoolFilter<"HeartDiseasePrediction"> | boolean
-    resting_ecg?: IntFilter<"HeartDiseasePrediction"> | number
-    max_heart_rate?: IntFilter<"HeartDiseasePrediction"> | number
-    exercise_induced_angina?: BoolFilter<"HeartDiseasePrediction"> | boolean
-    oldpeak?: FloatFilter<"HeartDiseasePrediction"> | number
-    slope_of_peak_exercise_st_segment?: StringFilter<"HeartDiseasePrediction"> | string
-    num_major_vessels?: IntFilter<"HeartDiseasePrediction"> | number
-    thal?: StringFilter<"HeartDiseasePrediction"> | string
-    result?: StringFilter<"HeartDiseasePrediction"> | string
-    created_at?: DateTimeFilter<"HeartDiseasePrediction"> | Date | string
-  }
-
-  export type KidneyDiseasePredictionUpsertWithWhereUniqueWithoutUserInput = {
-    where: KidneyDiseasePredictionWhereUniqueInput
-    update: XOR<KidneyDiseasePredictionUpdateWithoutUserInput, KidneyDiseasePredictionUncheckedUpdateWithoutUserInput>
-    create: XOR<KidneyDiseasePredictionCreateWithoutUserInput, KidneyDiseasePredictionUncheckedCreateWithoutUserInput>
-  }
-
-  export type KidneyDiseasePredictionUpdateWithWhereUniqueWithoutUserInput = {
-    where: KidneyDiseasePredictionWhereUniqueInput
-    data: XOR<KidneyDiseasePredictionUpdateWithoutUserInput, KidneyDiseasePredictionUncheckedUpdateWithoutUserInput>
-  }
-
-  export type KidneyDiseasePredictionUpdateManyWithWhereWithoutUserInput = {
-    where: KidneyDiseasePredictionScalarWhereInput
-    data: XOR<KidneyDiseasePredictionUpdateManyMutationInput, KidneyDiseasePredictionUncheckedUpdateManyWithoutUserInput>
-  }
-
-  export type KidneyDiseasePredictionScalarWhereInput = {
-    AND?: KidneyDiseasePredictionScalarWhereInput | KidneyDiseasePredictionScalarWhereInput[]
-    OR?: KidneyDiseasePredictionScalarWhereInput[]
-    NOT?: KidneyDiseasePredictionScalarWhereInput | KidneyDiseasePredictionScalarWhereInput[]
-    prediction_id?: IntFilter<"KidneyDiseasePrediction"> | number
-    user_id?: StringFilter<"KidneyDiseasePrediction"> | string
-    age?: IntFilter<"KidneyDiseasePrediction"> | number
-    blood_pressure?: IntFilter<"KidneyDiseasePrediction"> | number
-    specific_gravity?: FloatFilter<"KidneyDiseasePrediction"> | number
-    albumin?: IntFilter<"KidneyDiseasePrediction"> | number
-    sugar?: IntFilter<"KidneyDiseasePrediction"> | number
-    red_blood_cells?: StringFilter<"KidneyDiseasePrediction"> | string
-    pus_cell?: StringFilter<"KidneyDiseasePrediction"> | string
-    pus_cell_clumps?: StringFilter<"KidneyDiseasePrediction"> | string
-    bacteria?: StringFilter<"KidneyDiseasePrediction"> | string
-    blood_glucose_random?: IntFilter<"KidneyDiseasePrediction"> | number
-    blood_urea?: IntFilter<"KidneyDiseasePrediction"> | number
-    serum_creatinine?: FloatFilter<"KidneyDiseasePrediction"> | number
-    sodium?: FloatFilter<"KidneyDiseasePrediction"> | number
-    potassium?: FloatFilter<"KidneyDiseasePrediction"> | number
-    hemoglobin?: FloatFilter<"KidneyDiseasePrediction"> | number
-    packed_cell_volume?: FloatFilter<"KidneyDiseasePrediction"> | number
-    white_cell_count?: IntFilter<"KidneyDiseasePrediction"> | number
-    red_cell_count?: IntFilter<"KidneyDiseasePrediction"> | number
-    hypertension?: StringFilter<"KidneyDiseasePrediction"> | string
-    diabetes_mellitus?: StringFilter<"KidneyDiseasePrediction"> | string
-    coronary_artery_disease?: StringFilter<"KidneyDiseasePrediction"> | string
-    appetite?: StringFilter<"KidneyDiseasePrediction"> | string
-    pedal_edema?: StringFilter<"KidneyDiseasePrediction"> | string
-    anemia?: StringFilter<"KidneyDiseasePrediction"> | string
-    classification?: StringFilter<"KidneyDiseasePrediction"> | string
-    created_at?: DateTimeFilter<"KidneyDiseasePrediction"> | Date | string
-  }
-
-  export type ParkinsonsPredictionUpsertWithWhereUniqueWithoutUserInput = {
-    where: ParkinsonsPredictionWhereUniqueInput
-    update: XOR<ParkinsonsPredictionUpdateWithoutUserInput, ParkinsonsPredictionUncheckedUpdateWithoutUserInput>
-    create: XOR<ParkinsonsPredictionCreateWithoutUserInput, ParkinsonsPredictionUncheckedCreateWithoutUserInput>
-  }
-
-  export type ParkinsonsPredictionUpdateWithWhereUniqueWithoutUserInput = {
-    where: ParkinsonsPredictionWhereUniqueInput
-    data: XOR<ParkinsonsPredictionUpdateWithoutUserInput, ParkinsonsPredictionUncheckedUpdateWithoutUserInput>
-  }
-
-  export type ParkinsonsPredictionUpdateManyWithWhereWithoutUserInput = {
-    where: ParkinsonsPredictionScalarWhereInput
-    data: XOR<ParkinsonsPredictionUpdateManyMutationInput, ParkinsonsPredictionUncheckedUpdateManyWithoutUserInput>
-  }
-
-  export type ParkinsonsPredictionScalarWhereInput = {
-    AND?: ParkinsonsPredictionScalarWhereInput | ParkinsonsPredictionScalarWhereInput[]
-    OR?: ParkinsonsPredictionScalarWhereInput[]
-    NOT?: ParkinsonsPredictionScalarWhereInput | ParkinsonsPredictionScalarWhereInput[]
-    prediction_id?: IntFilter<"ParkinsonsPrediction"> | number
-    user_id?: StringFilter<"ParkinsonsPrediction"> | string
-    ascii_subject_name?: StringFilter<"ParkinsonsPrediction"> | string
-    recording_number?: IntFilter<"ParkinsonsPrediction"> | number
-    mdvp_fo?: FloatFilter<"ParkinsonsPrediction"> | number
-    mdvp_fhi?: FloatFilter<"ParkinsonsPrediction"> | number
-    mdvp_flo?: FloatFilter<"ParkinsonsPrediction"> | number
-    mdvp_jitter_percentage?: FloatFilter<"ParkinsonsPrediction"> | number
-    mdvp_jitter_abs?: FloatFilter<"ParkinsonsPrediction"> | number
-    mdvp_rap?: FloatFilter<"ParkinsonsPrediction"> | number
-    mdvp_ppq?: FloatFilter<"ParkinsonsPrediction"> | number
-    jitter_ddp?: FloatFilter<"ParkinsonsPrediction"> | number
-    mdvp_shimmer?: FloatFilter<"ParkinsonsPrediction"> | number
-    mdvp_shimmer_db?: FloatFilter<"ParkinsonsPrediction"> | number
-    shimmer_apq3?: FloatFilter<"ParkinsonsPrediction"> | number
-    shimmer_apq5?: FloatFilter<"ParkinsonsPrediction"> | number
-    mdvp_apq?: FloatFilter<"ParkinsonsPrediction"> | number
-    shimmer_dda?: FloatFilter<"ParkinsonsPrediction"> | number
-    nhr?: FloatFilter<"ParkinsonsPrediction"> | number
-    hnr?: FloatFilter<"ParkinsonsPrediction"> | number
-    status?: IntFilter<"ParkinsonsPrediction"> | number
-    rpde?: FloatFilter<"ParkinsonsPrediction"> | number
-    d2?: FloatFilter<"ParkinsonsPrediction"> | number
-    dfa?: FloatFilter<"ParkinsonsPrediction"> | number
-    spread1?: FloatFilter<"ParkinsonsPrediction"> | number
-    spread2?: FloatFilter<"ParkinsonsPrediction"> | number
-    ppe?: FloatFilter<"ParkinsonsPrediction"> | number
-    result?: StringFilter<"ParkinsonsPrediction"> | string
-    created_at?: DateTimeFilter<"ParkinsonsPrediction"> | Date | string
+  export type AccountCreateManyUserInputEnvelope = {
+    data: AccountCreateManyUserInput | AccountCreateManyUserInput[]
+    skipDuplicates?: boolean
   }
 
   export type SessionUpsertWithWhereUniqueWithoutUserInput = {
@@ -15875,36 +7010,129 @@ export namespace Prisma {
     OR?: SessionScalarWhereInput[]
     NOT?: SessionScalarWhereInput | SessionScalarWhereInput[]
     id?: StringFilter<"Session"> | string
-    sessionToken?: StringFilter<"Session"> | string
+    expiresAt?: DateTimeFilter<"Session"> | Date | string
+    token?: StringFilter<"Session"> | string
+    createdAt?: DateTimeFilter<"Session"> | Date | string
+    updatedAt?: DateTimeFilter<"Session"> | Date | string
+    ipAddress?: StringNullableFilter<"Session"> | string | null
+    userAgent?: StringNullableFilter<"Session"> | string | null
     userId?: StringFilter<"Session"> | string
-    expires?: DateTimeFilter<"Session"> | Date | string
+  }
+
+  export type AccountUpsertWithWhereUniqueWithoutUserInput = {
+    where: AccountWhereUniqueInput
+    update: XOR<AccountUpdateWithoutUserInput, AccountUncheckedUpdateWithoutUserInput>
+    create: XOR<AccountCreateWithoutUserInput, AccountUncheckedCreateWithoutUserInput>
+  }
+
+  export type AccountUpdateWithWhereUniqueWithoutUserInput = {
+    where: AccountWhereUniqueInput
+    data: XOR<AccountUpdateWithoutUserInput, AccountUncheckedUpdateWithoutUserInput>
+  }
+
+  export type AccountUpdateManyWithWhereWithoutUserInput = {
+    where: AccountScalarWhereInput
+    data: XOR<AccountUpdateManyMutationInput, AccountUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type AccountScalarWhereInput = {
+    AND?: AccountScalarWhereInput | AccountScalarWhereInput[]
+    OR?: AccountScalarWhereInput[]
+    NOT?: AccountScalarWhereInput | AccountScalarWhereInput[]
+    id?: StringFilter<"Account"> | string
+    accountId?: StringFilter<"Account"> | string
+    providerId?: StringFilter<"Account"> | string
+    userId?: StringFilter<"Account"> | string
+    accessToken?: StringNullableFilter<"Account"> | string | null
+    refreshToken?: StringNullableFilter<"Account"> | string | null
+    idToken?: StringNullableFilter<"Account"> | string | null
+    accessTokenExpiresAt?: DateTimeNullableFilter<"Account"> | Date | string | null
+    refreshTokenExpiresAt?: DateTimeNullableFilter<"Account"> | Date | string | null
+    scope?: StringNullableFilter<"Account"> | string | null
+    password?: StringNullableFilter<"Account"> | string | null
+    createdAt?: DateTimeFilter<"Account"> | Date | string
+    updatedAt?: DateTimeFilter<"Account"> | Date | string
+  }
+
+  export type UserCreateWithoutSessionsInput = {
+    id: string
+    name: string
+    image: string
+    email: string
+    emailVerified: boolean
+    createdAt: Date | string
+    updatedAt: Date | string
+    accounts?: AccountCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutSessionsInput = {
+    id: string
+    name: string
+    image: string
+    email: string
+    emailVerified: boolean
+    createdAt: Date | string
+    updatedAt: Date | string
+    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutSessionsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutSessionsInput, UserUncheckedCreateWithoutSessionsInput>
+  }
+
+  export type UserUpsertWithoutSessionsInput = {
+    update: XOR<UserUpdateWithoutSessionsInput, UserUncheckedUpdateWithoutSessionsInput>
+    create: XOR<UserCreateWithoutSessionsInput, UserUncheckedCreateWithoutSessionsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutSessionsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutSessionsInput, UserUncheckedUpdateWithoutSessionsInput>
+  }
+
+  export type UserUpdateWithoutSessionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    emailVerified?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    accounts?: AccountUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutSessionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    emailVerified?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateWithoutAccountsInput = {
-    id?: string
-    name?: string | null
-    email?: string | null
-    emailVerified?: Date | string | null
-    image?: string | null
-    BreastCancerPrediction?: BreastCancerPredictionCreateNestedManyWithoutUserInput
-    DiabetesPrediction?: DiabetesPredictionCreateNestedManyWithoutUserInput
-    HeartDiseasePrediction?: HeartDiseasePredictionCreateNestedManyWithoutUserInput
-    KidneyDiseasePrediction?: KidneyDiseasePredictionCreateNestedManyWithoutUserInput
-    ParkinsonsPrediction?: ParkinsonsPredictionCreateNestedManyWithoutUserInput
+    id: string
+    name: string
+    image: string
+    email: string
+    emailVerified: boolean
+    createdAt: Date | string
+    updatedAt: Date | string
     sessions?: SessionCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutAccountsInput = {
-    id?: string
-    name?: string | null
-    email?: string | null
-    emailVerified?: Date | string | null
-    image?: string | null
-    BreastCancerPrediction?: BreastCancerPredictionUncheckedCreateNestedManyWithoutUserInput
-    DiabetesPrediction?: DiabetesPredictionUncheckedCreateNestedManyWithoutUserInput
-    HeartDiseasePrediction?: HeartDiseasePredictionUncheckedCreateNestedManyWithoutUserInput
-    KidneyDiseasePrediction?: KidneyDiseasePredictionUncheckedCreateNestedManyWithoutUserInput
-    ParkinsonsPrediction?: ParkinsonsPredictionUncheckedCreateNestedManyWithoutUserInput
+    id: string
+    name: string
+    image: string
+    email: string
+    emailVerified: boolean
+    createdAt: Date | string
+    updatedAt: Date | string
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
   }
 
@@ -15926,957 +7154,124 @@ export namespace Prisma {
 
   export type UserUpdateWithoutAccountsInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    BreastCancerPrediction?: BreastCancerPredictionUpdateManyWithoutUserNestedInput
-    DiabetesPrediction?: DiabetesPredictionUpdateManyWithoutUserNestedInput
-    HeartDiseasePrediction?: HeartDiseasePredictionUpdateManyWithoutUserNestedInput
-    KidneyDiseasePrediction?: KidneyDiseasePredictionUpdateManyWithoutUserNestedInput
-    ParkinsonsPrediction?: ParkinsonsPredictionUpdateManyWithoutUserNestedInput
+    name?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    emailVerified?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     sessions?: SessionUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutAccountsInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    BreastCancerPrediction?: BreastCancerPredictionUncheckedUpdateManyWithoutUserNestedInput
-    DiabetesPrediction?: DiabetesPredictionUncheckedUpdateManyWithoutUserNestedInput
-    HeartDiseasePrediction?: HeartDiseasePredictionUncheckedUpdateManyWithoutUserNestedInput
-    KidneyDiseasePrediction?: KidneyDiseasePredictionUncheckedUpdateManyWithoutUserNestedInput
-    ParkinsonsPrediction?: ParkinsonsPredictionUncheckedUpdateManyWithoutUserNestedInput
+    name?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    emailVerified?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
-  }
-
-  export type UserCreateWithoutSessionsInput = {
-    id?: string
-    name?: string | null
-    email?: string | null
-    emailVerified?: Date | string | null
-    image?: string | null
-    accounts?: AccountCreateNestedManyWithoutUserInput
-    BreastCancerPrediction?: BreastCancerPredictionCreateNestedManyWithoutUserInput
-    DiabetesPrediction?: DiabetesPredictionCreateNestedManyWithoutUserInput
-    HeartDiseasePrediction?: HeartDiseasePredictionCreateNestedManyWithoutUserInput
-    KidneyDiseasePrediction?: KidneyDiseasePredictionCreateNestedManyWithoutUserInput
-    ParkinsonsPrediction?: ParkinsonsPredictionCreateNestedManyWithoutUserInput
-  }
-
-  export type UserUncheckedCreateWithoutSessionsInput = {
-    id?: string
-    name?: string | null
-    email?: string | null
-    emailVerified?: Date | string | null
-    image?: string | null
-    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
-    BreastCancerPrediction?: BreastCancerPredictionUncheckedCreateNestedManyWithoutUserInput
-    DiabetesPrediction?: DiabetesPredictionUncheckedCreateNestedManyWithoutUserInput
-    HeartDiseasePrediction?: HeartDiseasePredictionUncheckedCreateNestedManyWithoutUserInput
-    KidneyDiseasePrediction?: KidneyDiseasePredictionUncheckedCreateNestedManyWithoutUserInput
-    ParkinsonsPrediction?: ParkinsonsPredictionUncheckedCreateNestedManyWithoutUserInput
-  }
-
-  export type UserCreateOrConnectWithoutSessionsInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutSessionsInput, UserUncheckedCreateWithoutSessionsInput>
-  }
-
-  export type UserUpsertWithoutSessionsInput = {
-    update: XOR<UserUpdateWithoutSessionsInput, UserUncheckedUpdateWithoutSessionsInput>
-    create: XOR<UserCreateWithoutSessionsInput, UserUncheckedCreateWithoutSessionsInput>
-    where?: UserWhereInput
-  }
-
-  export type UserUpdateToOneWithWhereWithoutSessionsInput = {
-    where?: UserWhereInput
-    data: XOR<UserUpdateWithoutSessionsInput, UserUncheckedUpdateWithoutSessionsInput>
-  }
-
-  export type UserUpdateWithoutSessionsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    accounts?: AccountUpdateManyWithoutUserNestedInput
-    BreastCancerPrediction?: BreastCancerPredictionUpdateManyWithoutUserNestedInput
-    DiabetesPrediction?: DiabetesPredictionUpdateManyWithoutUserNestedInput
-    HeartDiseasePrediction?: HeartDiseasePredictionUpdateManyWithoutUserNestedInput
-    KidneyDiseasePrediction?: KidneyDiseasePredictionUpdateManyWithoutUserNestedInput
-    ParkinsonsPrediction?: ParkinsonsPredictionUpdateManyWithoutUserNestedInput
-  }
-
-  export type UserUncheckedUpdateWithoutSessionsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
-    BreastCancerPrediction?: BreastCancerPredictionUncheckedUpdateManyWithoutUserNestedInput
-    DiabetesPrediction?: DiabetesPredictionUncheckedUpdateManyWithoutUserNestedInput
-    HeartDiseasePrediction?: HeartDiseasePredictionUncheckedUpdateManyWithoutUserNestedInput
-    KidneyDiseasePrediction?: KidneyDiseasePredictionUncheckedUpdateManyWithoutUserNestedInput
-    ParkinsonsPrediction?: ParkinsonsPredictionUncheckedUpdateManyWithoutUserNestedInput
-  }
-
-  export type UserCreateWithoutBreastCancerPredictionInput = {
-    id?: string
-    name?: string | null
-    email?: string | null
-    emailVerified?: Date | string | null
-    image?: string | null
-    accounts?: AccountCreateNestedManyWithoutUserInput
-    DiabetesPrediction?: DiabetesPredictionCreateNestedManyWithoutUserInput
-    HeartDiseasePrediction?: HeartDiseasePredictionCreateNestedManyWithoutUserInput
-    KidneyDiseasePrediction?: KidneyDiseasePredictionCreateNestedManyWithoutUserInput
-    ParkinsonsPrediction?: ParkinsonsPredictionCreateNestedManyWithoutUserInput
-    sessions?: SessionCreateNestedManyWithoutUserInput
-  }
-
-  export type UserUncheckedCreateWithoutBreastCancerPredictionInput = {
-    id?: string
-    name?: string | null
-    email?: string | null
-    emailVerified?: Date | string | null
-    image?: string | null
-    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
-    DiabetesPrediction?: DiabetesPredictionUncheckedCreateNestedManyWithoutUserInput
-    HeartDiseasePrediction?: HeartDiseasePredictionUncheckedCreateNestedManyWithoutUserInput
-    KidneyDiseasePrediction?: KidneyDiseasePredictionUncheckedCreateNestedManyWithoutUserInput
-    ParkinsonsPrediction?: ParkinsonsPredictionUncheckedCreateNestedManyWithoutUserInput
-    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
-  }
-
-  export type UserCreateOrConnectWithoutBreastCancerPredictionInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutBreastCancerPredictionInput, UserUncheckedCreateWithoutBreastCancerPredictionInput>
-  }
-
-  export type UserUpsertWithoutBreastCancerPredictionInput = {
-    update: XOR<UserUpdateWithoutBreastCancerPredictionInput, UserUncheckedUpdateWithoutBreastCancerPredictionInput>
-    create: XOR<UserCreateWithoutBreastCancerPredictionInput, UserUncheckedCreateWithoutBreastCancerPredictionInput>
-    where?: UserWhereInput
-  }
-
-  export type UserUpdateToOneWithWhereWithoutBreastCancerPredictionInput = {
-    where?: UserWhereInput
-    data: XOR<UserUpdateWithoutBreastCancerPredictionInput, UserUncheckedUpdateWithoutBreastCancerPredictionInput>
-  }
-
-  export type UserUpdateWithoutBreastCancerPredictionInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    accounts?: AccountUpdateManyWithoutUserNestedInput
-    DiabetesPrediction?: DiabetesPredictionUpdateManyWithoutUserNestedInput
-    HeartDiseasePrediction?: HeartDiseasePredictionUpdateManyWithoutUserNestedInput
-    KidneyDiseasePrediction?: KidneyDiseasePredictionUpdateManyWithoutUserNestedInput
-    ParkinsonsPrediction?: ParkinsonsPredictionUpdateManyWithoutUserNestedInput
-    sessions?: SessionUpdateManyWithoutUserNestedInput
-  }
-
-  export type UserUncheckedUpdateWithoutBreastCancerPredictionInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
-    DiabetesPrediction?: DiabetesPredictionUncheckedUpdateManyWithoutUserNestedInput
-    HeartDiseasePrediction?: HeartDiseasePredictionUncheckedUpdateManyWithoutUserNestedInput
-    KidneyDiseasePrediction?: KidneyDiseasePredictionUncheckedUpdateManyWithoutUserNestedInput
-    ParkinsonsPrediction?: ParkinsonsPredictionUncheckedUpdateManyWithoutUserNestedInput
-    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
-  }
-
-  export type UserCreateWithoutDiabetesPredictionInput = {
-    id?: string
-    name?: string | null
-    email?: string | null
-    emailVerified?: Date | string | null
-    image?: string | null
-    accounts?: AccountCreateNestedManyWithoutUserInput
-    BreastCancerPrediction?: BreastCancerPredictionCreateNestedManyWithoutUserInput
-    HeartDiseasePrediction?: HeartDiseasePredictionCreateNestedManyWithoutUserInput
-    KidneyDiseasePrediction?: KidneyDiseasePredictionCreateNestedManyWithoutUserInput
-    ParkinsonsPrediction?: ParkinsonsPredictionCreateNestedManyWithoutUserInput
-    sessions?: SessionCreateNestedManyWithoutUserInput
-  }
-
-  export type UserUncheckedCreateWithoutDiabetesPredictionInput = {
-    id?: string
-    name?: string | null
-    email?: string | null
-    emailVerified?: Date | string | null
-    image?: string | null
-    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
-    BreastCancerPrediction?: BreastCancerPredictionUncheckedCreateNestedManyWithoutUserInput
-    HeartDiseasePrediction?: HeartDiseasePredictionUncheckedCreateNestedManyWithoutUserInput
-    KidneyDiseasePrediction?: KidneyDiseasePredictionUncheckedCreateNestedManyWithoutUserInput
-    ParkinsonsPrediction?: ParkinsonsPredictionUncheckedCreateNestedManyWithoutUserInput
-    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
-  }
-
-  export type UserCreateOrConnectWithoutDiabetesPredictionInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutDiabetesPredictionInput, UserUncheckedCreateWithoutDiabetesPredictionInput>
-  }
-
-  export type UserUpsertWithoutDiabetesPredictionInput = {
-    update: XOR<UserUpdateWithoutDiabetesPredictionInput, UserUncheckedUpdateWithoutDiabetesPredictionInput>
-    create: XOR<UserCreateWithoutDiabetesPredictionInput, UserUncheckedCreateWithoutDiabetesPredictionInput>
-    where?: UserWhereInput
-  }
-
-  export type UserUpdateToOneWithWhereWithoutDiabetesPredictionInput = {
-    where?: UserWhereInput
-    data: XOR<UserUpdateWithoutDiabetesPredictionInput, UserUncheckedUpdateWithoutDiabetesPredictionInput>
-  }
-
-  export type UserUpdateWithoutDiabetesPredictionInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    accounts?: AccountUpdateManyWithoutUserNestedInput
-    BreastCancerPrediction?: BreastCancerPredictionUpdateManyWithoutUserNestedInput
-    HeartDiseasePrediction?: HeartDiseasePredictionUpdateManyWithoutUserNestedInput
-    KidneyDiseasePrediction?: KidneyDiseasePredictionUpdateManyWithoutUserNestedInput
-    ParkinsonsPrediction?: ParkinsonsPredictionUpdateManyWithoutUserNestedInput
-    sessions?: SessionUpdateManyWithoutUserNestedInput
-  }
-
-  export type UserUncheckedUpdateWithoutDiabetesPredictionInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
-    BreastCancerPrediction?: BreastCancerPredictionUncheckedUpdateManyWithoutUserNestedInput
-    HeartDiseasePrediction?: HeartDiseasePredictionUncheckedUpdateManyWithoutUserNestedInput
-    KidneyDiseasePrediction?: KidneyDiseasePredictionUncheckedUpdateManyWithoutUserNestedInput
-    ParkinsonsPrediction?: ParkinsonsPredictionUncheckedUpdateManyWithoutUserNestedInput
-    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
-  }
-
-  export type UserCreateWithoutHeartDiseasePredictionInput = {
-    id?: string
-    name?: string | null
-    email?: string | null
-    emailVerified?: Date | string | null
-    image?: string | null
-    accounts?: AccountCreateNestedManyWithoutUserInput
-    BreastCancerPrediction?: BreastCancerPredictionCreateNestedManyWithoutUserInput
-    DiabetesPrediction?: DiabetesPredictionCreateNestedManyWithoutUserInput
-    KidneyDiseasePrediction?: KidneyDiseasePredictionCreateNestedManyWithoutUserInput
-    ParkinsonsPrediction?: ParkinsonsPredictionCreateNestedManyWithoutUserInput
-    sessions?: SessionCreateNestedManyWithoutUserInput
-  }
-
-  export type UserUncheckedCreateWithoutHeartDiseasePredictionInput = {
-    id?: string
-    name?: string | null
-    email?: string | null
-    emailVerified?: Date | string | null
-    image?: string | null
-    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
-    BreastCancerPrediction?: BreastCancerPredictionUncheckedCreateNestedManyWithoutUserInput
-    DiabetesPrediction?: DiabetesPredictionUncheckedCreateNestedManyWithoutUserInput
-    KidneyDiseasePrediction?: KidneyDiseasePredictionUncheckedCreateNestedManyWithoutUserInput
-    ParkinsonsPrediction?: ParkinsonsPredictionUncheckedCreateNestedManyWithoutUserInput
-    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
-  }
-
-  export type UserCreateOrConnectWithoutHeartDiseasePredictionInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutHeartDiseasePredictionInput, UserUncheckedCreateWithoutHeartDiseasePredictionInput>
-  }
-
-  export type UserUpsertWithoutHeartDiseasePredictionInput = {
-    update: XOR<UserUpdateWithoutHeartDiseasePredictionInput, UserUncheckedUpdateWithoutHeartDiseasePredictionInput>
-    create: XOR<UserCreateWithoutHeartDiseasePredictionInput, UserUncheckedCreateWithoutHeartDiseasePredictionInput>
-    where?: UserWhereInput
-  }
-
-  export type UserUpdateToOneWithWhereWithoutHeartDiseasePredictionInput = {
-    where?: UserWhereInput
-    data: XOR<UserUpdateWithoutHeartDiseasePredictionInput, UserUncheckedUpdateWithoutHeartDiseasePredictionInput>
-  }
-
-  export type UserUpdateWithoutHeartDiseasePredictionInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    accounts?: AccountUpdateManyWithoutUserNestedInput
-    BreastCancerPrediction?: BreastCancerPredictionUpdateManyWithoutUserNestedInput
-    DiabetesPrediction?: DiabetesPredictionUpdateManyWithoutUserNestedInput
-    KidneyDiseasePrediction?: KidneyDiseasePredictionUpdateManyWithoutUserNestedInput
-    ParkinsonsPrediction?: ParkinsonsPredictionUpdateManyWithoutUserNestedInput
-    sessions?: SessionUpdateManyWithoutUserNestedInput
-  }
-
-  export type UserUncheckedUpdateWithoutHeartDiseasePredictionInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
-    BreastCancerPrediction?: BreastCancerPredictionUncheckedUpdateManyWithoutUserNestedInput
-    DiabetesPrediction?: DiabetesPredictionUncheckedUpdateManyWithoutUserNestedInput
-    KidneyDiseasePrediction?: KidneyDiseasePredictionUncheckedUpdateManyWithoutUserNestedInput
-    ParkinsonsPrediction?: ParkinsonsPredictionUncheckedUpdateManyWithoutUserNestedInput
-    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
-  }
-
-  export type UserCreateWithoutKidneyDiseasePredictionInput = {
-    id?: string
-    name?: string | null
-    email?: string | null
-    emailVerified?: Date | string | null
-    image?: string | null
-    accounts?: AccountCreateNestedManyWithoutUserInput
-    BreastCancerPrediction?: BreastCancerPredictionCreateNestedManyWithoutUserInput
-    DiabetesPrediction?: DiabetesPredictionCreateNestedManyWithoutUserInput
-    HeartDiseasePrediction?: HeartDiseasePredictionCreateNestedManyWithoutUserInput
-    ParkinsonsPrediction?: ParkinsonsPredictionCreateNestedManyWithoutUserInput
-    sessions?: SessionCreateNestedManyWithoutUserInput
-  }
-
-  export type UserUncheckedCreateWithoutKidneyDiseasePredictionInput = {
-    id?: string
-    name?: string | null
-    email?: string | null
-    emailVerified?: Date | string | null
-    image?: string | null
-    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
-    BreastCancerPrediction?: BreastCancerPredictionUncheckedCreateNestedManyWithoutUserInput
-    DiabetesPrediction?: DiabetesPredictionUncheckedCreateNestedManyWithoutUserInput
-    HeartDiseasePrediction?: HeartDiseasePredictionUncheckedCreateNestedManyWithoutUserInput
-    ParkinsonsPrediction?: ParkinsonsPredictionUncheckedCreateNestedManyWithoutUserInput
-    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
-  }
-
-  export type UserCreateOrConnectWithoutKidneyDiseasePredictionInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutKidneyDiseasePredictionInput, UserUncheckedCreateWithoutKidneyDiseasePredictionInput>
-  }
-
-  export type UserUpsertWithoutKidneyDiseasePredictionInput = {
-    update: XOR<UserUpdateWithoutKidneyDiseasePredictionInput, UserUncheckedUpdateWithoutKidneyDiseasePredictionInput>
-    create: XOR<UserCreateWithoutKidneyDiseasePredictionInput, UserUncheckedCreateWithoutKidneyDiseasePredictionInput>
-    where?: UserWhereInput
-  }
-
-  export type UserUpdateToOneWithWhereWithoutKidneyDiseasePredictionInput = {
-    where?: UserWhereInput
-    data: XOR<UserUpdateWithoutKidneyDiseasePredictionInput, UserUncheckedUpdateWithoutKidneyDiseasePredictionInput>
-  }
-
-  export type UserUpdateWithoutKidneyDiseasePredictionInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    accounts?: AccountUpdateManyWithoutUserNestedInput
-    BreastCancerPrediction?: BreastCancerPredictionUpdateManyWithoutUserNestedInput
-    DiabetesPrediction?: DiabetesPredictionUpdateManyWithoutUserNestedInput
-    HeartDiseasePrediction?: HeartDiseasePredictionUpdateManyWithoutUserNestedInput
-    ParkinsonsPrediction?: ParkinsonsPredictionUpdateManyWithoutUserNestedInput
-    sessions?: SessionUpdateManyWithoutUserNestedInput
-  }
-
-  export type UserUncheckedUpdateWithoutKidneyDiseasePredictionInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
-    BreastCancerPrediction?: BreastCancerPredictionUncheckedUpdateManyWithoutUserNestedInput
-    DiabetesPrediction?: DiabetesPredictionUncheckedUpdateManyWithoutUserNestedInput
-    HeartDiseasePrediction?: HeartDiseasePredictionUncheckedUpdateManyWithoutUserNestedInput
-    ParkinsonsPrediction?: ParkinsonsPredictionUncheckedUpdateManyWithoutUserNestedInput
-    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
-  }
-
-  export type UserCreateWithoutParkinsonsPredictionInput = {
-    id?: string
-    name?: string | null
-    email?: string | null
-    emailVerified?: Date | string | null
-    image?: string | null
-    accounts?: AccountCreateNestedManyWithoutUserInput
-    BreastCancerPrediction?: BreastCancerPredictionCreateNestedManyWithoutUserInput
-    DiabetesPrediction?: DiabetesPredictionCreateNestedManyWithoutUserInput
-    HeartDiseasePrediction?: HeartDiseasePredictionCreateNestedManyWithoutUserInput
-    KidneyDiseasePrediction?: KidneyDiseasePredictionCreateNestedManyWithoutUserInput
-    sessions?: SessionCreateNestedManyWithoutUserInput
-  }
-
-  export type UserUncheckedCreateWithoutParkinsonsPredictionInput = {
-    id?: string
-    name?: string | null
-    email?: string | null
-    emailVerified?: Date | string | null
-    image?: string | null
-    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
-    BreastCancerPrediction?: BreastCancerPredictionUncheckedCreateNestedManyWithoutUserInput
-    DiabetesPrediction?: DiabetesPredictionUncheckedCreateNestedManyWithoutUserInput
-    HeartDiseasePrediction?: HeartDiseasePredictionUncheckedCreateNestedManyWithoutUserInput
-    KidneyDiseasePrediction?: KidneyDiseasePredictionUncheckedCreateNestedManyWithoutUserInput
-    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
-  }
-
-  export type UserCreateOrConnectWithoutParkinsonsPredictionInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutParkinsonsPredictionInput, UserUncheckedCreateWithoutParkinsonsPredictionInput>
-  }
-
-  export type UserUpsertWithoutParkinsonsPredictionInput = {
-    update: XOR<UserUpdateWithoutParkinsonsPredictionInput, UserUncheckedUpdateWithoutParkinsonsPredictionInput>
-    create: XOR<UserCreateWithoutParkinsonsPredictionInput, UserUncheckedCreateWithoutParkinsonsPredictionInput>
-    where?: UserWhereInput
-  }
-
-  export type UserUpdateToOneWithWhereWithoutParkinsonsPredictionInput = {
-    where?: UserWhereInput
-    data: XOR<UserUpdateWithoutParkinsonsPredictionInput, UserUncheckedUpdateWithoutParkinsonsPredictionInput>
-  }
-
-  export type UserUpdateWithoutParkinsonsPredictionInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    accounts?: AccountUpdateManyWithoutUserNestedInput
-    BreastCancerPrediction?: BreastCancerPredictionUpdateManyWithoutUserNestedInput
-    DiabetesPrediction?: DiabetesPredictionUpdateManyWithoutUserNestedInput
-    HeartDiseasePrediction?: HeartDiseasePredictionUpdateManyWithoutUserNestedInput
-    KidneyDiseasePrediction?: KidneyDiseasePredictionUpdateManyWithoutUserNestedInput
-    sessions?: SessionUpdateManyWithoutUserNestedInput
-  }
-
-  export type UserUncheckedUpdateWithoutParkinsonsPredictionInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
-    BreastCancerPrediction?: BreastCancerPredictionUncheckedUpdateManyWithoutUserNestedInput
-    DiabetesPrediction?: DiabetesPredictionUncheckedUpdateManyWithoutUserNestedInput
-    HeartDiseasePrediction?: HeartDiseasePredictionUncheckedUpdateManyWithoutUserNestedInput
-    KidneyDiseasePrediction?: KidneyDiseasePredictionUncheckedUpdateManyWithoutUserNestedInput
-    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
-  }
-
-  export type AccountCreateManyUserInput = {
-    id?: string
-    type: string
-    provider: string
-    providerAccountId: string
-    refresh_token?: string | null
-    access_token?: string | null
-    expires_at?: number | null
-    token_type?: string | null
-    scope?: string | null
-    id_token?: string | null
-    session_state?: string | null
-  }
-
-  export type BreastCancerPredictionCreateManyUserInput = {
-    prediction_id?: number
-    radius_mean: number
-    texture_mean: number
-    perimeter_mean: number
-    area_mean: number
-    smoothness_mean: number
-    result: string
-    created_at?: Date | string
-  }
-
-  export type DiabetesPredictionCreateManyUserInput = {
-    prediction_id?: number
-    pregnancies: number
-    glucose: number
-    blood_pressure: number
-    skin_thickness: number
-    insulin: number
-    bmi: number
-    diabetes_pedigree_function: number
-    age: number
-    result: string
-    created_at?: Date | string
-  }
-
-  export type HeartDiseasePredictionCreateManyUserInput = {
-    prediction_id?: number
-    age: number
-    sex: string
-    chest_pain_type: string
-    resting_blood_pressure: number
-    serum_cholesterol: number
-    fasting_blood_sugar: boolean
-    resting_ecg: number
-    max_heart_rate: number
-    exercise_induced_angina: boolean
-    oldpeak: number
-    slope_of_peak_exercise_st_segment: string
-    num_major_vessels: number
-    thal: string
-    result: string
-    created_at?: Date | string
-  }
-
-  export type KidneyDiseasePredictionCreateManyUserInput = {
-    prediction_id?: number
-    age: number
-    blood_pressure: number
-    specific_gravity: number
-    albumin: number
-    sugar: number
-    red_blood_cells: string
-    pus_cell: string
-    pus_cell_clumps: string
-    bacteria: string
-    blood_glucose_random: number
-    blood_urea: number
-    serum_creatinine: number
-    sodium: number
-    potassium: number
-    hemoglobin: number
-    packed_cell_volume: number
-    white_cell_count: number
-    red_cell_count: number
-    hypertension: string
-    diabetes_mellitus: string
-    coronary_artery_disease: string
-    appetite: string
-    pedal_edema: string
-    anemia: string
-    classification: string
-    created_at?: Date | string
-  }
-
-  export type ParkinsonsPredictionCreateManyUserInput = {
-    prediction_id?: number
-    ascii_subject_name: string
-    recording_number: number
-    mdvp_fo: number
-    mdvp_fhi: number
-    mdvp_flo: number
-    mdvp_jitter_percentage: number
-    mdvp_jitter_abs: number
-    mdvp_rap: number
-    mdvp_ppq: number
-    jitter_ddp: number
-    mdvp_shimmer: number
-    mdvp_shimmer_db: number
-    shimmer_apq3: number
-    shimmer_apq5: number
-    mdvp_apq: number
-    shimmer_dda: number
-    nhr: number
-    hnr: number
-    status: number
-    rpde: number
-    d2: number
-    dfa: number
-    spread1: number
-    spread2: number
-    ppe: number
-    result: string
-    created_at?: Date | string
   }
 
   export type SessionCreateManyUserInput = {
-    id?: string
-    sessionToken: string
-    expires: Date | string
+    id: string
+    expiresAt: Date | string
+    token: string
+    createdAt: Date | string
+    updatedAt: Date | string
+    ipAddress?: string | null
+    userAgent?: string | null
   }
 
-  export type AccountUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    type?: StringFieldUpdateOperationsInput | string
-    provider?: StringFieldUpdateOperationsInput | string
-    providerAccountId?: StringFieldUpdateOperationsInput | string
-    refresh_token?: NullableStringFieldUpdateOperationsInput | string | null
-    access_token?: NullableStringFieldUpdateOperationsInput | string | null
-    expires_at?: NullableIntFieldUpdateOperationsInput | number | null
-    token_type?: NullableStringFieldUpdateOperationsInput | string | null
-    scope?: NullableStringFieldUpdateOperationsInput | string | null
-    id_token?: NullableStringFieldUpdateOperationsInput | string | null
-    session_state?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type AccountUncheckedUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    type?: StringFieldUpdateOperationsInput | string
-    provider?: StringFieldUpdateOperationsInput | string
-    providerAccountId?: StringFieldUpdateOperationsInput | string
-    refresh_token?: NullableStringFieldUpdateOperationsInput | string | null
-    access_token?: NullableStringFieldUpdateOperationsInput | string | null
-    expires_at?: NullableIntFieldUpdateOperationsInput | number | null
-    token_type?: NullableStringFieldUpdateOperationsInput | string | null
-    scope?: NullableStringFieldUpdateOperationsInput | string | null
-    id_token?: NullableStringFieldUpdateOperationsInput | string | null
-    session_state?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type AccountUncheckedUpdateManyWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    type?: StringFieldUpdateOperationsInput | string
-    provider?: StringFieldUpdateOperationsInput | string
-    providerAccountId?: StringFieldUpdateOperationsInput | string
-    refresh_token?: NullableStringFieldUpdateOperationsInput | string | null
-    access_token?: NullableStringFieldUpdateOperationsInput | string | null
-    expires_at?: NullableIntFieldUpdateOperationsInput | number | null
-    token_type?: NullableStringFieldUpdateOperationsInput | string | null
-    scope?: NullableStringFieldUpdateOperationsInput | string | null
-    id_token?: NullableStringFieldUpdateOperationsInput | string | null
-    session_state?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type BreastCancerPredictionUpdateWithoutUserInput = {
-    radius_mean?: FloatFieldUpdateOperationsInput | number
-    texture_mean?: FloatFieldUpdateOperationsInput | number
-    perimeter_mean?: FloatFieldUpdateOperationsInput | number
-    area_mean?: FloatFieldUpdateOperationsInput | number
-    smoothness_mean?: FloatFieldUpdateOperationsInput | number
-    result?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type BreastCancerPredictionUncheckedUpdateWithoutUserInput = {
-    prediction_id?: IntFieldUpdateOperationsInput | number
-    radius_mean?: FloatFieldUpdateOperationsInput | number
-    texture_mean?: FloatFieldUpdateOperationsInput | number
-    perimeter_mean?: FloatFieldUpdateOperationsInput | number
-    area_mean?: FloatFieldUpdateOperationsInput | number
-    smoothness_mean?: FloatFieldUpdateOperationsInput | number
-    result?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type BreastCancerPredictionUncheckedUpdateManyWithoutUserInput = {
-    prediction_id?: IntFieldUpdateOperationsInput | number
-    radius_mean?: FloatFieldUpdateOperationsInput | number
-    texture_mean?: FloatFieldUpdateOperationsInput | number
-    perimeter_mean?: FloatFieldUpdateOperationsInput | number
-    area_mean?: FloatFieldUpdateOperationsInput | number
-    smoothness_mean?: FloatFieldUpdateOperationsInput | number
-    result?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type DiabetesPredictionUpdateWithoutUserInput = {
-    pregnancies?: IntFieldUpdateOperationsInput | number
-    glucose?: IntFieldUpdateOperationsInput | number
-    blood_pressure?: IntFieldUpdateOperationsInput | number
-    skin_thickness?: IntFieldUpdateOperationsInput | number
-    insulin?: IntFieldUpdateOperationsInput | number
-    bmi?: FloatFieldUpdateOperationsInput | number
-    diabetes_pedigree_function?: FloatFieldUpdateOperationsInput | number
-    age?: IntFieldUpdateOperationsInput | number
-    result?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type DiabetesPredictionUncheckedUpdateWithoutUserInput = {
-    prediction_id?: IntFieldUpdateOperationsInput | number
-    pregnancies?: IntFieldUpdateOperationsInput | number
-    glucose?: IntFieldUpdateOperationsInput | number
-    blood_pressure?: IntFieldUpdateOperationsInput | number
-    skin_thickness?: IntFieldUpdateOperationsInput | number
-    insulin?: IntFieldUpdateOperationsInput | number
-    bmi?: FloatFieldUpdateOperationsInput | number
-    diabetes_pedigree_function?: FloatFieldUpdateOperationsInput | number
-    age?: IntFieldUpdateOperationsInput | number
-    result?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type DiabetesPredictionUncheckedUpdateManyWithoutUserInput = {
-    prediction_id?: IntFieldUpdateOperationsInput | number
-    pregnancies?: IntFieldUpdateOperationsInput | number
-    glucose?: IntFieldUpdateOperationsInput | number
-    blood_pressure?: IntFieldUpdateOperationsInput | number
-    skin_thickness?: IntFieldUpdateOperationsInput | number
-    insulin?: IntFieldUpdateOperationsInput | number
-    bmi?: FloatFieldUpdateOperationsInput | number
-    diabetes_pedigree_function?: FloatFieldUpdateOperationsInput | number
-    age?: IntFieldUpdateOperationsInput | number
-    result?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type HeartDiseasePredictionUpdateWithoutUserInput = {
-    age?: IntFieldUpdateOperationsInput | number
-    sex?: StringFieldUpdateOperationsInput | string
-    chest_pain_type?: StringFieldUpdateOperationsInput | string
-    resting_blood_pressure?: IntFieldUpdateOperationsInput | number
-    serum_cholesterol?: IntFieldUpdateOperationsInput | number
-    fasting_blood_sugar?: BoolFieldUpdateOperationsInput | boolean
-    resting_ecg?: IntFieldUpdateOperationsInput | number
-    max_heart_rate?: IntFieldUpdateOperationsInput | number
-    exercise_induced_angina?: BoolFieldUpdateOperationsInput | boolean
-    oldpeak?: FloatFieldUpdateOperationsInput | number
-    slope_of_peak_exercise_st_segment?: StringFieldUpdateOperationsInput | string
-    num_major_vessels?: IntFieldUpdateOperationsInput | number
-    thal?: StringFieldUpdateOperationsInput | string
-    result?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type HeartDiseasePredictionUncheckedUpdateWithoutUserInput = {
-    prediction_id?: IntFieldUpdateOperationsInput | number
-    age?: IntFieldUpdateOperationsInput | number
-    sex?: StringFieldUpdateOperationsInput | string
-    chest_pain_type?: StringFieldUpdateOperationsInput | string
-    resting_blood_pressure?: IntFieldUpdateOperationsInput | number
-    serum_cholesterol?: IntFieldUpdateOperationsInput | number
-    fasting_blood_sugar?: BoolFieldUpdateOperationsInput | boolean
-    resting_ecg?: IntFieldUpdateOperationsInput | number
-    max_heart_rate?: IntFieldUpdateOperationsInput | number
-    exercise_induced_angina?: BoolFieldUpdateOperationsInput | boolean
-    oldpeak?: FloatFieldUpdateOperationsInput | number
-    slope_of_peak_exercise_st_segment?: StringFieldUpdateOperationsInput | string
-    num_major_vessels?: IntFieldUpdateOperationsInput | number
-    thal?: StringFieldUpdateOperationsInput | string
-    result?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type HeartDiseasePredictionUncheckedUpdateManyWithoutUserInput = {
-    prediction_id?: IntFieldUpdateOperationsInput | number
-    age?: IntFieldUpdateOperationsInput | number
-    sex?: StringFieldUpdateOperationsInput | string
-    chest_pain_type?: StringFieldUpdateOperationsInput | string
-    resting_blood_pressure?: IntFieldUpdateOperationsInput | number
-    serum_cholesterol?: IntFieldUpdateOperationsInput | number
-    fasting_blood_sugar?: BoolFieldUpdateOperationsInput | boolean
-    resting_ecg?: IntFieldUpdateOperationsInput | number
-    max_heart_rate?: IntFieldUpdateOperationsInput | number
-    exercise_induced_angina?: BoolFieldUpdateOperationsInput | boolean
-    oldpeak?: FloatFieldUpdateOperationsInput | number
-    slope_of_peak_exercise_st_segment?: StringFieldUpdateOperationsInput | string
-    num_major_vessels?: IntFieldUpdateOperationsInput | number
-    thal?: StringFieldUpdateOperationsInput | string
-    result?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type KidneyDiseasePredictionUpdateWithoutUserInput = {
-    age?: IntFieldUpdateOperationsInput | number
-    blood_pressure?: IntFieldUpdateOperationsInput | number
-    specific_gravity?: FloatFieldUpdateOperationsInput | number
-    albumin?: IntFieldUpdateOperationsInput | number
-    sugar?: IntFieldUpdateOperationsInput | number
-    red_blood_cells?: StringFieldUpdateOperationsInput | string
-    pus_cell?: StringFieldUpdateOperationsInput | string
-    pus_cell_clumps?: StringFieldUpdateOperationsInput | string
-    bacteria?: StringFieldUpdateOperationsInput | string
-    blood_glucose_random?: IntFieldUpdateOperationsInput | number
-    blood_urea?: IntFieldUpdateOperationsInput | number
-    serum_creatinine?: FloatFieldUpdateOperationsInput | number
-    sodium?: FloatFieldUpdateOperationsInput | number
-    potassium?: FloatFieldUpdateOperationsInput | number
-    hemoglobin?: FloatFieldUpdateOperationsInput | number
-    packed_cell_volume?: FloatFieldUpdateOperationsInput | number
-    white_cell_count?: IntFieldUpdateOperationsInput | number
-    red_cell_count?: IntFieldUpdateOperationsInput | number
-    hypertension?: StringFieldUpdateOperationsInput | string
-    diabetes_mellitus?: StringFieldUpdateOperationsInput | string
-    coronary_artery_disease?: StringFieldUpdateOperationsInput | string
-    appetite?: StringFieldUpdateOperationsInput | string
-    pedal_edema?: StringFieldUpdateOperationsInput | string
-    anemia?: StringFieldUpdateOperationsInput | string
-    classification?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type KidneyDiseasePredictionUncheckedUpdateWithoutUserInput = {
-    prediction_id?: IntFieldUpdateOperationsInput | number
-    age?: IntFieldUpdateOperationsInput | number
-    blood_pressure?: IntFieldUpdateOperationsInput | number
-    specific_gravity?: FloatFieldUpdateOperationsInput | number
-    albumin?: IntFieldUpdateOperationsInput | number
-    sugar?: IntFieldUpdateOperationsInput | number
-    red_blood_cells?: StringFieldUpdateOperationsInput | string
-    pus_cell?: StringFieldUpdateOperationsInput | string
-    pus_cell_clumps?: StringFieldUpdateOperationsInput | string
-    bacteria?: StringFieldUpdateOperationsInput | string
-    blood_glucose_random?: IntFieldUpdateOperationsInput | number
-    blood_urea?: IntFieldUpdateOperationsInput | number
-    serum_creatinine?: FloatFieldUpdateOperationsInput | number
-    sodium?: FloatFieldUpdateOperationsInput | number
-    potassium?: FloatFieldUpdateOperationsInput | number
-    hemoglobin?: FloatFieldUpdateOperationsInput | number
-    packed_cell_volume?: FloatFieldUpdateOperationsInput | number
-    white_cell_count?: IntFieldUpdateOperationsInput | number
-    red_cell_count?: IntFieldUpdateOperationsInput | number
-    hypertension?: StringFieldUpdateOperationsInput | string
-    diabetes_mellitus?: StringFieldUpdateOperationsInput | string
-    coronary_artery_disease?: StringFieldUpdateOperationsInput | string
-    appetite?: StringFieldUpdateOperationsInput | string
-    pedal_edema?: StringFieldUpdateOperationsInput | string
-    anemia?: StringFieldUpdateOperationsInput | string
-    classification?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type KidneyDiseasePredictionUncheckedUpdateManyWithoutUserInput = {
-    prediction_id?: IntFieldUpdateOperationsInput | number
-    age?: IntFieldUpdateOperationsInput | number
-    blood_pressure?: IntFieldUpdateOperationsInput | number
-    specific_gravity?: FloatFieldUpdateOperationsInput | number
-    albumin?: IntFieldUpdateOperationsInput | number
-    sugar?: IntFieldUpdateOperationsInput | number
-    red_blood_cells?: StringFieldUpdateOperationsInput | string
-    pus_cell?: StringFieldUpdateOperationsInput | string
-    pus_cell_clumps?: StringFieldUpdateOperationsInput | string
-    bacteria?: StringFieldUpdateOperationsInput | string
-    blood_glucose_random?: IntFieldUpdateOperationsInput | number
-    blood_urea?: IntFieldUpdateOperationsInput | number
-    serum_creatinine?: FloatFieldUpdateOperationsInput | number
-    sodium?: FloatFieldUpdateOperationsInput | number
-    potassium?: FloatFieldUpdateOperationsInput | number
-    hemoglobin?: FloatFieldUpdateOperationsInput | number
-    packed_cell_volume?: FloatFieldUpdateOperationsInput | number
-    white_cell_count?: IntFieldUpdateOperationsInput | number
-    red_cell_count?: IntFieldUpdateOperationsInput | number
-    hypertension?: StringFieldUpdateOperationsInput | string
-    diabetes_mellitus?: StringFieldUpdateOperationsInput | string
-    coronary_artery_disease?: StringFieldUpdateOperationsInput | string
-    appetite?: StringFieldUpdateOperationsInput | string
-    pedal_edema?: StringFieldUpdateOperationsInput | string
-    anemia?: StringFieldUpdateOperationsInput | string
-    classification?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type ParkinsonsPredictionUpdateWithoutUserInput = {
-    ascii_subject_name?: StringFieldUpdateOperationsInput | string
-    recording_number?: IntFieldUpdateOperationsInput | number
-    mdvp_fo?: FloatFieldUpdateOperationsInput | number
-    mdvp_fhi?: FloatFieldUpdateOperationsInput | number
-    mdvp_flo?: FloatFieldUpdateOperationsInput | number
-    mdvp_jitter_percentage?: FloatFieldUpdateOperationsInput | number
-    mdvp_jitter_abs?: FloatFieldUpdateOperationsInput | number
-    mdvp_rap?: FloatFieldUpdateOperationsInput | number
-    mdvp_ppq?: FloatFieldUpdateOperationsInput | number
-    jitter_ddp?: FloatFieldUpdateOperationsInput | number
-    mdvp_shimmer?: FloatFieldUpdateOperationsInput | number
-    mdvp_shimmer_db?: FloatFieldUpdateOperationsInput | number
-    shimmer_apq3?: FloatFieldUpdateOperationsInput | number
-    shimmer_apq5?: FloatFieldUpdateOperationsInput | number
-    mdvp_apq?: FloatFieldUpdateOperationsInput | number
-    shimmer_dda?: FloatFieldUpdateOperationsInput | number
-    nhr?: FloatFieldUpdateOperationsInput | number
-    hnr?: FloatFieldUpdateOperationsInput | number
-    status?: IntFieldUpdateOperationsInput | number
-    rpde?: FloatFieldUpdateOperationsInput | number
-    d2?: FloatFieldUpdateOperationsInput | number
-    dfa?: FloatFieldUpdateOperationsInput | number
-    spread1?: FloatFieldUpdateOperationsInput | number
-    spread2?: FloatFieldUpdateOperationsInput | number
-    ppe?: FloatFieldUpdateOperationsInput | number
-    result?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type ParkinsonsPredictionUncheckedUpdateWithoutUserInput = {
-    prediction_id?: IntFieldUpdateOperationsInput | number
-    ascii_subject_name?: StringFieldUpdateOperationsInput | string
-    recording_number?: IntFieldUpdateOperationsInput | number
-    mdvp_fo?: FloatFieldUpdateOperationsInput | number
-    mdvp_fhi?: FloatFieldUpdateOperationsInput | number
-    mdvp_flo?: FloatFieldUpdateOperationsInput | number
-    mdvp_jitter_percentage?: FloatFieldUpdateOperationsInput | number
-    mdvp_jitter_abs?: FloatFieldUpdateOperationsInput | number
-    mdvp_rap?: FloatFieldUpdateOperationsInput | number
-    mdvp_ppq?: FloatFieldUpdateOperationsInput | number
-    jitter_ddp?: FloatFieldUpdateOperationsInput | number
-    mdvp_shimmer?: FloatFieldUpdateOperationsInput | number
-    mdvp_shimmer_db?: FloatFieldUpdateOperationsInput | number
-    shimmer_apq3?: FloatFieldUpdateOperationsInput | number
-    shimmer_apq5?: FloatFieldUpdateOperationsInput | number
-    mdvp_apq?: FloatFieldUpdateOperationsInput | number
-    shimmer_dda?: FloatFieldUpdateOperationsInput | number
-    nhr?: FloatFieldUpdateOperationsInput | number
-    hnr?: FloatFieldUpdateOperationsInput | number
-    status?: IntFieldUpdateOperationsInput | number
-    rpde?: FloatFieldUpdateOperationsInput | number
-    d2?: FloatFieldUpdateOperationsInput | number
-    dfa?: FloatFieldUpdateOperationsInput | number
-    spread1?: FloatFieldUpdateOperationsInput | number
-    spread2?: FloatFieldUpdateOperationsInput | number
-    ppe?: FloatFieldUpdateOperationsInput | number
-    result?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type ParkinsonsPredictionUncheckedUpdateManyWithoutUserInput = {
-    prediction_id?: IntFieldUpdateOperationsInput | number
-    ascii_subject_name?: StringFieldUpdateOperationsInput | string
-    recording_number?: IntFieldUpdateOperationsInput | number
-    mdvp_fo?: FloatFieldUpdateOperationsInput | number
-    mdvp_fhi?: FloatFieldUpdateOperationsInput | number
-    mdvp_flo?: FloatFieldUpdateOperationsInput | number
-    mdvp_jitter_percentage?: FloatFieldUpdateOperationsInput | number
-    mdvp_jitter_abs?: FloatFieldUpdateOperationsInput | number
-    mdvp_rap?: FloatFieldUpdateOperationsInput | number
-    mdvp_ppq?: FloatFieldUpdateOperationsInput | number
-    jitter_ddp?: FloatFieldUpdateOperationsInput | number
-    mdvp_shimmer?: FloatFieldUpdateOperationsInput | number
-    mdvp_shimmer_db?: FloatFieldUpdateOperationsInput | number
-    shimmer_apq3?: FloatFieldUpdateOperationsInput | number
-    shimmer_apq5?: FloatFieldUpdateOperationsInput | number
-    mdvp_apq?: FloatFieldUpdateOperationsInput | number
-    shimmer_dda?: FloatFieldUpdateOperationsInput | number
-    nhr?: FloatFieldUpdateOperationsInput | number
-    hnr?: FloatFieldUpdateOperationsInput | number
-    status?: IntFieldUpdateOperationsInput | number
-    rpde?: FloatFieldUpdateOperationsInput | number
-    d2?: FloatFieldUpdateOperationsInput | number
-    dfa?: FloatFieldUpdateOperationsInput | number
-    spread1?: FloatFieldUpdateOperationsInput | number
-    spread2?: FloatFieldUpdateOperationsInput | number
-    ppe?: FloatFieldUpdateOperationsInput | number
-    result?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  export type AccountCreateManyUserInput = {
+    id: string
+    accountId: string
+    providerId: string
+    accessToken?: string | null
+    refreshToken?: string | null
+    idToken?: string | null
+    accessTokenExpiresAt?: Date | string | null
+    refreshTokenExpiresAt?: Date | string | null
+    scope?: string | null
+    password?: string | null
+    createdAt: Date | string
+    updatedAt: Date | string
   }
 
   export type SessionUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    sessionToken?: StringFieldUpdateOperationsInput | string
-    expires?: DateTimeFieldUpdateOperationsInput | Date | string
+    expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    token?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    ipAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    userAgent?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type SessionUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    sessionToken?: StringFieldUpdateOperationsInput | string
-    expires?: DateTimeFieldUpdateOperationsInput | Date | string
+    expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    token?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    ipAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    userAgent?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type SessionUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    sessionToken?: StringFieldUpdateOperationsInput | string
-    expires?: DateTimeFieldUpdateOperationsInput | Date | string
+    expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    token?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    ipAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    userAgent?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type AccountUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    accountId?: StringFieldUpdateOperationsInput | string
+    providerId?: StringFieldUpdateOperationsInput | string
+    accessToken?: NullableStringFieldUpdateOperationsInput | string | null
+    refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
+    idToken?: NullableStringFieldUpdateOperationsInput | string | null
+    accessTokenExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    refreshTokenExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    scope?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AccountUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    accountId?: StringFieldUpdateOperationsInput | string
+    providerId?: StringFieldUpdateOperationsInput | string
+    accessToken?: NullableStringFieldUpdateOperationsInput | string | null
+    refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
+    idToken?: NullableStringFieldUpdateOperationsInput | string | null
+    accessTokenExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    refreshTokenExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    scope?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AccountUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    accountId?: StringFieldUpdateOperationsInput | string
+    providerId?: StringFieldUpdateOperationsInput | string
+    accessToken?: NullableStringFieldUpdateOperationsInput | string | null
+    refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
+    idToken?: NullableStringFieldUpdateOperationsInput | string | null
+    accessTokenExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    refreshTokenExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    scope?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
 

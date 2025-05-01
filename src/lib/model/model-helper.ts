@@ -123,3 +123,77 @@ export async function runInference(
     );
   }
 }
+
+/**
+ * Attempts to parse a Gemini (Google AI) output as JSON, even if the response is surrounded by text or markdown.
+ * Returns null if parsing fails.
+ */
+export function parseGeminiJson(text: string): any | null {
+  try {
+    // First try: direct parse in case it's already valid JSON
+    try {
+      return JSON.parse(text);
+    } catch (e) {
+      // Not valid JSON, continue with extraction attempts
+    }
+
+    // Second try: extract content between backticks (common in code blocks)
+    const codeBlockMatch = text.match(/```(?:json)?\s*([\s\S]*?)\s*```/);
+    if (codeBlockMatch && codeBlockMatch[1]) {
+      try {
+        return JSON.parse(codeBlockMatch[1]);
+      } catch (e) {
+        // Not valid JSON in code block, continue
+      }
+    }
+
+    // Third try: find the first occurrence of { or [ and attempt to extract JSON
+    const jsonStartMatch = text.match(/[\{\[]/);
+    if (jsonStartMatch) {
+      const startIndex = jsonStartMatch.index;
+      if (startIndex !== undefined) {
+        // Find matching closing bracket/brace
+        const startChar = text[startIndex];
+        const endChar = startChar === "{" ? "}" : "]";
+        let bracketCount = 1;
+        let endIndex = -1;
+
+        for (let i = startIndex + 1; i < text.length; i++) {
+          if (text[i] === startChar) bracketCount++;
+          else if (text[i] === endChar) bracketCount--;
+
+          if (bracketCount === 0) {
+            endIndex = i;
+            break;
+          }
+        }
+
+        if (endIndex > startIndex) {
+          const jsonSubstring = text.substring(startIndex, endIndex + 1);
+          try {
+            return JSON.parse(jsonSubstring);
+          } catch (e) {
+            // Not valid JSON, fall through to final attempt
+          }
+        }
+      }
+    }
+
+    // Final fallback: try to extract anything that looks like a JSON object or array
+    const anyJsonMatch = text.match(/[\{\[][\s\S]*?[\}\]]/);
+    if (anyJsonMatch) {
+      try {
+        return JSON.parse(anyJsonMatch[0]);
+      } catch (e) {
+        // Not valid JSON, give up
+      }
+    }
+
+    // Nothing worked, return null
+    console.warn("Could not parse JSON from AI response:", text);
+    return null;
+  } catch (error) {
+    console.error("Error in parseGeminiJson:", error);
+    return null;
+  }
+}
