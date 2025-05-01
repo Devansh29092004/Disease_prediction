@@ -42,18 +42,20 @@ export function SignOutButton({
 
   // If user is not signed in, don't render the button
   if (!isSignedIn) {
-    <Button
-      variant={variant}
-      size={size}
-      className={className}
-      onClick={() => {
-        redirect("/sign-in");
-      }}
-      disabled={isLoading}
-    >
-      {isLoading ? <Loader2 size={16} className="animate-spin mr-1" /> : null}
-      Sign In
-    </Button>;
+    return (
+      <Button
+        variant={"default"}
+        size={size}
+        className={className}
+        onClick={() => {
+          redirect("/sign-in");
+        }}
+        disabled={isLoading}
+      >
+        {isLoading ? <Loader2 size={16} className="animate-spin mr-1" /> : null}
+        Sign In
+      </Button>
+    );
   }
 
   return (
