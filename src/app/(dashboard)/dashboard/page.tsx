@@ -17,20 +17,19 @@ const DashboardPage = async () => {
   const user = await getAuthenticatedUserData();
 
   return (
-    <main className="min-h-[80vh]  flex flex-col items-center py-12 p-4 relative">
+    <main className="min-h-[80vh] flex flex-col items-center py-12 p-4 relative">
       {/* Decorative background elements */}
       <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
         <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-to-br from-primary/5 to-transparent rounded-full blur-3xl transform -translate-x-1/4 -translate-y-1/4"></div>
         <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-accent/5 to-transparent rounded-full blur-3xl transform translate-x-1/4 translate-y-1/4"></div>
       </div>
 
-      <div className="w-full max-w-6xl z-10">
+      <div className="w-full pt-20 max-w-6xl z-10">
         {user ? (
           <>
             <UserDisplay />
-
             {/* Health prediction tools section */}
-            <div className="mt-38">
+            <div className="">
               <h2 className="text-xl font-semibold mb-6 flex items-center">
                 <span className="bg-primary/10 text-primary p-2 rounded-full mr-2">
                   <Heart size={18} />
