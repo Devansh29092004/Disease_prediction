@@ -16,6 +16,6 @@ export const auth = betterAuth({
     },
   },
   plugins: [nextCookies(), openAPI()],
-  // allow your front‑end origin(s) to call the auth API
-  trustedOrigins: [process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"],
+  // allow your front‑end origin(s) to call the au0th API
+  trustedOrigins: [process.env.NEXT_PUBLIC_APP_URL || "https://betterhack.vercel.app"],
 });
